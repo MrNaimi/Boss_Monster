@@ -17,3 +17,7 @@ func _process(delta: float) -> void:
 func _on_play_button_pressed() -> void:
 	print("Play button was pressed")
 	get_tree().change_scene_to_packed(Dungeon_Scene)
+
+
+func _on_quit_game_pressed() -> void:
+	get_tree().quit()

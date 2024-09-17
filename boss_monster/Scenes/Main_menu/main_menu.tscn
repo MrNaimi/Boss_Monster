@@ -41,4 +41,14 @@ offset_bottom = 349.0
 theme_override_font_sizes/font_size = 75
 text = "Play game"
 
+[node name="Quit_game" type="Button" parent="."]
+layout_mode = 0
+offset_left = 863.0
+offset_top = 523.0
+offset_right = 1141.0
+offset_bottom = 634.0
+theme_override_font_sizes/font_size = 50
+text = "Quit Game"
+
 [connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
