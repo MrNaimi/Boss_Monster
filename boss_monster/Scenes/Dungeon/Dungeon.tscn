@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bmgb3om6wecao"]
+
+[node name="Dungeon" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 640.0
+color = Color(0.3003, 0.31812, 0.33, 1)
