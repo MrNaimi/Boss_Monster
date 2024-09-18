@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qmu7w4b35l5f"
-path="res://.godot/imported/pixilart-drawing.png-5c34c3fb1f5192fc615282ede223cf40.ctex"
+uid="uid://d1diduxdlk5l5"
+path="res://.godot/imported/RoguelikeDungeonTileset.png-7ea6f0babfc1769279fba9fa120636ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/pixilart-drawing.png"
-dest_files=["res://.godot/imported/pixilart-drawing.png-5c34c3fb1f5192fc615282ede223cf40.ctex"]
+source_file="res://Assets/Tiles/RoguelikeDungeonTileset.png"
+dest_files=["res://.godot/imported/RoguelikeDungeonTileset.png-7ea6f0babfc1769279fba9fa120636ea.ctex"]
 
 [params]
 

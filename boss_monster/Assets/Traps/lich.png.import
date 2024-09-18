@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1diduxdlk5l5"
-path="res://.godot/imported/RoguelikeDungeonTileset.png-2af2bb9724d7e7a12e3e2185735dda9f.ctex"
+uid="uid://4bkp5wicayav"
+path="res://.godot/imported/lich.png-feef91491e6f13c781ce6e06c2a3c685.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/RoguelikeDungeonTileset.png"
-dest_files=["res://.godot/imported/RoguelikeDungeonTileset.png-2af2bb9724d7e7a12e3e2185735dda9f.ctex"]
+source_file="res://Assets/Traps/lich.png"
+dest_files=["res://.godot/imported/lich.png-feef91491e6f13c781ce6e06c2a3c685.ctex"]
 
 [params]
 
