@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwe10f71qd1ue"]
+
+[ext_resource type="Texture2D" path="res://Assets/card_blank_big.png" id="1_girmx"]
+[ext_resource type="Texture2D" uid="uid://4bkp5wicayav" path="res://Assets/Traps/lich.png" id="1_m22n4"]
+
+[node name="Card" type="Node2D"]
+
+[node name="Card_frame" type="Sprite2D" parent="."]
+position = Vector2(414, -97)
+texture = ExtResource("1_girmx")
+
+[node name="Card_content" type="Sprite2D" parent="Card_frame"]
+position = Vector2(-2.25, -157.25)
+scale = Vector2(1.05908, 1.08082)
+texture = ExtResource("1_m22n4")
+
+[node name="card_title" type="Label" parent="Card_frame"]
+offset_left = -280.0
+offset_top = -438.0
+offset_right = 264.0
+offset_bottom = -415.0
+text = "LICH!!!!"
+
+[node name="card_infobox" type="Label" parent="Card_frame"]
+offset_left = -274.0
+offset_top = 101.0
+offset_right = 260.0
+offset_bottom = 271.0
+text = "The lich is a fearsome death mage! "
+
+[node name="card_effect" type="Label" parent="Card_frame"]
+offset_left = -125.0
+offset_top = 324.0
+offset_right = 141.0
+offset_bottom = 422.0
+text = "The lich adds +1 damage to every 
+undead monster room
+ in your dungeon
+"
