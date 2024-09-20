@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://cwe10f71qd1ue" path="res://kortti.tscn" id="2_1u2k2"]
-[ext_resource type="Texture2D" uid="uid://cegahil863geo" path="res://Assets/Tiles/pixil-frame-0.png" id="3_db6qv"]
-[ext_resource type="Texture2D" uid="uid://d1jbs6jruafyh" path="res://Assets/Tiles/pixil-frame-0 (1).png" id="4_2y8mt"]
+[ext_resource type="Texture2D" uid="uid://cegahil863geo" path="res://Assets/Tiles/background.png" id="3_db6qv"]
+[ext_resource type="Texture2D" uid="uid://d1jbs6jruafyh" path="res://Assets/Tiles/Portaat.png" id="4_2y8mt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uv4ul"]
 texture_region_size = Vector2i(64, 64)
@@ -33,10 +33,10 @@ sources/0 = SubResource("TileSetAtlasSource_s1jln")
 script = ExtResource("1_a3apr")
 
 [node name="Background" type="ColorRect" parent="."]
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 1151.0
-offset_bottom = 644.0
+offset_left = 61.0
+offset_top = 16.0
+offset_right = 1211.0
+offset_bottom = 656.0
 color = Color(0.352941, 0.352941, 0.352941, 0.443137)
 
 [node name="Card" parent="." instance=ExtResource("2_1u2k2")]

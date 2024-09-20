@@ -1,39 +1,69 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwe10f71qd1ue"]
+[gd_scene load_steps=8 format=3 uid="uid://cwe10f71qd1ue"]
 
 [ext_resource type="Texture2D" uid="uid://l4xgcf05cwua" path="res://Assets/Traps/card_blank_big.png" id="1_girmx"]
 [ext_resource type="Texture2D" uid="uid://4bkp5wicayav" path="res://Assets/Traps/lich.png" id="1_m22n4"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/fonts/poco/Poco.ttf" id="3_a05qa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eu27y"]
+font = ExtResource("3_a05qa")
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_5u0ik"]
+font = ExtResource("3_a05qa")
+font_size = 40
+outline_size = 200
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdbcj"]
+font = ExtResource("3_a05qa")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_u083m"]
+font = ExtResource("3_a05qa")
+font_size = 150
 
 [node name="Card" type="Node2D"]
 
 [node name="Card_frame" type="Sprite2D" parent="."]
-position = Vector2(414, -97)
+position = Vector2(246, -129)
 texture = ExtResource("1_girmx")
 
 [node name="Card_content" type="Sprite2D" parent="Card_frame"]
-position = Vector2(-2.25, -157.25)
-scale = Vector2(1.05908, 1.08082)
+position = Vector2(-2.00001, -157.125)
+scale = Vector2(0.991182, 1.01986)
 texture = ExtResource("1_m22n4")
 
 [node name="card_title" type="Label" parent="Card_frame"]
-offset_left = -280.0
-offset_top = -438.0
-offset_right = 264.0
-offset_bottom = -415.0
-text = "LICH!!!!"
+offset_left = -277.0
+offset_top = -461.0
+offset_right = 279.0
+offset_bottom = -399.0
+text = "Gunzuz the lich"
+label_settings = SubResource("LabelSettings_eu27y")
 
-[node name="card_infobox" type="Label" parent="Card_frame"]
-offset_left = -274.0
-offset_top = 101.0
-offset_right = 260.0
-offset_bottom = 271.0
-text = "The lich is a fearsome death mage! "
+[node name="card_flavour" type="Label" parent="Card_frame"]
+offset_left = -246.0
+offset_top = 553.0
+offset_right = 304.0
+offset_bottom = 723.0
+text = "\"spooky catch-phrase here\""
+label_settings = SubResource("LabelSettings_5u0ik")
 
 [node name="card_effect" type="Label" parent="Card_frame"]
-offset_left = -125.0
-offset_top = 324.0
-offset_right = 141.0
-offset_bottom = 422.0
+offset_left = -275.0
+offset_top = 90.0
+offset_right = 397.0
+offset_bottom = 302.0
 text = "The lich adds +1 damage to every 
-undead monster room
- in your dungeon
-"
+undead monster room in your dungeon 
+(we don't have undead type rooms yet,
+but we might do them later)."
+label_settings = SubResource("LabelSettings_kdbcj")
+
+[node name="card_attack" type="Label" parent="Card_frame"]
+offset_left = -238.0
+offset_top = 228.0
+offset_right = -150.0
+offset_bottom = 456.0
+text = "4"
+label_settings = SubResource("LabelSettings_u083m")
