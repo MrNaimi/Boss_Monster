@@ -26,11 +26,12 @@ font_size = 150
 
 [node name="Card_frame" type="Sprite2D" parent="."]
 position = Vector2(246, -129)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_girmx")
 
 [node name="Card_content" type="Sprite2D" parent="Card_frame"]
-position = Vector2(-2.00001, -157.125)
-scale = Vector2(0.991182, 1.01986)
+position = Vector2(-2.49995, -163)
+scale = Vector2(1.02822, 1.01918)
 texture = ExtResource("1_m22n4")
 
 [node name="card_title" type="Label" parent="Card_frame"]
