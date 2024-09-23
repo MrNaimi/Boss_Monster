@@ -14,10 +14,19 @@ func _process(delta: float) -> void:
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Main_menu/main_menu.tscn")
 
-@onready var PaladinSprite = "res://Assets/Heroes/Paladin.png"
+
+
 func _on_heroes_mouse_entered() -> void:
-	pass
+	$PaladinSprite.visibility_layer = 1
 
 
 func _on_heroes_mouse_exited() -> void:
-	pass
+	$PaladinSprite.visibility_layer = 0
+	
+
+func _on_bosses_mouse_entered() -> void:
+	$LichSprite.visibility_layer = 1
+
+
+func _on_bosses_mouse_exited() -> void:
+	$LichSprite.visibility_layer = 0
