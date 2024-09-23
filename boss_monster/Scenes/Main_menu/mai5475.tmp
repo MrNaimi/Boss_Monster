@@ -64,4 +64,3 @@ text = "Collections"
 
 [connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
-[connection signal="pressed" from="Collections" to="." method="_on_collections_pressed"]
