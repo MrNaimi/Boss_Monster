@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 func _on_play_button_pressed() -> void:
 	
-	print("Play button was pressed!!!!!")
+	print("Play button was pressed")
 	get_tree().change_scene_to_packed(Dungeon_Scene)
 
 
@@ -24,4 +24,5 @@ func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 
 func _on_collections_pressed() -> void:
+	print("Collections button was pressed")
 	get_tree().change_scene_to_file("res://Scenes/Main_menu/collections.tscn")
