@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj3t7ne52ns8l"
-path="res://.godot/imported/pixil-frame-0 (1).png-aba98b971bb59cef659be80ec0551c02.ctex"
+uid="uid://b8wkf1tw0t44e"
+path="res://.godot/imported/sydan.png-bd704df2b8e6b4ba25a2c1491738f5da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Traps/pixil-frame-0 (1).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (1).png-aba98b971bb59cef659be80ec0551c02.ctex"]
+source_file="res://Assets/Traps/sydan.png"
+dest_files=["res://.godot/imported/sydan.png-bd704df2b8e6b4ba25a2c1491738f5da.ctex"]
 
 [params]
 
