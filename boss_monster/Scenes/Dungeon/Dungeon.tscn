@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=37 format=3 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d1diduxdlk5l5" path="res://Assets/Tiles/RoguelikeDungeonTileset.png" id="5_m716r"]
 [ext_resource type="Texture2D" uid="uid://ceig5p8ak53w6" path="res://Assets/Tiles/Ladder.png" id="6_e6vsk"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/fonts/poco/Poco.ttf" id="6_qsyr4"]
+[ext_resource type="PackedScene" uid="uid://cwe10f71qd1ue" path="res://kortti.tscn" id="12_sakbs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dvqeq"]
 texture = ExtResource("2_ugt3x")
@@ -5241,5 +5242,7 @@ offset_top = 26.0
 offset_right = 1746.0
 offset_bottom = 91.0
 text = "Quit Game"
+
+[node name="Card" parent="." instance=ExtResource("12_sakbs")]
 
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
