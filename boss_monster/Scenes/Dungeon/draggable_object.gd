@@ -1,16 +1,16 @@
-extends Node2D
+extends StaticBody2D
 
-var is_dragging = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	modulate = Color(Color.MEDIUM_SEA_GREEN)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-
-func _on_quit_game_pressed() -> void:
-	get_tree().quit()
+	if Dungeon.is_dragging:
+		visible = true
+	else:
+		visible = false
+		
+		
