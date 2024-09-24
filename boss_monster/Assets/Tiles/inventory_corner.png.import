@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjqofvrc6n3w1"
-path="res://.godot/imported/brick_blood.png-ff97775def9936c272f01aee305ffe16.ctex"
+uid="uid://cu1a05jpmeff6"
+path="res://.godot/imported/inventory_corner.png-a3fadc2e001d2bfe48be6d61640c158e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/brick_blood.png"
-dest_files=["res://.godot/imported/brick_blood.png-ff97775def9936c272f01aee305ffe16.ctex"]
+source_file="res://Assets/Tiles/inventory_corner.png"
+dest_files=["res://.godot/imported/inventory_corner.png-a3fadc2e001d2bfe48be6d61640c158e.ctex"]
 
 [params]
 
