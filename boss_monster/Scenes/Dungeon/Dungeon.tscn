@@ -5230,10 +5230,10 @@ layer_1/name = "props"
 layer_1/tile_data = PackedInt32Array(2, 16, 1, 65538, 16, 0, 3, 65552, 1, 65539, 65552, 0, -65534, 16, 0, -65533, 65552, 0, 131074, 16, 1, 131075, 65552, 1)
 
 [node name="Continue_button" type="Button" parent="."]
-offset_left = 1635.0
-offset_top = 947.0
-offset_right = 1896.0
-offset_bottom = 1066.0
+offset_left = 1574.0
+offset_top = 895.0
+offset_right = 1835.0
+offset_bottom = 1014.0
 text = "Continue"
 
 [node name="Quit_game" type="Button" parent="."]
