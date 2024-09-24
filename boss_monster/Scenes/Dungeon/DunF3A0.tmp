@@ -5169,25 +5169,25 @@ script = ExtResource("1_a3apr")
 [node name="Rooms" type="Node2D" parent="."]
 
 [node name="DraggableObject2" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(303, 310)
+position = Vector2(206, 298)
 
 [node name="DraggableObject3" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(975, 312)
+position = Vector2(873, 306)
 
 [node name="DraggableObject4" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(1267, 121)
+position = Vector2(1168, 115)
 
 [node name="DraggableObject5" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(640, 120)
+position = Vector2(533, 110)
 
 [node name="DraggableObject" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(303, 601)
+position = Vector2(204, 590)
 
 [node name="DraggableObject6" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(975, 595)
+position = Vector2(871, 584)
 
 [node name="DraggableObject7" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(641, 598)
+position = Vector2(538, 590)
 
 [node name="UI" type="TileMap" parent="."]
 scale = Vector2(2.5, 2.5)
@@ -5229,13 +5229,6 @@ layer_0/tile_data = PackedInt32Array(0, 14, 0, 65536, 14, 1, 1, 65550, 0, 65537,
 layer_1/name = "props"
 layer_1/tile_data = PackedInt32Array(2, 16, 1, 65538, 16, 0, 3, 65552, 1, 65539, 65552, 0, -65534, 16, 0, -65533, 65552, 0, 131074, 16, 1, 131075, 65552, 1)
 
-[node name="Continue_button" type="Button" parent="."]
-offset_left = 1635.0
-offset_top = 947.0
-offset_right = 1896.0
-offset_bottom = 1066.0
-text = "Continue"
-
 [node name="Quit_game" type="Button" parent="."]
 offset_left = 1582.0
 offset_top = 26.0
@@ -5246,24 +5239,23 @@ text = "Quit Game"
 [node name="Cards" type="Node2D" parent="."]
 
 [node name="Card5" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2497, 1114)
+position = Vector2(400, 896)
 scale = Vector2(2, 2)
 
 [node name="Card4" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2495, 876)
+position = Vector2(542, 894)
 scale = Vector2(2, 2)
 
 [node name="Card3" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2485, 626)
+position = Vector2(682, 895)
 scale = Vector2(2, 2)
 
 [node name="Card2" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2491, 393)
+position = Vector2(824, 895)
 scale = Vector2(2, 2)
 
 [node name="Card" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2495, 152)
+position = Vector2(966, 896)
 scale = Vector2(2, 2)
 
-[connection signal="pressed" from="Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]

@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 			var initialPos = global_position
 			offset = get_global_mouse_position() - global_position
 			Dungeon.is_dragging = true
+			scale = Vector2(2.00, 2.00)
 			
 		if Input.is_action_pressed("click"):
 			global_position = get_global_mouse_position()
@@ -32,21 +33,21 @@ func _on_area_2d_mouse_entered() -> void:
 	print("päällä")
 	if not Dungeon.is_dragging:
 		draggable = true
-		scale = Vector2(1.05, 1.05)
+		scale = Vector2(4.00, 4.00)
 
 func _on_area_2d_mouse_exited() -> void:
 	print("pois päältä")
 	if not Dungeon.is_dragging:
 		draggable = false
-		scale = Vector2(1, 1)
+		scale = Vector2(2, 2)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('droppable'):
 		is_inside_droppable = true
-		body.modulate = Color(Color.AZURE)
+		body.modulate = Color(Color.GREEN)
 		body_ref = body
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('droppable'):
 		is_inside_droppable = false
-		body.modulate =  Color(Color.BEIGE)
+		body.modulate =  Color(Color.BLUE)

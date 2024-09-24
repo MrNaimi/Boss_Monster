@@ -14,3 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_continue_button_pressed() -> void:
+	print("Continue")

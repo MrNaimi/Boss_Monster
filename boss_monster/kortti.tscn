@@ -27,6 +27,7 @@ font_size = 150
 size = Vector2(69, 100)
 
 [node name="Card" type="Node2D" groups=["droppable"]]
+z_index = 3
 position = Vector2(300, 700)
 script = ExtResource("1_dj07d")
 
