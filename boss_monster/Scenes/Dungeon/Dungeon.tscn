@@ -888,7 +888,6 @@ layer_1/name = "Layer1"
 layer_1/tile_data = PackedInt32Array(2, 16, 1, 65538, 16, 0, 3, 65552, 1, 65539, 65552, 0, -65534, 16, 0, -65533, 65552, 0, 131074, 16, 1, 131075, 65552, 1)
 
 [node name="Card" parent="." instance=ExtResource("2_1u2k2")]
-<<<<<<< Updated upstream
 position = Vector2(604, 789)
 
 [node name="Quit_game" type="Button" parent="."]
@@ -899,6 +898,3 @@ offset_bottom = 108.0
 text = "Quit Game"
 
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
-=======
-position = Vector2(-435, 490)
->>>>>>> Stashed changes
