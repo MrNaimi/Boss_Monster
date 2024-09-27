@@ -5254,7 +5254,7 @@ position = Vector2(2495, 876)
 scale = Vector2(2, 2)
 
 [node name="Card3" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2485, 626)
+position = Vector2(212, 896)
 scale = Vector2(2, 2)
 
 [node name="Card2" parent="Cards" instance=ExtResource("12_sakbs")]

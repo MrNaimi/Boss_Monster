@@ -10,13 +10,13 @@ position = Vector2(324, 115)
 script = ExtResource("1_2c8mw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-70, 22)
+position = Vector2(-64, 23)
 shape = SubResource("RectangleShape2D_87uu5")
 debug_color = Color(0.31, 0.3905, 1, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -106.0
+offset_left = -100.0
 offset_top = -12.0
-offset_right = -34.0
+offset_right = -28.0
 offset_bottom = 56.0
 color = Color(0.92, 0.985333, 1, 1)

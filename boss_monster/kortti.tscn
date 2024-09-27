@@ -79,7 +79,7 @@ label_settings = SubResource("LabelSettings_u083m")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 5)
+position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_kpypl")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

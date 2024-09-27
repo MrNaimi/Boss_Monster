@@ -5,8 +5,7 @@ var is_inside_droppable = false
 var body_ref
 var offset: Vector2
 var initialPos
-
-
+var heh =  Vector2(60.00,-10.00)
 func _ready() -> void:
 	pass
 	
@@ -25,7 +24,8 @@ func _process(delta: float) -> void:
 			Dungeon.is_dragging
 			var tween = get_tree().create_tween()
 			if is_inside_droppable:
-				tween.tween_property(self, "position", body_ref.position,0.2).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "position", body_ref.position - heh,0.5).set_ease(Tween.EASE_OUT)
+				print(body_ref)
 			else:
 				tween.tween_property(self, "global_position", initialPos,0.2).set_ease(Tween.EASE_OUT)
 				
