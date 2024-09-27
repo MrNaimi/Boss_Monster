@@ -2,18 +2,17 @@ extends Node2D
 
 var draggable = false
 var is_inside_droppable = false
-var body_ref
+var body_ref = null
 var offset: Vector2
 var initialPos
-var heh =  Vector2(60.00,-10.00)
+var heh = Vector2(60.00, -10.00)
+
 func _ready() -> void:
-	pass
+	initialPos = global_position  # Store the initial position correctly
 	
 func _process(delta: float) -> void:
 	if draggable:
-		
 		if Input.is_action_just_pressed("click"):
-			var initialPos = global_position
 			offset = get_global_mouse_position() - global_position
 			Dungeon.is_dragging = true
 			scale = Vector2(2.00, 2.00)
@@ -21,14 +20,13 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("click"):
 			global_position = get_global_mouse_position()
 		elif Input.is_action_just_released("click"):
-			Dungeon.is_dragging
+			Dungeon.is_dragging = false  # Ensure this is set properly
 			var tween = get_tree().create_tween()
-			if is_inside_droppable:
-				tween.tween_property(self, "position", body_ref.position - heh,0.5).set_ease(Tween.EASE_OUT)
-				print(body_ref)
+			if is_inside_droppable and body_ref != null:  # Check if body_ref is valid
+				tween.tween_property(self, "global_position", body_ref.global_position - heh, 0.5).set_ease(Tween.EASE_OUT)
 			else:
-				tween.tween_property(self, "global_position", initialPos,0.2).set_ease(Tween.EASE_OUT)
-				
+				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+
 func _on_area_2d_mouse_entered() -> void:
 	print("päällä")
 	if not Dungeon.is_dragging:
@@ -39,15 +37,16 @@ func _on_area_2d_mouse_exited() -> void:
 	print("pois päältä")
 	if not Dungeon.is_dragging:
 		draggable = false
-		scale = Vector2(2, 2)
+		scale = Vector2(2.00, 2.00)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('droppable'):
 		is_inside_droppable = true
 		body.modulate = Color(Color.GREEN)
-		body_ref = body
+		body_ref = body  # Store a reference to the droppable body
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('droppable'):
 		is_inside_droppable = false
-		body.modulate =  Color(Color.BLUE)
+		body.modulate = Color(Color.BLUE)
+		body_ref = null  # Reset body_ref when the draggable object exits the droppable area

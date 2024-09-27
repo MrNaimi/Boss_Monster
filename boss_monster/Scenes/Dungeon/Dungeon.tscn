@@ -5246,11 +5246,11 @@ text = "Quit Game"
 [node name="Cards" type="Node2D" parent="."]
 
 [node name="Card5" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2497, 1114)
+position = Vector2(909, 899)
 scale = Vector2(2, 2)
 
 [node name="Card4" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2495, 876)
+position = Vector2(729, 903)
 scale = Vector2(2, 2)
 
 [node name="Card3" parent="Cards" instance=ExtResource("12_sakbs")]
@@ -5258,11 +5258,11 @@ position = Vector2(212, 896)
 scale = Vector2(2, 2)
 
 [node name="Card2" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2491, 393)
+position = Vector2(387, 893)
 scale = Vector2(2, 2)
 
 [node name="Card" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(2495, 152)
+position = Vector2(559, 892)
 scale = Vector2(2, 2)
 
 [connection signal="pressed" from="Continue_button" to="." method="_on_continue_button_pressed"]
