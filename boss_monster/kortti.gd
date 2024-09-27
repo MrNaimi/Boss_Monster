@@ -23,21 +23,26 @@ func _process(delta: float) -> void:
 			Dungeon.is_dragging = false  # Ensure this is set properly
 			var tween = get_tree().create_tween()
 			if is_inside_droppable and body_ref != null:  # Check if body_ref is valid
-				tween.tween_property(self, "global_position", body_ref.global_position - heh, 0.5).set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "global_position", body_ref.global_position - heh, 0.2).set_ease(Tween.EASE_OUT)
 			else:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
 
 func _on_area_2d_mouse_entered() -> void:
 	print("päällä")
 	if not Dungeon.is_dragging:
+		var tween = get_tree().create_tween()
 		draggable = true
 		scale = Vector2(4.00, 4.00)
+		position = global_position + Vector2(0,-100)
+		
+		
 
 func _on_area_2d_mouse_exited() -> void:
 	print("pois päältä")
 	if not Dungeon.is_dragging:
 		draggable = false
 		scale = Vector2(2.00, 2.00)
+		position = global_position + Vector2(0,100)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('droppable'):
