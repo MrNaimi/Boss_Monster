@@ -7,10 +7,12 @@ var offset: Vector2
 var initialPos
 var heh = Vector2(60.00, -10.00)
 var card_frame: Node2D
+var collision : Node2D
 
 func _ready() -> void:
 	initialPos = global_position  # Store the initial position correctly
 	card_frame = find_child("Card_frame")
+	collision = find_child("CollisionShape2D")
 	
 func _process(delta: float) -> void:
 	if draggable:
@@ -34,8 +36,13 @@ func _on_area_2d_mouse_entered() -> void:
 	if not Dungeon.is_dragging:
 		var tween = get_tree().create_tween()
 		draggable = true
+		
 		card_frame.scale = Vector2(0.2, 0.2)
 		position = global_position + Vector2(0,-100)
+
+		collision.scale = Vector2(1,1.25)
+		collision.position = Vector2(0,40)
+		
 		
 		
 
@@ -44,7 +51,8 @@ func _on_area_2d_mouse_exited() -> void:
 	if not Dungeon.is_dragging:
 		draggable = false
 		card_frame.scale = Vector2(0.1, 0.1)
-		
+		collision.scale = Vector2(1,1)
+		collision.position = Vector2(0,0)
 		#Snaps card to position when it touches dragspot, otherwise goes to initialposition
 		if body_ref != null:
 			position = body_ref.global_position - heh

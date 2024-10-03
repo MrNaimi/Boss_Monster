@@ -4284,7 +4284,6 @@ texture_region_size = Vector2i(64, 64)
 1:1/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xwfj2"]
-load_path = "res://.godot/imported/brick_floor2.png-7ddfeb286bcc3fc5daac34946a5a48b8.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wxni"]
 texture = SubResource("CompressedTexture2D_xwfj2")
@@ -5104,7 +5103,6 @@ texture_region_size = Vector2i(64, 64)
 1:1/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wt3gs"]
-load_path = "res://.godot/imported/brick.png-955c4b17c137e2e22a77f66e5989c4ae.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4esl2"]
 texture = SubResource("CompressedTexture2D_wt3gs")
@@ -5115,7 +5113,6 @@ texture_region_size = Vector2i(64, 64)
 1:1/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j511s"]
-load_path = "res://.godot/imported/brick_blood.png-ff97775def9936c272f01aee305ffe16.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofd7s"]
 texture = SubResource("CompressedTexture2D_j511s")
@@ -5126,7 +5123,6 @@ texture_region_size = Vector2i(64, 64)
 1:1/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rvmqj"]
-load_path = "res://.godot/imported/brick_dmg2.png-33d85bd3d9bc61f952faf55b13d17ed2.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u3hat"]
 texture = SubResource("CompressedTexture2D_rvmqj")
@@ -5137,7 +5133,6 @@ texture_region_size = Vector2i(64, 64)
 1:1/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3vc8r"]
-load_path = "res://.godot/imported/brick_dmg.png-98ddf0f39d99607362e2e7a80233f886.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pswc2"]
 texture = SubResource("CompressedTexture2D_3vc8r")
