@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cegahil863geo"
-path="res://.godot/imported/background.png-5844fedd19e1c5956d6bcec7a607e657.ctex"
+uid="uid://ojblnu8qt3tx"
+path="res://.godot/imported/walltorch.png-31b563d5fc8663987021c403e617d272.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/background.png"
-dest_files=["res://.godot/imported/background.png-5844fedd19e1c5956d6bcec7a607e657.ctex"]
+source_file="res://Assets/Tiles/tileanimations/walltorch.png"
+dest_files=["res://.godot/imported/walltorch.png-31b563d5fc8663987021c403e617d272.ctex"]
 
 [params]
 

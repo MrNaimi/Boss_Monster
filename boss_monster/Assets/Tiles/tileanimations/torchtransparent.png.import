@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1jbs6jruafyh"
-path="res://.godot/imported/Portaat.png-764f388f264b317a4206e0a847da2bde.ctex"
+uid="uid://ciospukj0mwgc"
+path="res://.godot/imported/torchtransparent.png-bb472280499704b2c556bad11a2ea075.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/Portaat.png"
-dest_files=["res://.godot/imported/Portaat.png-764f388f264b317a4206e0a847da2bde.ctex"]
+source_file="res://Assets/Tiles/tileanimations/torchtransparent.png"
+dest_files=["res://.godot/imported/torchtransparent.png-bb472280499704b2c556bad11a2ea075.ctex"]
 
 [params]
 
