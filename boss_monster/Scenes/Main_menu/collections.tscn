@@ -16,56 +16,16 @@ script = ExtResource("1_3jgs6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 1276.0
+offset_bottom = 723.0
 color = Color(0.244149, 0.0313405, 0.0223585, 1)
-
-[node name="Heroes" type="Button" parent="."]
-layout_mode = 0
-offset_left = 140.0
-offset_top = 150.0
-offset_right = 440.0
-offset_bottom = 250.0
-theme_override_fonts/font = ExtResource("2_vi5uy")
-theme_override_font_sizes/font_size = 55
-text = "Heroes"
-
-[node name="Bosses" type="Button" parent="."]
-layout_mode = 0
-offset_left = 140.0
-offset_top = 300.0
-offset_right = 440.0
-offset_bottom = 400.0
-theme_override_fonts/font = ExtResource("2_vi5uy")
-theme_override_font_sizes/font_size = 55
-text = "Bosses"
-
-[node name="Traps" type="Button" parent="."]
-layout_mode = 0
-offset_left = 140.0
-offset_top = 450.0
-offset_right = 440.0
-offset_bottom = 550.0
-theme_override_fonts/font = ExtResource("2_vi5uy")
-theme_override_font_sizes/font_size = 55
-text = "Traps"
-
-[node name="Spells" type="Button" parent="."]
-layout_mode = 0
-offset_left = 140.0
-offset_top = 600.0
-offset_right = 440.0
-offset_bottom = 700.0
-theme_override_fonts/font = ExtResource("2_vi5uy")
-theme_override_font_sizes/font_size = 55
-text = "Spells"
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1505.0
-offset_top = 924.0
-offset_right = 1851.0
-offset_bottom = 1015.0
+offset_left = 100.0
+offset_top = 581.0
+offset_right = 527.0
+offset_bottom = 672.0
 theme_override_fonts/font = ExtResource("2_vi5uy")
 theme_override_font_sizes/font_size = 55
 text = "Back
@@ -79,12 +39,47 @@ texture = ExtResource("3_01x62")
 
 [node name="LichSprite" type="Sprite2D" parent="."]
 visibility_layer = 0
-position = Vector2(1055.13, 429.875)
+position = Vector2(891, 354)
 scale = Vector2(0.973104, 1.36507)
 texture = ExtResource("4_w8kml")
 
-[connection signal="mouse_entered" from="Heroes" to="." method="_on_heroes_mouse_entered"]
-[connection signal="mouse_exited" from="Heroes" to="." method="_on_heroes_mouse_exited"]
-[connection signal="mouse_entered" from="Bosses" to="." method="_on_bosses_mouse_entered"]
-[connection signal="mouse_exited" from="Bosses" to="." method="_on_bosses_mouse_exited"]
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -156.0
+offset_right = 527.0
+offset_bottom = 156.0
+grow_vertical = 2
+
+[node name="Heroes" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Heroes"
+
+[node name="Bosses" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Bosses"
+
+[node name="Traps" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Traps"
+
+[node name="Spells" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Spells"
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="Menu/Heroes" to="." method="_on_heroes_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Heroes" to="." method="_on_heroes_mouse_exited"]
+[connection signal="mouse_entered" from="Menu/Bosses" to="." method="_on_bosses_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Bosses" to="." method="_on_bosses_mouse_exited"]

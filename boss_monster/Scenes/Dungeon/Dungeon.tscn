@@ -6239,7 +6239,7 @@ scale = Vector2(1.34444, 1.20909)
 sprite_frames = SubResource("SpriteFrames_7nv63")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.390186
+frame_progress = 0.360455
 flip_h = true
 
 [connection signal="pressed" from="Continue_button" to="." method="_on_continue_button_pressed"]

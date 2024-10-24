@@ -14,8 +14,8 @@ grow_vertical = 2
 script = ExtResource("1_dfxk5")
 
 [node name="Background2" type="Sprite2D" parent="."]
-position = Vector2(640.625, 360.625)
-scale = Vector2(1.32513, 1.92694)
+position = Vector2(639.875, 359.125)
+scale = Vector2(1.32668, 1.93499)
 texture = ExtResource("2_hs86e")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -31,10 +31,10 @@ color = Color(0.0792793, 0.195767, 0.17555, 1)
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 25.0
-offset_top = -25.0
-offset_right = 1328.0
-offset_bottom = 229.0
+offset_left = 33.0
+offset_top = -72.0
+offset_right = 1336.0
+offset_bottom = 182.0
 theme_override_fonts/font = ExtResource("2_3dran")
 theme_override_font_sizes/font_size = 130
 text = "Underlord's Ascension"

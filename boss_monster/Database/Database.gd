@@ -4,7 +4,7 @@
 #SpellInfo =[Type, Damage, +Health, Name, Special Text]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text]
 
-enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak}
+enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,}
 
 const DATA ={
 	Cleric :
@@ -28,9 +28,9 @@ const DATA ={
 	Big_Snake :
 		["Boss"],
 	Corrupted_Mage: 
-		["Boss"],
+		["Boss", 20, "Corrupted_Mage", "Will not rest until he has the strongest magic!"],
 	Shrink_Ray :
-		["Spell",],
+		["Spell",0,0, "Shrink Ray", "Reduce heros maximum HP by 5"],
 	Mind_Control :
 		["Spell",0 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero"],
 	Healing_potion :
@@ -43,4 +43,14 @@ const DATA ={
 		["Room", 3, "Goblin Warrior", "Monster", ""],
 	Gas_Leak :
 		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes"],
-}
+	Mimic :
+		["Room", 3, "Mimic", "Monster", ""],
+	The_Vault_Room :
+		["Room", 3, "The Vault Room","Monster", ""],
+	Spike_Factory :
+		["Room",4, "Spike Factory","Trap",""],
+	Hot_Coals:
+		["Room",3, "Hot Coals","Trap",""],	
+	Monster_Lounge:
+		["Room",4, "Monster Lounge", "Monster", ""],	
+} 
