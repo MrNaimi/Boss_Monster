@@ -4,7 +4,7 @@
 #SpellInfo =[Type, Damage, +Health, Name, Special Text]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text]
 
-enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Mind_Control, Healing_potion, Goblin_warrior, Gas_Leak}
+enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak}
 
 const DATA ={
 	Cleric :
@@ -27,12 +27,18 @@ const DATA ={
 		["Boss"],
 	Big_Snake :
 		["Boss"],
+	Corrupted_Mage: 
+		["Boss"],
 	Shrink_Ray :
 		["Spell",],
 	Mind_Control :
 		["Spell",0 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero"],
 	Healing_potion :
-		["Spell",0, 4, "Healing Potion", ],
+		["Spell",0, 4, "Healing Potion", "Restore 4 health to your Boss"],
+	Assassination :
+		["Spell", 100, 0, "Assassination", "Kill a targeted hero"],
+	Bad_Directions :
+		["Spell", 0, 0, "Bad Directions", "Return a hero back to the start of the dungeon"],
 	Goblin_warrior :
 		["Room", 3, "Goblin Warrior", "Monster", ""],
 	Gas_Leak :

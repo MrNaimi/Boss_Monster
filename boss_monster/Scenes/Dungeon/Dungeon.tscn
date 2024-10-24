@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=61 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d1diduxdlk5l5" path="res://Assets/Tiles/RoguelikeDungeonTileset.png" id="5_m716r"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/fonts/poco/Poco.ttf" id="6_qsyr4"]
 [ext_resource type="PackedScene" uid="uid://cwe10f71qd1ue" path="res://kortti.tscn" id="12_sakbs"]
+[ext_resource type="Texture2D" uid="uid://cw3ak2bpdp0bm" path="res://Assets/Bosses/Corrupted_Mage/Corrupted_Mage.png" id="15_xtt6n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -1610,7 +1611,6 @@ texture_region_size = Vector2i(64, 64)
 15:15/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xdt4o"]
-load_path = "res://.godot/imported/Ladder.png-abdfb939e7a300f85639f444069a5222.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7mia"]
 texture = SubResource("CompressedTexture2D_xdt4o")
@@ -1621,7 +1621,6 @@ texture_region_size = Vector2i(64, 64)
 1:1/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5qxr1"]
-load_path = "res://.godot/imported/Portaat.png-764f388f264b317a4206e0a847da2bde.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cloox"]
 texture = SubResource("CompressedTexture2D_5qxr1")
@@ -5939,6 +5938,42 @@ sources/2 = SubResource("TileSetAtlasSource_t8imt")
 sources/0 = SubResource("TileSetAtlasSource_dvqeq")
 sources/4 = SubResource("TileSetAtlasSource_0t75v")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gml0"]
+atlas = ExtResource("15_xtt6n")
+region = Rect2(0, 0, 45, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqcdk"]
+atlas = ExtResource("15_xtt6n")
+region = Rect2(45, 0, 45, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj3ce"]
+atlas = ExtResource("15_xtt6n")
+region = Rect2(90, 0, 45, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ivfn"]
+atlas = ExtResource("15_xtt6n")
+region = Rect2(135, 0, 45, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7nv63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gml0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqcdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj3ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ivfn")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}]
+
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_a3apr")
 
@@ -6096,32 +6131,32 @@ tile_set = SubResource("TileSet_32ymr")
 visible = false
 
 [node name="DraggableObject2" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(557, 249)
-scale = Vector2(0.75, 0.75)
+position = Vector2(548, 231)
+scale = Vector2(0.7, 1)
 
 [node name="DraggableObject3" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(267, 58)
-scale = Vector2(0.75, 0.75)
+position = Vector2(260, 41)
+scale = Vector2(0.7, 1)
 
 [node name="DraggableObject4" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(909, 137)
-scale = Vector2(0.75, 0.75)
+position = Vector2(900, 119)
+scale = Vector2(0.7, 1)
 
 [node name="DraggableObject5" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(559, 56)
-scale = Vector2(0.75, 0.75)
+position = Vector2(550, 38)
+scale = Vector2(0.7, 1)
 
 [node name="DraggableObject" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(268, 250)
-scale = Vector2(0.75, 0.75)
+position = Vector2(259, 232)
+scale = Vector2(0.7, 1)
 
 [node name="DraggableObject6" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(557, 426)
-scale = Vector2(0.75, 0.75)
+position = Vector2(548, 408)
+scale = Vector2(0.7, 1)
 
 [node name="DraggableObject7" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(269, 426)
-scale = Vector2(0.75, 0.75)
+position = Vector2(260, 408)
+scale = Vector2(0.7, 1)
 
 [node name="Continue_button" type="Button" parent="."]
 offset_left = 711.0
@@ -6195,6 +6230,17 @@ tooltip_text = "This is where you will find your current rooms and spells."
 theme_override_fonts/font = ExtResource("6_qsyr4")
 theme_override_font_sizes/font_size = 16
 text = "Inventory"
+
+[node name="Boss" type="Node2D" parent="."]
+
+[node name="Idle_animation" type="AnimatedSprite2D" parent="Boss"]
+position = Vector2(753, 425)
+scale = Vector2(1.34444, 1.20909)
+sprite_frames = SubResource("SpriteFrames_7nv63")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.390186
+flip_h = true
 
 [connection signal="pressed" from="Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]

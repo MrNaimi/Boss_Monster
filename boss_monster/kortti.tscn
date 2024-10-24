@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwe10f71qd1ue"]
 
 [ext_resource type="Script" path="res://kortti.gd" id="1_dj07d"]
-[ext_resource type="Texture2D" uid="uid://l4xgcf05cwua" path="res://Assets/Traps/card_blank_big.png" id="1_girmx"]
+[ext_resource type="Texture2D" uid="uid://l4xgcf05cwua" path="res://Cards/card_blank_big.png" id="1_girmx"]
 [ext_resource type="Texture2D" uid="uid://4bkp5wicayav" path="res://Assets/Traps/lich.png" id="1_m22n4"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/fonts/poco/Poco.ttf" id="3_a05qa"]
 

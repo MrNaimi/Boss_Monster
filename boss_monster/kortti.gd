@@ -5,7 +5,7 @@ var is_inside_droppable = false
 var body_ref = null
 var offset: Vector2
 var initialPos
-var heh = Vector2(60.00, -10.00)
+var heh = Vector2(50.00, -10)
 var card_frame: Node2D
 var collision : Node2D
 
