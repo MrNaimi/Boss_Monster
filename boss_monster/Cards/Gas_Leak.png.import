@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhd1g7jwxxegm"
-path="res://.godot/imported/Assassination.png-66d251211dcb9a635e0a5a509c5784ae.ctex"
+uid="uid://b18cub0fswb6p"
+path="res://.godot/imported/Gas_Leak.png-70ced59e1469508bc953285952cc0b9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Assassination.png"
-dest_files=["res://.godot/imported/Assassination.png-66d251211dcb9a635e0a5a509c5784ae.ctex"]
+source_file="res://Cards/Gas_Leak.png"
+dest_files=["res://.godot/imported/Gas_Leak.png-70ced59e1469508bc953285952cc0b9a.ctex"]
 
 [params]
 
