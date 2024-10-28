@@ -29,9 +29,9 @@ const DATA ={
 	Skeleton_King :
 		["Boss", 20, "Skeleton_King", "Wants to raise an army of smaller and smaller skeletons"],
 	Lich :
-		["Boss"],
+		["Boss", 20, "Lich", "He who  lurks in the dark, plotting to seize forbidden knowledge lost to time itself."],
 	Big_Snake :
-		["Boss"],
+		["Boss", 20, "Big_Snake", "Too large to be just a snake, but still too small to be a proper wyrm"],
 	Corrupted_Mage: 
 		["Boss", 20, "Corrupted_Mage", "Will not rest until he has the strongest magic!"],
 		

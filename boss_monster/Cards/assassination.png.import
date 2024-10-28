@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhd1g7jwxxegm"
-path="res://.godot/imported/Assassination.png-66d251211dcb9a635e0a5a509c5784ae.ctex"
+path="res://.godot/imported/assassination.png-cc8f611585fbc97584135cd916bdf6ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Assassination.png"
-dest_files=["res://.godot/imported/Assassination.png-66d251211dcb9a635e0a5a509c5784ae.ctex"]
+source_file="res://Cards/assassination.png"
+dest_files=["res://.godot/imported/assassination.png-cc8f611585fbc97584135cd916bdf6ff.ctex"]
 
 [params]
 
