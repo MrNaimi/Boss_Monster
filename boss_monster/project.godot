@@ -30,6 +30,7 @@ window/stretch/mode="canvas_items"
 
 droppable=""
 ui_layer=""
+Roomcontainer=""
 
 [input]
 

@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://bej36dhytjri2"]
+
+[ext_resource type="Script" path="res://Scenes/Main_menu/collections.gd" id="1_3jgs6"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/fonts/poco/Poco.ttf" id="2_vi5uy"]
+[ext_resource type="Texture2D" uid="uid://cbu8q56sd2x3" path="res://Assets/Heroes/Paladin.png" id="3_01x62"]
+[ext_resource type="Texture2D" uid="uid://4bkp5wicayav" path="res://Assets/Traps/lich.png" id="4_w8kml"]
+
+[node name="Collections" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3jgs6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.244149, 0.0313405, 0.0223585, 1)
+
+[node name="Heroes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 150.0
+offset_right = 440.0
+offset_bottom = 250.0
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Heroes"
+
+[node name="Bosses" type="Button" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 300.0
+offset_right = 440.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Bosses"
+
+[node name="Traps" type="Button" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 450.0
+offset_right = 440.0
+offset_bottom = 550.0
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Traps"
+
+[node name="Spells" type="Button" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 600.0
+offset_right = 440.0
+offset_bottom = 700.0
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Spells"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1505.0
+offset_top = 924.0
+offset_right = 1851.0
+offset_bottom = 1015.0
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Back
+"
+
+[node name="PaladinSprite" type="Sprite2D" parent="."]
+visibility_layer = 0
+position = Vector2(1065.75, 427.25)
+scale = Vector2(4.25391, 4.15234)
+texture = ExtResource("3_01x62")
+
+[node name="LichSprite" type="Sprite2D" parent="."]
+visibility_layer = 0
+position = Vector2(1055.13, 429.875)
+scale = Vector2(0.973104, 1.36507)
+texture = ExtResource("4_w8kml")
+
+[connection signal="mouse_entered" from="Heroes" to="." method="_on_heroes_mouse_entered"]
+[connection signal="mouse_exited" from="Heroes" to="." method="_on_heroes_mouse_exited"]
+[connection signal="mouse_entered" from="Bosses" to="." method="_on_bosses_mouse_entered"]
+[connection signal="mouse_exited" from="Bosses" to="." method="_on_bosses_mouse_exited"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

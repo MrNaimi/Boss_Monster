@@ -3,8 +3,10 @@ extends CardState
 var played: bool
 
 func enter() -> void:
-	card_ui.color.color = Color.HOT_PINK
-	card_ui.state.text = "RELEASED"
+	
+	card_ui.color.color = Color.TRANSPARENT
+	#card_ui.state.text = "RELEASED"
+	card_ui.gas_leak.visible = true
 	
 	played = false
 	

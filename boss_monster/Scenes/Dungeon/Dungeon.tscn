@@ -6139,7 +6139,7 @@ position = Vector2(548, 231)
 scale = Vector2(0.7, 1)
 
 [node name="DraggableObject3" parent="Rooms" instance=ExtResource("2_u3l5r")]
-position = Vector2(260, 41)
+position = Vector2(265, 44)
 scale = Vector2(0.7, 1)
 
 [node name="DraggableObject4" parent="Rooms" instance=ExtResource("2_u3l5r")]
@@ -6251,32 +6251,127 @@ flip_h = true
 position = Vector2(172, 33)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(40, 17)
+[node name="RoomContainer" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = 14.0
+offset_right = 79.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer"]
+position = Vector2(30, 21)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(687, 132)
+[node name="RoomContainer7" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 306.0
+offset_top = 378.0
+offset_right = 364.0
+offset_bottom = 418.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer7"]
+position = Vector2(30, 21)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(331, 9)
+[node name="RoomContainer6" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 17.0
+offset_top = 379.0
+offset_right = 75.0
+offset_bottom = 419.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer6"]
+position = Vector2(30, 21)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(330, 213)
+[node name="RoomContainer5" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 657.0
+offset_top = 89.0
+offset_right = 715.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer5"]
+position = Vector2(30, 21)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(42, 204)
+[node name="RoomContainer4" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 303.0
+offset_top = 204.0
+offset_right = 361.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer4"]
+position = Vector2(30, 21)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(42, 428)
+[node name="CardUI6" parent="CardDropArea/RoomContainer4" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RoomContainer3" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 202.0
+offset_right = 72.0
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer3"]
+position = Vector2(30, 21)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="CardDropArea"]
-position = Vector2(331, 423)
+[node name="RoomContainer2" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 305.0
+offset_top = 9.0
+offset_right = 363.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer2"]
+position = Vector2(30, 21)
 shape = SubResource("RectangleShape2D_avw15")
 
 [node name="DungeonUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
