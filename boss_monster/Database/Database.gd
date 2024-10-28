@@ -47,7 +47,7 @@ const DATA ={
 	Bad_Directions :
 		["Spell", 0, 0, "Bad Directions", "Return a hero back to the start of the dungeon"],
 		
-	#Rooms
+	#Rooms 
 	Goblin_warrior :
 		["Room", 3, "Goblin Warrior", "Monster", ""],
 	Gas_Leak :

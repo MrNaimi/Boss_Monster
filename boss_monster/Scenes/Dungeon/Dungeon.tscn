@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=64 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -15,6 +15,8 @@
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/fonts/poco/Poco.ttf" id="6_qsyr4"]
 [ext_resource type="PackedScene" uid="uid://cwe10f71qd1ue" path="res://kortti.tscn" id="12_sakbs"]
 [ext_resource type="Texture2D" uid="uid://cw3ak2bpdp0bm" path="res://Assets/Bosses/Corrupted_Mage/Corrupted_Mage.png" id="15_xtt6n"]
+[ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -5974,6 +5976,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avw15"]
+size = Vector2(104.5, 55.5)
+
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_a3apr")
 
@@ -6128,7 +6133,6 @@ tile_map_data = PackedByteArray("AAA9AAMAAAAHAAEAAGA9AAQAAAAGAAEAAGA9AAUAAAAAAAE
 tile_set = SubResource("TileSet_32ymr")
 
 [node name="Rooms" type="Node2D" parent="."]
-visible = false
 
 [node name="DraggableObject2" parent="Rooms" instance=ExtResource("2_u3l5r")]
 position = Vector2(548, 231)
@@ -6173,6 +6177,7 @@ offset_bottom = 39.0
 text = "Quit Game"
 
 [node name="Cards" type="Node2D" parent="."]
+visible = false
 
 [node name="Card5" parent="Cards" instance=ExtResource("12_sakbs")]
 position = Vector2(501, 590)
@@ -6241,6 +6246,76 @@ animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.360455
 flip_h = true
+
+[node name="CardDropArea" type="Area2D" parent="."]
+position = Vector2(172, 33)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(40, 17)
+shape = SubResource("RectangleShape2D_avw15")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(687, 132)
+shape = SubResource("RectangleShape2D_avw15")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(331, 9)
+shape = SubResource("RectangleShape2D_avw15")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(330, 213)
+shape = SubResource("RectangleShape2D_avw15")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(42, 204)
+shape = SubResource("RectangleShape2D_avw15")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(42, 428)
+shape = SubResource("RectangleShape2D_avw15")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(331, 423)
+shape = SubResource("RectangleShape2D_avw15")
+
+[node name="DungeonUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="DungeonUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -333.0
+offset_top = -184.0
+offset_right = -243.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("16_cucfv")
+
+[node name="CardUI" parent="DungeonUI/Hand" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardUI2" parent="DungeonUI/Hand" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardUI3" parent="DungeonUI/Hand" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardUI4" parent="DungeonUI/Hand" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardUI5" parent="DungeonUI/Hand" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
 
 [connection signal="pressed" from="Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]

@@ -48,6 +48,7 @@ offset_right = 279.0
 offset_bottom = -399.0
 text = "Gunzuz the lich"
 label_settings = SubResource("LabelSettings_eu27y")
+metadata/_edit_use_anchors_ = true
 
 [node name="card_flavour" type="Label" parent="Card_frame"]
 offset_left = -246.0
@@ -56,6 +57,7 @@ offset_right = 304.0
 offset_bottom = 723.0
 text = "\"spooky catch-phrase here\""
 label_settings = SubResource("LabelSettings_5u0ik")
+metadata/_edit_use_anchors_ = true
 
 [node name="card_effect" type="Label" parent="Card_frame"]
 offset_left = -275.0
@@ -67,6 +69,7 @@ undead monster room in your dungeon
 (we don't have undead type rooms yet,
 but we might do them later)."
 label_settings = SubResource("LabelSettings_kdbcj")
+metadata/_edit_use_anchors_ = true
 
 [node name="card_attack" type="Label" parent="Card_frame"]
 offset_left = -238.0
@@ -75,6 +78,7 @@ offset_right = -150.0
 offset_bottom = 456.0
 text = "4"
 label_settings = SubResource("LabelSettings_u083m")
+metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
 

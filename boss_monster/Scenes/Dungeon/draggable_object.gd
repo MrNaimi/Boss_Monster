@@ -8,6 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(CardState.State)
 	if Dungeon.is_dragging:
 		visible = true
 	else:
