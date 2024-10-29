@@ -1,7 +1,8 @@
 extends ColorRect
 
-@onready var drag_animation: AnimationPlayer = $drag_animation
+@onready var drop_zone: ColorRect = $"."
 
+var i=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if GlobalVariables.card_dragging:
 		self.visible=true
-		drag_animation.play("drag")
+		
 	else:
 		self.visible=false
 	print(self.get_parent().get_child(0).get_child_count())
