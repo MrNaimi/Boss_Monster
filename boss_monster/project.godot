@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dungeon="*res://Scenes/Dungeon/Dungeon.gd"
+GlobalVariables="*res://Cards/GlobalVariables.gd"
 
 [display]
 
@@ -31,6 +32,7 @@ window/stretch/mode="canvas_items"
 droppable=""
 ui_layer=""
 Roomcontainer=""
+card="group that is given to cards, used in checking type of node"
 
 [input]
 
@@ -54,6 +56,8 @@ rightclick={
 
 2d_physics/layer_1="card_target_selector"
 2d_physics/layer_2="card_drop_area"
+2d_physics/layer_3="room_collision"
+2d_physics/layer_4="Hero_collision"
 
 [rendering]
 

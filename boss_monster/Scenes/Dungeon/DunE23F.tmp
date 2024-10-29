@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=68 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cwe10f71qd1ue" path="res://kortti.tscn" id="12_sakbs"]
 [ext_resource type="Texture2D" uid="uid://cw3ak2bpdp0bm" path="res://Assets/Bosses/Corrupted_Mage/Corrupted_Mage.png" id="15_xtt6n"]
 [ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
-[ext_resource type="PackedScene" uid="uid://cavglumrn4bxv" path="res://card_drop_area.tscn" id="16_a7p6m"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/drop_zone.gd" id="16_cjtvc"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
@@ -5980,6 +5980,68 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avw15"]
 size = Vector2(104.5, 55.5)
 
+[sub_resource type="Animation" id="Animation_c2kgc"]
+resource_name = "drag"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardDropAreas/CardDropArea/CollisionShape2D/DropZone:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("@SubViewport@9101/CardDropArea/CollisionShape2D/DropZone:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5qry8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardDropAreas/CardDropArea/CollisionShape2D/DropZone:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.392157)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("@SubViewport@9101/CardDropArea/CollisionShape2D/DropZone:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o2lvw"]
+_data = {
+"RESET": SubResource("Animation_5qry8"),
+"drag": SubResource("Animation_c2kgc")
+}
+
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_a3apr")
 
@@ -6260,7 +6322,43 @@ flip_h = true
 position = Vector2(753, 425)
 scale = Vector2(1.34444, 1.20909)
 
-[node name="CardDropArea" parent="CardDropAreas" instance=ExtResource("16_a7p6m")]
+[node name="CardDropArea" type="Area2D" parent="CardDropAreas"]
+position = Vector2(-432.15, -324.211)
+scale = Vector2(0.743804, 0.827068)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropAreas/CardDropArea"]
+position = Vector2(45, 38)
+shape = SubResource("RectangleShape2D_avw15")
+
+[node name="Room1" type="VBoxContainer" parent="CardDropAreas/CardDropArea/CollisionShape2D" groups=["Roomcontainer"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -23.5
+offset_right = 23.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DropZone" type="ColorRect" parent="CardDropAreas/CardDropArea/CollisionShape2D"]
+offset_left = -18.0
+offset_top = -17.0
+offset_right = 17.0
+offset_bottom = 18.0
+color = Color(1, 1, 1, 0.392157)
+script = ExtResource("16_cjtvc")
+metadata/_edit_use_anchors_ = true
+
+[node name="drag_animation" type="AnimationPlayer" parent="CardDropAreas/CardDropArea/CollisionShape2D/DropZone"]
+root_node = NodePath("../../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_o2lvw")
+}
 
 [node name="CardDropArea2" type="Area2D" parent="CardDropAreas"]
 position = Vector2(-217.191, -324.211)

@@ -8,6 +8,7 @@ func enter() -> void:
 	if ui_layer:
 		card_ui.reparent(ui_layer)
 	
+	GlobalVariables.card_dragging = true
 	card_ui.color.color= Color.NAVY_BLUE
 	card_ui.state.text = "DRAGGING"
 	
@@ -24,6 +25,7 @@ func on_input(event: InputEvent) -> void:
 		card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.pivot_offset
 	
 	if cancel:
+		GlobalVariables.card_dragging=false
 		transition_requested.emit(self, CardState.State.BASE)
 	elif minimum_drag_time_elapsed and confirm:
 		get_viewport().set_input_as_handled()
