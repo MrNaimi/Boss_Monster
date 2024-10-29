@@ -6260,7 +6260,7 @@ scale = Vector2(1.34444, 1.20909)
 [node name="CardDropArea" parent="CardDropAreas" instance=ExtResource("16_a7p6m")]
 
 [node name="CardDropArea2" parent="CardDropAreas" instance=ExtResource("16_a7p6m")]
-position = Vector2(-217.935, -324.211)
+position = Vector2(-217.935, -323.384)
 
 [node name="CardDropArea3" parent="CardDropAreas" instance=ExtResource("16_a7p6m")]
 position = Vector2(44.6282, -243.158)

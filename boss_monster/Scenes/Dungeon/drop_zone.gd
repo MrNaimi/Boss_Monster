@@ -15,6 +15,6 @@ func _process(delta: float) -> void:
 		
 	else:
 		self.visible=false
-	print(self.get_parent().get_child(0).get_child_count())
+	#print(self.get_parent().get_child(0).get_child_count())
 	if self.get_parent().get_child(0).get_child_count():
 		self.visible=false
