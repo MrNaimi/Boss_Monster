@@ -6,7 +6,7 @@ func enter() -> void:
 		await card_ui.ready
 	
 	
-	card_ui.gas_leak.visible = false
+	card_ui.trap_texture.visible = false
 	card_ui.reparent_requested.emit(card_ui)
 	card_ui.color.color = Color.WEB_GREEN
 	card_ui.state.text = "BASE"

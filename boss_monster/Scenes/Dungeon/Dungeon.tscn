@@ -6133,6 +6133,7 @@ tile_map_data = PackedByteArray("AAA9AAMAAAAHAAEAAGA9AAQAAAAGAAEAAGA9AAUAAAAAAAE
 tile_set = SubResource("TileSet_32ymr")
 
 [node name="Rooms" type="Node2D" parent="."]
+visible = false
 
 [node name="DraggableObject2" parent="Rooms" instance=ExtResource("2_u3l5r")]
 position = Vector2(548, 231)
@@ -6247,132 +6248,163 @@ autoplay = "Idle"
 frame_progress = 0.360455
 flip_h = true
 
-[node name="CardDropArea" type="Area2D" parent="."]
-position = Vector2(172, 33)
+[node name="CardDropAreas" type="Node2D" parent="."]
+position = Vector2(753, 425)
+scale = Vector2(1.34444, 1.20909)
+
+[node name="CardDropArea" type="Area2D" parent="CardDropAreas"]
+position = Vector2(-432.15, -324.211)
+scale = Vector2(0.743804, 0.827068)
 collision_layer = 2
 
-[node name="RoomContainer" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropAreas/CardDropArea"]
+position = Vector2(45, 38)
+shape = SubResource("RectangleShape2D_avw15")
+
+[node name="Room1" type="VBoxContainer" parent="CardDropAreas/CardDropArea/CollisionShape2D" groups=["Roomcontainer"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 21.0
-offset_top = 14.0
-offset_right = 79.0
-offset_bottom = 54.0
+offset_left = -23.5
+offset_top = -23.5
+offset_right = 23.5
+offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer"]
-position = Vector2(30, 21)
+[node name="CardDropArea2" type="Area2D" parent="CardDropAreas"]
+position = Vector2(-217.191, -324.211)
+scale = Vector2(0.743804, 0.827068)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropAreas/CardDropArea2"]
+position = Vector2(45, 38)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="RoomContainer7" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+[node name="Room2" type="VBoxContainer" parent="CardDropAreas/CardDropArea2/CollisionShape2D" groups=["Roomcontainer"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 306.0
-offset_top = 378.0
-offset_right = 364.0
-offset_bottom = 418.0
+offset_left = -23.5
+offset_top = -23.5
+offset_right = 23.5
+offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer7"]
-position = Vector2(30, 21)
+[node name="CardDropArea3" type="Area2D" parent="CardDropAreas"]
+position = Vector2(43.1406, -248.12)
+scale = Vector2(0.743804, 0.827068)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropAreas/CardDropArea3"]
+position = Vector2(45, 38)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="RoomContainer6" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+[node name="Room3" type="VBoxContainer" parent="CardDropAreas/CardDropArea3/CollisionShape2D" groups=["Roomcontainer"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 17.0
-offset_top = 379.0
-offset_right = 75.0
-offset_bottom = 419.0
+offset_left = -23.5
+offset_top = -23.5
+offset_right = 23.5
+offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer6"]
-position = Vector2(30, 21)
+[node name="CardDropArea4" type="Area2D" parent="CardDropAreas"]
+position = Vector2(-217.935, -164.587)
+scale = Vector2(0.743804, 0.827068)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropAreas/CardDropArea4"]
+position = Vector2(45, 38)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="RoomContainer5" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+[node name="Room4" type="VBoxContainer" parent="CardDropAreas/CardDropArea4/CollisionShape2D" groups=["Roomcontainer"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 657.0
-offset_top = 89.0
-offset_right = 715.0
-offset_bottom = 129.0
+offset_left = -23.5
+offset_top = -23.5
+offset_right = 23.5
+offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer5"]
-position = Vector2(30, 21)
+[node name="CardDropArea5" type="Area2D" parent="CardDropAreas"]
+position = Vector2(-430.663, -162.105)
+scale = Vector2(0.743804, 0.827068)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropAreas/CardDropArea5"]
+position = Vector2(45, 38)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="RoomContainer4" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+[node name="Room5" type="VBoxContainer" parent="CardDropAreas/CardDropArea5/CollisionShape2D" groups=["Roomcontainer"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 303.0
-offset_top = 204.0
-offset_right = 361.0
-offset_bottom = 244.0
+offset_left = -23.5
+offset_top = -23.5
+offset_right = 23.5
+offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer4"]
-position = Vector2(30, 21)
+[node name="CardDropArea6" type="Area2D" parent="CardDropAreas"]
+position = Vector2(-431.406, -17.3684)
+scale = Vector2(0.743804, 0.827068)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropAreas/CardDropArea6"]
+position = Vector2(45, 38)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="CardUI6" parent="CardDropArea/RoomContainer4" instance=ExtResource("16_1bnnc")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="RoomContainer3" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+[node name="Room6" type="VBoxContainer" parent="CardDropAreas/CardDropArea6/CollisionShape2D" groups=["Roomcontainer"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 14.0
-offset_top = 202.0
-offset_right = 72.0
-offset_bottom = 242.0
+offset_left = -23.5
+offset_top = -23.5
+offset_right = 23.5
+offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer3"]
-position = Vector2(30, 21)
+[node name="CardDropArea7" type="Area2D" parent="CardDropAreas"]
+position = Vector2(-217.191, -19.8496)
+scale = Vector2(0.743804, 0.827068)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropAreas/CardDropArea7"]
+position = Vector2(45, 38)
 shape = SubResource("RectangleShape2D_avw15")
 
-[node name="RoomContainer2" type="VBoxContainer" parent="CardDropArea" groups=["Roomcontainer"]]
+[node name="Room7" type="VBoxContainer" parent="CardDropAreas/CardDropArea7/CollisionShape2D" groups=["Roomcontainer"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 305.0
-offset_top = 9.0
-offset_right = 363.0
-offset_bottom = 49.0
+offset_left = -23.5
+offset_top = -23.5
+offset_right = 23.5
+offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea/RoomContainer2"]
-position = Vector2(30, 21)
-shape = SubResource("RectangleShape2D_avw15")
 
 [node name="DungeonUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 

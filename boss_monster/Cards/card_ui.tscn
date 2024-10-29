@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Cards/card_states/card_clicked_state.gd" id="5_k83ju"]
 [ext_resource type="Script" path="res://Cards/card_states/card_dragging_state.gd" id="6_104fu"]
 [ext_resource type="Script" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
-[ext_resource type="Texture2D" uid="uid://b18cub0fswb6p" path="res://Cards/Graphics/Gas_Leak.png" id="8_dfscc"]
+[ext_resource type="Texture2D" uid="uid://dgsejur58fxcg" path="res://Cards/Graphics/spikes.png" id="8_r0eqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
 size = Vector2(90, 140)
@@ -69,10 +69,11 @@ state = 2
 script = ExtResource("7_p8mpf")
 state = 4
 
-[node name="GasLeak" type="Sprite2D" parent="."]
+[node name="trap_texture" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(43, 72)
-texture = ExtResource("8_dfscc")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_r0eqt")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -8,7 +8,8 @@ signal reparent_requested(which_card_ui: CardUI)
 @onready var card_state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
 @onready var drop_point_detecor: Area2D = $DropPointDetecor
 @onready var targets: Array[Node] = []
-@onready var gas_leak: Sprite2D = $GasLeak
+@onready var trap_texture: Sprite2D = $trap_texture
+
 
 
 # Called when the node enters the scene tree for the first time.
