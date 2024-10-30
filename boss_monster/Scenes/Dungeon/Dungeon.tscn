@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=51 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://blqargua7uxm1" path="res://Assets/Tiles/Dungeon tileset.png" id="3_fe1ow"]
 [ext_resource type="Texture2D" uid="uid://ojblnu8qt3tx" path="res://Assets/Tiles/tileanimations/walltorch.png" id="4_0q570"]
 [ext_resource type="Texture2D" uid="uid://ciospukj0mwgc" path="res://Assets/Tiles/tileanimations/torchtransparent.png" id="5_1qfqf"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
 [ext_resource type="PackedScene" uid="uid://cwe10f71qd1ue" path="res://kortti.tscn" id="12_sakbs"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
 [ext_resource type="Texture2D" uid="uid://bb7kr6kupyh74" path="res://Assets/Heroes/Barbarian.png" id="13_ct2vw"]
@@ -853,9 +854,12 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8r57"]
+size = Vector2(121, 98)
+
 [sub_resource type="Curve2D" id="Curve2D_6704g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 211, 72, 0, 0, 0, 0, 227, 70, 0, 0, 0, 0, 495, 65, 0, 0, 0, 0, 845, 75, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 858, 273, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 215, 262, 0, 0, 0, 0, 78, 272, 0, 0, 0, 0, 70, 435, 0, 0, 0, 0, 212, 446, 0, 0, 0, 0, 503, 439, 0, 0, 0, 0, 715, 438)
+"points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 211, 72, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 69, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 215, 262, 0, 0, 0, 0, 78, 272, 0, 0, 0, 0, 70, 435, 0, 0, 0, 0, 212, 446, 0, 0, 0, 0, 503, 439, 0, 0, 0, 0, 697, 440)
 }
 point_count = 14
 
@@ -894,6 +898,9 @@ animations = [{
 "name": &"Idle",
 "speed": 4.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wimg"]
+size = Vector2(12.5, 21.5)
 
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_a3apr")
@@ -1091,7 +1098,7 @@ offset_left = 711.0
 offset_top = 577.0
 offset_right = 834.0
 offset_bottom = 608.0
-text = "Reset cards"
+text = "Reset "
 
 [node name="Quit_game" type="Button" parent="."]
 offset_left = 1038.0
@@ -1099,6 +1106,25 @@ offset_top = 8.0
 offset_right = 1130.0
 offset_bottom = 39.0
 text = "Quit Game"
+
+[node name="Autoplay" type="Button" parent="."]
+offset_left = 717.0
+offset_top = 614.0
+offset_right = 823.0
+offset_bottom = 645.0
+text = "Autoplay Off
+"
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 718.0
+offset_top = 653.0
+offset_right = 832.0
+offset_bottom = 669.0
+min_value = 0.1
+max_value = 1.0
+step = 0.01
+value = 0.55
+script = ExtResource("8_xunt5")
 
 [node name="Cards" type="Node2D" parent="."]
 visible = false
@@ -1128,6 +1154,14 @@ animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.360455
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="Boss"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Area2D"]
+position = Vector2(757, 439)
+shape = SubResource("RectangleShape2D_a8r57")
 
 [node name="CardDropAreas" type="Node2D" parent="."]
 position = Vector2(753, 425)
@@ -1193,6 +1227,7 @@ size_flags_horizontal = 4
 
 [node name="Hero" type="Node2D" parent="."]
 script = ExtResource("13_7qnxi")
+speed = 300
 
 [node name="Path2D" type="Path2D" parent="Hero"]
 curve = SubResource("Curve2D_6704g")
@@ -1210,6 +1245,21 @@ sprite_frames = SubResource("SpriteFrames_x66xq")
 animation = &"Idle"
 frame_progress = 0.525025
 
+[node name="HitBox" type="Area2D" parent="Hero/Path2D/PathFollow2D/Idle_animation"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hero/Path2D/PathFollow2D/Idle_animation/HitBox"]
+position = Vector2(-0.25, 0.749996)
+shape = SubResource("RectangleShape2D_7wimg")
+
+[node name="Timer" type="Timer" parent="Hero/Path2D"]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="pressed" from="Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="Autoplay" to="." method="_on_autoplay_pressed"]
+[connection signal="area_entered" from="Hero/Path2D/PathFollow2D/Idle_animation/HitBox" to="Hero" method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="Hero/Path2D/Timer" to="Hero" method="_on_timer_timeout"]

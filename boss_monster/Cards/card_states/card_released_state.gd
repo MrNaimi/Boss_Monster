@@ -10,6 +10,7 @@ func enter() -> void:
 	
 	if not card_ui.targets.is_empty() && card_ui.targets[0].get_child(0).get_child(0).get_child_count() == 0:
 		GlobalVariables.card_dragging=false
+		GlobalVariables.combat_phase=true
 		card_ui.card_texture.visible=false
 		card_ui.color.color = Color.TRANSPARENT
 		card_ui.state.text = ""
