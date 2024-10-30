@@ -22,6 +22,12 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	GlobalVariables.heroes_move=false
 	if GlobalVariables.autoplay:
 		timer.start()
+<<<<<<< Updated upstream
 
+=======
+	#hp=hp-area.damage
+	#print(hp)
+	
+>>>>>>> Stashed changes
 func _on_timer_timeout() -> void:
 	GlobalVariables.heroes_move=true
