@@ -2,4 +2,4 @@ extends Node
 
 var card_dragging = false
 
-var traps: Array[String] = ["spikes.png","assassination.png","Portal.png"]
+var traps: Array[String] = ["spikes.png","Gas_Leak.png"]
