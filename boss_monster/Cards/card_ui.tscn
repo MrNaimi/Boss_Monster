@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o33examlthtq"]
+[gd_scene load_steps=10 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
 [ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Cards/card_states/card_clicked_state.gd" id="5_k83ju"]
 [ext_resource type="Script" path="res://Cards/card_states/card_dragging_state.gd" id="6_104fu"]
 [ext_resource type="Script" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
-[ext_resource type="Texture2D" uid="uid://dgsejur58fxcg" path="res://Cards/Graphics/spikes.png" id="8_r0eqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
 size = Vector2(90, 140)
@@ -76,7 +75,6 @@ state = 4
 visible = false
 position = Vector2(43, 72)
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("8_r0eqt")
 
 [node name="HitBox" type="Area2D" parent="."]
 visible = false
