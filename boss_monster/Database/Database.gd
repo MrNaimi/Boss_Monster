@@ -1,8 +1,8 @@
 
-#HeroInfo =[Type, Damage, Health, Name, Role, Artifact, Special Text]
+#HeroInfo =[Type, Factor, Damage, , Name, Role, Artifact, Special Text]
 #BossInfo =[Type, Health, Name, Special Text]
 #SpellInfo =[Type, Damage, +Health, Name, Special Text]
-#RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text]
+#RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png]
 
 enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap,}
 
@@ -49,9 +49,9 @@ const DATA ={
 		
 	#Rooms 
 	Goblin_warrior :
-		["Room", 3, "Goblin Warrior", "Monster", ""],
+		["Room", 3, "Goblin Warrior", "Monster", "", "Goblin_warrior.png"],
 	Gas_Leak :
-		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes"],
+		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "Gas_Leak.png"],	
 	Mimic :
 		["Room", 3, "Mimic", "Monster", ""],
 	The_Vault_Room :
