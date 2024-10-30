@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhnpite2foeeu"]
+
+[ext_resource type="Texture2D" uid="uid://cbu8q56sd2x3" path="res://Assets/Heroes/Paladin.png" id="1_hr2oq"]
+
+[node name="Hero" type="Node2D"]
+
+[node name="HeroSprite" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_hr2oq")

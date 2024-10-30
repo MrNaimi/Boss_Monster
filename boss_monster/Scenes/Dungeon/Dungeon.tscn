@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=48 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ojblnu8qt3tx" path="res://Assets/Tiles/tileanimations/walltorch.png" id="4_0q570"]
 [ext_resource type="Texture2D" uid="uid://ciospukj0mwgc" path="res://Assets/Tiles/tileanimations/torchtransparent.png" id="5_1qfqf"]
 [ext_resource type="PackedScene" uid="uid://cwe10f71qd1ue" path="res://kortti.tscn" id="12_sakbs"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
 [ext_resource type="Texture2D" uid="uid://bb7kr6kupyh74" path="res://Assets/Heroes/Barbarian.png" id="13_ct2vw"]
 [ext_resource type="Texture2D" uid="uid://cw3ak2bpdp0bm" path="res://Assets/Bosses/Corrupted_Mage/Corrupted_Mage.png" id="15_xtt6n"]
 [ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
@@ -852,6 +853,12 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Curve2D" id="Curve2D_6704g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 211, 72, 0, 0, 0, 0, 227, 70, 0, 0, 0, 0, 495, 65, 0, 0, 0, 0, 845, 75, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 858, 273, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 215, 262, 0, 0, 0, 0, 78, 272, 0, 0, 0, 0, 70, 435, 0, 0, 0, 0, 212, 446, 0, 0, 0, 0, 503, 439, 0, 0, 0, 0, 715, 438)
+}
+point_count = 14
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxvno"]
 atlas = ExtResource("13_ct2vw")
 region = Rect2(0, 0, 16, 16)
@@ -1184,10 +1191,20 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Barbarian" type="Node2D" parent="."]
+[node name="Hero" type="Node2D" parent="."]
+script = ExtResource("13_7qnxi")
 
-[node name="Idle_animation" type="AnimatedSprite2D" parent="Barbarian"]
-position = Vector2(82, 67)
+[node name="Path2D" type="Path2D" parent="Hero"]
+curve = SubResource("Curve2D_6704g")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Hero/Path2D"]
+position = Vector2(86, 70)
+rotation = 0.0159986
+rotates = false
+
+[node name="Idle_animation" type="AnimatedSprite2D" parent="Hero/Path2D/PathFollow2D"]
+position = Vector2(-4.04748, -2.93562)
+rotation = -0.0159986
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_x66xq")
 animation = &"Idle"

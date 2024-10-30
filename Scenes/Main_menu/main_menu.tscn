@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0wwo6jfs4mhg"]
+
+[ext_resource type="Script" path="res://Scenes/Main_menu/main_menu.gd" id="1_dfxk5"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/fonts/poco/Poco.ttf" id="2_3dran"]
+[ext_resource type="Texture2D" uid="uid://byio4qa7trwyr" path="res://mainmenu.png" id="2_hs86e"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dfxk5")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(639.875, 359.125)
+scale = Vector2(1.32668, 1.93499)
+texture = ExtResource("2_hs86e")
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0792793, 0.195767, 0.17555, 1)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 33.0
+offset_top = -72.0
+offset_right = 1336.0
+offset_bottom = 182.0
+theme_override_fonts/font = ExtResource("2_3dran")
+theme_override_font_sizes/font_size = 130
+text = "Underlord's Ascension"
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -152.5
+offset_right = 150.0
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Play_Button" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3dran")
+theme_override_font_sizes/font_size = 60
+text = "Play "
+
+[node name="Collections" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3dran")
+theme_override_font_sizes/font_size = 60
+text = "Collections"
+
+[node name="Quit_game" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3dran")
+theme_override_font_sizes/font_size = 60
+text = "Quit Game"
+
+[connection signal="pressed" from="Menu/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/Collections" to="." method="_on_collections_pressed"]
+[connection signal="pressed" from="Menu/Quit_game" to="." method="_on_quit_game_pressed"]

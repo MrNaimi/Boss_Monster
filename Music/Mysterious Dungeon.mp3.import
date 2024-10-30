@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d346njub85tsg"
+path="res://.godot/imported/Mysterious Dungeon.mp3-ae66688ef7100a1e48478941ab5ae456.mp3str"
+
+[deps]
+
+source_file="res://Music/Mysterious Dungeon.mp3"
+dest_files=["res://.godot/imported/Mysterious Dungeon.mp3-ae66688ef7100a1e48478941ab5ae456.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
