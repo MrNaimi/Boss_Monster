@@ -14,15 +14,18 @@ signal reset_card()
 @onready var trap_hit_box: CollisionShape2D = $HitBox/TrapHitBox
 @onready var texturepath:= 'res://Cards/Graphics/trap_graphic/'
 @onready var card_texture: Sprite2D = $CardTexture
+@export var trap_dmg: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	card_state_machine.init(self)
+	trap_dmg=RandomNumberGenerator.new().randf_range(1,3)
 	var trap=GlobalVariables.traps[GlobalVariables.trap_index]
 	GlobalVariables.trap_index+=1
 	var texture = load(texturepath+trap)
 	trap_texture.texture=texture
 	card_texture.texture=texture
+
 
 
 func _input(event: InputEvent) -> void:
