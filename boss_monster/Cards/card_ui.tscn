@@ -86,6 +86,10 @@ position = Vector2(43.5, 75.5)
 shape = SubResource("RectangleShape2D_ng550")
 disabled = true
 
+[node name="CardTexture" type="Sprite2D" parent="."]
+position = Vector2(45, 70)
+scale = Vector2(4.71875, 4.71875)
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

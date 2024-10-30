@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btqdh65tjgqnq"
-path="res://.godot/imported/Healing Potion.png-59bc6ceb2c197a4e8e7bd670058c4c65.ctex"
+path="res://.godot/imported/healing_potion.png-749a7ed46045295b6e66cfd8c7631059.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Graphics/Healing Potion.png"
-dest_files=["res://.godot/imported/Healing Potion.png-59bc6ceb2c197a4e8e7bd670058c4c65.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/healing_potion.png"
+dest_files=["res://.godot/imported/healing_potion.png-749a7ed46045295b6e66cfd8c7631059.ctex"]
 
 [params]
 

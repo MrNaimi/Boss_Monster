@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdbkea8gshl6m"
-path="res://.godot/imported/Malfunctioning sauna.png-c25a651cce31fbfaa88df535e7a0b1e2.ctex"
+uid="uid://c13iajonv2x2b"
+path="res://.godot/imported/std.png-f8b78d4250f6de7c2a051d8927742381.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Graphics/Malfunctioning sauna.png"
-dest_files=["res://.godot/imported/Malfunctioning sauna.png-c25a651cce31fbfaa88df535e7a0b1e2.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/std.png"
+dest_files=["res://.godot/imported/std.png-f8b78d4250f6de7c2a051d8927742381.ctex"]
 
 [params]
 

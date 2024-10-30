@@ -10,10 +10,12 @@ func enter() -> void:
 	
 	if not card_ui.targets.is_empty() && card_ui.targets[0].get_child(0).get_child(0).get_child_count() == 0:
 		GlobalVariables.card_dragging=false
+		card_ui.card_texture.visible=false
 		card_ui.color.color = Color.TRANSPARENT
 		card_ui.state.text = ""
 		card_ui.trap_texture.visible = true
 		card_ui.trap_hit_box.disabled = false
+
 		played = true
 		print("play card for target(s)", card_ui.targets)
 		print("Child nodes of target area:", card_ui.targets[0].get_child(0).get_children())
