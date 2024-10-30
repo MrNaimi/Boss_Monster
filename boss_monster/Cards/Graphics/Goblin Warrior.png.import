@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4bkp5wicayav"
-path="res://.godot/imported/lich.png-feef91491e6f13c781ce6e06c2a3c685.ctex"
+uid="uid://can5cc11qihkm"
+path="res://.godot/imported/Goblin Warrior.png-171a7716a9897c570bef5b909cd2fcdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Traps/lich.png"
-dest_files=["res://.godot/imported/lich.png-feef91491e6f13c781ce6e06c2a3c685.ctex"]
+source_file="res://Cards/Graphics/Goblin Warrior.png"
+dest_files=["res://.godot/imported/Goblin Warrior.png-171a7716a9897c570bef5b909cd2fcdc.ctex"]
 
 [params]
 
