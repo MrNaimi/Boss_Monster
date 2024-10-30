@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://o33examlthtq"]
+[gd_scene load_steps=11 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
 [ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Cards/card_states/card_clicked_state.gd" id="5_k83ju"]
 [ext_resource type="Script" path="res://Cards/card_states/card_dragging_state.gd" id="6_104fu"]
 [ext_resource type="Script" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
+[ext_resource type="Script" path="res://Cards/hit_box.gd" id="8_wmq1s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
 size = Vector2(90, 140)
@@ -22,6 +23,7 @@ offset_right = 25.0
 offset_bottom = 30.0
 theme = ExtResource("1_8rgw7")
 script = ExtResource("2_t2x5w")
+trap_dmg = 3
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -77,9 +79,9 @@ position = Vector2(43, 72)
 scale = Vector2(2.5, 2.5)
 
 [node name="HitBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 4
 collision_mask = 4
+script = ExtResource("8_wmq1s")
 
 [node name="TrapHitBox" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(43.5, 75.5)
@@ -96,3 +98,4 @@ scale = Vector2(4.71875, 4.71875)
 [connection signal="reset_card" from="." to="CardStateMachine/CardReleasedState" method="_on_card_ui_reset_card"]
 [connection signal="area_entered" from="DropPointDetecor" to="." method="_on_drop_point_detecor_area_entered"]
 [connection signal="area_exited" from="DropPointDetecor" to="." method="_on_drop_point_detecor_area_exited"]
+[connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]

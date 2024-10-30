@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=53 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://blqargua7uxm1" path="res://Assets/Tiles/Dungeon tileset.png" id="3_fe1ow"]
 [ext_resource type="Texture2D" uid="uid://ojblnu8qt3tx" path="res://Assets/Tiles/tileanimations/walltorch.png" id="4_0q570"]
 [ext_resource type="Texture2D" uid="uid://ciospukj0mwgc" path="res://Assets/Tiles/tileanimations/torchtransparent.png" id="5_1qfqf"]
+[ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/fonts/poco/Poco.ttf" id="9_xb32f"]
 [ext_resource type="PackedScene" uid="uid://cwe10f71qd1ue" path="res://kortti.tscn" id="12_sakbs"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
 [ext_resource type="Texture2D" uid="uid://bb7kr6kupyh74" path="res://Assets/Heroes/Barbarian.png" id="13_ct2vw"]
@@ -859,7 +861,7 @@ size = Vector2(121, 98)
 
 [sub_resource type="Curve2D" id="Curve2D_6704g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 211, 72, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 69, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 215, 262, 0, 0, 0, 0, 78, 272, 0, 0, 0, 0, 70, 435, 0, 0, 0, 0, 212, 446, 0, 0, 0, 0, 503, 439, 0, 0, 0, 0, 697, 440)
+"points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 211, 72, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 69, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 219, 262, 0, 0, 0, 0, 78, 262, 0, 0, 0, 0, 70, 435, 0, 0, 0, 0, 212, 446, 0, 0, 0, 0, 503, 439, 0, 0, 0, 0, 697, 440)
 }
 point_count = 14
 
@@ -1086,45 +1088,57 @@ scale = Vector2(0.7, 1)
 position = Vector2(260, 408)
 scale = Vector2(0.7, 1)
 
-[node name="Continue_button" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 711.0
 offset_top = 536.0
-offset_right = 834.0
-offset_bottom = 567.0
+offset_right = 844.0
+offset_bottom = 660.0
+
+[node name="Continue_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("8_l2hdd")
+theme_override_constants/outline_size = -1
+theme_override_fonts/font = ExtResource("9_xb32f")
+theme_override_font_sizes/font_size = 20
 text = "Continue"
 
-[node name="Reset_button" type="Button" parent="."]
-offset_left = 711.0
-offset_top = 577.0
-offset_right = 834.0
-offset_bottom = 608.0
+[node name="Reset_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_constants/outline_size = -1
+theme_override_fonts/font = ExtResource("9_xb32f")
+theme_override_font_sizes/font_size = 20
 text = "Reset "
+
+[node name="Autoplay" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_constants/outline_size = -1
+theme_override_fonts/font = ExtResource("9_xb32f")
+theme_override_font_sizes/font_size = 20
+text = "Autoplay Off
+"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+min_value = 0.1
+max_value = 1.0
+step = 0.01
+value = 0.55
+script = ExtResource("8_xunt5")
 
 [node name="Quit_game" type="Button" parent="."]
 offset_left = 1038.0
 offset_top = 8.0
 offset_right = 1130.0
 offset_bottom = 39.0
+theme = ExtResource("8_l2hdd")
+theme_override_constants/outline_size = -1
+theme_override_fonts/font = ExtResource("9_xb32f")
+theme_override_font_sizes/font_size = 20
 text = "Quit Game"
-
-[node name="Autoplay" type="Button" parent="."]
-offset_left = 717.0
-offset_top = 614.0
-offset_right = 823.0
-offset_bottom = 645.0
-text = "Autoplay Off
-"
-
-[node name="HSlider" type="HSlider" parent="."]
-offset_left = 718.0
-offset_top = 653.0
-offset_right = 832.0
-offset_bottom = 669.0
-min_value = 0.1
-max_value = 1.0
-step = 0.01
-value = 0.55
-script = ExtResource("8_xunt5")
+metadata/_edit_use_anchors_ = true
 
 [node name="Cards" type="Node2D" parent="."]
 visible = false
@@ -1243,6 +1257,7 @@ rotation = -0.0159986
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_x66xq")
 animation = &"Idle"
+autoplay = "Idle"
 frame_progress = 0.525025
 
 [node name="HitBox" type="Area2D" parent="Hero/Path2D/PathFollow2D/Idle_animation"]
@@ -1257,9 +1272,9 @@ shape = SubResource("RectangleShape2D_7wimg")
 wait_time = 0.5
 one_shot = true
 
-[connection signal="pressed" from="Continue_button" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="Reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Continue_button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Autoplay" to="." method="_on_autoplay_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
-[connection signal="pressed" from="Autoplay" to="." method="_on_autoplay_pressed"]
 [connection signal="area_entered" from="Hero/Path2D/PathFollow2D/Idle_animation/HitBox" to="Hero" method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="Hero/Path2D/Timer" to="Hero" method="_on_timer_timeout"]
