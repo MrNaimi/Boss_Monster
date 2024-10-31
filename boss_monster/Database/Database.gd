@@ -57,7 +57,7 @@ const DATA ={
 	The_Vault_Room : #tehty 
 		["Room", 3, "The Vault Room","Monster", "", "vault_room.png"],
 	Spike_Factory :#tehty
-		["Room", 4, "Spike Factory","Trap","", "spike_factory.png"],
+		["Room", 4, "Spike Factory","Monster","", "spike_factory.png"],
 	Hot_Coals: #tehty oikee art
 		["Room", 3, "Hot Coals","Trap","", "hot_coals.png"],
 	Monster_Lounge: #tehty

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhd1g7jwxxegm"
-path="res://.godot/imported/assassination.png-4c9b0e58c9807613e9f0fe839599e440.ctex"
+uid="uid://dinpqxguth1o1"
+path="res://.godot/imported/mind_control.png-ab6b73b3d7db30d67a12e83211fd3532.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Graphics/assassination.png"
-dest_files=["res://.godot/imported/assassination.png-4c9b0e58c9807613e9f0fe839599e440.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/mind_control.png"
+dest_files=["res://.godot/imported/mind_control.png-ab6b73b3d7db30d67a12e83211fd3532.ctex"]
 
 [params]
 
