@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 		path_follow_2d.progress += speed * delta
 		#print()
 		if path_follow_2d.progress > 950 and path_follow_2d.progress < 1850:
-			print(path_follow_2d.progress)
+			#print(path_follow_2d.progress)
 			idle_animation.flip_h = true
 		else:
 			idle_animation.flip_h = false

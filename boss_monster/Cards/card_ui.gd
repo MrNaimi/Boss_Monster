@@ -4,7 +4,6 @@ extends Control
 signal reparent_requested(which_card_ui: CardUI)
 signal reset_card()
 
-
 @onready var color: ColorRect = $ColorRect
 @onready var state: Label = $State
 @onready var card_state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
@@ -15,10 +14,30 @@ signal reset_card()
 @onready var texturepath:= 'res://Cards/Graphics/trap_graphic/'
 @onready var card_texture: Sprite2D = $CardTexture
 @export var trap_dmg: int = 1
+@onready var card_border: Sprite2D = $CardBorder
+@onready var card_name: Label = $CardName
+@onready var rooms: Array[Array] = GlobalVariables.rooms
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+	#print(rooms)
+	
+	var i =  RandomNumberGenerator.new().randi_range(0, rooms.size()-1)
+	#print(rooms[i])
+	var selectedRoom=rooms.pop_at(i)
+	#print("selected room ",selectedRoom)
+#
+	#print()
+	#print("all rooms ",rooms)
+	#print("Current size of rooms[]: ",rooms.size())
+	#print()
+	#'
+	
+	
 	card_state_machine.init(self)
+	
+	
 	trap_dmg=RandomNumberGenerator.new().randf_range(1,3)
 	var trap=GlobalVariables.traps[GlobalVariables.trap_index]
 	GlobalVariables.trap_index+=1

@@ -7,3 +7,12 @@ var trap_index=0
 var heroes_move = false
 var combat_phase = false
 var autoplay = false
+@onready var Database = preload("res://Database/Database.gd")
+@onready var rooms: Array[Array] = []
+
+func _ready() -> void:
+	for i in range(Database.DATA.size()-1):
+		if Database.DATA.get(i)[0]=="Room":
+			rooms.append(Database.DATA.get(i))
+		i+=1
+		

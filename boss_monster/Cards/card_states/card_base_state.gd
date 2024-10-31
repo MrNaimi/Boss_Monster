@@ -8,9 +8,11 @@ func enter() -> void:
 	card_ui.trap_hit_box.disabled = true
 	card_ui.card_texture.visible = true
 	card_ui.reparent_requested.emit(card_ui)
-	card_ui.color.color = Color.WEB_GREEN
-	card_ui.state.text = "BASE"
+	card_ui.color.color = Color("9a7b37")
+	#card_ui.state.text = ""
 	card_ui.pivot_offset = Vector2.ZERO
+	card_ui.card_border.visible = true
+	card_ui.card_name.visible = true
 	 
 func on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):

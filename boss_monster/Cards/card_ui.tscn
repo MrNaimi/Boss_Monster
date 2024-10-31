@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o33examlthtq"]
+[gd_scene load_steps=14 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
 [ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://Cards/card_states/card_dragging_state.gd" id="6_104fu"]
 [ext_resource type="Script" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
 [ext_resource type="Script" path="res://Cards/hit_box.gd" id="8_wmq1s"]
+[ext_resource type="Texture2D" uid="uid://xyagx21fdkl0" path="res://Cards/Graphics/card empty.png" id="9_1m65k"]
+[ext_resource type="Texture2D" uid="uid://bdbkea8gshl6m" path="res://Cards/Graphics/trap_graphic/sauna.png" id="9_v7el0"]
+[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://Fonts/fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
 size = Vector2(90, 140)
@@ -33,18 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(6.61798e-08, 0.190643, 0.191712, 1)
-
-[node name="State" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "state"
-horizontal_alignment = 1
-vertical_alignment = 1
+color = Color(0.603922, 0.482353, 0.215686, 1)
 
 [node name="DropPointDetecor" type="Area2D" parent="."]
 collision_mask = 2
@@ -89,8 +81,25 @@ shape = SubResource("RectangleShape2D_ng550")
 disabled = true
 
 [node name="CardTexture" type="Sprite2D" parent="."]
+position = Vector2(44.5625, 59)
+scale = Vector2(4.42969, 4.35937)
+texture = ExtResource("9_v7el0")
+
+[node name="CardBorder" type="Sprite2D" parent="."]
 position = Vector2(45, 70)
-scale = Vector2(4.71875, 4.71875)
+scale = Vector2(0.134454, 0.143133)
+texture = ExtResource("9_1m65k")
+
+[node name="CardName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 84.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("11_a640w")
+theme_override_font_sizes/font_size = 9
+text = "CardName"
+horizontal_alignment = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
