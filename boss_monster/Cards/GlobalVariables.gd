@@ -11,6 +11,9 @@ var timerAmount = 0.1
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
 var damageGiven = 0
+var heroHp = 10 
+var heroKilled = false
+var bossHp = 50
 
 func _ready() -> void:
 	for i in range(Database.DATA.size()-1):
