@@ -5,7 +5,6 @@ extends Node2D
 @onready var timer: Timer = $Path2D/Timer
 @onready var hero: PackedScene = preload("res://hero.tscn")
 
-
 @export var hp = 10
 @export var dmg = 5
 
@@ -18,6 +17,7 @@ func _process(delta: float) -> void:
 		#print()
 	if GlobalVariables.heroKilled:
 		path_follow_2d.progress=0
+		GlobalVariables.heroHp =RandomNumberGenerator.new().randi_range(10,15)
 		get_child(0).get_child(0).add_child(hero.instantiate())
 		
 		GlobalVariables.heroKilled = false

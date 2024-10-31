@@ -4,11 +4,11 @@ extends Node2D
 @onready var idle_animation: AnimatedSprite2D = $Idle_animation
 @onready var timer: Timer = $Timer
 var hp = GlobalVariables.heroHp
-
+@onready var hpNext = RandomNumberGenerator.new().randi_range(10,15)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	health_bar.max_value = hp
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	
 	if hp <= 0:
 		queue_free()
-		GlobalVariables.heroHp=10
+		GlobalVariables.heroHp = hpNext
 		GlobalVariables.heroKilled = true
 		
 	
@@ -41,5 +41,4 @@ func _on_timer_timeout() -> void:
 
 func _on_hit_box_area_exited(area: Area2D) -> void:
 	hp -= GlobalVariables.damageGiven
-	GlobalVariables.heroHp = 10
 	GlobalVariables.heroHp = hp

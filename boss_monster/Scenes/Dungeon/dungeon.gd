@@ -61,4 +61,6 @@ func _on_autoplay_pressed() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	GlobalVariables.bossHp -= GlobalVariables.heroHp
+	GlobalVariables.heroHp = 0
 	boss_health_bar.value = GlobalVariables.bossHp
+	GlobalVariables.heroHp = RandomNumberGenerator.new().randi_range(10,15)
