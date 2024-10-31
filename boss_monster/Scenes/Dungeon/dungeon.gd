@@ -4,7 +4,7 @@ var is_dragging = false
 @onready var cards: Array[Node] = []
 @onready var hand: Hand = $DungeonUI/Hand
 @onready var card_drop_areas: Node2D = $CardDropAreas
-@onready var path_follow_2d: PathFollow2D = $Hero/Path2D/PathFollow2D
+@onready var path_follow_2d: PathFollow2D = $Heroes/Path2D/PathFollow2D
 @onready var autoplay: Button = $VBoxContainer/Autoplay
 @onready var hero: Node2D = $Hero
 
