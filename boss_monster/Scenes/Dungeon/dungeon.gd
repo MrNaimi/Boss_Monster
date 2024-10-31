@@ -4,16 +4,18 @@ var is_dragging = false
 @onready var cards: Array[Node] = []
 @onready var hand: Hand = $DungeonUI/Hand
 @onready var card_drop_areas: Node2D = $CardDropAreas
-@onready var path_follow_2d: PathFollow2D = $Hero/Path2D/PathFollow2D
+@onready var path_follow_2d: PathFollow2D = $Heroes/Path2D/PathFollow2D
 @onready var autoplay: Button = $VBoxContainer/Autoplay
-@onready var hero: Node2D = $Hero
+@onready var heroes: Node2D = $Heroes
+@onready var hero: PackedScene = preload("res://hero.tscn")
+@onready var boss_health_bar: ProgressBar = $bossHealthBar
+@onready var hp = 50
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-
 	pass
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,7 +23,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Z-button"):
 		GlobalVariables.heroes_move = true
 		print("Continue")
-
+	
 	
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
@@ -37,7 +39,7 @@ func _on_reset_button_pressed() -> void:
 	GlobalVariables.heroes_move=false
 	GlobalVariables.autoplay=false
 	autoplay.text="Autoplay Off"
-	hero.hp=10
+	#hero.hp = 0
 	for carddroparea in card_drop_areas.get_children():
 		for room in carddroparea.get_children():
 			for vboxcontainer in room.get_children():
@@ -53,3 +55,8 @@ func _on_autoplay_pressed() -> void:
 		autoplay.text="Autoplay On"
 	else:
 		autoplay.text="Autoplay Off"
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	GlobalVariables.bossHp -= GlobalVariables.heroHp
+	

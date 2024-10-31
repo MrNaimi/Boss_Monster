@@ -1,8 +1,10 @@
 extends Node2D
 
 @onready var path_follow_2d: PathFollow2D = $Path2D/PathFollow2D
-@export var speed = 500
+@export var speed = 300
 @onready var timer: Timer = $Path2D/Timer
+@onready var hero: PackedScene = preload("res://hero.tscn")
+
 
 @export var hp = 10
 @export var dmg = 5
@@ -14,4 +16,9 @@ func _process(delta: float) -> void:
 		path_follow_2d.progress += speed * delta
 		GlobalVariables.hero_progress = path_follow_2d.progress
 		#print()
+	if GlobalVariables.heroKilled:
+		path_follow_2d.progress=0
+		get_child(0).get_child(0).add_child(hero.instantiate())
+		
+		GlobalVariables.heroKilled = false
 		
