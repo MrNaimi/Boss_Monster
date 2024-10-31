@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=48 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -864,6 +864,12 @@ _data = {
 }
 point_count = 14
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3yn2"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwxt8"]
+bg_color = Color(1, 0, 0.0166664, 1)
+
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_a3apr")
 
@@ -1183,7 +1189,6 @@ size_flags_horizontal = 4
 
 [node name="Heroes" type="Node2D" parent="."]
 script = ExtResource("13_7qnxi")
-speed = 300
 
 [node name="Path2D" type="Path2D" parent="Heroes"]
 curve = SubResource("Curve2D_6704g")
@@ -1195,7 +1200,20 @@ rotates = false
 
 [node name="Hero" parent="Heroes/Path2D/PathFollow2D" instance=ExtResource("16_efdd6")]
 
+[node name="bossHealthBar" type="ProgressBar" parent="."]
+offset_left = 875.0
+offset_top = 646.0
+offset_right = 1249.0
+offset_bottom = 709.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y3yn2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cwxt8")
+max_value = 50.0
+step = 1.0
+value = 45.0
+show_percentage = false
+
 [connection signal="pressed" from="VBoxContainer/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Autoplay" to="." method="_on_autoplay_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
+[connection signal="area_entered" from="Boss/Area2D" to="." method="_on_area_2d_area_entered"]
