@@ -48,26 +48,26 @@ const DATA ={
 		["Spell", 0, 0, "Bad Directions", "Return a hero back to the start of the dungeon"],
 		
 	#Rooms 
-	Goblin_warrior :
-		["Room", 3, "Goblin Warrior", "Monster", "", "Goblin_warrior.png"],
-	Gas_Leak :
-		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "Gas_Leak.png"],	
-	Mimic :
-		["Room", 3, "Mimic", "Monster", ""],
-	The_Vault_Room :
-		["Room", 3, "The Vault Room","Monster", ""],
-	Spike_Factory :
-		["Room", 4, "Spike Factory","Trap",""],
-	Hot_Coals:
-		["Room", 3, "Hot Coals","Trap",""],
-	Monster_Lounge:
-		["Room", 4, "Monster Lounge", "Monster", ""],
-	The_Dragon_Lair: 
-		["Room", 4, "The Dragon Lair", "Monster", ""],
-	Pit_Fall:
-		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room"],
-	Spike_Trap :
-		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room"],
+	Goblin_warrior : #tehty
+		["Room", 3, "Goblin Warrior", "Monster", "", "goblin_warrior.png"],
+	Gas_Leak : #tehty
+		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png"],	
+	Mimic :#tehty
+		["Room", 3, "Mimic", "Monster", "", "mimic.png"],
+	The_Vault_Room : #tehty
+		["Room", 3, "The Vault Room","Monster", "", "vault_room.png"],
+	Spike_Factory :#tehty
+		["Room", 4, "Spike Factory","Trap","", "spike_factory.png"],
+	Hot_Coals: #tehty
+		["Room", 3, "Hot Coals","Trap","", "hot_coals.png"],
+	Monster_Lounge: #tehty
+		["Room", 4, "Monster Lounge", "Monster", "monster_lounge.png"],
+	The_Dragon_Lair: #tehty
+		["Room", 4, "The Dragon Lair", "Monster", "", "dragon_lair.png"],
+	Pit_Fall: #tehty
+		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png"],
+	Spike_Trap : #tehty
+		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room","spikes.png"],
 } 
 #Kortit joille on art tehty:
 #Healing Potion, Gas Leak, Assassination
