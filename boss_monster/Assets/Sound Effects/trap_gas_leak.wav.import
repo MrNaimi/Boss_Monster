@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwp6cjbuy67us"
+path="res://.godot/imported/trap_gas_leak.wav-e3505b8e61e4379b81e99bf861da6160.sample"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/trap_gas_leak.wav"
+dest_files=["res://.godot/imported/trap_gas_leak.wav-e3505b8e61e4379b81e99bf861da6160.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
