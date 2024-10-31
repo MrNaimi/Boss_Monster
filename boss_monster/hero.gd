@@ -4,6 +4,8 @@ extends Node2D
 @onready var idle_animation: AnimatedSprite2D = $Idle_animation
 @onready var timer: Timer = $Timer
 var hp = GlobalVariables.heroHp
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -22,6 +24,7 @@ func _process(delta: float) -> void:
 	
 	if hp <= 0:
 		queue_free()
+		hp = GlobalVariables.heroHp
 		GlobalVariables.heroKilled = true
 		
 	
