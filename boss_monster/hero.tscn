@@ -1,10 +1,71 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhnpite2foeeu"]
+[gd_scene load_steps=9 format=3 uid="uid://dhnpite2foeeu"]
 
-[ext_resource type="Texture2D" uid="uid://cbu8q56sd2x3" path="res://Assets/Heroes/Paladin.png" id="1_hr2oq"]
+[ext_resource type="Texture2D" uid="uid://bb7kr6kupyh74" path="res://Assets/Heroes/Barbarian.png" id="1_058t2"]
+[ext_resource type="Script" path="res://hero.gd" id="1_c28ts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxvno"]
+atlas = ExtResource("1_058t2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl1tv"]
+atlas = ExtResource("1_058t2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewfxa"]
+atlas = ExtResource("1_058t2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_susge"]
+atlas = ExtResource("1_058t2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x66xq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxvno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl1tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewfxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_susge")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wimg"]
+size = Vector2(12.5, 21.5)
 
 [node name="Hero" type="Node2D"]
+script = ExtResource("1_c28ts")
 
-[node name="HeroSprite" type="Sprite2D" parent="."]
-z_index = 1
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_hr2oq")
+[node name="Idle_animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.04748, -2.93562)
+rotation = -0.0159986
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_x66xq")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.525025
+
+[node name="HitBox" type="Area2D" parent="Idle_animation"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Idle_animation/HitBox"]
+position = Vector2(-0.25, 0.749996)
+shape = SubResource("RectangleShape2D_7wimg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="Idle_animation/HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_exited" from="Idle_animation/HitBox" to="." method="_on_hit_box_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

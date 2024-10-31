@@ -139,4 +139,4 @@ horizontal_alignment = 1
 [connection signal="reset_card" from="." to="CardStateMachine/CardReleasedState" method="_on_card_ui_reset_card"]
 [connection signal="area_entered" from="DropPointDetecor" to="." method="_on_drop_point_detecor_area_entered"]
 [connection signal="area_exited" from="DropPointDetecor" to="." method="_on_drop_point_detecor_area_exited"]
-[connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

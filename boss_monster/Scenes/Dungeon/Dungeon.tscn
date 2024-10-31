@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=46 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -10,13 +10,12 @@
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/fonts/poco/Poco.ttf" id="9_xb32f"]
-[ext_resource type="PackedScene" uid="uid://cwe10f71qd1ue" path="res://kortti.tscn" id="12_sakbs"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
-[ext_resource type="Texture2D" uid="uid://bb7kr6kupyh74" path="res://Assets/Heroes/Barbarian.png" id="13_ct2vw"]
 [ext_resource type="Texture2D" uid="uid://cw3ak2bpdp0bm" path="res://Assets/Bosses/Corrupted_Mage/Corrupted_Mage.png" id="15_xtt6n"]
 [ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
 [ext_resource type="PackedScene" uid="uid://cavglumrn4bxv" path="res://card_drop_area.tscn" id="16_a7p6m"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
+[ext_resource type="PackedScene" uid="uid://dhnpite2foeeu" path="res://hero.tscn" id="16_efdd6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -865,45 +864,6 @@ _data = {
 }
 point_count = 14
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dxvno"]
-atlas = ExtResource("13_ct2vw")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nl1tv"]
-atlas = ExtResource("13_ct2vw")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ewfxa"]
-atlas = ExtResource("13_ct2vw")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_susge"]
-atlas = ExtResource("13_ct2vw")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_x66xq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dxvno")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nl1tv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ewfxa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_susge")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 4.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wimg"]
-size = Vector2(12.5, 21.5)
-
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_a3apr")
 
@@ -1123,9 +1083,9 @@ text = "Autoplay Off
 [node name="HSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 min_value = 0.1
-max_value = 1.0
-step = 0.01
-value = 0.55
+max_value = 0.9
+step = 0.001
+value = 0.5
 script = ExtResource("8_xunt5")
 
 [node name="Quit_game" type="Button" parent="."]
@@ -1139,24 +1099,6 @@ theme_override_fonts/font = ExtResource("9_xb32f")
 theme_override_font_sizes/font_size = 20
 text = "Quit Game"
 metadata/_edit_use_anchors_ = true
-
-[node name="Cards" type="Node2D" parent="."]
-visible = false
-
-[node name="Card5" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(501, 590)
-
-[node name="Card4" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(418, 587)
-
-[node name="Card3" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(197, 591)
-
-[node name="Card2" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(270, 590)
-
-[node name="Card" parent="Cards" instance=ExtResource("12_sakbs")]
-position = Vector2(342, 588)
 
 [node name="Boss" type="Node2D" parent="."]
 
@@ -1239,42 +1181,21 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Hero" type="Node2D" parent="."]
+[node name="Heroes" type="Node2D" parent="."]
 script = ExtResource("13_7qnxi")
 speed = 300
 
-[node name="Path2D" type="Path2D" parent="Hero"]
+[node name="Path2D" type="Path2D" parent="Heroes"]
 curve = SubResource("Curve2D_6704g")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Hero/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Heroes/Path2D"]
 position = Vector2(86, 70)
 rotation = 0.0159986
 rotates = false
 
-[node name="Idle_animation" type="AnimatedSprite2D" parent="Hero/Path2D/PathFollow2D"]
-position = Vector2(-4.04748, -2.93562)
-rotation = -0.0159986
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_x66xq")
-animation = &"Idle"
-autoplay = "Idle"
-frame_progress = 0.525025
-
-[node name="HitBox" type="Area2D" parent="Hero/Path2D/PathFollow2D/Idle_animation"]
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hero/Path2D/PathFollow2D/Idle_animation/HitBox"]
-position = Vector2(-0.25, 0.749996)
-shape = SubResource("RectangleShape2D_7wimg")
-
-[node name="Timer" type="Timer" parent="Hero/Path2D"]
-wait_time = 0.5
-one_shot = true
+[node name="Hero" parent="Heroes/Path2D/PathFollow2D" instance=ExtResource("16_efdd6")]
 
 [connection signal="pressed" from="VBoxContainer/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Autoplay" to="." method="_on_autoplay_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
-[connection signal="area_entered" from="Hero/Path2D/PathFollow2D/Idle_animation/HitBox" to="Hero" method="_on_hit_box_area_entered"]
-[connection signal="timeout" from="Hero/Path2D/Timer" to="Hero" method="_on_timer_timeout"]

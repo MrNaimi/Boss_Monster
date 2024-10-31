@@ -48,7 +48,7 @@ func _ready() -> void:
 	card_name.text = selectedRoom[2]
 	room_type.text = selectedRoom[3][0]
 	room_dmg.text = str(selectedRoom[1])
-
+	
 
 
 func _input(event: InputEvent) -> void:
@@ -73,6 +73,10 @@ func _on_drop_point_detecor_area_exited(area: Area2D) -> void:
 	targets.erase(area)
 
 func reset() -> void:
-	print(self," <--- resetting this card")
 	reset_card.emit()
 	
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	GlobalVariables.damageGiven = int(room_dmg.text)
+	print(GlobalVariables.damageGiven)
