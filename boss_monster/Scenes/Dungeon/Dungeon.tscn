@@ -819,6 +819,12 @@ texture = ExtResource("2_ugt3x")
 [sub_resource type="TileSet" id="TileSet_32ymr"]
 sources/0 = SubResource("TileSetAtlasSource_3ud5n")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3yn2"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwxt8"]
+bg_color = Color(1, 0, 0.0166664, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gml0"]
 atlas = ExtResource("15_xtt6n")
 region = Rect2(0, 0, 45, 55)
@@ -863,12 +869,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 210, 71, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 72, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 219, 262, 0, 0, 0, 0, 78, 262, 0, 0, 0, 0, 70, 435, 0, 0, 0, 0, 212, 446, 0, 0, 0, 0, 503, 439, 0, 0, 0, 0, 697, 440)
 }
 point_count = 14
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3yn2"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwxt8"]
-bg_color = Color(1, 0, 0.0166664, 1)
 
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_a3apr")
@@ -1094,6 +1094,18 @@ step = 0.001
 value = 0.5
 script = ExtResource("8_xunt5")
 
+[node name="bossHealthBar" type="ProgressBar" parent="."]
+offset_left = 935.0
+offset_top = 515.0
+offset_right = 1222.0
+offset_bottom = 552.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y3yn2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cwxt8")
+max_value = 50.0
+step = 1.0
+value = 50.0
+show_percentage = false
+
 [node name="Quit_game" type="Button" parent="."]
 offset_left = 1038.0
 offset_top = 8.0
@@ -1199,18 +1211,6 @@ rotation = 0.0159986
 rotates = false
 
 [node name="Hero" parent="Heroes/Path2D/PathFollow2D" instance=ExtResource("16_efdd6")]
-
-[node name="bossHealthBar" type="ProgressBar" parent="."]
-offset_left = 875.0
-offset_top = 646.0
-offset_right = 1249.0
-offset_bottom = 709.0
-theme_override_styles/background = SubResource("StyleBoxFlat_y3yn2")
-theme_override_styles/fill = SubResource("StyleBoxFlat_cwxt8")
-max_value = 50.0
-step = 1.0
-value = 45.0
-show_percentage = false
 
 [connection signal="pressed" from="VBoxContainer/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reset_button" to="." method="_on_reset_button_pressed"]
