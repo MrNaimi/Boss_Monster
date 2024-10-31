@@ -8,7 +8,9 @@ func enter() -> void:
 	card_ui.trap_hit_box.disabled = true
 	card_ui.card_texture.visible = true
 	card_ui.reparent_requested.emit(card_ui)
-	card_ui.color.color = Color("9a7b37")
+	card_ui.color.color = Color("77777b")
+	card_ui.room_type.visible = true
+	card_ui.room_dmg.visible = true
 	#card_ui.state.text = ""
 	card_ui.pivot_offset = Vector2.ZERO
 	card_ui.card_border.visible = true

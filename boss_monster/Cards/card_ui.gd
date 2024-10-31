@@ -13,10 +13,11 @@ signal reset_card()
 @onready var trap_hit_box: CollisionShape2D = $HitBox/TrapHitBox
 @onready var texturepath:= 'res://Cards/Graphics/trap_graphic/'
 @onready var card_texture: Sprite2D = $CardTexture
-@export var trap_dmg: int = 1
 @onready var card_border: Sprite2D = $CardBorder
-@onready var card_name: Label = $CardName
 @onready var rooms: Array[Array] = GlobalVariables.rooms
+@onready var room_type: Label = $Control/RoomType
+@onready var room_dmg: Label = $Control/RoomDmg
+@onready var card_name: Label = $Control/CardName
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,13 +38,16 @@ func _ready() -> void:
 	
 	card_state_machine.init(self)
 	
+	#print(selectedRoom)
+	#print(selectedRoom[5])
 	
-	trap_dmg=RandomNumberGenerator.new().randf_range(1,3)
-	var trap=GlobalVariables.traps[GlobalVariables.trap_index]
-	GlobalVariables.trap_index+=1
-	var texture = load(texturepath+trap)
-	trap_texture.texture=texture
-	card_texture.texture=texture
+	#["Room", 3, "Goblin Warrior", "Monster", "", "goblin_warrior.png"]
+	
+	trap_texture.texture=load(texturepath+selectedRoom[5])
+	card_texture.texture=load(texturepath+selectedRoom[5])
+	card_name.text = selectedRoom[2]
+	room_type.text = selectedRoom[3][0]
+	room_dmg.text = str(selectedRoom[1])
 
 
 

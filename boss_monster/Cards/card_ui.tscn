@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://o33examlthtq"]
+[gd_scene load_steps=15 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
 [ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
@@ -8,12 +8,13 @@
 [ext_resource type="Script" path="res://Cards/card_states/card_dragging_state.gd" id="6_104fu"]
 [ext_resource type="Script" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
 [ext_resource type="Script" path="res://Cards/hit_box.gd" id="8_wmq1s"]
-[ext_resource type="Texture2D" uid="uid://xyagx21fdkl0" path="res://Cards/Graphics/card empty.png" id="9_1m65k"]
 [ext_resource type="Texture2D" uid="uid://bdbkea8gshl6m" path="res://Cards/Graphics/trap_graphic/sauna.png" id="9_v7el0"]
+[ext_resource type="Texture2D" uid="uid://co0imuiaeata1" path="res://Cards/Graphics/card.png" id="10_0dsxu"]
 [ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://Fonts/fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
+[ext_resource type="FontFile" path="res://Fonts/fonts/montreal/Montreal.tres" id="12_6h8t8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
-size = Vector2(90, 140)
+size = Vector2(89, 140)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng550"]
 size = Vector2(45, 39)
@@ -26,7 +27,6 @@ offset_right = 25.0
 offset_bottom = 30.0
 theme = ExtResource("1_8rgw7")
 script = ExtResource("2_t2x5w")
-trap_dmg = 3
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -36,14 +36,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.603922, 0.482353, 0.215686, 1)
+color = Color(0.466667, 0.466667, 0.482353, 1)
 
 [node name="DropPointDetecor" type="Area2D" parent="."]
 collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetecor"]
-position = Vector2(45, 70)
+position = Vector2(44.5, 70)
 shape = SubResource("RectangleShape2D_t8vnx")
 
 [node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -81,21 +81,53 @@ shape = SubResource("RectangleShape2D_ng550")
 disabled = true
 
 [node name="CardTexture" type="Sprite2D" parent="."]
-position = Vector2(44.5625, 59)
+position = Vector2(46, 62)
 scale = Vector2(4.42969, 4.35937)
 texture = ExtResource("9_v7el0")
 
 [node name="CardBorder" type="Sprite2D" parent="."]
-position = Vector2(45, 70)
-scale = Vector2(0.134454, 0.143133)
-texture = ExtResource("9_1m65k")
+position = Vector2(46, 73)
+scale = Vector2(0.129989, 0.143133)
+texture = ExtResource("10_0dsxu")
 
-[node name="CardName" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RoomType" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 3.0
-offset_right = 84.0
-offset_bottom = 16.0
+offset_left = 69.0
+offset_top = 120.0
+offset_right = 80.0
+offset_bottom = 138.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_a640w")
+theme_override_font_sizes/font_size = 11
+text = "T"
+horizontal_alignment = 1
+
+[node name="RoomDmg" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 111.0
+offset_right = 40.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0.75, 0.0225, 0.0225, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_6h8t8")
+theme_override_font_sizes/font_size = 19
+text = "1"
+vertical_alignment = 1
+
+[node name="CardName" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 85.0
+offset_bottom = 26.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("11_a640w")
 theme_override_font_sizes/font_size = 9
 text = "CardName"

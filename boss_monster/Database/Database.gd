@@ -61,7 +61,7 @@ const DATA ={
 	Hot_Coals: #tehty oikee art
 		["Room", 3, "Hot Coals","Trap","", "hot_coals.png"],
 	Monster_Lounge: #tehty
-		["Room", 4, "Monster Lounge", "Monster", "monster_lounge.png"],
+		["Room", 4, "Monster Lounge", "Monster", "", "monster_lounge.png"],
 	The_Dragon_Lair: #tehty
 		["Room", 4, "The Dragon Lair", "Monster", "", "dragon_lair.png"],
 	Pit_Fall: #tehty oikee art

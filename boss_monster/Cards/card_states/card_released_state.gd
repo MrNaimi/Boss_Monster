@@ -18,6 +18,8 @@ func enter() -> void:
 		card_ui.trap_hit_box.disabled = false
 		card_ui.card_border.visible = false
 		card_ui.card_name.visible = false
+		card_ui.room_type.visible = false
+		card_ui.room_dmg.visible = false
 		
 		played = true
 		print("play card for target(s)", card_ui.targets)
