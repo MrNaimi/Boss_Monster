@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b18cub0fswb6p"
-path="res://.godot/imported/Gas_Leak.png-f1ea2ed822717ee2d257e01710722e72.ctex"
+uid="uid://co0imuiaeata1"
+path="res://.godot/imported/card.png-eea3eda441b9d66321469e83e6174a27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Graphics/Gas_Leak.png"
-dest_files=["res://.godot/imported/Gas_Leak.png-f1ea2ed822717ee2d257e01710722e72.ctex"]
+source_file="res://Cards/Graphics/card.png"
+dest_files=["res://.godot/imported/card.png-eea3eda441b9d66321469e83e6174a27.ctex"]
 
 [params]
 
