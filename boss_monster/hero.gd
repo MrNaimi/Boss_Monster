@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	
 	if hp <= 0:
 		queue_free()
-		hp = GlobalVariables.heroHp
+		GlobalVariables.heroHp=10
 		GlobalVariables.heroKilled = true
 		
 	
@@ -41,4 +41,5 @@ func _on_timer_timeout() -> void:
 
 func _on_hit_box_area_exited(area: Area2D) -> void:
 	hp -= GlobalVariables.damageGiven
+	GlobalVariables.heroHp = 10
 	GlobalVariables.heroHp = hp
