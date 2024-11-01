@@ -18,6 +18,7 @@ signal reset_card()
 @onready var room_type: Label = $Control/RoomType
 @onready var room_dmg: Label = $Control/RoomDmg
 @onready var card_name: Label = $Control/CardName
+@onready var damage = int(room_dmg.text)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,30 +26,17 @@ func _ready() -> void:
 	#print(rooms)
 	
 	var i =  RandomNumberGenerator.new().randi_range(0, rooms.size()-1)
-	#print(rooms[i])
+
 	var selectedRoom=rooms.pop_at(i)
-	#print("selected room ",selectedRoom)
-#
-	#print()
-	#print("all rooms ",rooms)
-	#print("Current size of rooms[]: ",rooms.size())
-	#print()
-	#'
-	
 	
 	card_state_machine.init(self)
-	
-	#print(selectedRoom)
-	#print(selectedRoom[5])
-	
-	#["Room", 3, "Goblin Warrior", "Monster", "", "goblin_warrior.png"]
-	
+
 	trap_texture.texture=load(texturepath+selectedRoom[5])
 	card_texture.texture=load(texturepath+selectedRoom[5])
 	card_name.text = selectedRoom[2]
 	room_type.text = selectedRoom[3][0]
 	room_dmg.text = str(selectedRoom[1])
-	
+	damage = int(room_dmg.text)
 
 
 func _input(event: InputEvent) -> void:
@@ -78,5 +66,10 @@ func reset() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	GlobalVariables.damageGiven = int(room_dmg.text)
-	print(GlobalVariables.damageGiven)
+	#print("trap entered")
+	pass
+
+
+func _on_hit_box_area_exited(area: Area2D) -> void:
+	#GlobalVariables.spawn_hero=true
+	pass

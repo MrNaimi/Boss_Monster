@@ -3,8 +3,7 @@ extends Node2D
 
 @onready var idle_animation: AnimatedSprite2D = $Idle_animation
 @onready var timer: Timer = $Timer
-var hp = GlobalVariables.heroHp
-@onready var hpNext = RandomNumberGenerator.new().randi_range(10,15)
+@onready var hp = RandomNumberGenerator.new().randi_range(10,15)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,11 +19,12 @@ func _process(delta: float) -> void:
 		
 	timer.wait_time = GlobalVariables.timerAmount
 	health_bar.value = hp
-	print(hp)
+	#print(hp)
 	
 	if hp <= 0:
 		queue_free()
-		GlobalVariables.heroHp = hpNext
+		if GlobalVariables.autoplay:
+			GlobalVariables.heroes_move=true
 		GlobalVariables.heroKilled = true
 		
 	
@@ -40,5 +40,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_hit_box_area_exited(area: Area2D) -> void:
-	hp -= GlobalVariables.damageGiven
-	GlobalVariables.heroHp = hp
+	var damageTaken = area.get_parent().damage
+	print("Exited trap damage: ",area.get_parent().damage)
+	hp -= damageTaken
+	print(hp)

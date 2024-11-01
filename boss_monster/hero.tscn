@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhnpite2foeeu"]
+[gd_scene load_steps=12 format=3 uid="uid://dhnpite2foeeu"]
 
 [ext_resource type="Texture2D" uid="uid://bb7kr6kupyh74" path="res://Assets/Heroes/Barbarian.png" id="1_058t2"]
 [ext_resource type="Script" path="res://hero.gd" id="1_c28ts"]
+[ext_resource type="Script" path="res://idle_animation.gd" id="3_04i8o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxvno"]
 atlas = ExtResource("1_058t2")
@@ -58,7 +59,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_x66xq")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.525025
+script = ExtResource("3_04i8o")
 
 [node name="HitBox" type="Area2D" parent="Idle_animation"]
 collision_layer = 4

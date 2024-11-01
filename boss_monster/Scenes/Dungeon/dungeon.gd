@@ -9,9 +9,9 @@ var is_dragging = false
 @onready var heroes: Node2D = $Heroes
 @onready var hero: PackedScene = preload("res://hero.tscn")
 @onready var boss_health_bar: ProgressBar = $bossHealthBar
-
+@onready var damage = 999
 @onready var hp = 50
-
+@onready var boss_hp: Label = $BossHp
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -60,7 +60,11 @@ func _on_autoplay_pressed() -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	GlobalVariables.bossHp -= GlobalVariables.heroHp
-	GlobalVariables.heroHp = 0
-	boss_health_bar.value = GlobalVariables.bossHp
-	GlobalVariables.heroHp = RandomNumberGenerator.new().randi_range(10,15)
+	print(area.get_parent().get_parent().hp)
+	hp -= area.get_parent().get_parent().hp
+	area.get_parent().get_parent().hp=0
+	boss_health_bar.value = hp
+	boss_hp.text=str(hp)
+	if GlobalVariables.autoplay:
+		GlobalVariables.heroes_move=true
+	#GlobalVariables.heroHp = RandomNumberGenerator.new().randi_range(10,15)

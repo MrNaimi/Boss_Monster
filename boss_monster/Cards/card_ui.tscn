@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://o33examlthtq"]
+[gd_scene load_steps=14 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
 [ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Cards/card_states/card_clicked_state.gd" id="5_k83ju"]
 [ext_resource type="Script" path="res://Cards/card_states/card_dragging_state.gd" id="6_104fu"]
 [ext_resource type="Script" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
-[ext_resource type="Script" path="res://Cards/hit_box.gd" id="8_wmq1s"]
 [ext_resource type="Texture2D" uid="uid://bdbkea8gshl6m" path="res://Cards/Graphics/trap_graphic/sauna.png" id="9_v7el0"]
 [ext_resource type="Texture2D" uid="uid://co0imuiaeata1" path="res://Cards/Graphics/card.png" id="10_0dsxu"]
 [ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
@@ -73,7 +72,6 @@ scale = Vector2(2.5, 2.5)
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("8_wmq1s")
 
 [node name="TrapHitBox" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(43.5, 75.5)
@@ -140,3 +138,4 @@ horizontal_alignment = 1
 [connection signal="area_entered" from="DropPointDetecor" to="." method="_on_drop_point_detecor_area_entered"]
 [connection signal="area_exited" from="DropPointDetecor" to="." method="_on_drop_point_detecor_area_exited"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]

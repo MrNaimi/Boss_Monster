@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=49 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="9_xb32f"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
 [ext_resource type="Texture2D" uid="uid://cw3ak2bpdp0bm" path="res://Assets/Bosses/Corrupted_Mage/Corrupted_Mage.png" id="15_xtt6n"]
 [ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
@@ -825,6 +826,9 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwxt8"]
 bg_color = Color(1, 0, 0.0166664, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8r57"]
+size = Vector2(121, 98)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gml0"]
 atlas = ExtResource("15_xtt6n")
 region = Rect2(0, 0, 45, 55)
@@ -860,9 +864,6 @@ animations = [{
 "name": &"Idle",
 "speed": 4.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8r57"]
-size = Vector2(121, 98)
 
 [sub_resource type="Curve2D" id="Curve2D_6704g"]
 _data = {
@@ -1119,6 +1120,15 @@ text = "Quit Game"
 metadata/_edit_use_anchors_ = true
 
 [node name="Boss" type="Node2D" parent="."]
+script = ExtResource("11_rc6gd")
+
+[node name="Area2D" type="Area2D" parent="Boss"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Area2D"]
+position = Vector2(757, 439)
+shape = SubResource("RectangleShape2D_a8r57")
 
 [node name="Idle_animation" type="AnimatedSprite2D" parent="Boss"]
 position = Vector2(753, 425)
@@ -1128,14 +1138,6 @@ animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.360455
 flip_h = true
-
-[node name="Area2D" type="Area2D" parent="Boss"]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Area2D"]
-position = Vector2(757, 439)
-shape = SubResource("RectangleShape2D_a8r57")
 
 [node name="CardDropAreas" type="Node2D" parent="."]
 position = Vector2(753, 425)
@@ -1211,6 +1213,13 @@ rotation = 0.0159986
 rotates = false
 
 [node name="Hero" parent="Heroes/Path2D/PathFollow2D" instance=ExtResource("16_efdd6")]
+
+[node name="BossHp" type="Label" parent="."]
+offset_left = 985.0
+offset_top = 569.0
+offset_right = 1025.0
+offset_bottom = 592.0
+text = "50"
 
 [connection signal="pressed" from="VBoxContainer/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reset_button" to="." method="_on_reset_button_pressed"]
