@@ -71,5 +71,5 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 
 func _on_hit_box_area_exited(area: Area2D) -> void:
-	GlobalVariables.spawn_hero=true
+	#GlobalVariables.spawn_hero=true
 	pass

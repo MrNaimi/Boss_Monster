@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c5vqnmtswt4j2"
-path="res://.godot/imported/DroidSans.ttf-a091b3409280b760d960a510796d2b16.fontdata"
+path="res://.godot/imported/DroidSans.ttf-676a3c2a4ff86c5ddfac0bb487bb8117.fontdata"
 
 [deps]
 
-source_file="res://Fonts/droid-sans/DroidSans.ttf"
-dest_files=["res://.godot/imported/DroidSans.ttf-a091b3409280b760d960a510796d2b16.fontdata"]
+source_file="res://fonts/droid-sans/DroidSans.ttf"
+dest_files=["res://.godot/imported/DroidSans.ttf-676a3c2a4ff86c5ddfac0bb487bb8117.fontdata"]
 
 [params]
 
