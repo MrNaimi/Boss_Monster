@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cav2gmng8075i"
-path="res://.godot/imported/Montreal-Regular.ttf-c3112a64b6b864839cce951d0225ce0a.fontdata"
+path="res://.godot/imported/Montreal-Regular.ttf-6f509421ec967dba7a383fa18ffba9a7.fontdata"
 
 [deps]
 
-source_file="res://fonts/montreal/Montreal-Regular.ttf"
-dest_files=["res://.godot/imported/Montreal-Regular.ttf-c3112a64b6b864839cce951d0225ce0a.fontdata"]
+source_file="res://Fonts/montreal/Montreal-Regular.ttf"
+dest_files=["res://.godot/imported/Montreal-Regular.ttf-6f509421ec967dba7a383fa18ffba9a7.fontdata"]
 
 [params]
 

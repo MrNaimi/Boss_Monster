@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
 [ext_resource type="Texture2D" uid="uid://bdbkea8gshl6m" path="res://Cards/Graphics/trap_graphic/sauna.png" id="9_v7el0"]
 [ext_resource type="Texture2D" uid="uid://co0imuiaeata1" path="res://Cards/Graphics/card.png" id="10_0dsxu"]
-[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
+[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://Fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="12_6h8t8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]

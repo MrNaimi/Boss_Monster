@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dhnpite2foeeu"]
+[gd_scene load_steps=37 format=3 uid="uid://dhnpite2foeeu"]
 
 [ext_resource type="Script" path="res://hero.gd" id="1_c28ts"]
 [ext_resource type="Texture2D" uid="uid://cvsbh45vf3mhc" path="res://Assets/Heroes/Cleric.png" id="1_o0ucq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cd6qk445gs6ka" path="res://Assets/Heroes/Monk.png" id="5_w1orc"]
 [ext_resource type="Texture2D" uid="uid://cbu8q56sd2x3" path="res://Assets/Heroes/Paladin.png" id="6_h5nq2"]
 [ext_resource type="Texture2D" uid="uid://blrop7u44ablq" path="res://Assets/Heroes/Ranger.png" id="7_q2n1s"]
+[ext_resource type="Script" path="res://idle_animation.gd" id="8_0v2ym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oor3o"]
 atlas = ExtResource("1_o0ucq")
@@ -230,6 +231,7 @@ scale = Vector2(1.6, 1.595)
 sprite_frames = SubResource("SpriteFrames_x66xq")
 animation = &"cleric"
 autoplay = "cleric"
+script = ExtResource("8_0v2ym")
 
 [node name="HitBox" type="Area2D" parent="Idle_animation"]
 collision_layer = 4
