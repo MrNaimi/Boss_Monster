@@ -11,6 +11,8 @@ func _process(delta: float) -> void:
 		path_follow_2d.progress += speed * delta
 		GlobalVariables.hero_progress = path_follow_2d.progress
 	if GlobalVariables.heroKilled:
-		get_child(0).get_child(0).add_child(hero.instantiate())
+		var new_hero = hero.instantiate()
+		get_child(0).get_child(0).add_child(new_hero)
+		
 		path_follow_2d.progress=0
 		GlobalVariables.heroKilled = false
