@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://ciospukj0mwgc" path="res://Assets/Tiles/tileanimations/torchtransparent.png" id="5_1qfqf"]
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
+<<<<<<< Updated upstream
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="9_xb32f"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
+=======
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/poco/Poco.ttf" id="9_xb32f"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
 [ext_resource type="Texture2D" uid="uid://cw3ak2bpdp0bm" path="res://Assets/Bosses/Corrupted_Mage/Corrupted_Mage.png" id="15_xtt6n"]
 [ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
@@ -867,7 +871,7 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_6704g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 210, 71, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 72, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 219, 262, 0, 0, 0, 0, 78, 262, 0, 0, 0, 0, 70, 435, 0, 0, 0, 0, 212, 446, 0, 0, 0, 0, 503, 439, 0, 0, 0, 0, 697, 440)
+"points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 210, 71, 0, 0, 0, 0, 247, 69, 0, 0, 0, 0, 496, 72, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 219, 262, 0, 0, 0, 0, 78, 262, 0, 0, 0, 0, 70, 435, 0, 0, 0, 0, 212, 446, 0, 0, 0, 0, 503, 439, 0, 0, 0, 0, 697, 440)
 }
 point_count = 14
 

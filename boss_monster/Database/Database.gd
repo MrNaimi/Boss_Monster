@@ -4,7 +4,10 @@
 #SpellInfo =[Type, Damage, +Health, Name, Special Text]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png]
 
-enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap,}
+enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, 
+Skeleton_King, Lich, Big_Snake,Corrupted_Mage, 
+Shrink_Ray, Mind_Control, Healing_potion, Assassination, Bad_Directions, 
+Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap,Forgotten_Library}
 
 const DATA ={
 	
@@ -20,7 +23,7 @@ const DATA ={
 	Mage :
 		["Hero", 12, 36, "Mage", "Damage", "Magic_Item", ""],
 	Ranger :
-		["Hero", 4, 5, "Ranger", "Damage", "Weapon_item", ""],
+		["Hero", 4, 5, "Ranger", "Damage", "Weapon_Item", ""],
 	Lucky_Fellow :
 		["Hero", 1, 2, "Lucky_Fellow", "Damage", "all", ""],
 		
@@ -51,7 +54,7 @@ const DATA ={
 	Goblin_warrior : #tehty oikee art
 		["Room", 3, "Goblin Warrior", "Monster", "", "goblin_warrior.png"],
 	Gas_Leak : #tehty oikee art
-		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png"],	
+		["Room", 2, "Gas Leak", "Trap", "Deals 3 damage to all heroes", "gas_Leak.png"],	
 	Mimic :#tehty oikee art
 		["Room", 3, "Mimic", "Monster", "", "mimic.png"],
 	The_Vault_Room : #tehty 
@@ -59,7 +62,7 @@ const DATA ={
 	Spike_Factory :#tehty
 		["Room", 4, "Spike Factory","Monster","", "spike_factory.png"],
 	Hot_Coals: #tehty oikee art
-		["Room", 3, "Hot Coals","Trap","", "hot_coals.png"],
+		["Room", 3, "Hot Coals","Trap","apply burning, dealing 3 damage", "hot_coals.png"],
 	Monster_Lounge: #tehty
 		["Room", 4, "Monster Lounge", "Monster", "", "monster_lounge.png"],
 	The_Dragon_Lair: #tehty
@@ -68,6 +71,8 @@ const DATA ={
 		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png"],
 	Spike_Trap : #tehty oikee art
 		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room","spikes.png"],
+	Forgotten_Library :
+		["Room",3, "Forgotten Library", "Trap", "once in a turn, If a hero dies in this room, get a spell card","forgotten_librabry.png"],
 } 
 #Kortit joille on art tehty:
 #Healing Potion, Gas Leak, Assassination, pit fall
