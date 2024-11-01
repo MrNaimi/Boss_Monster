@@ -1,6 +1,5 @@
 extends Node2D
 @onready var health_bar: ProgressBar = $healthBar
-
 @onready var idle_animation: AnimatedSprite2D = $Idle_animation
 @onready var timer: Timer = $Timer
 var hp = GlobalVariables.heroHp
@@ -13,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if GlobalVariables.hero_progress > 950 and GlobalVariables.hero_progress < 1850:
+	if GlobalVariables.hero_progress > 850 and GlobalVariables.hero_progress < 1850:
 		idle_animation.flip_h = true
 	else:
 		idle_animation.flip_h = false
