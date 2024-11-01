@@ -1,5 +1,5 @@
 
-#HeroInfo =[Type, Factor, Damage, , Name, Role, Artifact, Special Text]
+#HeroInfo =[Type, Factor, Hp, , Name, Role, Artifact, Special Text]
 #BossInfo =[Type, Health, Name, Special Text]
 #SpellInfo =[Type, Damage, +Health, Name, Special Text]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png]
@@ -18,7 +18,7 @@ const DATA ={
 	Barbarian :
 		["Hero", 4, 8, "Barbarian", "Healer", "Weapon_Item", ""],
 	Mage :
-		["Hero", 6, 4, "Mage", "Damage", "Magic_Item", ""],
+		["Hero", 12, 36, "Mage", "Damage", "Magic_Item", ""],
 	Ranger :
 		["Hero", 4, 5, "Ranger", "Damage", "Weapon_item", ""],
 	Lucky_Fellow :
