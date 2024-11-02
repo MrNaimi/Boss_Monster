@@ -1,3 +1,3 @@
 extends AnimatedSprite2D
 
-var damage = 0
+@onready var damage = 0

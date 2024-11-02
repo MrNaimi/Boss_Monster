@@ -26,7 +26,7 @@ func _ready() -> void:
 	#print(rooms)
 	
 	var i =  RandomNumberGenerator.new().randi_range(0, rooms.size()-1)
-
+	
 	var selectedRoom=rooms.pop_at(i)
 	
 	card_state_machine.init(self)
@@ -71,5 +71,5 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 
 func _on_hit_box_area_exited(area: Area2D) -> void:
-	#GlobalVariables.spawn_hero=true
+	GlobalVariables.spawn_hero=true
 	pass

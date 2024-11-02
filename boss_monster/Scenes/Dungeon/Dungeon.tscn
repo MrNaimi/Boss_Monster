@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
 [ext_resource type="PackedScene" uid="uid://cavglumrn4bxv" path="res://card_drop_area.tscn" id="16_a7p6m"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
-[ext_resource type="PackedScene" uid="uid://dhnpite2foeeu" path="res://hero.tscn" id="16_efdd6"]
+[ext_resource type="PackedScene" uid="uid://gkiwmcohcjmi" path="res://path_follow_2d.tscn" id="17_l5j6u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -1207,12 +1207,7 @@ script = ExtResource("13_7qnxi")
 [node name="Path2D" type="Path2D" parent="Heroes"]
 curve = SubResource("Curve2D_6704g")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Heroes/Path2D"]
-position = Vector2(86, 70)
-rotation = 0.0159986
-rotates = false
-
-[node name="Hero" parent="Heroes/Path2D/PathFollow2D" instance=ExtResource("16_efdd6")]
+[node name="PathFollow2D" parent="Heroes/Path2D" instance=ExtResource("17_l5j6u")]
 
 [node name="BossHp" type="Label" parent="."]
 offset_left = 985.0

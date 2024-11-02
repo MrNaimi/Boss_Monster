@@ -20,12 +20,12 @@ var heroKilled = false
 var bossHp = 50
 
 func _ready() -> void:
-	for i in range(Database.DATA.size()-1):
+	for i in range(Database.DATA.size()):
 		if Database.DATA.get(i)[0]=="Room":
 			rooms.append(Database.DATA.get(i))
 		i+=1
 		
-	for i in range(Database.DATA.size()-1):
+	for i in range(Database.DATA.size()):
 		if Database.DATA.get(i)[0]=="Hero":
 			heroes.append(Database.DATA.get(i))
 		i+=1

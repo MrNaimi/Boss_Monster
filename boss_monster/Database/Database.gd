@@ -4,7 +4,7 @@
 #SpellInfo =[Type, Damage, +Health, Name, Special Text]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png]
 
-enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap,}
+enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall,Spike_Test, Spike_Trap}
 
 const DATA ={
 	
@@ -66,8 +66,11 @@ const DATA ={
 		["Room", 4, "The Dragon Lair", "Monster", "", "dragon_lair.png"],
 	Pit_Fall: #tehty oikee art
 		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png"],
+	Spike_Test : #tehty oikee art
+		["Room", 3, "Spike Test", "Trap", "Deal 6 damage to the hero in this room","spikes.png"],
 	Spike_Trap : #tehty oikee art
 		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room","spikes.png"],
+
 } 
 #Kortit joille on art tehty:
 #Healing Potion, Gas Leak, Assassination, pit fall

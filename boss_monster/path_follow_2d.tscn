@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://gkiwmcohcjmi"]
+
+[ext_resource type="PackedScene" uid="uid://dhnpite2foeeu" path="res://hero.tscn" id="1_4q3u6"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+position = Vector2(86, 70)
+rotation = 0.0159986
+rotates = false
+
+[node name="Hero" parent="." instance=ExtResource("1_4q3u6")]
