@@ -71,7 +71,7 @@ const DATA ={
 	Spike_Trap : #tehty oikee art
 		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room","spikes.png"],
 	Forgotten_Library:
-		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card"]
+		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card", "forgotten_library.png"]
 } 
 #Kortit joille on art tehty:
 #Healing Potion, Gas Leak, Assassination, pit fall
