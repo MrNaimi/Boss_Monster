@@ -4,7 +4,7 @@
 #SpellInfo =[Type, Damage, +Health, Name, Special Text]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png]
 
-enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall,Spike_Test, Spike_Trap}
+enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall,Spike_Test, Spike_Trap, Forgotten_Library}
 
 const DATA ={
 	
@@ -70,7 +70,8 @@ const DATA ={
 		["Room", 3, "Spike Test", "Trap", "Deal 6 damage to the hero in this room","spikes.png"],
 	Spike_Trap : #tehty oikee art
 		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room","spikes.png"],
-
+	Forgotten_Library:
+		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card"]
 } 
 #Kortit joille on art tehty:
 #Healing Potion, Gas Leak, Assassination, pit fall
