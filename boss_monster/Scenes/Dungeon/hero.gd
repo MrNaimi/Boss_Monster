@@ -18,11 +18,10 @@ func _process(delta: float) -> void:
 			if path.get_child(0) == null:
 				path.queue_free()
 			else:
-				if !GlobalVariables.heroKilled:
-					if path.progress > 850 and path.progress < 1850:
-						path.get_child(0).get_child(0).flip_h = true
-					else:
-						path.get_child(0).get_child(0).flip_h = false
+				if path.progress > 850 and path.progress < 1850:
+					path.get_child(0).get_child(0).flip_h = true
+				else:
+					path.get_child(0).get_child(0).flip_h = false
 
 
 			
