@@ -10,19 +10,19 @@ const DATA ={
 	
 	#Hero
 	Cleric :
-		["Hero", 2,0, 4 ,"cleric", "Healer", "Holy_Item", ""],
+		["Hero", 1,10, 15 ,"cleric", "Healer", "Holy_Item", ""],
 	Paladin :
-		["Hero", 3,0, 6, "paladin", "Damage", "Holy_Item", ""],
+		["Hero", 1,10, 15, "paladin", "Damage", "Holy_Item", ""],
 	Monk :
-		["Hero", 2,0, 4, "monk", "Healer", "Magic_Item", ""],
+		["Hero", 1,10, 15, "monk", "Healer", "Magic_Item", ""],
 	Barbarian :
-		["Hero", 4, 0,8, "barbarian", "Healer", "Weapon_Item", ""],
+		["Hero", 1, 10,15, "barbarian", "Healer", "Weapon_Item", ""],
 	Mage :
-		["Hero", 12,0, 36, "mage", "Damage", "Magic_Item", ""],
+		["Hero", 1,50, 55, "mage", "Damage", "Magic_Item", ""],
 	Ranger :
-		["Hero", 4,0, 5, "ranger", "Damage", "Weapon_item", ""],
+		["Hero", 1,10, 15, "ranger", "Damage", "Weapon_item", ""],
 	Lucky_Fellow :
-		["Hero", 1,0, 2, "lucky_fellow", "Damage", "all", ""],
+		["Hero", 1,10, 15, "lucky_fellow", "Damage", "all", ""],
 		
 		
 	#Boss
