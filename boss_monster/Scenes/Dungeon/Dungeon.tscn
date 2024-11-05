@@ -1209,6 +1209,9 @@ curve = SubResource("Curve2D_6704g")
 
 [node name="PathFollow2D" parent="Heroes/Path2D" instance=ExtResource("17_l5j6u")]
 
+[node name="Timer" type="Timer" parent="Heroes"]
+one_shot = true
+
 [node name="BossHp" type="Label" parent="."]
 offset_left = 985.0
 offset_top = 569.0
@@ -1221,3 +1224,4 @@ text = "50"
 [connection signal="pressed" from="VBoxContainer/Autoplay" to="." method="_on_autoplay_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
 [connection signal="area_entered" from="Boss/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Heroes/Timer" to="Heroes" method="_on_timer_timeout"]

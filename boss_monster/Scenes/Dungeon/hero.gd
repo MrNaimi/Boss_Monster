@@ -5,6 +5,7 @@ extends Node2D
 @onready var heroandpath: PackedScene = preload("res://path_follow_2d.tscn")
 @onready var herolimit = 100
 @onready var currentheroes = 1
+@onready var timer: Timer = $Timer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -12,9 +13,14 @@ func _process(delta: float) -> void:
 	for path in get_child(0).get_children():
 		pass
 		#print(path.progress)
+	timer.wait_time = GlobalVariables.timerAmount
+	if GlobalVariables.timerStart:
+		timer.start()
+		GlobalVariables.timerStart = false
 	if GlobalVariables.heroes_move && GlobalVariables.combat_phase:
 		for path in get_child(0).get_children():
-			path.progress=path.progress+speed*delta
+			if path.get_child(0).can_move:
+				path.progress=path.progress+speed*delta
 			if path.get_child(0) == null:
 				path.queue_free()
 			else:
@@ -22,13 +28,12 @@ func _process(delta: float) -> void:
 					path.get_child(0).get_child(0).flip_h = true
 				else:
 					path.get_child(0).get_child(0).flip_h = false
-
-
+	
 			
 				
 		#path_follow_2d.progress += speed * delta
 		#GlobalVariables.hero_progress = path_follow_2d.progress
-	if GlobalVariables.heroKilled or GlobalVariables.spawn_hero:
+	if GlobalVariables.spawn_hero:
 		if currentheroes < herolimit:
 			var new_hero = heroandpath.instantiate()
 			get_child(0).add_child(new_hero)
@@ -36,3 +41,12 @@ func _process(delta: float) -> void:
 			GlobalVariables.heroKilled = false
 			GlobalVariables.spawn_hero = false
 			currentheroes +=1
+			
+
+
+func _on_timer_timeout() -> void:
+	if GlobalVariables.is_everyone_stopped():
+		for path in GlobalVariables.spawned_heroes:
+			if is_instance_valid(path):
+				path.get_child(0).can_move=true
+		GlobalVariables.heroes_move=true

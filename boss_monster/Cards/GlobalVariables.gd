@@ -2,7 +2,6 @@ extends Node
 
 var card_dragging = false
 var hero_progress = 0
-var traps: Array[String] = ["spikes.png","goblin_warrior.png","sauna.png","healing_potion.png","std.png"]
 var trap_index=0
 var heroes_move = false
 var combat_phase = false
@@ -18,6 +17,10 @@ var damageGiven = 0
 var heroHp = 10 
 var heroKilled = false
 var bossHp = 50
+var spawned_heroes: Array[PathFollow2D] = []
+var rooms_placed: Array[Control] = []
+var spawn_room_set = false
+var timerStart = false
 
 func _ready() -> void:
 	for i in range(Database.DATA.size()):
@@ -30,3 +33,11 @@ func _ready() -> void:
 			heroes.append(Database.DATA.get(i))
 		i+=1
 		
+func is_everyone_stopped() -> bool:
+	for path in GlobalVariables.spawned_heroes:
+		if is_instance_valid(path):
+			if path.get_child(0).can_move:
+				#print("Everyone is not stopped")
+				return false
+	#print("Everyone is stopped")
+	return true

@@ -275,10 +275,6 @@ collision_mask = 4
 position = Vector2(-0.25, 0.749996)
 shape = SubResource("RectangleShape2D_7wimg")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [node name="healthBar" type="ProgressBar" parent="."]
 offset_left = -27.0
 offset_top = -50.0
@@ -293,4 +289,3 @@ show_percentage = false
 
 [connection signal="area_entered" from="Idle_animation/HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_exited" from="Idle_animation/HitBox" to="." method="_on_hit_box_area_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

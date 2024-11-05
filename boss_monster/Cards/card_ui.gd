@@ -19,12 +19,13 @@ signal reset_card()
 @onready var room_dmg: Label = $Control/RoomDmg
 @onready var card_name: Label = $Control/CardName
 @onready var damage = int(room_dmg.text)
+@onready var spawn_room = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	#if GlobalVariables.spawn_room.size()==0:
+	#	GlobalVariables.spawn_room.append(self) 
 	#print(rooms)
-	
 	var i =  RandomNumberGenerator.new().randi_range(0, rooms.size()-1)
 	
 	var selectedRoom=rooms.pop_at(i)
@@ -37,6 +38,7 @@ func _ready() -> void:
 	room_type.text = selectedRoom[3][0]
 	room_dmg.text = str(selectedRoom[1])
 	damage = int(room_dmg.text)
+	GlobalVariables.rooms_placed.append(self)
 
 
 func _input(event: InputEvent) -> void:
@@ -66,10 +68,13 @@ func reset() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	#print("trap entered")
-	pass
-
+	if !GlobalVariables.spawn_room_set:
+		print("Current room set as the spawn room")
+		spawn_room=true
+		GlobalVariables.spawn_room_set = true
 
 func _on_hit_box_area_exited(area: Area2D) -> void:
-	GlobalVariables.spawn_hero=true
+	#if self in GlobalVariables.spawn_room:
+	if spawn_room:
+		GlobalVariables.spawn_hero=true
 	pass

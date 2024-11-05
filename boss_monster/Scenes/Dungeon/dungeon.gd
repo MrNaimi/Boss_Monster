@@ -12,6 +12,7 @@ var is_dragging = false
 @onready var damage = 999
 @onready var hp = 50
 @onready var boss_hp: Label = $BossHp
+@onready var first_time_continue = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,21 +24,37 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Z-button"):
-		GlobalVariables.heroes_move = true
-		print("Continue")
-	
-	
+		if GlobalVariables.rooms_placed.size()>0:
+			if GlobalVariables.is_everyone_stopped() or first_time_continue:
+				GlobalVariables.heroes_move = true
+				print(GlobalVariables.spawned_heroes)
+				for path in GlobalVariables.spawned_heroes:
+					if is_instance_valid(path):
+						path.get_child(0).can_move=true
+			first_time_continue=false
+		else:
+			print("Place a room first")
+		
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 
 
 func _on_continue_button_pressed() -> void:
-	print("Continue")
-	GlobalVariables.heroes_move = true
-
+	#print("Continue")
+	if GlobalVariables.rooms_placed.size()>0:
+		if GlobalVariables.is_everyone_stopped() or first_time_continue:
+			GlobalVariables.heroes_move = true
+			print(GlobalVariables.spawned_heroes)
+			for path in GlobalVariables.spawned_heroes:
+				if is_instance_valid(path):
+					path.get_child(0).can_move=true
+		first_time_continue=false
+	else:
+		print("Place a room first")
 
 func _on_reset_button_pressed() -> void:
-	path_follow_2d.progress=0
+	#path_follow_2d.progress=0
+	#get_tree().reload_current_scene()
 	GlobalVariables.heroes_move=false
 	GlobalVariables.autoplay=false
 	autoplay.text="Autoplay Off"
@@ -54,6 +71,9 @@ func _on_autoplay_pressed() -> void:
 	GlobalVariables.autoplay = !GlobalVariables.autoplay
 	if GlobalVariables.autoplay:
 		GlobalVariables.heroes_move=true
+		for path in GlobalVariables.spawned_heroes:
+			if is_instance_valid(path):
+				path.get_child(0).can_move=true
 		autoplay.text="Autoplay On"
 	else:
 		autoplay.text="Autoplay Off"

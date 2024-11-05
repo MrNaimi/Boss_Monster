@@ -22,9 +22,12 @@ func enter() -> void:
 		card_ui.room_dmg.visible = false
 		
 		played = true
-		print("play card for target(s)", card_ui.targets)
-		print("Child nodes of target area:", card_ui.targets[0].get_child(0).get_children())
+		#print("play card for target(s)", card_ui.targets)
+		#print("Child nodes of target area:", card_ui.targets[0].get_child(0).get_children())
 		card_ui.reparent(card_ui.targets[0].get_child(0).get_child(0))
+		for room in GlobalVariables.rooms_placed:
+			room.spawn_room=false
+		GlobalVariables.spawn_room_set=false
 		
 func on_input(_event: InputEvent) -> void:
 	if played:
@@ -33,6 +36,6 @@ func on_input(_event: InputEvent) -> void:
 	transition_requested.emit(self, CardState.State.BASE)
 
 func _on_card_ui_reset_card() -> void:
-	print("doing this in release script")
+	#print("doing this in release script")
 	GlobalVariables.card_dragging=false
 	transition_requested.emit(self, CardState.State.BASE)
