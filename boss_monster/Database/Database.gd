@@ -53,9 +53,9 @@ const DATA ={
 	Gas_Leak : #tehty oikee art
 		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png"],	
 	Mimic :#tehty oikee art
-		["Room", 3, "Mimic", "Monster", "", "mimic.png"],
+		["Room", 3, "Mimic", "Monster", "", "mimic.png","mimic.wav"],
 	The_Vault_Room : #tehty 
-		["Room", 3, "The Vault Room","Monster", "", "vault_room.png"],
+		["Room", 3, "The Vault Room","Monster", "", "vault_room.png","vault.wav"],
 	Spike_Factory :#tehty
 		["Room", 4, "Spike Factory","Monster","", "spike_factory.png"],
 	Hot_Coals: #tehty oikee art
@@ -63,11 +63,11 @@ const DATA ={
 	Monster_Lounge: #tehty
 		["Room", 4, "Monster Lounge", "Monster", "", "monster_lounge.png"],
 	The_Dragon_Lair: #tehty
-		["Room", 4, "The Dragon Lair", "Monster", "", "dragon_lair.png"],
+		["Room", 4, "The Dragon Lair", "Monster", "", "dragon_lair.png",""],
 	Pit_Fall: #tehty oikee art
-		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png"],
+		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png","hero_death_pit.wav"],
 	Spike_Trap : #tehty oikee art
-		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room","spikes.png"],
+		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room","spikes.png","trap_spikes.wav"],
 	Forgotten_Library:
 		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card", "forgotten_library.png"]
 } 

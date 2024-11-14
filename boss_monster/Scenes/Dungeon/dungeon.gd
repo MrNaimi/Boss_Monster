@@ -43,17 +43,18 @@ func _on_quit_game_pressed() -> void:
 
 func _on_continue_button_pressed() -> void:
 	#print("Continue")
-	GlobalVariables.currentPhase="combat"
-	if GlobalVariables.rooms_placed.size()>0:
-		if GlobalVariables.is_everyone_stopped() or first_time_continue:
-			GlobalVariables.heroes_move = true
-			print(GlobalVariables.spawned_heroes)
-			for path in GlobalVariables.spawned_heroes:
-				if is_instance_valid(path):
-					path.get_child(0).can_move=true
-		first_time_continue=false
+	if GlobalVariables.trap_placed:
+		GlobalVariables.currentPhase="combat"
+		if GlobalVariables.rooms_placed.size()>0:
+			if GlobalVariables.is_everyone_stopped() or first_time_continue:
+				GlobalVariables.heroes_move = true
+				print(GlobalVariables.spawned_heroes)
+				for path in GlobalVariables.spawned_heroes:
+					if is_instance_valid(path):
+						path.get_child(0).can_move=true
+			first_time_continue=false
 	else:
-		print("Place a room first")
+		print("Place a trap first!!!")
 
 func _on_reset_button_pressed() -> void:
 	#path_follow_2d.progress=0
@@ -71,17 +72,19 @@ func _on_reset_button_pressed() -> void:
 
 
 func _on_autoplay_pressed() -> void:
-	GlobalVariables.currentPhase="combat"
-	GlobalVariables.autoplay = !GlobalVariables.autoplay
-	if GlobalVariables.autoplay:
-		GlobalVariables.heroes_move=true
-		for path in GlobalVariables.spawned_heroes:
-			if is_instance_valid(path):
-				path.get_child(0).can_move=true
-		autoplay.text="Autoplay On"
+	if GlobalVariables.trap_placed:
+		GlobalVariables.currentPhase="combat"
+		GlobalVariables.autoplay = !GlobalVariables.autoplay
+		if GlobalVariables.autoplay:
+			GlobalVariables.heroes_move=true
+			for path in GlobalVariables.spawned_heroes:
+				if is_instance_valid(path):
+					path.get_child(0).can_move=true
+			autoplay.text="Autoplay On"
+		else:
+			autoplay.text="Autoplay Off"
 	else:
-		autoplay.text="Autoplay Off"
-
+		print("Place a trap first!!!")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print(area.get_parent().get_parent().hp)

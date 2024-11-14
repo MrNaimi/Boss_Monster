@@ -4,7 +4,6 @@ extends CardState
 func enter() -> void:
 	if not card_ui.is_node_ready():
 		await card_ui.ready
-	GlobalVariables.combat_phase=false
 	card_ui.trap_hit_box.disabled = true
 	card_ui.card_texture.visible = true
 	card_ui.reparent_requested.emit(card_ui)

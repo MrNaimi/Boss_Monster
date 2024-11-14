@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	if GlobalVariables.timerStart:
 		timer.start()
 		GlobalVariables.timerStart = false
-	if GlobalVariables.heroes_move && GlobalVariables.combat_phase:
+	if GlobalVariables.heroes_move && GlobalVariables.currentPhase=="combat":
 		for path in get_child(0).get_children():
 			if path.get_child(0).can_move:
 				path.progress=path.progress+speed*delta
@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 			GlobalVariables.spawn_hero = false
 			currentheroes +=1
 		if GlobalVariables.amount_of_heroes_killed == herolimit:
-			GlobalVariables.currentPhase= "build"
+			GlobalVariables.currentPhase = "build"
 			currentheroes = 0
 			herolimit += 1
 			GlobalVariables.amount_of_heroes_killed=0

@@ -22,6 +22,7 @@ var rooms_placed: Array[Control] = []
 var spawn_room_set = false
 var timerStart = false
 var amount_of_heroes_killed = 0
+var trap_placed = false 
 #Phases are town phase "town", combat phase, "combat" and build phase "build"
 @onready var currentPhase: String = "build"
 
