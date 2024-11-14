@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=53 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="PackedScene" uid="uid://kucveeor5r6b" path="res://Scenes/Dungeon/Draggable_object.tscn" id="2_u3l5r"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/current_phase_text.gd" id="12_5b0qg"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/actions_left.gd" id="13_jv5qn"]
 [ext_resource type="Texture2D" uid="uid://cw3ak2bpdp0bm" path="res://Assets/Bosses/Corrupted_Mage/Corrupted_Mage.png" id="15_xtt6n"]
 [ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
 [ext_resource type="PackedScene" uid="uid://cavglumrn4bxv" path="res://card_drop_area.tscn" id="16_a7p6m"]
@@ -870,7 +871,7 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_6704g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 210, 71, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 72, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 219, 262, 0, 0, 0, 0, 78, 262, 0, 0, 0, 0, 70, 435, 0, 0, 0, 0, 212, 446, 0, 0, 0, 0, 503, 439, 0, 0, 0, 0, 697, 440)
+"points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 210, 71, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 72, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 219, 262, 0, 0, 0, 0, 78, 262, 0, 0, 0, 0, 77, 444, 0, 0, 0, 0, 227, 443, 0, 0, 0, 0, 507, 445, 0, 0, 0, 0, 697, 440)
 }
 point_count = 14
 
@@ -1127,7 +1128,7 @@ metadata/_edit_use_anchors_ = true
 offset_left = 929.0
 offset_top = 504.0
 offset_right = 1229.0
-offset_bottom = 594.0
+offset_bottom = 606.0
 color = Color(0, 0, 0, 0.494118)
 
 [node name="BossHp" type="Label" parent="."]
@@ -1148,6 +1149,25 @@ theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Current phase: "
 
+[node name="actions" type="Label" parent="."]
+offset_left = 972.0
+offset_top = 575.0
+offset_right = 1110.0
+offset_bottom = 599.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Actions left: "
+
+[node name="actions2" type="Label" parent="."]
+visible = false
+offset_left = 563.0
+offset_top = 316.0
+offset_right = 721.0
+offset_bottom = 340.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Build a room first"
+
 [node name="CurrentPhaseText" type="Label" parent="."]
 offset_left = 1088.0
 offset_top = 558.0
@@ -1157,6 +1177,16 @@ theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Build"
 script = ExtResource("12_5b0qg")
+
+[node name="ActionsLeft" type="Label" parent="."]
+offset_left = 1088.0
+offset_top = 576.0
+offset_right = 1207.0
+offset_bottom = 600.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+script = ExtResource("13_jv5qn")
 
 [node name="Boss" type="Node2D" parent="."]
 script = ExtResource("11_rc6gd")
@@ -1278,6 +1308,20 @@ curve = SubResource("Curve2D_6704g")
 
 [node name="Timer" type="Timer" parent="Heroes"]
 one_shot = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 642.0
+offset_top = 637.0
+offset_right = 1079.0
+offset_bottom = 701.0
+color = Color(0, 0, 0, 0.454902)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 435.0
+offset_bottom = 64.0
 
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/Reset_button" to="." method="_on_reset_button_pressed"]

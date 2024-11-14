@@ -15,6 +15,7 @@ signal reset_card()
 @onready var card_texture: Sprite2D = $CardTexture
 @onready var card_border: Sprite2D = $CardBorder
 @onready var rooms: Array[Array] = GlobalVariables.rooms
+@onready var spells: Array[Array] = GlobalVariables.spells
 @onready var room_type: Label = $Control/RoomType
 @onready var room_dmg: Label = $Control/RoomDmg
 @onready var card_name: Label = $Control/CardName
@@ -30,19 +31,30 @@ func _ready() -> void:
 	#	GlobalVariables.spawn_room.append(self) 
 	#print(rooms)
 	var i =  RandomNumberGenerator.new().randi_range(0, rooms.size()-1)
-	
 	var selectedRoom=rooms.pop_at(i)
 	
+	i =  RandomNumberGenerator.new().randi_range(0, spells.size()-1)
+	var selectedSpell=spells.pop_at(i)
 	card_state_machine.init(self)
-
-	trap_texture.texture=load(texturepath+selectedRoom[5])
-	card_texture.texture=load(texturepath+selectedRoom[5])
-	card_name.text = selectedRoom[2]
-	room_type.text = selectedRoom[3][0]
-	room_dmg.text = str(selectedRoom[1])
-	damage = int(room_dmg.text)
-	GlobalVariables.rooms_placed.append(self)
-	trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
+	if GlobalVariables.created_spells < GlobalVariables.spell_limit:
+		print("Yritetään luoda spelliä")
+		trap_texture.texture=load(texturepath+selectedSpell[5])
+		card_texture.texture=load(texturepath+selectedSpell[5])
+		card_name.text = selectedSpell[3]
+		room_type.text = selectedSpell[0][0]
+		room_dmg.text = str(selectedSpell[1])
+		damage = int(room_dmg.text)
+		GlobalVariables.created_spells+=1
+		card_border.texture=load("res://Cards/Graphics/spellcard.png")
+	else:
+		trap_texture.texture=load(texturepath+selectedRoom[5])
+		card_texture.texture=load(texturepath+selectedRoom[5])
+		card_name.text = selectedRoom[2]
+		room_type.text = selectedRoom[3][0]
+		room_dmg.text = str(selectedRoom[1])
+		damage = int(room_dmg.text)
+		GlobalVariables.rooms_placed.append(self)
+		trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
 
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)

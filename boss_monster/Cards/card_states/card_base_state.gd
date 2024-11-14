@@ -17,6 +17,9 @@ func enter() -> void:
 	 
 func on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
-		if GlobalVariables.currentPhase=="build":
+		if GlobalVariables.currentPhase=="build" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text!="S": 
+			card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+			transition_requested.emit(self, CardState.State.CLICKED)
+		elif GlobalVariables.currentPhase=="combat" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text=="S":
 			card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
 			transition_requested.emit(self, CardState.State.CLICKED)

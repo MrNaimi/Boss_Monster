@@ -10,9 +10,12 @@ var spawn_hero = false
 var hero_limit = 3
 var current_heroes = 0
 var timerAmount = 0.0
+var spell_limit = 1
+var created_spells = 0
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
 @onready var heroes: Array[Array] = []
+@onready var spells: Array[Array] = []
 var damageGiven = 0
 var heroHp = 10 
 var heroKilled = false
@@ -23,6 +26,8 @@ var spawn_room_set = false
 var timerStart = false
 var amount_of_heroes_killed = 0
 var trap_placed = false 
+var spell_dragging=false
+@onready var actionsLeft = 2
 #Phases are town phase "town", combat phase, "combat" and build phase "build"
 @onready var currentPhase: String = "build"
 
@@ -36,7 +41,11 @@ func _ready() -> void:
 		if Database.DATA.get(i)[0]=="Hero":
 			heroes.append(Database.DATA.get(i))
 		i+=1
-		
+	
+	for i in range(Database.DATA.size()):
+		if Database.DATA.get(i)[0]=="Spell":
+			spells.append(Database.DATA.get(i))
+		i+=1
 func is_everyone_stopped() -> bool:
 	for path in GlobalVariables.spawned_heroes:
 		if is_instance_valid(path):

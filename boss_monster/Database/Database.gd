@@ -1,7 +1,7 @@
 
 #HeroInfo =[Type, Factor, Hp, , Name, Role, Artifact, Special Text]
 #BossInfo =[Type, Health, Name, Special Text]
-#SpellInfo =[Type, Damage, +Health, Name, Special Text]
+#SpellInfo =[Type, Damage, +Health, Name, Special Text, png]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png]
 
 enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library}
@@ -34,18 +34,18 @@ const DATA ={
 		["Boss", 20, "Big_Snake", "Too large to be just a snake, but still too small to be a proper wyrm"],
 	Corrupted_Mage: 
 		["Boss", 20, "Corrupted_Mage", "Will not rest until he has the strongest magic!"],
-		
+
 	#Spells
 	Shrink_Ray :
-		["Spell",0,0, "Shrink Ray", "Reduce heros maximum HP by 5"],
+		["Spell",0, 0, "Shrink Ray", "Reduce heros maximum HP by 5","std.png"],
 	Mind_Control :
-		["Spell",0 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero"],
+		["Spell",0 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero","mind_control.png"],
 	Healing_potion :
-		["Spell",0, 4, "Healing Potion", "Restore 4 health to your Boss"],
+		["Spell",0, 4, "Healing Potion", "Restore 4 health to your Boss","healing_potion.png"],
 	Assassination :
-		["Spell", 100, 0, "Assassination", "Kill a targeted hero"],
+		["Spell", 100, 0, "Assassination", "Kill a targeted hero","assassination.png"],
 	Bad_Directions :
-		["Spell", 0, 0, "Bad Directions", "Return a hero back to the start of the dungeon"],
+		["Spell", 0, 0, "Bad Directions", "Return a hero back to the start of the dungeon","bad_directions.png"],
 		
 	#Rooms 
 	Goblin_warrior : #tehty oikee art

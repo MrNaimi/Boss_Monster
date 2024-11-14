@@ -7,8 +7,10 @@ func enter() -> void:
 	var ui_layer := get_tree().get_first_node_in_group("ui_layer")
 	if ui_layer:
 		card_ui.reparent(ui_layer)
-	
-	GlobalVariables.card_dragging = true
+	if card_ui.room_type.text=="S":
+		GlobalVariables.spell_dragging=true
+	else:
+		GlobalVariables.card_dragging = true
 	#card_ui.color.color= Color.NAVY_BLUE
 	#card_ui.state.text = ""
 	
@@ -26,7 +28,11 @@ func on_input(event: InputEvent) -> void:
 	
 	if cancel:
 		GlobalVariables.card_dragging=false
+		GlobalVariables.spell_dragging=false
 		transition_requested.emit(self, CardState.State.BASE)
 	elif minimum_drag_time_elapsed and confirm:
 		get_viewport().set_input_as_handled()
 		transition_requested.emit(self, CardState.State.RELEASED)
+	
+
+		
