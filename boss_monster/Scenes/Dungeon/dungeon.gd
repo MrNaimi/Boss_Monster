@@ -5,7 +5,7 @@ var is_dragging = false
 @onready var hand: Hand = $DungeonUI/Hand
 @onready var card_drop_areas: Node2D = $CardDropAreas
 @onready var path_follow_2d: PathFollow2D = $Heroes/Path2D/PathFollow2D
-@onready var autoplay: Button = $VBoxContainer/Autoplay
+@onready var autoplay: Button = $Buttons/Autoplay
 @onready var heroes: Node2D = $Heroes
 @onready var hero: PackedScene = preload("res://hero.tscn")
 @onready var boss_health_bar: ProgressBar = $bossHealthBar
@@ -13,6 +13,7 @@ var is_dragging = false
 @onready var hp = 50
 @onready var boss_hp: Label = $BossHp
 @onready var first_time_continue = true
+@onready var current_phase_text: Label = $CurrentPhaseText
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,13 +35,15 @@ func _process(delta: float) -> void:
 			first_time_continue=false
 		else:
 			print("Place a room first")
-		
+			
+	
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 
 
 func _on_continue_button_pressed() -> void:
 	#print("Continue")
+	GlobalVariables.currentPhase="combat"
 	if GlobalVariables.rooms_placed.size()>0:
 		if GlobalVariables.is_everyone_stopped() or first_time_continue:
 			GlobalVariables.heroes_move = true
@@ -68,6 +71,7 @@ func _on_reset_button_pressed() -> void:
 
 
 func _on_autoplay_pressed() -> void:
+	GlobalVariables.currentPhase="combat"
 	GlobalVariables.autoplay = !GlobalVariables.autoplay
 	if GlobalVariables.autoplay:
 		GlobalVariables.heroes_move=true

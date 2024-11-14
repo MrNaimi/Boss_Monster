@@ -49,7 +49,7 @@ const DATA ={
 		
 	#Rooms 
 	Goblin_warrior : #tehty oikee art
-		["Room", 3, "Goblin Warrior", "Monster", "", "goblin_warrior.png"],
+		["Room", 3, "Goblin Warrior", "Monster", "", "goblin_warrior.png","goblin_warrior.wav"],
 	Gas_Leak : #tehty oikee art
 		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png"],	
 	Mimic :#tehty oikee art

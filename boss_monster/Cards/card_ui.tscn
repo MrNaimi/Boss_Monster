@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://o33examlthtq"]
+[gd_scene load_steps=15 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
 [ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://co0imuiaeata1" path="res://Cards/Graphics/card.png" id="10_0dsxu"]
 [ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="12_6h8t8"]
+[ext_resource type="AudioStream" uid="uid://bfcomsuweietp" path="res://Assets/Sound Effects/trap_gas_leak.wav" id="12_x14l2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
 size = Vector2(89, 140)
@@ -130,6 +131,9 @@ theme_override_fonts/font = ExtResource("11_a640w")
 theme_override_font_sizes/font_size = 9
 text = "CardName"
 horizontal_alignment = 1
+
+[node name="trap_enter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_x14l2")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -3,7 +3,7 @@ extends Node2D
 @export var speed = 500
 @onready var hero: PackedScene = preload("res://hero.tscn")
 @onready var heroandpath: PackedScene = preload("res://path_follow_2d.tscn")
-@onready var herolimit = 100
+@onready var herolimit = 3
 @onready var currentheroes = 1
 @onready var timer: Timer = $Timer
 
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 				
 		#path_follow_2d.progress += speed * delta
 		#GlobalVariables.hero_progress = path_follow_2d.progress
-	if GlobalVariables.spawn_hero:
+	if GlobalVariables.spawn_hero && GlobalVariables.currentPhase=="combat":
 		if currentheroes < herolimit:
 			var new_hero = heroandpath.instantiate()
 			get_child(0).add_child(new_hero)
@@ -41,7 +41,12 @@ func _process(delta: float) -> void:
 			GlobalVariables.heroKilled = false
 			GlobalVariables.spawn_hero = false
 			currentheroes +=1
-			
+		if GlobalVariables.amount_of_heroes_killed == herolimit:
+			GlobalVariables.currentPhase= "build"
+			currentheroes = 0
+			herolimit += 1
+			GlobalVariables.amount_of_heroes_killed=0
+		
 
 
 func _on_timer_timeout() -> void:

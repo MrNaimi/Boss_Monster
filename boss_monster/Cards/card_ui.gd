@@ -20,6 +20,9 @@ signal reset_card()
 @onready var card_name: Label = $Control/CardName
 @onready var damage = int(room_dmg.text)
 @onready var spawn_room = false
+@onready var trap_enter: AudioStreamPlayer2D = $trap_enter
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,7 +42,7 @@ func _ready() -> void:
 	room_dmg.text = str(selectedRoom[1])
 	damage = int(room_dmg.text)
 	GlobalVariables.rooms_placed.append(self)
-
+	trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
 
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
@@ -68,6 +71,8 @@ func reset() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
+	if !trap_enter.is_playing():
+		trap_enter.play()
 	if !GlobalVariables.spawn_room_set:
 		print("Current room set as the spawn room")
 		spawn_room=true

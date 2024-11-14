@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 			GlobalVariables.heroes_move=true
 		GlobalVariables.heroKilled = true
 		get_parent().queue_free()
-		
+		GlobalVariables.amount_of_heroes_killed+=1
 	
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
