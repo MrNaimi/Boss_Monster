@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Main_menu/main_menu.tscn")
+	Transition.change_scene("res://Scenes/Main_menu/main_menu.tscn")
 func _on_heroes_pressed() -> void:
 	$Node2D/Boss.visibility_layer =0
 	$Node2D/Spell.visibility_layer =0

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Dungeon="*res://Scenes/Dungeon/Dungeon.gd"
 GlobalVariables="*res://Cards/GlobalVariables.gd"
+Transition="*res://Scenes/Main_menu/Transition.tscn"
 
 [display]
 

@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://bppkmanivyjni"]
+
+[ext_resource type="Script" path="res://Scenes/Main_menu/boss_selection.gd" id="1_cctkr"]
+[ext_resource type="Texture2D" uid="uid://ldbpxlunecob" path="res://Assets/Bosses/Demon/boss_demon.png" id="2_nkckd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1c54"]
+atlas = ExtResource("2_nkckd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iolo7"]
+atlas = ExtResource("2_nkckd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywjww"]
+atlas = ExtResource("2_nkckd")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl6sl"]
+atlas = ExtResource("2_nkckd")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uswx0"]
+atlas = ExtResource("2_nkckd")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h1ox"]
+atlas = ExtResource("2_nkckd")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lg3y"]
+atlas = ExtResource("2_nkckd")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hd1t"]
+atlas = ExtResource("2_nkckd")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lvmb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1c54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iolo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywjww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl6sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uswx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h1ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lg3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hd1t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="BossSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cctkr")
+
+[node name="Demonanimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(956, 336)
+scale = Vector2(6.3125, 7.20312)
+sprite_frames = SubResource("SpriteFrames_0lvmb")
+frame_progress = 0.0993411
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 131.0
+offset_right = 712.0
+offset_bottom = 603.0
+text = "Select"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
