@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://o33examlthtq"]
+[gd_scene load_steps=16 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
 [ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
@@ -16,7 +16,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
 size = Vector2(89, 140)
 
-<<<<<<< Updated upstream
 [sub_resource type="GDScript" id="GDScript_6yrta"]
 script/source = "extends CardState
 
@@ -46,8 +45,6 @@ func enter() -> void:
 			#transition_requested.emit(self, CardState.State.CLICKED)
 "
 
-=======
->>>>>>> Stashed changes
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng550"]
 size = Vector2(45, 39)
 
@@ -86,6 +83,7 @@ initial_state = NodePath("CardBaseState")
 script = ExtResource("4_vua80")
 
 [node name="CardShopState" type="Node" parent="CardStateMachine"]
+script = SubResource("GDScript_6yrta")
 
 [node name="CardClickedState" type="Node" parent="CardStateMachine"]
 script = ExtResource("5_k83ju")

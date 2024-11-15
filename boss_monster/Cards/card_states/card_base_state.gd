@@ -6,13 +6,8 @@ func enter() -> void:
 	#if card_ui.get_parent().get_parent().name == "ShopUI":
 		#print("If lause läpi")
 		#transition_requested.emit(self, CardState.State.SHOP)
-<<<<<<< Updated upstream
 		
 	
-=======
-		#
-	#
->>>>>>> Stashed changes
 	
 	if not card_ui.is_node_ready():
 		await card_ui.ready
@@ -26,17 +21,13 @@ func enter() -> void:
 	card_ui.pivot_offset = Vector2.ZERO
 	card_ui.card_border.visible = true
 	card_ui.card_name.visible = true
-	
-	if card_ui.get_parent().get_parent().name=="ShopUI":
-		#card_ui.card_texture.visible = false
-		pass
+	 
 		
 func on_gui_input(event: InputEvent) -> void:
-	if card_ui.get_parent().get_parent().name!="ShopUI":
-		if event.is_action_pressed("click"):
-			if GlobalVariables.currentPhase=="build" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text!="S": 
-				card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
-				transition_requested.emit(self, CardState.State.CLICKED)
-			elif GlobalVariables.currentPhase=="combat" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text=="S":
-				card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
-				transition_requested.emit(self, CardState.State.CLICKED)
+	if event.is_action_pressed("click"):
+		if GlobalVariables.currentPhase=="build" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text!="S": 
+			card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+			transition_requested.emit(self, CardState.State.CLICKED)
+		elif GlobalVariables.currentPhase=="combat" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text=="S":
+			card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+			transition_requested.emit(self, CardState.State.CLICKED)

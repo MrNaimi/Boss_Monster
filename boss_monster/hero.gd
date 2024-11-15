@@ -29,11 +29,8 @@ func _process(delta: float) -> void:
 		GlobalVariables.heroKilled = true
 		get_parent().queue_free()
 		GlobalVariables.amount_of_heroes_killed+=1
-<<<<<<< Updated upstream
 	if get_parent().progress < 50:
 		path_direction = 1
-=======
->>>>>>> Stashed changes
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	#GlobalVariables.heroes_move=false
