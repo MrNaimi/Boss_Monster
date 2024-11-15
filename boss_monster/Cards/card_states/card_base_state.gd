@@ -3,12 +3,6 @@ extends CardState
 
 func enter() -> void:
 	
-	#if card_ui.get_parent().get_parent().name == "ShopUI":
-		#print("If lause läpi")
-		#transition_requested.emit(self, CardState.State.SHOP)
-		
-	
-	
 	if not card_ui.is_node_ready():
 		await card_ui.ready
 	card_ui.trap_hit_box.disabled = true
@@ -24,10 +18,11 @@ func enter() -> void:
 	 
 		
 func on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("click"):
-		if GlobalVariables.currentPhase=="build" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text!="S": 
-			card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
-			transition_requested.emit(self, CardState.State.CLICKED)
-		elif GlobalVariables.currentPhase=="combat" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text=="S":
-			card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
-			transition_requested.emit(self, CardState.State.CLICKED)
+	if !card_ui.shop_card or GlobalVariables.currentPhase=="shop":
+		if event.is_action_pressed("click"):
+			if GlobalVariables.currentPhase=="build" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text!="S": 
+				card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+				transition_requested.emit(self, CardState.State.CLICKED)
+			elif GlobalVariables.currentPhase=="combat" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text=="S":
+				card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+				transition_requested.emit(self, CardState.State.CLICKED)

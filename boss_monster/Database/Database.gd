@@ -37,7 +37,7 @@ const DATA ={
 
 	#Spells
 	Shrink_Ray :
-		["Spell",100, 0, "Shrink Ray", "Reduce heros maximum HP by 5","std.png"],
+		["Spell","50%", 0, "Shrink Ray", "Reduce heros maximum HP by 5","std.png"],
 	Mind_Control :
 		["Spell",100 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero","mind_control.png"],
 	Healing_potion :

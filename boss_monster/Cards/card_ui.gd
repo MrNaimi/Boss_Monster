@@ -22,7 +22,7 @@ signal reset_card()
 @onready var damage = int(room_dmg.text)
 @onready var spawn_room = false
 @onready var trap_enter: AudioStreamPlayer2D = $trap_enter
-
+@onready var shop_card = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -58,6 +58,8 @@ func _ready() -> void:
 		damage = int(room_dmg.text)
 		GlobalVariables.rooms_placed.append(self)
 		trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
+	if get_parent().get_parent().name == "ShopUI":
+		shop_card=true
 
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)

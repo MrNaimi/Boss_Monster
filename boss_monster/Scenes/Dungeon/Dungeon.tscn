@@ -1263,9 +1263,27 @@ grow_vertical = 2
 [node name="Shop2" type="HBoxContainer" parent="DungeonUI/ShopUI"]
 layout_mode = 0
 offset_left = 993.0
-offset_top = 217.0
+offset_top = 222.0
 offset_right = 1240.0
-offset_bottom = 316.0
+offset_bottom = 321.0
+
+[node name="ColorRect" type="ColorRect" parent="DungeonUI"]
+offset_left = 966.0
+offset_top = 376.0
+offset_right = 1207.0
+offset_bottom = 471.0
+color = Color(0, 0, 0, 0.45098)
+
+[node name="Label" type="Label" parent="DungeonUI/ColorRect"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 30
+text = "sell area"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Heroes" type="Node2D" parent="."]
 script = ExtResource("13_7qnxi")
