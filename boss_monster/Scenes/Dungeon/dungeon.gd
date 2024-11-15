@@ -8,10 +8,10 @@ var is_dragging = false
 @onready var autoplay: Button = $Buttons/Autoplay
 @onready var heroes: Node2D = $Heroes
 @onready var hero: PackedScene = preload("res://hero.tscn")
-@onready var boss_health_bar: ProgressBar = $bossHealthBar
+@onready var boss_health_bar: ProgressBar = $Control/bossHealthBar
 @onready var damage = 999
 @onready var hp = 50
-@onready var boss_hp: Label = $BossHp
+@onready var boss_hp: Label = $Control/BossHp
 @onready var first_time_continue = true
 @onready var current_phase_text: Label = $CurrentPhaseText
 
@@ -87,7 +87,7 @@ func _on_autoplay_pressed() -> void:
 		print("Place a trap first!!!")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print(area.get_parent().get_parent().hp)
+	#print(area.get_parent().get_parent().hp)
 	hp -= area.get_parent().get_parent().hp
 	area.get_parent().get_parent().hp=0
 	boss_health_bar.value = hp
@@ -95,3 +95,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if GlobalVariables.autoplay:
 		GlobalVariables.heroes_move=true
 	#GlobalVariables.heroHp = RandomNumberGenerator.new().randi_range(10,15)
+
+func refreshHP() -> void:
+	boss_hp.text = str(hp)
+	boss_health_bar.value = hp

@@ -19,16 +19,16 @@ func _process(delta: float) -> void:
 		GlobalVariables.timerStart = false
 	if GlobalVariables.heroes_move && GlobalVariables.currentPhase=="combat":
 		for path in get_child(0).get_children():
-			if path.get_child(0).can_move:
+			if path.get_child(0).can_move && not path.get_child(0).mindcontrolled:
 				path.progress=path.progress+speed*delta*path.get_child(0).path_direction
 			if path.get_child(0) == null:
 				path.queue_free()
 			else:
 				if path.progress > 850 and path.progress < 1850:
-					path.get_child(0).get_child(0).flip_h = true
+					path.get_child(0).get_child(0).flip_h = not path.get_child(0).flipped
 				else:
-					path.get_child(0).get_child(0).flip_h = false
-	
+					path.get_child(0).get_child(0).flip_h = path.get_child(0).flipped
+	#
 			
 				
 		#path_follow_2d.progress += speed * delta

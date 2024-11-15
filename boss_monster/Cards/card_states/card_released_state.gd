@@ -38,22 +38,35 @@ func enter() -> void:
 					"Shrink Ray":
 						print("Shrink Ray")
 						hero.hp= floor(hero.hp/2)
+						target.get_parent().scale.x=1
+						target.get_parent().scale.y=1
 					"Mind Control":
 						print("mind control")
-						hero.hp-=int(card_ui.room_dmg.text)
+						hero.can_move = false
+						hero.flipped = true
+						hero.mindcontrolled = true
+						hero.get_child(0).damage = hero.hp
+						#hero.hp-=int(card_ui.room_dmg.text)
 					"Assassination":
 						print("assassination")
 						hero.hp-=int(card_ui.room_dmg.text)
 					"Bad Directions":
 						hero.path_direction = -1
-						hero.get_child(0).flip_h = true
+						hero.flipped = true
+						hero.get_child(0).flip_h = not hero.get_child(0).flip_h 
 						print("Bad direction")
+						
 				GlobalVariables.actionsLeft-=1
 				card_ui.queue_free()
 			elif target.get_parent().name=="Boss": 
-				print(target.get_parent().get_parent().bossHp)
+				print(target.get_parent().get_parent().boss_hp)
 				print("osuu bossiin :)")
-		
+				if target.get_parent().get_parent().hp<=40:
+					target.get_parent().get_parent().hp+=10
+				else:
+					target.get_parent().get_parent().hp=50
+				target.get_parent().get_parent().refreshHP()
+				card_ui.queue_free()
 func on_input(_event: InputEvent) -> void:
 	if played:
 		return

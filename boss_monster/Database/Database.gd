@@ -41,7 +41,7 @@ const DATA ={
 	Mind_Control :
 		["Spell",100 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero","mind_control.png"],
 	Healing_potion :
-		["Spell",100, 4, "Healing Potion", "Restore 4 health to your Boss","healing_potion.png"],
+		["Spell","+10hp", 4, "Healing Potion", "Restore 4 health to your Boss","healing_potion.png"],
 	Assassination :
 		["Spell", 100, 0, "Assassination", "Kill a targeted hero","assassination.png"],
 	Bad_Directions :

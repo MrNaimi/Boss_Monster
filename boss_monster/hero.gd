@@ -7,7 +7,8 @@ var selectedHero = []
 @onready var heroes: Array[Array] = GlobalVariables.heroes
 @onready var can_move = true
 @onready var path_direction = 1
-
+@onready var flipped = false
+@onready var mindcontrolled = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalVariables.spawned_heroes.append(get_parent())
@@ -31,18 +32,25 @@ func _process(delta: float) -> void:
 		GlobalVariables.amount_of_heroes_killed+=1
 	if get_parent().progress < 50:
 		path_direction = 1
+		flipped = false
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	#GlobalVariables.heroes_move=false
-	can_move = false
-	if GlobalVariables.autoplay:
-		GlobalVariables.timerStart = true
-	
+	if area.get_parent().get_parent().name!="Hero" or area.get_parent().get_parent().mindcontrolled:
+			can_move = false
+			if GlobalVariables.autoplay:
+				GlobalVariables.timerStart = true
+			
 func _on_hit_box_area_exited(area: Area2D) -> void:
 	var damageTaken = area.get_parent().damage*selectedHero[1]
 	#print("Exited trap damage: ",area.get_parent().damage)
 	hp -= damageTaken
+	if area.get_parent().mindcontrolled:
+		area.get_parent().hp-=hp
+		area.get_parent().mindcontrolled = false
+		area.get_parent().damage = 0
 	#print(hp)
+	
 
 func isEveryoneStopped () -> bool:
 	for path in GlobalVariables.spawned_heroes:
