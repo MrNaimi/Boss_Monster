@@ -46,6 +46,9 @@ func _ready() -> void:
 		damage = int(room_dmg.text)
 		GlobalVariables.created_spells+=1
 		card_border.texture=load("res://Cards/Graphics/spellcard.png")
+		drop_point_detecor.set_collision_mask_value(3, false)
+		drop_point_detecor.set_collision_mask_value(4, true)
+		drop_point_detecor.set_collision_layer_value(3, false)
 	else:
 		trap_texture.texture=load(texturepath+selectedRoom[5])
 		card_texture.texture=load(texturepath+selectedRoom[5])

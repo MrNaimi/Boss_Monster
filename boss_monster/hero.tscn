@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dhnpite2foeeu"]
+[gd_scene load_steps=44 format=3 uid="uid://dhnpite2foeeu"]
 
 [ext_resource type="Script" path="res://hero.gd" id="1_c28ts"]
 [ext_resource type="Texture2D" uid="uid://cvsbh45vf3mhc" path="res://Assets/Heroes/Cleric.png" id="1_o0ucq"]
@@ -13,8 +13,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d2ppa"]
 shader = ExtResource("2_m5b0k")
-shader_parameter/flash_color = null
-shader_parameter/flash_value = null
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpju7"]
 atlas = ExtResource("2_mtjnb")
@@ -253,14 +253,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wimg"]
 size = Vector2(12.5, 21.5)
 
-[sub_resource type="Animation" id="Animation_a1pts"]
-resource_name = "flash"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gjf8c"]
-_data = {
-"flash": SubResource("Animation_a1pts")
-}
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqf38"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -289,11 +281,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Idle_animation/HitBox"]
 position = Vector2(-0.25, 0.749996)
 shape = SubResource("RectangleShape2D_7wimg")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Idle_animation"]
-libraries = {
-"": SubResource("AnimationLibrary_gjf8c")
-}
 
 [node name="healthBar" type="ProgressBar" parent="."]
 offset_left = -27.0

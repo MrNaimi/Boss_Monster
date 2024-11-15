@@ -1161,7 +1161,7 @@ script = ExtResource("13_jv5qn")
 script = ExtResource("11_rc6gd")
 
 [node name="Area2D" type="Area2D" parent="Boss"]
-collision_layer = 4
+collision_layer = 12
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Area2D"]
@@ -1178,7 +1178,6 @@ frame_progress = 0.360455
 flip_h = true
 
 [node name="CardDropAreas" type="Node2D" parent="."]
-visible = false
 position = Vector2(753, 425)
 scale = Vector2(1.34444, 1.20909)
 
