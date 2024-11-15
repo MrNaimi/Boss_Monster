@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	if GlobalVariables.heroes_move && GlobalVariables.currentPhase=="combat":
 		for path in get_child(0).get_children():
 			if path.get_child(0).can_move:
-				path.progress=path.progress+speed*delta
+				path.progress=path.progress+speed*delta*path.get_child(0).path_direction
 			if path.get_child(0) == null:
 				path.queue_free()
 			else:

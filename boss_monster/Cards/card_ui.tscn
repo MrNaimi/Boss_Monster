@@ -16,6 +16,38 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
 size = Vector2(89, 140)
 
+<<<<<<< Updated upstream
+[sub_resource type="GDScript" id="GDScript_6yrta"]
+script/source = "extends CardState
+
+
+func enter() -> void:
+	print(\"Entered shop state\")
+	#if not card_ui.is_node_ready():
+		#await card_ui.ready
+	card_ui.trap_hit_box.disabled = true
+	card_ui.card_texture.visible = true
+	#card_ui.reparent_requested.emit(card_ui)
+	card_ui.color.color = Color(\"77777b\")
+	card_ui.room_type.visible = true
+	card_ui.room_dmg.visible = true
+	#card_ui.state.text = \"\"
+	card_ui.pivot_offset = Vector2.ZERO
+	card_ui.card_border.visible = true
+	card_ui.card_name.visible = true
+	 
+#func on_gui_input(event: InputEvent) -> void:
+	#if event.is_action_pressed(\"click\"):
+		#if GlobalVariables.currentPhase==\"build\" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text!=\"S\": 
+			#card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+			#transition_requested.emit(self, CardState.State.CLICKED)
+		#elif GlobalVariables.currentPhase==\"combat\" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text==\"S\":
+			#card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+			#transition_requested.emit(self, CardState.State.CLICKED)
+"
+
+=======
+>>>>>>> Stashed changes
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng550"]
 size = Vector2(45, 39)
 
@@ -52,6 +84,8 @@ initial_state = NodePath("CardBaseState")
 
 [node name="CardBaseState" type="Node" parent="CardStateMachine"]
 script = ExtResource("4_vua80")
+
+[node name="CardShopState" type="Node" parent="CardStateMachine"]
 
 [node name="CardClickedState" type="Node" parent="CardStateMachine"]
 script = ExtResource("5_k83ju")

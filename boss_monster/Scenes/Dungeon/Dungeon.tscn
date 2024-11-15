@@ -1189,7 +1189,7 @@ script = ExtResource("13_jv5qn")
 script = ExtResource("11_rc6gd")
 
 [node name="Area2D" type="Area2D" parent="Boss"]
-collision_layer = 4
+collision_layer = 12
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Area2D"]
@@ -1266,33 +1266,33 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Control" type="Control" parent="DungeonUI"]
+[node name="ShopUI" type="Control" parent="DungeonUI"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("16_lio2u")
 
-[node name="Shop" type="HBoxContainer" parent="DungeonUI/Control"]
-layout_mode = 0
-offset_left = 962.0
-offset_top = 73.0
-offset_right = 1209.0
-offset_bottom = 172.0
+[node name="Shop" type="HBoxContainer" parent="DungeonUI/ShopUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 974.0
+offset_top = 70.0
+offset_right = 1221.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Shop2" type="HBoxContainer" parent="DungeonUI/Control"]
+[node name="Shop2" type="HBoxContainer" parent="DungeonUI/ShopUI"]
 layout_mode = 0
-offset_left = 964.0
-offset_top = 190.0
-offset_right = 1211.0
-offset_bottom = 289.0
-
-[node name="Shop3" type="HBoxContainer" parent="DungeonUI/Control"]
-layout_mode = 0
-offset_left = 962.0
-offset_top = 315.0
-offset_right = 1209.0
-offset_bottom = 414.0
+offset_left = 993.0
+offset_top = 217.0
+offset_right = 1240.0
+offset_bottom = 316.0
 
 [node name="Heroes" type="Node2D" parent="."]
 script = ExtResource("13_7qnxi")

@@ -11,6 +11,8 @@ func enter() -> void:
 		GlobalVariables.spell_dragging=true
 	else:
 		GlobalVariables.card_dragging = true
+	
+	
 	#card_ui.color.color= Color.NAVY_BLUE
 	#card_ui.state.text = ""
 	

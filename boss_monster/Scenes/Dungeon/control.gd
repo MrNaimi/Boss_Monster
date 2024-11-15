@@ -1,9 +1,10 @@
 extends Control
 @onready var card: PackedScene = preload("res://Cards/card_ui.tscn")
-var shoplimit = 3
+var shoplimit = 2
+var pos = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#createCards()
+	createCards()
 	pass
 
 
@@ -15,5 +16,5 @@ func _process(delta: float) -> void:
 func createCards() -> void:
 	for child in get_children():
 		for index in range(shoplimit):
-			add_child(card.instantiate())
-	
+			child.add_child(card.instantiate())
+			

@@ -37,15 +37,15 @@ const DATA ={
 
 	#Spells
 	Shrink_Ray :
-		["Spell",0, 0, "Shrink Ray", "Reduce heros maximum HP by 5","std.png"],
+		["Spell",100, 0, "Shrink Ray", "Reduce heros maximum HP by 5","std.png"],
 	Mind_Control :
-		["Spell",0 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero","mind_control.png"],
+		["Spell",100 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero","mind_control.png"],
 	Healing_potion :
-		["Spell",0, 4, "Healing Potion", "Restore 4 health to your Boss","healing_potion.png"],
+		["Spell",100, 4, "Healing Potion", "Restore 4 health to your Boss","healing_potion.png"],
 	Assassination :
 		["Spell", 100, 0, "Assassination", "Kill a targeted hero","assassination.png"],
 	Bad_Directions :
-		["Spell", 0, 0, "Bad Directions", "Return a hero back to the start of the dungeon","bad_directions.png"],
+		["Spell", 100, 0, "Bad Directions", "Return a hero back to the start of the dungeon","bad_directions.png"],
 		
 	#Rooms 
 	Goblin_warrior : #tehty oikee art
