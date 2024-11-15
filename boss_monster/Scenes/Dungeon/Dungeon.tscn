@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=56 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/Dungeon.gd" id="1_a3apr"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://ciospukj0mwgc" path="res://Assets/Tiles/tileanimations/torchtransparent.png" id="5_1qfqf"]
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
-[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="9_xb32f"]
-[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/poco/Poco.ttf" id="9_xb32f"]
+[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://Fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/current_phase_text.gd" id="12_5b0qg"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/actions_left.gd" id="13_jv5qn"]
-[ext_resource type="Texture2D" uid="uid://cw3ak2bpdp0bm" path="res://Assets/Bosses/Corrupted_Mage/Corrupted_Mage.png" id="15_xtt6n"]
+[ext_resource type="Texture2D" uid="uid://ldbpxlunecob" path="res://Assets/Bosses/Demon/boss_demon.png" id="14_2cneq"]
 [ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
 [ext_resource type="PackedScene" uid="uid://cavglumrn4bxv" path="res://card_drop_area.tscn" id="16_a7p6m"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
@@ -832,36 +832,64 @@ bg_color = Color(1, 0, 0.0166664, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8r57"]
 size = Vector2(121, 98)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3gml0"]
-atlas = ExtResource("15_xtt6n")
-region = Rect2(0, 0, 45, 55)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsf53"]
+atlas = ExtResource("14_2cneq")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fqcdk"]
-atlas = ExtResource("15_xtt6n")
-region = Rect2(45, 0, 45, 55)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofiku"]
+atlas = ExtResource("14_2cneq")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xj3ce"]
-atlas = ExtResource("15_xtt6n")
-region = Rect2(90, 0, 45, 55)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwc7l"]
+atlas = ExtResource("14_2cneq")
+region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ivfn"]
-atlas = ExtResource("15_xtt6n")
-region = Rect2(135, 0, 45, 55)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gwcn"]
+atlas = ExtResource("14_2cneq")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08bqv"]
+atlas = ExtResource("14_2cneq")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bhlf"]
+atlas = ExtResource("14_2cneq")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sept7"]
+atlas = ExtResource("14_2cneq")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sduxx"]
+atlas = ExtResource("14_2cneq")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7nv63"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3gml0")
+"texture": SubResource("AtlasTexture_vsf53")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fqcdk")
+"texture": SubResource("AtlasTexture_ofiku")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xj3ce")
+"texture": SubResource("AtlasTexture_dwc7l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5ivfn")
+"texture": SubResource("AtlasTexture_3gwcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08bqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bhlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sept7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sduxx")
 }],
 "loop": true,
 "name": &"Idle",
@@ -1029,10 +1057,10 @@ tile_map_data = PackedByteArray("AAA9AAMAAAAHAAEAAGA9AAQAAAAGAAEAAGA9AAUAAAAAAAE
 tile_set = SubResource("TileSet_32ymr")
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-offset_left = 711.0
-offset_top = 536.0
-offset_right = 844.0
-offset_bottom = 660.0
+offset_left = 822.0
+offset_top = 600.0
+offset_right = 955.0
+offset_bottom = 724.0
 
 [node name="Continue_button" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -1070,10 +1098,10 @@ value = 0.55
 script = ExtResource("8_xunt5")
 
 [node name="bossHealthBar" type="ProgressBar" parent="."]
-offset_left = 935.0
-offset_top = 515.0
-offset_right = 1222.0
-offset_bottom = 552.0
+offset_left = 965.0
+offset_top = 610.0
+offset_right = 1252.0
+offset_bottom = 647.0
 theme_override_styles/background = SubResource("StyleBoxFlat_y3yn2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cwxt8")
 max_value = 50.0
@@ -1094,35 +1122,35 @@ text = "Quit Game"
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 929.0
-offset_top = 504.0
-offset_right = 1229.0
-offset_bottom = 606.0
+offset_left = 959.0
+offset_top = 599.0
+offset_right = 1259.0
+offset_bottom = 701.0
 color = Color(0, 0, 0, 0.494118)
 
 [node name="BossHp" type="Label" parent="."]
-offset_left = 1058.0
-offset_top = 512.0
-offset_right = 1106.0
-offset_bottom = 560.0
+offset_left = 1088.0
+offset_top = 607.0
+offset_right = 1136.0
+offset_bottom = 655.0
 theme_override_fonts/font = ExtResource("11_28vcp")
 theme_override_font_sizes/font_size = 35
 text = "50"
 
 [node name="phase" type="Label" parent="."]
-offset_left = 950.0
-offset_top = 558.0
-offset_right = 1088.0
-offset_bottom = 582.0
+offset_left = 980.0
+offset_top = 653.0
+offset_right = 1118.0
+offset_bottom = 677.0
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Current phase: "
 
 [node name="actions" type="Label" parent="."]
-offset_left = 972.0
-offset_top = 575.0
-offset_right = 1110.0
-offset_bottom = 599.0
+offset_left = 1002.0
+offset_top = 670.0
+offset_right = 1140.0
+offset_bottom = 694.0
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Actions left: "
@@ -1138,20 +1166,20 @@ theme_override_font_sizes/font_size = 20
 text = "Build a room first"
 
 [node name="CurrentPhaseText" type="Label" parent="."]
-offset_left = 1088.0
-offset_top = 558.0
-offset_right = 1207.0
-offset_bottom = 582.0
+offset_left = 1118.0
+offset_top = 653.0
+offset_right = 1237.0
+offset_bottom = 677.0
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Build"
 script = ExtResource("12_5b0qg")
 
 [node name="ActionsLeft" type="Label" parent="."]
-offset_left = 1088.0
-offset_top = 576.0
-offset_right = 1207.0
-offset_bottom = 600.0
+offset_left = 1118.0
+offset_top = 671.0
+offset_right = 1237.0
+offset_bottom = 695.0
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "0"
@@ -1169,13 +1197,12 @@ position = Vector2(757, 439)
 shape = SubResource("RectangleShape2D_a8r57")
 
 [node name="Idle_animation" type="AnimatedSprite2D" parent="Boss"]
-position = Vector2(753, 425)
-scale = Vector2(1.34444, 1.20909)
+position = Vector2(755, 412)
+scale = Vector2(1.5, 1.349)
 sprite_frames = SubResource("SpriteFrames_7nv63")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.360455
-flip_h = true
+frame_progress = 0.896882
 
 [node name="CardDropAreas" type="Node2D" parent="."]
 position = Vector2(753, 425)

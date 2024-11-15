@@ -1,6 +1,6 @@
 extends Control
 
-
+var boss_selection = preload("res://Scenes/Main_menu/boss_selection.tscn")
 var Dungeon_Scene = preload("res://Scenes/Dungeon/Dungeon.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,9 +15,9 @@ func _process(delta: float) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	
+
 	print("Play button was pressed")
-	get_tree().change_scene_to_packed(Dungeon_Scene)
+	Transition.change_scene("res://Scenes/Main_menu/boss_selection.tscn")
 
 
 func _on_quit_game_pressed() -> void:
@@ -25,4 +25,4 @@ func _on_quit_game_pressed() -> void:
 
 func _on_collections_pressed() -> void:
 	print("Collections button was pressed")
-	get_tree().change_scene_to_file("res://Scenes/Main_menu/collections.tscn")
+	Transition.change_scene("res://Scenes/Main_menu/collections.tscn")
