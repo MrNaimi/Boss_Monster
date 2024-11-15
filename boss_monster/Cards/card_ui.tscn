@@ -21,7 +21,7 @@ script/source = "extends CardState
 
 
 func enter() -> void:
-	print(\"Hello\")
+	print(\"Entered shop state\")
 	#if not card_ui.is_node_ready():
 		#await card_ui.ready
 	card_ui.trap_hit_box.disabled = true

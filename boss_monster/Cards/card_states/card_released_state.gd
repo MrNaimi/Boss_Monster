@@ -37,7 +37,7 @@ func enter() -> void:
 				match card_ui.card_name.text:
 					"Shrink Ray":
 						print("Shrink Ray")
-						hero.hp-=int(card_ui.room_dmg.text)
+						hero.hp= floor(hero.hp/2)
 					"Mind Control":
 						print("mind control")
 						hero.hp-=int(card_ui.room_dmg.text)
@@ -45,7 +45,8 @@ func enter() -> void:
 						print("assassination")
 						hero.hp-=int(card_ui.room_dmg.text)
 					"Bad Directions":
-						hero.hp-=int(card_ui.room_dmg.text)
+						hero.path_direction = -1
+						hero.get_child(0).flip_h = true
 						print("Bad direction")
 				GlobalVariables.actionsLeft-=1
 				card_ui.queue_free()

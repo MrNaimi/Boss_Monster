@@ -6,6 +6,7 @@ extends Node2D
 var selectedHero = []
 @onready var heroes: Array[Array] = GlobalVariables.heroes
 @onready var can_move = true
+@onready var path_direction = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,7 +29,8 @@ func _process(delta: float) -> void:
 		GlobalVariables.heroKilled = true
 		get_parent().queue_free()
 		GlobalVariables.amount_of_heroes_killed+=1
-	
+	if get_parent().progress < 50:
+		path_direction = 1
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	#GlobalVariables.heroes_move=false

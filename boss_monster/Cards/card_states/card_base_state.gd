@@ -3,9 +3,9 @@ extends CardState
 
 func enter() -> void:
 	
-	if card_ui.get_parent().get_parent().name == "ShopUI":
-		print("If lause läpi")
-		transition_requested.emit(self, CardState.State.SHOP)
+	#if card_ui.get_parent().get_parent().name == "ShopUI":
+		#print("If lause läpi")
+		#transition_requested.emit(self, CardState.State.SHOP)
 		
 	
 	
