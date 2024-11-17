@@ -45,9 +45,9 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 	var damageTaken = area.get_parent().damage*selectedHero[1]
 	#print("Exited trap damage: ",area.get_parent().damage)
 	hp -= damageTaken
-	if area.get_parent().mindcontrolled:
-		area.get_parent().hp-=hp
-		area.get_parent().mindcontrolled = false
+	if mindcontrolled:
+		hp-=hp
+		mindcontrolled = false
 		area.get_parent().damage = 0
 	#print(hp)
 	
