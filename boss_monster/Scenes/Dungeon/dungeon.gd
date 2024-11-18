@@ -57,20 +57,13 @@ func _on_continue_button_pressed() -> void:
 		print("Place a trap first!!!")
 
 func _on_reset_button_pressed() -> void:
-	#path_follow_2d.progress=0
-	#get_tree().reload_current_scene()
-	GlobalVariables.heroes_move=false
-	GlobalVariables.autoplay=false
-	autoplay.text="Autoplay Off"
-	#hero.hp = 0
-	for carddroparea in card_drop_areas.get_children():
-		for room in carddroparea.get_children():
-			for vboxcontainer in room.get_children():
-				for card in vboxcontainer.get_children():
-					if card.is_in_group("card"):
-						card.reset()
+	if GlobalVariables.currentPhase=="build":
+		GlobalVariables.resetValues()
+		for card in GlobalVariables.room_cards_created:
+			if is_instance_valid(card):
+				card.createCard()
 
-
+	
 func _on_autoplay_pressed() -> void:
 	if GlobalVariables.trap_placed:
 		GlobalVariables.currentPhase="combat"
@@ -80,7 +73,6 @@ func _on_autoplay_pressed() -> void:
 			for path in GlobalVariables.spawned_heroes:
 				if is_instance_valid(path):
 					path.get_child(0).can_move=true
-			autoplay.text="Autoplay On"
 		else:
 			autoplay.text="Autoplay Off"
 	else:

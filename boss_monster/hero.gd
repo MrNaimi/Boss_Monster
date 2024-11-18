@@ -9,6 +9,7 @@ var selectedHero = []
 @onready var path_direction = 1
 @onready var flipped = false
 @onready var mindcontrolled = false
+@onready var hero_class: String
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalVariables.spawned_heroes.append(get_parent())
@@ -18,7 +19,7 @@ func _ready() -> void:
 	hp = RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3])
 	health_bar.max_value = hp
 	idle_animation.animation = selectedHero[4]
-
+	hero_class=selectedHero[4]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:		
 	health_bar.value = hp

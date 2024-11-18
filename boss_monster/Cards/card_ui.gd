@@ -27,7 +27,55 @@ signal reset_card()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#if GlobalVariables.spawn_room.size()==0:
+	createCard()
+	GlobalVariables.room_cards_created.append(self)
+	
+	
+func _input(event: InputEvent) -> void:
+	card_state_machine.on_input(event)
+	
+func _on_gui_input(event: InputEvent) -> void:
+	card_state_machine.on_gui_input(event)
+	
+func _on_mouse_entered() -> void:
+	card_state_machine.on_mouse_entered()
+	
+func _on_mouse_exited() -> void:
+	card_state_machine.on_mouse_exited()
+
+
+func _on_drop_point_detecor_area_entered(area: Area2D) -> void:
+	if not targets.has(area):
+		targets.append(area)
+
+
+func _on_drop_point_detecor_area_exited(area: Area2D) -> void:
+	targets.erase(area)
+
+func reset() -> void:
+	reset_card.emit()
+	
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	#if !trap_enter.is_playing():
+		#trap_enter.play()
+	if !GlobalVariables.spawn_room_set:
+		print("Current room set as the spawn room")
+		spawn_room=true
+		GlobalVariables.spawn_room_set = true
+
+func _on_hit_box_area_exited(area: Area2D) -> void:
+	#if self in GlobalVariables.spawn_room:
+	if spawn_room:
+		GlobalVariables.spawn_hero=true
+	pass
+	
+func createCard() -> void:
+	rooms = GlobalVariables.rooms
+	spells = GlobalVariables.spells
+	print("pylly")
+		#if GlobalVariables.spawn_room.size()==0:
 	#	GlobalVariables.spawn_room.append(self) 
 	#print(rooms)
 	var i =  RandomNumberGenerator.new().randi_range(0, rooms.size()-1)
@@ -57,46 +105,6 @@ func _ready() -> void:
 		room_dmg.text = str(selectedRoom[1])
 		damage = int(room_dmg.text)
 		GlobalVariables.rooms_placed.append(self)
-		trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
+		#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
 	if get_parent().get_parent().name == "ShopUI":
 		shop_card=true
-
-func _input(event: InputEvent) -> void:
-	card_state_machine.on_input(event)
-	
-func _on_gui_input(event: InputEvent) -> void:
-	card_state_machine.on_gui_input(event)
-	
-func _on_mouse_entered() -> void:
-	card_state_machine.on_mouse_entered()
-	
-func _on_mouse_exited() -> void:
-	card_state_machine.on_mouse_exited()
-
-
-func _on_drop_point_detecor_area_entered(area: Area2D) -> void:
-	if not targets.has(area):
-		targets.append(area)
-
-
-func _on_drop_point_detecor_area_exited(area: Area2D) -> void:
-	targets.erase(area)
-
-func reset() -> void:
-	reset_card.emit()
-	
-
-
-func _on_hit_box_area_entered(area: Area2D) -> void:
-	if !trap_enter.is_playing():
-		trap_enter.play()
-	if !GlobalVariables.spawn_room_set:
-		print("Current room set as the spawn room")
-		spawn_room=true
-		GlobalVariables.spawn_room_set = true
-
-func _on_hit_box_area_exited(area: Area2D) -> void:
-	#if self in GlobalVariables.spawn_room:
-	if spawn_room:
-		GlobalVariables.spawn_hero=true
-	pass

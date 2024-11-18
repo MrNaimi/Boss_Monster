@@ -16,6 +16,7 @@ var created_spells = 0
 @onready var rooms: Array[Array] = []
 @onready var heroes: Array[Array] = []
 @onready var spells: Array[Array] = []
+var room_cards_created: Array[Control] = []
 var damageGiven = 0
 var heroHp = 10 
 var heroKilled = false
@@ -32,6 +33,18 @@ var spell_dragging=false
 @onready var currentPhase: String = "build"
 
 func _ready() -> void:
+	resetValues()
+	
+func is_everyone_stopped() -> bool:
+	for path in GlobalVariables.spawned_heroes:
+		if is_instance_valid(path):
+			if path.get_child(0).can_move && !path.get_child(0).mindcontrolled:
+				#print("Everyone is not stopped")
+				return false
+	#print("Everyone is stopped")
+	return true
+
+func resetValues() -> void:
 	for i in range(Database.DATA.size()):
 		if Database.DATA.get(i)[0]=="Room":
 			rooms.append(Database.DATA.get(i))
@@ -46,11 +59,6 @@ func _ready() -> void:
 		if Database.DATA.get(i)[0]=="Spell":
 			spells.append(Database.DATA.get(i))
 		i+=1
-func is_everyone_stopped() -> bool:
-	for path in GlobalVariables.spawned_heroes:
-		if is_instance_valid(path):
-			if path.get_child(0).can_move:
-				#print("Everyone is not stopped")
-				return false
-	#print("Everyone is stopped")
-	return true
+	spell_limit = 1
+	created_spells = 0
+	actionsLeft = 2

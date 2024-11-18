@@ -1072,13 +1072,12 @@ theme_override_font_sizes/font_size = 20
 text = "Continue"
 
 [node name="Reset_button" type="Button" parent="Buttons"]
-visible = false
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_constants/outline_size = -1
 theme_override_fonts/font = ExtResource("9_xb32f")
 theme_override_font_sizes/font_size = 20
-text = "Reset "
+text = "Reset cards"
 
 [node name="Autoplay" type="Button" parent="Buttons"]
 layout_mode = 2
