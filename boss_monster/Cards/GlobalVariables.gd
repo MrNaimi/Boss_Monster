@@ -1,4 +1,4 @@
-extends Node
+extends Node	
 
 var card_dragging = false
 var hero_progress = 0

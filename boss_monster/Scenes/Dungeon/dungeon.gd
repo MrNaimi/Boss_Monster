@@ -61,7 +61,7 @@ func _on_reset_button_pressed() -> void:
 		GlobalVariables.resetValues()
 		for card in GlobalVariables.room_cards_created:
 			if is_instance_valid(card):
-				card.createCard()
+				card.initializeCard()
 
 	
 func _on_autoplay_pressed() -> void:
