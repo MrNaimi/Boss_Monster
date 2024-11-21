@@ -32,6 +32,9 @@ var amount_of_heroes_killed = 0
 var trap_placed = false 
 var spell_dragging=false
 var playshopanim = true
+var card_info = ""
+var show_card = false
+
 @onready var actionsLeft = 2
 #Phases are town phase "town", combat phase, "combat" and build phase "build"
 @onready var currentPhase: String = "build"

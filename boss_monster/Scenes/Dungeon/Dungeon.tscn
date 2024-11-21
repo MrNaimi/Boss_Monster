@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=67 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/control.gd" id="16_lio2u"]
 [ext_resource type="PackedScene" uid="uid://gkiwmcohcjmi" path="res://path_follow_2d.tscn" id="17_l5j6u"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/card_info.gd" id="23_i7nix"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -1534,6 +1535,35 @@ curve = SubResource("Curve2D_6704g")
 
 [node name="Timer" type="Timer" parent="Heroes"]
 one_shot = true
+
+[node name="card_info" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 47.0
+offset_top = -2.0
+offset_right = 87.0
+offset_bottom = 38.0
+script = ExtResource("23_i7nix")
+
+[node name="ColorRect" type="ColorRect" parent="card_info"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 116.0
+offset_right = 736.0
+offset_bottom = 285.0
+color = Color(0, 0, 0, 0.282353)
+
+[node name="info" type="Label" parent="card_info/ColorRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 635.0
+offset_bottom = 166.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 30
+text = "This is going to be the card info text"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/Reset_button" to="." method="_on_reset_button_pressed"]

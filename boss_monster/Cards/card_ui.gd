@@ -23,6 +23,7 @@ signal reset_card()
 @onready var spawn_room = false
 @onready var trap_enter: AudioStreamPlayer2D = $trap_enter
 @onready var shop_card = false
+@onready var card_info = ""
 
 
 # Called when the node enters the scene tree for the first time.
@@ -91,6 +92,7 @@ func initializeCard() -> void:
 		card_name.text = selectedSpell[3]
 		room_type.text = selectedSpell[0][0]
 		room_dmg.text = str(selectedSpell[1])
+		card_info = (selectedSpell[4])
 		damage = int(room_dmg.text)
 		
 		GlobalVariables.created_spells+=1
@@ -105,6 +107,7 @@ func initializeCard() -> void:
 		room_type.text = selectedRoom[3][0]
 		room_dmg.text = str(selectedRoom[1]*floor(1+0.1*GlobalVariables.infamy))
 		damage = int(room_dmg.text)
+		card_info = (selectedRoom[4])
 		GlobalVariables.rooms_placed.append(self)
 		#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
 	if get_parent().get_parent().name == "ShopUI":

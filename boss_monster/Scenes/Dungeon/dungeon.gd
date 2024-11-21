@@ -14,6 +14,9 @@ var is_dragging = false
 @onready var boss_hp: Label = $Control/BossHp
 @onready var first_time_continue = true
 @onready var current_phase_text: Label = $CurrentPhaseText
+@onready var info: Label = $card_info/ColorRect/info
+@onready var card_info: Control = $card_info
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,6 +38,7 @@ func _process(delta: float) -> void:
 			first_time_continue=false
 		else:
 			print("Place a room first")
+		
 	
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
