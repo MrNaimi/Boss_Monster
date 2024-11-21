@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0wwo6jfs4mhg"]
+[gd_scene load_steps=4 format=3 uid="uid://b0wwo6jfs4mhg"]
 
 [ext_resource type="Script" path="res://Scenes/Main_menu/main_menu.gd" id="1_dfxk5"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="2_3dran"]
 [ext_resource type="Texture2D" uid="uid://byio4qa7trwyr" path="res://mainmenu.png" id="2_hs86e"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ff875"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -50,21 +48,18 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_3dran")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ff875")
 text = "Play "
 
 [node name="Collections" type="Button" parent="Menu"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_3dran")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ff875")
 text = "Collections"
 
 [node name="Quit_game" type="Button" parent="Menu"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_3dran")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ff875")
 text = "Quit Game"
 
 [connection signal="pressed" from="Menu/Play_Button" to="." method="_on_play_button_pressed"]

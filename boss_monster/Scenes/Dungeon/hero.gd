@@ -40,13 +40,10 @@ func _process(delta: float) -> void:
 		if GlobalVariables.amount_of_heroes_killed == herolimit:
 			GlobalVariables.spawned_heroes=[]
 			GlobalVariables.currentPhase = "build"
-			GlobalVariables.infamy+=1
 			GlobalVariables.actionsLeft = 2
 			currentheroes = 0
-			if GlobalVariables.infamy%3==0:
-				herolimit+=1
+			herolimit += 1
 			GlobalVariables.amount_of_heroes_killed=0
-			GlobalVariables.playshopanim = true
 		
 
 

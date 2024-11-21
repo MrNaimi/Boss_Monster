@@ -72,7 +72,6 @@ func enter() -> void:
 					target.get_parent().get_parent().hp=50
 				target.get_parent().get_parent().refreshHP()
 				card_ui.queue_free()
-			GlobalVariables.created_spells-=1
 func on_input(_event: InputEvent) -> void:
 	if played:
 		return
