@@ -957,26 +957,9 @@ tracks/1/keys = {
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rh28a"]
-<<<<<<< Updated upstream
-=======
 _data = {
 "RESET": SubResource("Animation_1vnqr"),
 "sellanimation": SubResource("Animation_tfvl3")
-}
-
-[sub_resource type="Animation" id="Animation_3163m"]
-resource_name = "shophide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.494118), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ksl61"]
@@ -992,6 +975,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0.494118)]
+}
+
+[sub_resource type="Animation" id="Animation_3163m"]
+resource_name = "shophide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.494118), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ea8tj"]
@@ -1010,7 +1008,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f54fp"]
->>>>>>> Stashed changes
 _data = {
 "RESET": SubResource("Animation_ksl61"),
 "shophide": SubResource("Animation_3163m"),
@@ -1479,11 +1476,7 @@ offset_top = 376.0
 offset_right = 1209.0
 offset_bottom = 473.0
 
-<<<<<<< Updated upstream
-[node name="SellArea" type="ColorRect" parent="DungeonUI/SellArea"]
-=======
 [node name="SellArea" type="ColorRect" parent="DungeonUI/ShopUI/SellArea"]
->>>>>>> Stashed changes
 layout_mode = 0
 offset_right = 241.0
 offset_bottom = 95.0
