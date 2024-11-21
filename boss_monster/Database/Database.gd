@@ -75,9 +75,9 @@ const DATA ={
 	Vampire : #tehty oikee art
 		["Room", 3, "Vampire", "Monster", "","vampire.png",""],
 	Stinky_Ghoul : #tehty oikee art
-	["Room", 3, "Stinky Ghoul", "Monster", "","stinky_ghoul.png",""],
+		["Room", 3, "Stinky Ghoul", "Monster", "","stinky_ghoul.png",""],
 	Misunderstood_Ghost : #tehty oikee art
-	["Room", 3, "Misunderstood Ghost", "Monster", "","misunderstood_ghost.png",""],
+		["Room", 3, "Misunderstood Ghost", "Monster", "","misunderstood_ghost.png",""],
 	Zombie_Graveyard : #tehty oikee art
 	["Room", 3, "Zombie Graveyard", "Monster", "","zombie_graveyard.png",""],
 	Rolling_Golem:

@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ciospukj0mwgc" path="res://Assets/Tiles/tileanimations/torchtransparent.png" id="5_1qfqf"]
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
-[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="9_xb32f"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/poco/Poco.ttf" id="9_xb32f"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/player_gold.gd" id="10_laer6"]
-[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
+[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://Fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/player_infamy.gd" id="11_tcxia"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/current_phase_text.gd" id="12_5b0qg"]
@@ -23,6 +23,8 @@
 [ext_resource type="Script" path="res://Scenes/Dungeon/control.gd" id="16_lio2u"]
 [ext_resource type="PackedScene" uid="uid://gkiwmcohcjmi" path="res://path_follow_2d.tscn" id="17_l5j6u"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/card_info.gd" id="23_i7nix"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/shophand.gd" id="21_htej2"]
+[ext_resource type="Texture2D" uid="uid://cfjs1rsqy3vw7" path="res://Scenes/Town/lockshop.png" id="21_xv1p5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -1405,6 +1407,20 @@ position = Vector2(-217.191, -19.0226)
 
 [node name="DungeonUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 
+[node name="hand" type="ColorRect" parent="DungeonUI"]
+offset_left = 47.0
+offset_top = 521.0
+offset_right = 565.0
+offset_bottom = 686.0
+color = Color(0, 0, 0, 0.490196)
+
+[node name="hand2" type="ColorRect" parent="DungeonUI"]
+offset_left = 957.0
+offset_top = 61.0
+offset_right = 1219.0
+offset_bottom = 483.0
+color = Color(0, 0, 0, 0.490196)
+
 [node name="Hand" type="HBoxContainer" parent="DungeonUI"]
 anchors_preset = 7
 anchor_left = 0.5
@@ -1448,7 +1464,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("16_lio2u")
 
-[node name="Shop" type="HBoxContainer" parent="DungeonUI/ShopUI"]
+[node name="shophand" type="Control" parent="DungeonUI/ShopUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("21_htej2")
+
+[node name="Shop" type="HBoxContainer" parent="DungeonUI/ShopUI/shophand"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1462,12 +1484,28 @@ offset_bottom = 169.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Shop2" type="HBoxContainer" parent="DungeonUI/ShopUI"]
+[node name="CardUI6" parent="DungeonUI/ShopUI/shophand/Shop" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardUI7" parent="DungeonUI/ShopUI/shophand/Shop" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Shop2" type="HBoxContainer" parent="DungeonUI/ShopUI/shophand"]
 layout_mode = 0
 offset_left = 993.0
 offset_top = 222.0
 offset_right = 1240.0
 offset_bottom = 321.0
+
+[node name="CardUI6" parent="DungeonUI/ShopUI/shophand/Shop2" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardUI7" parent="DungeonUI/ShopUI/shophand/Shop2" instance=ExtResource("16_1bnnc")]
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="SellArea" type="Control" parent="DungeonUI/ShopUI"]
 layout_mode = 3
@@ -1503,7 +1541,7 @@ libraries = {
 [node name="RefreshButton" type="Button" parent="DungeonUI/ShopUI"]
 layout_mode = 0
 offset_left = 964.0
-offset_top = 404.0
+offset_top = 373.0
 offset_right = 1214.0
 offset_bottom = 475.0
 theme = ExtResource("8_l2hdd")
@@ -1512,17 +1550,21 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
 text = "Refresh Shop"
 
 [node name="shopcover" type="ColorRect" parent="DungeonUI/ShopUI"]
+visible = false
 layout_mode = 0
 offset_left = 944.0
-offset_top = 42.0
-offset_right = 1234.0
-offset_bottom = 499.0
+offset_top = 47.0
+offset_right = 1233.0
+offset_bottom = 496.0
 color = Color(0, 0, 0, 0.494118)
 
 [node name="shopanimation" type="AnimationPlayer" parent="DungeonUI/ShopUI/shopcover"]
 libraries = {
 "": SubResource("AnimationLibrary_f54fp")
 }
+
+[node name="Timer" type="Timer" parent="DungeonUI/ShopUI/shopcover"]
+one_shot = true
 
 [node name="Heroes" type="Node2D" parent="."]
 script = ExtResource("13_7qnxi")
@@ -1570,4 +1612,5 @@ autowrap_mode = 3
 [connection signal="pressed" from="Buttons/Autoplay" to="." method="_on_autoplay_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
 [connection signal="area_entered" from="Boss/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="DungeonUI/ShopUI/shopcover/Timer" to="DungeonUI/ShopUI" method="_on_timer_timeout"]
 [connection signal="timeout" from="Heroes/Timer" to="Heroes" method="_on_timer_timeout"]

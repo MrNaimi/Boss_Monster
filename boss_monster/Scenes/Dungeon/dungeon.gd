@@ -50,6 +50,7 @@ func _on_continue_button_pressed() -> void:
 	if GlobalVariables.trap_placed:
 		if GlobalVariables.currentPhase=="build":
 			GlobalVariables.playshopanim = true
+			
 		GlobalVariables.currentPhase="combat"
 		if GlobalVariables.rooms_placed.size()>0:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:

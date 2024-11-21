@@ -14,6 +14,7 @@ var timerAmount = 0.0
 var spell_limit = 1
 var created_spells = 0
 var infamy = 1
+var shop_card_dragging = false
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
 @onready var heroes: Array[Array] = []

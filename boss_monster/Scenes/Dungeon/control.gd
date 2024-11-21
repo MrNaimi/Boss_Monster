@@ -5,6 +5,7 @@ extends Control
 @onready var refresh_button: Button = $RefreshButton
 @onready var shopcover: ColorRect = $shopcover
 @onready var shopanimation: AnimationPlayer = $shopcover/shopanimation
+@onready var timer: Timer = $shopcover/Timer
 
 
 var shoplimit = 2
@@ -12,7 +13,7 @@ var pos = 0
 var shopanimplayed = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	createCards()
+	#createCards()
 	pass
 
 
@@ -21,8 +22,8 @@ func _process(delta: float) -> void:
 	if GlobalVariables.currentPhase == "build":
 		if GlobalVariables.playshopanim:
 			shopanimation.play("shophide")
-			shopcover.visible=false
 			GlobalVariables.playshopanim = false
+			timer.start()
 		if (GlobalVariables.card_dragging or GlobalVariables.spell_dragging):
 			sell_area.visible=true
 			refresh_button.visible=false
@@ -37,9 +38,13 @@ func _process(delta: float) -> void:
 			GlobalVariables.playshopanim = false
 			
 func createCards() -> void:
-	for child in get_children():
+	for child in get_child(0).get_children():
 		if child.is_class("HBoxContainer"):
 			for index in range(shoplimit):
 				child.add_child(card.instantiate())
 			
 			
+
+
+func _on_timer_timeout() -> void:
+	shopcover.visible=false

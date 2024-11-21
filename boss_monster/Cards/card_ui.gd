@@ -110,5 +110,5 @@ func initializeCard() -> void:
 		card_info = (selectedRoom[4])
 		GlobalVariables.rooms_placed.append(self)
 		#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
-	if get_parent().get_parent().name == "ShopUI":
+	if get_parent().get_parent().get_parent().name == "ShopUI":
 		shop_card=true
