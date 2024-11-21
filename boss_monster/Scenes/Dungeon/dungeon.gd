@@ -29,9 +29,9 @@ func _process(delta: float) -> void:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:
 				GlobalVariables.heroes_move = true
 				print(GlobalVariables.spawned_heroes)
-				for path in GlobalVariables.spawned_heroes:
-					if is_instance_valid(path):
-						path.get_child(0).can_move=true
+				#for path in GlobalVariables.spawned_heroes:
+					#if path.is_instance_valid():
+						#path.get_child(0).can_move=true
 			first_time_continue=false
 		else:
 			print("Place a room first")
@@ -43,6 +43,7 @@ func _on_quit_game_pressed() -> void:
 
 func _on_continue_button_pressed() -> void:
 	#print("Continue")
+	var length = 0
 	if GlobalVariables.trap_placed:
 		GlobalVariables.currentPhase="combat"
 		if GlobalVariables.rooms_placed.size()>0:
@@ -52,6 +53,12 @@ func _on_continue_button_pressed() -> void:
 				for path in GlobalVariables.spawned_heroes:
 					if is_instance_valid(path):
 						path.get_child(0).can_move=true
+					else:
+						length += 1
+				if length == 2 and GlobalVariables.amount_of_heroes_alive == 0:
+					GlobalVariables.spawn_hero=true
+					GlobalVariables.heroKilled=true
+							
 			first_time_continue=false
 	else:
 		print("Place a trap first!!!")
@@ -69,10 +76,11 @@ func _on_autoplay_pressed() -> void:
 		GlobalVariables.currentPhase="combat"
 		GlobalVariables.autoplay = !GlobalVariables.autoplay
 		if GlobalVariables.autoplay:
-			GlobalVariables.heroes_move=true
-			for path in GlobalVariables.spawned_heroes:
-				if is_instance_valid(path):
-					path.get_child(0).can_move=true
+			autoplay.text="Autoplay On"
+			if GlobalVariables.is_everyone_stopped():
+				for path in GlobalVariables.spawned_heroes:
+					if is_instance_valid(path):
+						path.get_child(0).can_move=true
 		else:
 			autoplay.text="Autoplay Off"
 	else:

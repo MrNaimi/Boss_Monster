@@ -41,11 +41,16 @@ func enter() -> void:
 						target.get_parent().scale.x=1
 						target.get_parent().scale.y=1
 					"Mind Control":
-						print("mind control")
-						hero.can_move = false
-						hero.flipped = true
-						hero.mindcontrolled = true
-						hero.get_child(0).damage = hero.hp
+						if hero.can_move:
+							print("mind control")
+							hero.can_move = false
+							hero.flipped = true
+							hero.mindcontrolled = true
+							hero.get_child(0).damage = hero.hp
+							if GlobalVariables.amount_of_heroes_alive == 1:
+								GlobalVariables.spawn_hero = true
+						else:
+							break
 						#hero.hp-=int(card_ui.room_dmg.text)
 					"Assassination":
 						print("assassination")

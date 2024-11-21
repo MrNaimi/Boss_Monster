@@ -51,7 +51,7 @@ const DATA ={
 	Goblin_warrior : #tehty oikee art
 		["Room", 3, "Goblin Warrior", "Monster", "", "goblin_warrior.png","goblin_warrior.wav"],
 	Gas_Leak : #tehty oikee art
-		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png"],	
+		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png"],
 	Mimic :#tehty oikee art
 		["Room", 3, "Mimic", "Monster", "", "mimic.png","mimic.wav"],
 	The_Vault_Room : #tehty 

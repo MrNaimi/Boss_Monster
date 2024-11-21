@@ -9,10 +9,6 @@ extends Node2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#print(get_child(0).get_children())
-	for path in get_child(0).get_children():
-		pass
-		#print(path.progress)
 	timer.wait_time = GlobalVariables.timerAmount
 	if GlobalVariables.timerStart:
 		timer.start()
@@ -42,6 +38,7 @@ func _process(delta: float) -> void:
 			GlobalVariables.spawn_hero = false
 			currentheroes +=1
 		if GlobalVariables.amount_of_heroes_killed == herolimit:
+			GlobalVariables.spawned_heroes=[]
 			GlobalVariables.currentPhase = "build"
 			GlobalVariables.actionsLeft = 2
 			currentheroes = 0

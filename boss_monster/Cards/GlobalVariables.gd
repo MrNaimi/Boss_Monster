@@ -16,6 +16,7 @@ var created_spells = 0
 @onready var rooms: Array[Array] = []
 @onready var heroes: Array[Array] = []
 @onready var spells: Array[Array] = []
+var amount_of_heroes_alive = 0
 var room_cards_created: Array[Control] = []
 var damageGiven = 0
 var heroHp = 10 

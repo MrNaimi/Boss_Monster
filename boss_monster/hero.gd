@@ -13,6 +13,7 @@ var selectedHero = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalVariables.spawned_heroes.append(get_parent())
+	GlobalVariables.amount_of_heroes_alive += 1
 	#health_bar.max_value = hp
 	var i =  RandomNumberGenerator.new().randi_range(0, heroes.size()-1)
 	selectedHero=heroes[i]
@@ -30,6 +31,7 @@ func _process(delta: float) -> void:
 			GlobalVariables.heroes_move=true
 		GlobalVariables.heroKilled = true
 		get_parent().queue_free()
+		GlobalVariables.amount_of_heroes_alive-=1
 		GlobalVariables.amount_of_heroes_killed+=1
 	if get_parent().progress < 50:
 		path_direction = 1
@@ -42,14 +44,16 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 			if GlobalVariables.autoplay:
 				GlobalVariables.timerStart = true
 			
+			
 func _on_hit_box_area_exited(area: Area2D) -> void:
 	var damageTaken = area.get_parent().damage*selectedHero[1]
 	#print("Exited trap damage: ",area.get_parent().damage)
 	hp -= damageTaken
 	if mindcontrolled:
-		hp-=hp
+		hp-=area.get_parent().get_parent().hp
 		mindcontrolled = false
-		area.get_parent().damage = 0
+		flipped = false
+	get_child(0).damage = 0
 	#print(hp)
 	
 
