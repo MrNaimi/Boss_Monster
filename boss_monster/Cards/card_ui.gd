@@ -107,5 +107,5 @@ func initializeCard() -> void:
 		damage = int(room_dmg.text)
 		GlobalVariables.rooms_placed.append(self)
 		#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
-	if get_parent().get_parent().name == "ShopUI":
+	if get_parent().get_parent().get_parent().name == "ShopUI":
 		shop_card=true

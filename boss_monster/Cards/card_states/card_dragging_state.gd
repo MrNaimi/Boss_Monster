@@ -7,12 +7,12 @@ func enter() -> void:
 	var ui_layer := get_tree().get_first_node_in_group("ui_layer")
 	if ui_layer:
 		card_ui.reparent(ui_layer)
-	if card_ui.room_type.text=="S":
-		GlobalVariables.spell_dragging=true
-	else:
-		GlobalVariables.card_dragging = true
-	
-	
+	if !card_ui.shop_card:
+		if card_ui.room_type.text=="S":
+			GlobalVariables.spell_dragging= true
+		else:
+			GlobalVariables.card_dragging = true
+		
 	#card_ui.color.color= Color.NAVY_BLUE
 	#card_ui.state.text = ""
 	

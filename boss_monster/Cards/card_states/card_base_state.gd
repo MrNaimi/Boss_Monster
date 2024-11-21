@@ -15,10 +15,11 @@ func enter() -> void:
 	card_ui.pivot_offset = Vector2.ZERO
 	card_ui.card_border.visible = true
 	card_ui.card_name.visible = true
-	 
+	if card_ui.shop_card:
+		print(get_parent())
 		
 func on_gui_input(event: InputEvent) -> void:
-	if !card_ui.shop_card or GlobalVariables.currentPhase=="shop":
+	if !card_ui.shop_card or GlobalVariables.currentPhase=="build":
 		if event.is_action_pressed("click"):
 			if GlobalVariables.currentPhase=="build" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text!="S": 
 				card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
