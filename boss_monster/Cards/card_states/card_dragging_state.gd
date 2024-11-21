@@ -29,6 +29,7 @@ func on_input(event: InputEvent) -> void:
 		card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.pivot_offset
 	
 	if cancel:
+		GlobalVariables.show_card = false
 		GlobalVariables.card_dragging=false
 		GlobalVariables.spell_dragging=false
 		transition_requested.emit(self, CardState.State.BASE)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cym2n6u8u1rcw"
-path="res://.godot/imported/Lucky_Fellow.png-a80d9cfb23c023439e3cb30ff18ea673.ctex"
+uid="uid://bx12iewthtojw"
+path="res://.godot/imported/undead_mage.png-49a97556104cb2a4a4f6148d26f0c101.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/Lucky_Fellow.png"
-dest_files=["res://.godot/imported/Lucky_Fellow.png-a80d9cfb23c023439e3cb30ff18ea673.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/undead_mage.png"
+dest_files=["res://.godot/imported/undead_mage.png-49a97556104cb2a4a4f6148d26f0c101.ctex"]
 
 [params]
 
