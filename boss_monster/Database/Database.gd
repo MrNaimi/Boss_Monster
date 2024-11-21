@@ -4,7 +4,7 @@
 #SpellInfo =[Type, Damage, +Health, Name, Special Text, png]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png]
 
-enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library, Succubus, Vampire}
+enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library, Succubus, Vampire, Misunderstood_Ghost, Zombie_Graveyard, Stinky_Ghoul}
 
 const DATA ={
 	
@@ -74,6 +74,12 @@ const DATA ={
 		["Room", 3, "Succubus", "Monster", "","succubus.png",""],
 	Vampire : #tehty oikee art
 		["Room", 3, "Vampire", "Monster", "","vampire.png",""],
+	Stinky_Ghoul : #tehty oikee art
+	["Room", 3, "Stinky Ghoul", "Monster", "","stinky_ghoul.png",""],
+	Misunderstood_Ghost : #tehty oikee art
+	["Room", 3, "Misunderstood Ghost", "Monster", "","misunderstood_ghost.png",""],
+	Zombie_Graveyard : #tehty oikee art
+	["Room", 3, "Zombie Graveyard", "Monster", "","zombie_graveyard.png",""],
 } 
 #Kortit joille on art tehty:
 #Healing Potion, Gas Leak, Assassination, pit fall

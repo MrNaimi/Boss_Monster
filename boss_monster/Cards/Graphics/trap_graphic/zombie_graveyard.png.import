@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl77t51d27xoj"
-path="res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"
+uid="uid://ho08qrcqb3n1"
+path="res://.godot/imported/zombie_graveyard.png-4c4a1d432fcf59e480555b4b65925916.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/mage.png"
-dest_files=["res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/zombie_graveyard.png"
+dest_files=["res://.godot/imported/zombie_graveyard.png-4c4a1d432fcf59e480555b4b65925916.ctex"]
 
 [params]
 
