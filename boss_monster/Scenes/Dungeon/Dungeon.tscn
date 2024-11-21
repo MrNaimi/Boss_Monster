@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=66 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -9,8 +9,10 @@
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="9_xb32f"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/player_gold.gd" id="10_laer6"]
 [ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/player_infamy.gd" id="11_tcxia"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/current_phase_text.gd" id="12_5b0qg"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/actions_left.gd" id="13_jv5qn"]
@@ -20,7 +22,6 @@
 [ext_resource type="Script" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/control.gd" id="16_lio2u"]
 [ext_resource type="PackedScene" uid="uid://gkiwmcohcjmi" path="res://path_follow_2d.tscn" id="17_l5j6u"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/sell_area.gd" id="19_7ckir"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -824,6 +825,8 @@ texture = ExtResource("2_ugt3x")
 [sub_resource type="TileSet" id="TileSet_32ymr"]
 sources/0 = SubResource("TileSetAtlasSource_3ud5n")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_maccd"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3yn2"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -954,9 +957,64 @@ tracks/1/keys = {
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rh28a"]
+<<<<<<< Updated upstream
+=======
 _data = {
 "RESET": SubResource("Animation_1vnqr"),
 "sellanimation": SubResource("Animation_tfvl3")
+}
+
+[sub_resource type="Animation" id="Animation_3163m"]
+resource_name = "shophide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.494118), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ksl61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.494118)]
+}
+
+[sub_resource type="Animation" id="Animation_ea8tj"]
+resource_name = "shopshow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.494118)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f54fp"]
+>>>>>>> Stashed changes
+_data = {
+"RESET": SubResource("Animation_ksl61"),
+"shophide": SubResource("Animation_3163m"),
+"shopshow": SubResource("Animation_ea8tj")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_6704g"]
@@ -1132,6 +1190,7 @@ theme = ExtResource("8_l2hdd")
 theme_override_constants/outline_size = -1
 theme_override_fonts/font = ExtResource("9_xb32f")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
 text = "Continue"
 
 [node name="Reset_button" type="Button" parent="Buttons"]
@@ -1140,6 +1199,7 @@ theme = ExtResource("8_l2hdd")
 theme_override_constants/outline_size = -1
 theme_override_fonts/font = ExtResource("9_xb32f")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
 text = "Reset cards"
 
 [node name="Autoplay" type="Button" parent="Buttons"]
@@ -1148,6 +1208,7 @@ theme = ExtResource("8_l2hdd")
 theme_override_constants/outline_size = -1
 theme_override_fonts/font = ExtResource("9_xb32f")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
 text = "Autoplay Off
 "
 
@@ -1168,6 +1229,7 @@ theme = ExtResource("8_l2hdd")
 theme_override_constants/outline_size = -1
 theme_override_fonts/font = ExtResource("9_xb32f")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
 text = "Quit Game"
 metadata/_edit_use_anchors_ = true
 
@@ -1209,7 +1271,7 @@ theme_override_font_sizes/font_size = 20
 text = "Actions left: "
 horizontal_alignment = 2
 
-[node name="actions2" type="Label" parent="Control"]
+[node name="infamy" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 96.0
@@ -1220,7 +1282,7 @@ theme_override_font_sizes/font_size = 20
 text = "Infamy: "
 horizontal_alignment = 2
 
-[node name="actions3" type="Label" parent="Control"]
+[node name="gold" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 118.0
@@ -1230,6 +1292,30 @@ theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Gold: "
 horizontal_alignment = 2
+
+[node name="PlayerGold" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 118.0
+offset_right = 248.0
+offset_bottom = 142.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0
+"
+script = ExtResource("10_laer6")
+
+[node name="PlayerInfamy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 96.0
+offset_right = 248.0
+offset_bottom = 120.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0
+"
+script = ExtResource("11_tcxia")
 
 [node name="CurrentPhaseText" type="Label" parent="Control"]
 layout_mode = 0
@@ -1245,9 +1331,9 @@ script = ExtResource("12_5b0qg")
 [node name="ActionsLeft" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 159.0
-offset_top = 72.0
+offset_top = 74.0
 offset_right = 278.0
-offset_bottom = 96.0
+offset_bottom = 98.0
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "0"
@@ -1385,22 +1471,25 @@ offset_top = 222.0
 offset_right = 1240.0
 offset_bottom = 321.0
 
-[node name="SellArea" type="Control" parent="DungeonUI"]
+[node name="SellArea" type="Control" parent="DungeonUI/ShopUI"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 966.0
 offset_top = 376.0
 offset_right = 1209.0
 offset_bottom = 473.0
-script = ExtResource("19_7ckir")
 
+<<<<<<< Updated upstream
 [node name="SellArea" type="ColorRect" parent="DungeonUI/SellArea"]
+=======
+[node name="SellArea" type="ColorRect" parent="DungeonUI/ShopUI/SellArea"]
+>>>>>>> Stashed changes
 layout_mode = 0
 offset_right = 241.0
 offset_bottom = 95.0
 color = Color(0, 0, 0, 0)
 
-[node name="SellArea" type="Label" parent="DungeonUI/SellArea/SellArea"]
+[node name="SellArea" type="Label" parent="DungeonUI/ShopUI/SellArea/SellArea"]
 layout_mode = 0
 offset_top = 3.0
 offset_right = 240.0
@@ -1412,9 +1501,33 @@ text = "Sell area"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="sellanimation" type="AnimationPlayer" parent="DungeonUI/SellArea"]
+[node name="sellanimation" type="AnimationPlayer" parent="DungeonUI/ShopUI/SellArea"]
 libraries = {
 "": SubResource("AnimationLibrary_rh28a")
+}
+
+[node name="RefreshButton" type="Button" parent="DungeonUI/ShopUI"]
+layout_mode = 0
+offset_left = 964.0
+offset_top = 404.0
+offset_right = 1214.0
+offset_bottom = 475.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
+text = "Refresh Shop"
+
+[node name="shopcover" type="ColorRect" parent="DungeonUI/ShopUI"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 42.0
+offset_right = 1234.0
+offset_bottom = 499.0
+color = Color(0, 0, 0, 0.494118)
+
+[node name="shopanimation" type="AnimationPlayer" parent="DungeonUI/ShopUI/shopcover"]
+libraries = {
+"": SubResource("AnimationLibrary_f54fp")
 }
 
 [node name="Heroes" type="Node2D" parent="."]

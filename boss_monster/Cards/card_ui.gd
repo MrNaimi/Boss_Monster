@@ -92,6 +92,7 @@ func initializeCard() -> void:
 		room_type.text = selectedSpell[0][0]
 		room_dmg.text = str(selectedSpell[1])
 		damage = int(room_dmg.text)
+		
 		GlobalVariables.created_spells+=1
 		card_border.texture=load("res://Cards/Graphics/spellcard.png")
 		drop_point_detecor.set_collision_mask_value(3, false)
@@ -102,7 +103,7 @@ func initializeCard() -> void:
 		card_texture.texture=load(texturepath+selectedRoom[5])
 		card_name.text = selectedRoom[2]
 		room_type.text = selectedRoom[3][0]
-		room_dmg.text = str(selectedRoom[1])
+		room_dmg.text = str(selectedRoom[1]*floor(1+0.1*GlobalVariables.infamy))
 		damage = int(room_dmg.text)
 		GlobalVariables.rooms_placed.append(self)
 		#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
