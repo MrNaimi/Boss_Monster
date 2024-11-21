@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://207st6j3yfhu"
-path="res://.godot/imported/overview.PNG-5614f09a79f688626767a376c5968f12.ctex"
+uid="uid://pdba3s4p6p31"
+path="res://.godot/imported/fire_elemental.png-68dfe6bf1d2af7ea81ff8b203f2afe5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fonts/overview.PNG"
-dest_files=["res://.godot/imported/overview.PNG-5614f09a79f688626767a376c5968f12.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/fire_elemental.png"
+dest_files=["res://.godot/imported/fire_elemental.png-68dfe6bf1d2af7ea81ff8b203f2afe5e.ctex"]
 
 [params]
 
