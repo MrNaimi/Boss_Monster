@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=60 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/control.gd" id="16_lio2u"]
 [ext_resource type="PackedScene" uid="uid://gkiwmcohcjmi" path="res://path_follow_2d.tscn" id="17_l5j6u"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/sell_area.gd" id="19_7ckir"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -896,6 +897,68 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_tfvl3"]
+resource_name = "sellanimation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SellArea:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.45098), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SellArea/SellArea:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1vnqr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SellArea:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SellArea/SellArea:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rh28a"]
+_data = {
+"RESET": SubResource("Animation_1vnqr"),
+"sellanimation": SubResource("Animation_tfvl3")
+}
+
 [sub_resource type="Curve2D" id="Curve2D_6704g"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 210, 71, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 72, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 219, 262, 0, 0, 0, 0, 78, 262, 0, 0, 0, 0, 77, 444, 0, 0, 0, 0, 227, 443, 0, 0, 0, 0, 507, 445, 0, 0, 0, 0, 697, 440)
@@ -1122,6 +1185,7 @@ offset_left = 16.0
 offset_right = 284.0
 offset_bottom = 146.0
 color = Color(0, 0, 0, 0.494118)
+metadata/_edit_use_anchors_ = true
 
 [node name="phase" type="Label" parent="Control"]
 layout_mode = 0
@@ -1321,23 +1385,36 @@ offset_top = 222.0
 offset_right = 1240.0
 offset_bottom = 321.0
 
-[node name="ColorRect" type="ColorRect" parent="DungeonUI"]
+[node name="SellArea" type="Control" parent="DungeonUI"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 966.0
 offset_top = 376.0
-offset_right = 1207.0
-offset_bottom = 471.0
-color = Color(0, 0, 0, 0.45098)
+offset_right = 1209.0
+offset_bottom = 473.0
+script = ExtResource("19_7ckir")
 
-[node name="Label" type="Label" parent="DungeonUI/ColorRect"]
+[node name="SellArea" type="ColorRect" parent="DungeonUI/SellArea"]
+offset_right = 241.0
+offset_bottom = 95.0
+color = Color(0, 0, 0, 0)
+
+[node name="SellArea" type="Label" parent="DungeonUI/SellArea/SellArea"]
 layout_mode = 0
 offset_top = 3.0
 offset_right = 240.0
 offset_bottom = 82.0
 theme = ExtResource("8_l2hdd")
+theme_override_colors/font_color = Color(1, 1, 1, 0)
 theme_override_font_sizes/font_size = 30
-text = "sell area"
+text = "Sell area"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="sellanimation" type="AnimationPlayer" parent="DungeonUI/SellArea"]
+libraries = {
+"": SubResource("AnimationLibrary_rh28a")
+}
 
 [node name="Heroes" type="Node2D" parent="."]
 script = ExtResource("13_7qnxi")

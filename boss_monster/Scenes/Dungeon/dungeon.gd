@@ -29,13 +29,12 @@ func _process(delta: float) -> void:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:
 				GlobalVariables.heroes_move = true
 				print(GlobalVariables.spawned_heroes)
-				#for path in GlobalVariables.spawned_heroes:
+				#for path ins GlobalVariables.spawned_heroes:
 					#if path.is_instance_valid():
 						#path.get_child(0).can_move=true
 			first_time_continue=false
 		else:
 			print("Place a room first")
-			
 	
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
