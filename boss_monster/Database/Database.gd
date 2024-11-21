@@ -37,7 +37,7 @@ const DATA ={
 
 	#Spells
 	Shrink_Ray :
-		["Spell","50%", 0, "Shrink Ray", "Reduce heros maximum HP by 5","std.png"],
+		["Spell","50%", 0, "Shrink Ray", "Reduce heros maximum HP by 5","shrink_ray.png"],
 	Mind_Control :
 		["Spell",100 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero","mind_control.png"],
 	Healing_potion :
@@ -73,7 +73,7 @@ const DATA ={
 	Succubus : #tehty oikee art
 		["Room", 3, "Succubus", "Monster", "","succubus.png",""],
 	Vampire : #tehty oikee art
-		["Room", 3, "Vampire", "Monster", "","vampire.png",""],
+		["Room", 3, "Vampire", "Monster", "Is a very cool vampire !:)","vampire.png",""],
 	Stinky_Ghoul : #tehty oikee art
 		["Room", 3, "Stinky Ghoul", "Monster", "","stinky_ghoul.png",""],
 	Misunderstood_Ghost : #tehty oikee art
