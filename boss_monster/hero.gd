@@ -17,11 +17,10 @@ func _ready() -> void:
 	#health_bar.max_value = hp
 	var i =  RandomNumberGenerator.new().randi_range(0, heroes.size()-1)
 	selectedHero=heroes[i]
-	hp = round(RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3])*(0.5+0.25*GlobalVariables.infamy))
+	hp = RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3])
 	health_bar.max_value = hp
 	idle_animation.animation = selectedHero[4]
 	hero_class=selectedHero[4]
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:		
 	health_bar.value = hp
@@ -34,7 +33,6 @@ func _process(delta: float) -> void:
 		get_parent().queue_free()
 		GlobalVariables.amount_of_heroes_alive-=1
 		GlobalVariables.amount_of_heroes_killed+=1
-		GlobalVariables.player_gold+=round(RandomNumberGenerator.new().randi_range(2, 4)*(1+0.1*GlobalVariables.infamy))
 	if get_parent().progress < 50:
 		path_direction = 1
 		flipped = false

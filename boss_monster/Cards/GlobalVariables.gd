@@ -1,6 +1,5 @@
 extends Node	
 
-var player_gold = 5
 var card_dragging = false
 var hero_progress = 0
 var trap_index=0
@@ -13,7 +12,6 @@ var current_heroes = 0
 var timerAmount = 0.0
 var spell_limit = 1
 var created_spells = 0
-var infamy = 1
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
 @onready var heroes: Array[Array] = []
@@ -31,7 +29,6 @@ var timerStart = false
 var amount_of_heroes_killed = 0
 var trap_placed = false 
 var spell_dragging=false
-var playshopanim = true
 @onready var actionsLeft = 2
 #Phases are town phase "town", combat phase, "combat" and build phase "build"
 @onready var currentPhase: String = "build"
