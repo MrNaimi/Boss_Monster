@@ -2,9 +2,9 @@
 #HeroInfo =[Type, Factor, Hp, , Name, Role, Artifact, Special Text]
 #BossInfo =[Type, Health, Name, Special Text]
 #SpellInfo =[Type, Damage, +Health, Name, Special Text, png]
-#RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png]
+#RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png, Tribe]
 
-enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library, Succubus, Vampire, Misunderstood_Ghost, Zombie_Graveyard, Stinky_Ghoul, Rolling_Golem, Killer_Robot, Angry_Slime, Fire_Elemental, Imp}
+enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library, Succubus, Vampire, Misunderstood_Ghost, Zombie_Graveyard, Stinky_Ghoul, Rolling_Golem, Killer_Robot, Angry_Slime, Fire_Elemental, Imp, Warlock_Summoner, Demon_Spawn, Lesser_Devil, Outlaw,Orc_Bodyguard,Goblin_Army, Pack_of_Wolves, Chihu, Lions_Den, Electric_Anomaly}
 
 const DATA ={
 	
@@ -49,21 +49,21 @@ const DATA ={
 		
 	#Rooms 
 	Goblin_warrior : #tehty oikee art
-		["Room", 3, "Goblin Warrior", "Monster", "", "goblin_warrior.png","goblin_warrior.wav"],
+		["Room", 2, "Goblin Warrior", "Monster", "has a 25% chance to get extra +1 gold from killed Heroes", "goblin_warrior.png","goblin_warrior.wav"],
 	Gas_Leak : #tehty oikee art
 		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png"],
 	Mimic :#tehty oikee art
-		["Room", 3, "Mimic", "Monster", "", "mimic.png","mimic.wav"],
+		["Room", 3, "Mimic", "Trap", "", "mimic.png","mimic.wav"],
 	The_Vault_Room : #tehty 
-		["Room", 3, "The Vault Room","Monster", "", "vault_room.png","vault.wav"],
+		["Room", 3, "The Vault Room","Trap", "", "vault_room.png","vault.wav"],
 	Spike_Factory :#tehty
-		["Room", 4, "Spike Factory","Monster","", "spike_factory.png"],
+		["Room", 4, "Spike Factory","Monster","Your “Spike Traps” deal +3dmg", "spike_factory.png"],
 	Hot_Coals: #tehty oikee art
 		["Room", 3, "Hot Coals","Trap","", "hot_coals.png"],
 	Monster_Lounge: #tehty
 		["Room", 4, "Monster Lounge", "Monster", "", "monster_lounge.png"],
 	The_Dragon_Lair: #tehty
-		["Room", 4, "The Dragon Lair", "Monster", "", "dragon_lair.png",""],
+		["Room", 4, "The Dragon Lair", "Monster", "if you kill a hero in this room, get 1 gold", "dragon_lair.png",""],
 	Pit_Fall: #tehty oikee art
 		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png","hero_death_pit.wav"],
 	Spike_Trap : #tehty oikee art
@@ -73,7 +73,7 @@ const DATA ={
 	Succubus : #tehty oikee art
 		["Room", 3, "Succubus", "Monster", "","succubus.png",""],
 	Vampire : #tehty oikee art
-		["Room", 3, "Vampire", "Monster", "Is a very cool vampire !:)","vampire.png",""],
+		["Room", 5, "Vampire", "Monster", "Deals double damage to clerics","vampire.png",""],
 	Stinky_Ghoul : #tehty oikee art
 		["Room", 3, "Stinky Ghoul", "Monster", "","stinky_ghoul.png",""],
 	Misunderstood_Ghost : #tehty oikee art
@@ -81,15 +81,36 @@ const DATA ={
 	Zombie_Graveyard : #tehty oikee art
 	["Room", 3, "Zombie Graveyard", "Monster", "","zombie_graveyard.png",""],
 	Rolling_Golem:
-	["Room", 3, "Rolling Golem", "Monster", "","rolling_golem.png",""],
+	["Room", 4, "Rolling Golem", "Monster", "","rolling_golem.png",""],
 	Killer_Robot:
-	["Room", 3, "Killer Robot", "Monster", "","killer_robot.png",""],
+	["Room", 6, "Killer Robot", "Monster", "Has a 10% chance to self destruct every turn","killer_robot.png",""],
 	Angry_Slime:
-	["Room", 3, "Angry Slime", "Monster", "","angry_slime.png",""],
+	["Room", 2, "Angry Slime", "Monster", "hero takes 1 damage for every room they enter","angry_slime.png",""],
 	Fire_Elemental:
-	["Room", 3, "Fire Elemental", "Monster", "","fire_elemental.png",""],
+	["Room", 2, "Fire Elemental", "Monster", "Hero takes 1 damage for every room they enter","fire_elemental.png",""],
 	Imp:
-	["Room", 3, "Imp", "Monster", "","imp.png",""],
+	["Room", 2, "Demonic Scout", "Monster", "Heroes that pass this room take +1 dmg from “Demon” type Rooms","imp.png",""],
+	Warlock_Summoner:
+		["Room", 2, "", "Monster", "","",""],
+	Demon_Spawn:
+		["Room", 2, "", "Monster", "","",""],
+	Lesser_Devil:
+		["Room", 2, "", "Monster", "","",""],
+	Outlaw:
+		["Room", 2, "", "Monster", "","",""],
+	Orc_Bodyguard:
+		["Room", 2, "", "Monster", "","",""],
+	Goblin_Army:
+		["Room", 2, "", "Monster", "","",""],
+	Pack_of_Wolves:
+		["Room", 2, "", "Monster", "","",""],
+	Chihu:
+		["Room", 2, "", "Monster", "","",""],
+	Lions_Den:
+		["Room", 2, "", "Monster", "","",""],
+	Electric_Anomaly:
+		["Room", 2, "", "Monster", "","",""],
 } 
+
 #Kortit joille on art tehty:
 #Healing Potion, Gas Leak, Assassination, pit fall
