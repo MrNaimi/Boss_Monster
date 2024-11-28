@@ -91,25 +91,25 @@ const DATA ={
 	Imp:
 	["Room", 2, "Demonic Scout", "Monster", "Heroes that pass this room take +1 dmg from “Demon” type Rooms","imp.png",""],
 	Warlock_Summoner:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Warlock Summoner", "Monster", "Your 'Demon' type rooms deal +2dmg","",""],
 	Demon_Spawn:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","",""],
 	Lesser_Devil:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Lesser Devil", "Monster", "","",""],
 	Outlaw:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Outlaw", "Monster", "takes 2 gold every turn, if at 0 gold, destroy this","",""],
 	Orc_Bodyguard:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Orc Bodyguard", "Monster", "Gives +2dmg to Goblins but takes 1 per turn, if you have 0 gold, destroy this","",""],
 	Goblin_Army:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Goblin Army", "Monster", "has a 50% chance to get extra +1 gold from killed heroes","",""],
 	Pack_of_Wolves:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Pack Of Wolves", "Monster", "Has +2dmg for each wolf pack in your dungeon","",""],
 	Chihu:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Chihu", "Monster", "Does 1-6 dmg changing every turn","",""],
 	Lions_Den:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Lions Den", "Monster", "Must kill a hero within  5 days or gets destroyed","",""],
 	Electric_Anomaly:
-		["Room", 2, "", "Monster", "","",""],
+		["Room", 2, "Electric Anomaly", "Monster", "gives +2 dmg to your “Construct” and “Trap” Rooms","",""],
 } 
 
 #Kortit joille on art tehty:
