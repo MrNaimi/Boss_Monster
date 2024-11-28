@@ -6,6 +6,7 @@ extends Node2D
 @onready var herolimit = 3
 @onready var currentheroes = 1
 @onready var timer: Timer = $Timer
+@onready var refresh_button: Button = $"../DungeonUI/ShopUI/RefreshButton"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -39,6 +40,7 @@ func _process(delta: float) -> void:
 			currentheroes +=1
 		if GlobalVariables.amount_of_heroes_killed == herolimit:
 			GlobalVariables.spawned_heroes=[]
+			GlobalVariables.rerollCost=0
 			GlobalVariables.currentPhase = "build"
 			GlobalVariables.infamy+=1
 			GlobalVariables.actionsLeft = 2

@@ -71,7 +71,7 @@ func _on_continue_button_pressed() -> void:
 
 func _on_reset_button_pressed() -> void:
 	if GlobalVariables.currentPhase=="build":
-		GlobalVariables.resetValues()
+		GlobalVariables.resetValues(false)
 		for card in GlobalVariables.room_cards_created:
 			if is_instance_valid(card):
 				card.initializeCard()

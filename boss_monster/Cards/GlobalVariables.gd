@@ -15,6 +15,7 @@ var spell_limit = 1
 var created_spells = 0
 var infamy = 1
 var shop_card_dragging = false
+var rerollCost = 0
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
 @onready var heroes: Array[Array] = []
@@ -41,7 +42,7 @@ var show_card = false
 @onready var currentPhase: String = "build"
 
 func _ready() -> void:
-	resetValues()
+	resetValues(false)
 	
 func is_everyone_stopped() -> bool:
 	for path in GlobalVariables.spawned_heroes:
@@ -52,7 +53,7 @@ func is_everyone_stopped() -> bool:
 	#print("Everyone is stopped")
 	return true
 
-func resetValues() -> void:
+func resetValues(refresh) -> void:
 	for i in range(Database.DATA.size()):
 		if Database.DATA.get(i)[0]=="Room":
 			rooms.append(Database.DATA.get(i))
@@ -67,6 +68,7 @@ func resetValues() -> void:
 		if Database.DATA.get(i)[0]=="Spell":
 			spells.append(Database.DATA.get(i))
 		i+=1
-	spell_limit = 1
-	created_spells = 0
-	actionsLeft = 2
+	if !refresh:
+		spell_limit = 1
+		created_spells = 0
+		actionsLeft = 2
