@@ -48,3 +48,11 @@ func createCards() -> void:
 
 func _on_timer_timeout() -> void:
 	shopcover.visible=false
+
+
+func _on_refresh_button_pressed() -> void:
+	GlobalVariables.resetValues()
+	GlobalVariables.created_spells = 1
+	for shop in get_child(0).get_children():
+		for card in shop.get_children():
+			card.initializeCard()
