@@ -43,7 +43,8 @@ func createCards() -> void:
 	for child in get_child(0).get_children():
 		if child.is_class("HBoxContainer"):
 			for index in range(shoplimit):
-				child.add_child(card.instantiate())
+				if child.get_child_count()<2:
+					child.add_child(card.instantiate())
 			
 			
 

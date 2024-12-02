@@ -7,6 +7,7 @@ extends Node2D
 @onready var currentheroes = 1
 @onready var timer: Timer = $Timer
 @onready var refresh_button: Button = $"../DungeonUI/ShopUI/RefreshButton"
+@onready var shop_ui: Control = $"../DungeonUI/ShopUI"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -42,6 +43,7 @@ func _process(delta: float) -> void:
 			GlobalVariables.spawned_heroes=[]
 			GlobalVariables.rerollCost=1
 			GlobalVariables.currentPhase = "build"
+			shop_ui.createCards
 			GlobalVariables.infamy+=1
 			GlobalVariables.actionsLeft = 2
 			currentheroes = 0

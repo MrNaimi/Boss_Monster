@@ -1463,8 +1463,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="CardBuyArea" type="Area2D" parent="DungeonUI/Hand"]
-collision_layer = 128
-collision_mask = 128
+collision_layer = 2
 
 [node name="cardbuyareashape" type="CollisionShape2D" parent="DungeonUI/Hand/CardBuyArea"]
 position = Vector2(231, 82.5)

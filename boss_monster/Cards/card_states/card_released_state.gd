@@ -9,8 +9,6 @@ func enter() -> void:
 	played = false
 	if card_ui.room_type.text != "S" && !card_ui.shop_card:
 		if not card_ui.targets.is_empty() && card_ui.targets[0].name == "sellAreasize":
-
-				print("kortinmyynti")
 				GlobalVariables.player_gold+=5
 				card_ui.visible=false
 		elif not card_ui.targets.is_empty() && card_ui.targets[0].get_child(0).get_child(0).get_child_count() == 0:
@@ -58,6 +56,15 @@ func enter() -> void:
 				"Spike Factory":
 					GlobalVariables.SpikeTrapDmgBuff+=2
 					print(GlobalVariables.SpikeTrapDmgBuff)
+	elif card_ui.shop_card:
+		print("hellooo")
+		if not card_ui.targets.is_empty() && card_ui.targets[0].name=="CardBuyArea" && card_ui.targets[0].get_parent().get_child_count()<6:
+			print("nyt voisin ostaa tämän kortin :))))")
+			GlobalVariables.cardData=card_ui.selectedRoom
+			GlobalVariables.cardBought = true
+			GlobalVariables.createCard = true
+			print(GlobalVariables.cardData)
+			card_ui.visible = false
 	else:
 		#Shrink Ray, Mind Control, Healing Potion, Assassination, Bad Directions
 		for target in card_ui.targets:

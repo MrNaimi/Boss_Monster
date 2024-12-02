@@ -25,6 +25,7 @@ signal reset_card()
 @onready var shop_card = false
 @onready var card_info = ""
 @onready var tribe = ""
+@onready var selectedRoom = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -79,8 +80,11 @@ func initializeCard() -> void:
 	#	GlobalVariables.spawn_room.append(self) 
 	#print(rooms)
 	var i =  RandomNumberGenerator.new().randi_range(0, rooms.size()-1)
-	var selectedRoom=rooms.pop_at(i)
-	
+	if !GlobalVariables.cardBought:
+		selectedRoom=rooms.pop_at(i)
+	else: 
+		selectedRoom = GlobalVariables.cardData
+		GlobalVariables.cardBought = false
 	i =  RandomNumberGenerator.new().randi_range(0, spells.size()-1)
 	var selectedSpell=spells.pop_at(i)
 	card_state_machine.init(self)
