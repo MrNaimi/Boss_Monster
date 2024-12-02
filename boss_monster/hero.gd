@@ -10,6 +10,8 @@ var selectedHero = []
 @onready var flipped = false
 @onready var mindcontrolled = false
 @onready var hero_class: String
+@onready var damageMult
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalVariables.spawned_heroes.append(get_parent())
@@ -21,7 +23,7 @@ func _ready() -> void:
 	health_bar.max_value = hp
 	idle_animation.animation = selectedHero[4]
 	hero_class=selectedHero[4]
-	
+	damageMult = selectedHero[1]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:		
 	health_bar.value = hp
@@ -48,15 +50,140 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 			
 			
 func _on_hit_box_area_exited(area: Area2D) -> void:
-	var damageTaken = area.get_parent().damage*selectedHero[1]
+	var room_name = ""
+	if area.get_parent().name != "Boss":
+		room_name = area.get_parent().card_name.text
+	else:
+		room_name = "Boss"
+	var room_damage =  area.get_parent().damage*selectedHero[1] # TÄSSÄ MÄÄRITELLÄÄN HUONEEN DAMAGE
+	
+	#SEURAAVAKSI MÄÄRITELLÄÄN KAIKKI HEROT
+	var heroes = []
+	for item in GlobalVariables.spawned_heroes:
+		if is_instance_valid(item):
+			heroes.append(item.get_child(0))
+	
+	#damage multiplier = *selectedHero[1]
+	
 	#print("Exited trap damage: ",area.get_parent().damage)
-	hp -= damageTaken
+	#trapissa olevan heron hp = hp
+	#KAIKKI HEROT ON "heroes"
+	#RAHA ON GlobalVariables.player_gold
+	#jos kysyttävää koodauksesta soita 044 339 7453
+	match room_name:
+		"Goblin Warrior":
+			room_damage+=GlobalVariables.HumanoidDmgBuff*selectedHero[1]
+			print("Handle Goblin Warrior room")
+		"Gas Leak":
+			room_damage+=GlobalVariables.TrapDmgBuff*selectedHero[1]
+			for hero in heroes:
+				hero.hp -= 2*hero.damageMult
+			print("Handle Gas Leak room")
+		"Mimic":
+			room_damage+=GlobalVariables.TrapDmgBuff*selectedHero[1]
+			hp -= room_damage
+			if hp<=0:
+				GlobalVariables.player_gold+=10
+			room_damage = 0
+			print("Handle Mimic room")
+		"The Vault Room":
+			room_damage+=GlobalVariables.TrapDmgBuff*selectedHero[1]
+			
+			print("Handle The Vault Room")
+		"Spike Factory":
+			room_damage+=GlobalVariables.ConstructDmgBuff*selectedHero[1]
+			print("Handle Spike Factory room")
+		"Hot Coals":
+			room_damage+=GlobalVariables.TrapDmgBuff*selectedHero[1]
+			print("Handle Hot Coals room")
+		"Monster Lounge":
+			room_damage+=GlobalVariables.UndeadDmgBuff*selectedHero[1]
+			print("Handle Monster Lounge room")
+		"The Dragon Lair":
+			room_damage+=GlobalVariables.BeastDmgBuff*selectedHero[1]
+			print("Handle The Dragon Lair room")
+		"Pit Fall":
+			room_damage+=GlobalVariables.TrapDmgBuff*selectedHero[1]
+			print("Handle Pit Fall room")
+		"Spike Trap":
+			room_damage+=GlobalVariables.TrapDmgBuff*selectedHero[1]
+			print("Handle Spike Trap room")
+		"Forgotten Library":
+			room_damage+=GlobalVariables.TrapDmgBuff*selectedHero[1]
+			print("Handle Forgotten Library room")
+		"Succubus":
+			room_damage+=GlobalVariables.DemonDmgBuff*selectedHero[1]
+			print("Handle Succubus room")
+		"Vampire":
+			room_damage+=GlobalVariables.HumanoidDmgBuff*selectedHero[1]
+			print("Handle Vampire room")
+		"Stinky Ghoul":
+			room_damage+=GlobalVariables.UndeadDmgBuff*selectedHero[1]
+			print("Handle Stinky Ghoul room")
+		"Misunderstood Ghost":
+			room_damage+=GlobalVariables.UndeadDmgBuff*selectedHero[1]
+			print("Handle Misunderstood Ghost room")
+		"Zombie Graveyard":
+			room_damage+=GlobalVariables.UndeadDmgBuff*selectedHero[1]
+			print("Handle Zombie Graveyard room")
+		"Rolling Golem":
+			room_damage+=GlobalVariables.ConstructDmgBuff*selectedHero[1]
+			print("Handle Rolling Golem room")
+		"Killer Robot":
+			room_damage+=GlobalVariables.ConstructDmgBuff*selectedHero[1]
+			print("Handle Killer Robot room")
+		"Angry Slime":
+			room_damage+=GlobalVariables.BeastDmgBuff*selectedHero[1]
+			print("Handle Angry Slime room")
+		"Fire Elemental":
+			room_damage+=GlobalVariables.ConstructDmgBuff*selectedHero[1]
+			print("Handle Fire Elemental room")
+		"Imp":
+			room_damage+=GlobalVariables.DemonDmgBuff*selectedHero[1]
+			print("Handle Imp room")
+		"Warlock Summoner":
+			room_damage+=GlobalVariables.DemonDmgBuff*selectedHero[1]
+			print("Handle Warlock Summoner room")
+		"Demon Spawn":
+			room_damage+=GlobalVariables.DemonDmgBuff*selectedHero[1]
+			print("Handle Demon Spawn room")
+		"Lesser Devil":
+			room_damage+=GlobalVariables.DemonDmgBuff*selectedHero[1]
+			print("Handle Lesser Devil room")
+		"Outlaw":
+			room_damage+=GlobalVariables.HumanoidDmgBuff*selectedHero[1]
+			print("Handle Outlaw room")
+		"Orc Bodyguard":
+			room_damage+=GlobalVariables.HumanoidDmgBuff*selectedHero[1]
+			print("Handle Orc Bodyguard room")
+		"Goblin Army":
+			room_damage+=GlobalVariables.HumanoidDmgBuff*selectedHero[1]
+			print("Handle Goblin Army room")
+		"Pack of Wolves":
+			room_damage+=GlobalVariables.BeastDmgBuff*selectedHero[1]
+			print("Handle Pack of Wolves room")
+		"Chihu":
+			room_damage+=GlobalVariables.BeastDmgBuff*selectedHero[1]
+			print("Handle Chihu room")
+		"Lions Den":
+			room_damage+=GlobalVariables.BeastDmgBuff*selectedHero[1]
+			print("Handle Lions Den room")
+		"Electric Anomaly":
+			room_damage+=GlobalVariables.ConstructDmgBuff*selectedHero[1]
+			print("Handle Electric Anomaly room")
+		"Boss":
+			print("boss boss bossss")
+		_:
+			print("Unknown room:", room_name)
+			
+	hp -= room_damage
 	if mindcontrolled:
 		hp-=area.get_parent().get_parent().hp
 		mindcontrolled = false
 		flipped = false
 	get_child(0).damage = 0
 	#print(hp)
+	
 	
 
 func isEveryoneStopped () -> bool:
