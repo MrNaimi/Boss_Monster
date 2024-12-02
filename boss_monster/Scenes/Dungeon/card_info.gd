@@ -7,7 +7,7 @@ extends Control
 func _process(delta: float) -> void:
 	if GlobalVariables.show_card == true:
 		visible = true
-		info.text = GlobalVariables.card_info
+		info.text = GlobalVariables.card_info + "\n\n" + "Room type: "
 	else:
 		visible = false
 					

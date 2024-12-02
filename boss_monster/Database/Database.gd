@@ -92,19 +92,19 @@ const DATA ={
 	Imp:
 		["Room", 2, "Demonic Scout", "Monster", "Heroes that pass this room take +1 dmg from “Demon” type Rooms","imp.png","","demon"],
 	Warlock_Summoner:
-		["Room", 2, "Warlock Summoner", "Monster", "Your 'Demon' type rooms deal +2dmg","","","demon"],
+		["Room", 2, "Warlock Summoner", "Monster", "Your 'Demon' type rooms deal +2dmg","warlock_summoner.png","","demon"],
 	Demon_Spawn:
-		["Room", 2, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","","","demon"],
+		["Room", 2, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","demon_spawn.png","","demon"],
 	Lesser_Devil:
-		["Room", 2, "Lesser Devil", "Monster", "","","demon"],
+		["Room", 2, "Lesser Devil", "Monster", "","lesser_devil.png","","demon"],
 	Outlaw:
-		["Room", 2, "Outlaw", "Monster", "takes 2 gold every turn, if at 0 gold, destroy this","","","humanoid"],
+		["Room", 2, "Outlaw", "Monster", "takes 2 gold every turn, if at 0 gold, destroy this","outlaw.png","","humanoid"],
 	Orc_Bodyguard:
-		["Room", 2, "Orc Bodyguard", "Monster", "Gives +2dmg to Goblins but takes 1 per turn, if you have 0 gold, destroy this","","humanoid"],
+		["Room", 2, "Orc Bodyguard", "Monster", "Gives +2dmg to Goblins but takes 1 per turn, if you have 0 gold, destroy this","orc_bodyguard.png","","humanoid"],
 	Goblin_Army:
-		["Room", 2, "Goblin Army", "Monster", "has a 50% chance to get extra +1 gold from killed heroes","","","humanoid"],
+		["Room", 2, "Goblin Army", "Monster", "has a 50% chance to get extra +1 gold from killed heroes","goblin_army.png","","humanoid"],
 	Pack_of_Wolves:
-		["Room", 2, "Pack Of Wolves", "Monster", "Has +2dmg for each wolf pack in your dungeon","","","beast"],
+		["Room", 2, "Pack Of Wolves", "Monster", "Has +2dmg for each wolf pack in your dungeon","pack_of_wolves.png","","beast"],
 	Chihu:
 		["Room", 2, "Chihu", "Monster", "Does 1-6 dmg changing every turn","","","beast"],
 	Lions_Den:
