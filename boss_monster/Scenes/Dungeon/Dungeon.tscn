@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=70 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -902,6 +902,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yansb"]
+size = Vector2(516, 165)
+
 [sub_resource type="Animation" id="Animation_1vnqr"]
 length = 0.001
 tracks/0/type = "value"
@@ -1432,7 +1435,7 @@ anchor_bottom = 1.0
 offset_left = -566.0
 offset_top = -198.0
 offset_right = -100.0
-offset_bottom = -53.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 4
@@ -1458,6 +1461,14 @@ size_flags_horizontal = 4
 [node name="CardUI5" parent="DungeonUI/Hand" instance=ExtResource("16_1bnnc")]
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="CardBuyArea" type="Area2D" parent="DungeonUI/Hand"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="cardbuyareashape" type="CollisionShape2D" parent="DungeonUI/Hand/CardBuyArea"]
+position = Vector2(231, 82.5)
+shape = SubResource("RectangleShape2D_yansb")
 
 [node name="ShopUI" type="Control" parent="DungeonUI"]
 layout_mode = 3

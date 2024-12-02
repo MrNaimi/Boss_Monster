@@ -1,5 +1,4 @@
-extends Node	
-
+extends Node
 var player_gold = 5
 var card_dragging = false
 var hero_progress = 0
@@ -36,6 +35,14 @@ var spell_dragging=false
 var playshopanim = true
 var card_info = ""
 var show_card = false
+
+var TrapDmgBuff = 0
+var UndeadDmgBuff = 0
+var DemonDmgBuff = 0
+var HumanoidDmgBuff = 0
+var BeastDmgBuff = 0
+var ConstructDmgBuff = 0
+var SpikeTrapDmgBuff = 0
 
 @onready var actionsLeft = 2
 #Phases are town phase "town", combat phase, "combat" and build phase "build"

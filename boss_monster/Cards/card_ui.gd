@@ -24,7 +24,7 @@ signal reset_card()
 @onready var trap_enter: AudioStreamPlayer2D = $trap_enter
 @onready var shop_card = false
 @onready var card_info = ""
-
+@onready var tribe = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -75,7 +75,6 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 func initializeCard() -> void:
 	rooms = GlobalVariables.rooms
 	spells = GlobalVariables.spells
-	print("pylly")
 		#if GlobalVariables.spawn_room.size()==0:
 	#	GlobalVariables.spawn_room.append(self) 
 	#print(rooms)

@@ -48,28 +48,29 @@ const DATA ={
 		["Spell", 100, 0, "Bad Directions", "Return a hero back to the start of the dungeon","bad_directions.png"],
 		
 	#Rooms 
+	#RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png, sound, Tribe]
 	Goblin_warrior : #tehty oikee art
 		["Room", 2, "Goblin Warrior", "Monster", "has a 25% chance to get extra +1 gold from killed Heroes", "goblin_warrior.png","goblin_warrior.wav","humanoid"],
 	Gas_Leak : #tehty oikee art
-		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png"],
+		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png","",""],
 	Mimic :#tehty oikee art
-		["Room", 3, "Mimic", "Trap", "", "mimic.png","mimic.wav"],
+		["Room", 3, "Mimic", "Trap", "", "mimic.png","mimic.wav",""],
 	The_Vault_Room : #tehty 
-		["Room", 3, "The Vault Room","Trap", "", "vault_room.png","vault.wav"],
+		["Room", 3, "The Vault Room","Trap", "", "vault_room.png","vault.wav",""],
 	Spike_Factory :#tehty
 		["Room", 4, "Spike Factory","Monster","Your “Spike Traps” deal +3dmg", "spike_factory.png","", "construct"],
 	Hot_Coals: #tehty oikee art
-		["Room", 3, "Hot Coals","Trap","", "hot_coals.png"],
+		["Room", 3, "Hot Coals","Trap","", "hot_coals.png","",""],
 	Monster_Lounge: #tehty
 		["Room", 4, "Skeleton Lounge", "Monster", "", "monster_lounge.png","","undead"],
 	The_Dragon_Lair: #tehty
 		["Room", 4, "The Dragon Lair", "Monster", "if you kill a hero in this room, get 1 gold", "dragon_lair.png","","beast"],
 	Pit_Fall: #tehty oikee art
-		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png","hero_death_pit.wav"],
+		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png","hero_death_pit.wav",""],
 	Spike_Trap : #tehty oikee art
-		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room","spikes.png","trap_spikes.wav"],
+		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room","spikes.png","trap_spikes.wav",""],
 	Forgotten_Library:
-		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card", "forgotten_library.png"],
+		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card", "forgotten_library.png","",""],
 	Succubus : #tehty oikee art
 		["Room", 3, "Succubus", "Monster", "","succubus.png","","undead"],
 	Vampire : #tehty oikee art

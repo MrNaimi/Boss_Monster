@@ -35,6 +35,29 @@ func enter() -> void:
 			for room in GlobalVariables.rooms_placed:
 				room.spawn_room=false
 			GlobalVariables.spawn_room_set=false
+			var trapName = card_ui.card_name.text
+			
+			#print(GlobalVariables.ConstructDmgBuff)
+			#print(GlobalVariables.BeastDmgBuff)
+			#print(GlobalVariables.HumanoidDmgBuff)
+			#print(GlobalVariables.DemonDmgBuff)
+			#print(GlobalVariables.SpikeTrapDmgBuff)
+			match trapName:
+				"Electric Anomaly":
+					GlobalVariables.ConstructDmgBuff+=2
+					print(GlobalVariables.ConstructDmgBuff)
+				"Pack Of Wolves":
+					GlobalVariables.BeastDmgBuff+=2
+					print(GlobalVariables.BeastDmgBuff)
+				"Orc Bodyguard":
+					GlobalVariables.HumanoidDmgBuff+=2
+					print(GlobalVariables.HumanoidDmgBuff)
+				"Warlock Summoner":
+					GlobalVariables.DemonDmgBuff+=2
+					print(GlobalVariables.DemonDmgBuff)
+				"Spike Factory":
+					GlobalVariables.SpikeTrapDmgBuff+=2
+					print(GlobalVariables.SpikeTrapDmgBuff)
 	else:
 		#Shrink Ray, Mind Control, Healing Potion, Assassination, Bad Directions
 		for target in card_ui.targets:
