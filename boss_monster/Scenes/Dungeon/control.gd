@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 			shopcover.visible=true
 			shopanimation.play("shopshow")
 			GlobalVariables.playshopanim = false
-	refresh_button.text = "Refresh: " + str(1+GlobalVariables.rerollCost) + " gold"
+	refresh_button.text = "Refresh: " + str(GlobalVariables.rerollCost) + " gold"
 			
 func createCards() -> void:
 	for child in get_child(0).get_children():
@@ -53,10 +53,11 @@ func _on_timer_timeout() -> void:
 
 
 func _on_refresh_button_pressed() -> void:
-	GlobalVariables.player_gold-=1+GlobalVariables.rerollCost
-	GlobalVariables.rerollCost+=2
-	refresh_button.text = "Refresh: " + str(1+GlobalVariables.rerollCost) + " gold"
-	GlobalVariables.resetValues(true)
-	for shop in get_child(0).get_children():
-		for card in shop.get_children():
-			card.initializeCard()
+	if GlobalVariables.rerollCost<=GlobalVariables.player_gold:
+		GlobalVariables.player_gold-=GlobalVariables.rerollCost
+		GlobalVariables.rerollCost+=2
+		refresh_button.text = "Refresh: " + str(GlobalVariables.rerollCost) + " gold"
+		GlobalVariables.resetValues(true)
+		for shop in get_child(0).get_children():
+			for card in shop.get_children():
+				card.initializeCard()

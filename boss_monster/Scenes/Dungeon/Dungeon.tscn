@@ -1542,6 +1542,7 @@ libraries = {
 }
 
 [node name="sellAreasize" type="Area2D" parent="DungeonUI/ShopUI/SellArea"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonUI/ShopUI/SellArea/sellAreasize"]
 position = Vector2(123.25, 66.5)

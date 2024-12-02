@@ -7,8 +7,14 @@ func enter() -> void:
 
 	#card_ui.drop_point_detecor.get_child(0) = true
 	played = false
-	if card_ui.room_type.text != "S":
-		if not card_ui.targets.is_empty() && card_ui.targets[0].get_child(0).get_child(0).get_child_count() == 0:
+	if card_ui.room_type.text != "S" && !card_ui.shop_card:
+		if not card_ui.targets.is_empty() && card_ui.targets[0].name == "sellAreasize":
+
+				print("kortinmyynti")
+				GlobalVariables.player_gold+=5
+				card_ui.visible=false
+		elif not card_ui.targets.is_empty() && card_ui.targets[0].get_child(0).get_child(0).get_child_count() == 0:
+			
 			GlobalVariables.actionsLeft-=1
 			GlobalVariables.trap_placed=true
 			GlobalVariables.card_dragging=false
@@ -72,7 +78,8 @@ func enter() -> void:
 					target.get_parent().get_parent().hp=50
 				target.get_parent().get_parent().refreshHP()
 				card_ui.queue_free()
-			GlobalVariables.created_spells-=1
+			#GlobalVariables.created_spells-=1
+			
 func on_input(_event: InputEvent) -> void:
 	if played:
 		return
