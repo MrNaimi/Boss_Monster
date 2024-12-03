@@ -12,7 +12,9 @@ func enter() -> void:
 			GlobalVariables.spell_dragging= true
 		else:
 			GlobalVariables.card_dragging = true
-		
+	else:
+		print("nyt raahataan shop cardia")
+		GlobalVariables.shop_card_dragging = true
 	#card_ui.color.color= Color.NAVY_BLUE
 	#card_ui.state.text = ""
 	
@@ -27,11 +29,11 @@ func on_input(event: InputEvent) -> void:
 	
 	if mouse_motion:
 		card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.pivot_offset
-	
 	if cancel:
-		GlobalVariables.show_card = false
+		GlobalVariables.show_card = true
 		GlobalVariables.card_dragging=false
 		GlobalVariables.spell_dragging=false
+		GlobalVariables.shop_card_dragging = false
 		transition_requested.emit(self, CardState.State.BASE)
 	elif minimum_drag_time_elapsed and confirm:
 		get_viewport().set_input_as_handled()

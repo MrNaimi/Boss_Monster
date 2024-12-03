@@ -23,7 +23,7 @@ var room_cards_created: Array[Control] = []
 var spawned_heroes: Array[PathFollow2D] = []
 var rooms_placed: Array[Control] = []
 var cardData = []
-var card_info = ["",""]
+var card_info = ["  ","  "]
 
 #Global BOOLEAN checks
 var createCard = false
@@ -41,7 +41,8 @@ var combat_phase = false
 var autoplay = false
 var spawn_hero = false
 var show_card = false
-
+var message_sent = false
+var message_data = ""
 
 #Card damage buffs
 var TrapDmgBuff = 0
@@ -52,10 +53,10 @@ var BeastDmgBuff = 0
 var ConstructDmgBuff = 0
 var SpikeTrapDmgBuff = 0
 
-@onready var actionsLeft = 2
+@onready var actionsLeft = 5
 @onready var currentPhase: String = "build"  #Phases are town phase "town", combat phase "combat" and build phase "build"
 #var card_info = ""
-var player_gold = 5
+var player_gold = 100
 
 func _ready() -> void:
 	resetValues(false)
@@ -88,3 +89,18 @@ func resetValues(refresh) -> void:
 		spell_limit = 1
 		created_spells = 0
 		actionsLeft = 2
+
+func message(msg) -> void:
+	show_card = true
+	message_sent = true
+	card_info = [msg,""]
+	
+func printDmgBuffs() -> void:
+	print("Damage Buffs:")
+	print("Trap Damage: ", TrapDmgBuff)
+	print("Undead Damage: ", UndeadDmgBuff)
+	print("Demon Damage: ", DemonDmgBuff)
+	print("Humanoid Damage: ", HumanoidDmgBuff)
+	print("Beast Damage: ", BeastDmgBuff)
+	print("Construct Damage: ", ConstructDmgBuff)
+	print("Spike Trap Damage: ", SpikeTrapDmgBuff)

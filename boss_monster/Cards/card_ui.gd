@@ -32,6 +32,12 @@ func _ready() -> void:
 	initializeCard()
 	GlobalVariables.room_cards_created.append(self)
 	
+func _process(delta: float) -> void:
+	if !visible:
+		queue_free()
+	else:
+		pass
+	
 	
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
@@ -78,7 +84,6 @@ func initializeCard() -> void:
 	spells = GlobalVariables.spells
 		#if GlobalVariables.spawn_room.size()==0:
 	#	GlobalVariables.spawn_room.append(self) 
-	#print(rooms)
 	var i =  RandomNumberGenerator.new().randi_range(0, rooms.size()-1)
 	if !GlobalVariables.cardBought:
 		selectedRoom=rooms.pop_at(i)
@@ -89,6 +94,7 @@ func initializeCard() -> void:
 	var selectedSpell=spells.pop_at(i)
 	card_state_machine.init(self)
 	if GlobalVariables.created_spells < GlobalVariables.spell_limit:
+		GlobalVariables.created_spells+=1
 		print("Yritetään luoda spelliä")
 		trap_texture.texture=load(texturepath+selectedSpell[5])
 		card_texture.texture=load(texturepath+selectedSpell[5])
@@ -97,8 +103,6 @@ func initializeCard() -> void:
 		room_dmg.text = str(selectedSpell[1])
 		card_info = (selectedSpell[4])
 		damage = int(room_dmg.text)
-		
-		GlobalVariables.created_spells+=1
 		card_border.texture=load("res://Cards/Graphics/spellcard.png")
 		drop_point_detecor.set_collision_mask_value(3, false)
 		drop_point_detecor.set_collision_mask_value(4, true)

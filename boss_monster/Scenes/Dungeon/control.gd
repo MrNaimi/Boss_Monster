@@ -6,6 +6,7 @@ extends Control
 @onready var shopcover: ColorRect = $shopcover
 @onready var shopanimation: AnimationPlayer = $shopcover/shopanimation
 @onready var timer: Timer = $shopcover/Timer
+@onready var shophand: ShopHand = $shophand
 
 
 var shoplimit = 2
@@ -41,13 +42,14 @@ func _process(delta: float) -> void:
 			
 func createCards() -> void:
 	for child in get_child(0).get_children():
-		print("luodaanpas kortteja")
-		if child.is_class("HBoxContainer"):
+		print(child.get_child_count())
+		if child.is_class("HBoxContainer") && child.get_child_count()<shoplimit:
+			print("yritetään luoda kortteja kortteja")
 			for index in range(shoplimit):
 				if child.get_child_count()<2:
 					child.add_child(card.instantiate())
-			
-			
+				
+	shophand.start_state_machine()
 
 
 func _on_timer_timeout() -> void:

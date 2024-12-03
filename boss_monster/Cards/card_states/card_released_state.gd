@@ -11,6 +11,8 @@ func enter() -> void:
 		if not card_ui.targets.is_empty() && card_ui.targets[0].name == "sellAreasize":
 				GlobalVariables.player_gold+=5
 				card_ui.visible=false
+				GlobalVariables.card_dragging = false
+
 		elif not card_ui.targets.is_empty() && card_ui.targets[0].name != "CardBuyArea":
 			if card_ui.targets[0].get_child(0).get_child(0).get_child_count() == 0:
 				GlobalVariables.actionsLeft-=1
@@ -27,12 +29,11 @@ func enter() -> void:
 				card_ui.room_dmg.visible = false
 				
 				played = true
-				#print("play card for target(s)", card_ui.targets)
-				#print("Child nodes of target area:", card_ui.targets[0].get_child(0).get_children())
 				print(get_parent())
 				card_ui.reparent(card_ui.targets[0].get_child(0).get_child(0))
 				for room in GlobalVariables.rooms_placed:
-					room.spawn_room=false
+					if is_instance_valid(room):
+						room.spawn_room=false
 				GlobalVariables.spawn_room_set=false
 				var trapName = card_ui.card_name.text
 				
@@ -59,7 +60,6 @@ func enter() -> void:
 						print(GlobalVariables.SpikeTrapDmgBuff)
 	elif card_ui.shop_card:
 		print("hellooo")
-		print(card_ui.targets[0].get_parent().get_child_count())
 		if not card_ui.targets.is_empty() && card_ui.targets[0].name=="CardBuyArea" && card_ui.targets[0].get_parent().get_child_count()<6 && GlobalVariables.player_gold>=10:
 			print("nyt voisin ostaa tämän kortin :))))")
 			GlobalVariables.cardData=card_ui.selectedRoom
@@ -68,6 +68,8 @@ func enter() -> void:
 			print(GlobalVariables.cardData)
 			card_ui.visible = false
 			GlobalVariables.player_gold-=10
+		else:
+			GlobalVariables.message("Hand is full")
 	else:
 		#Shrink Ray, Mind Control, Healing Potion, Assassination, Bad Directions
 		for target in card_ui.targets:
@@ -80,15 +82,14 @@ func enter() -> void:
 						target.get_parent().scale.x=1
 						target.get_parent().scale.y=1
 					"Mind Control":
-						if hero.can_move:
+						if hero.can_move && GlobalVariables.amount_of_heroes_alive>1:
 							print("mind control")
 							hero.can_move = false
 							hero.flipped = true
 							hero.mindcontrolled = true
 							hero.get_child(0).damage = hero.hp
-							if GlobalVariables.amount_of_heroes_alive == 1:
-								GlobalVariables.spawn_hero = true
 						else:
+							GlobalVariables.message("There has to be more than one hero in the dungeon, and it has to be moving")
 							break
 						#hero.hp-=int(card_ui.room_dmg.text)
 					"Assassination":
@@ -101,6 +102,7 @@ func enter() -> void:
 						print("Bad direction")
 						
 				GlobalVariables.actionsLeft-=1
+				GlobalVariables.created_spells-=1
 				card_ui.queue_free()
 			elif target.get_parent().name=="Boss": 
 				print(target.get_parent().get_parent().boss_hp)

@@ -35,7 +35,6 @@ func _process(delta: float) -> void:
 		if currentheroes < herolimit:
 			var new_hero = heroandpath.instantiate()
 			get_child(0).add_child(new_hero)
-			#print(get_child(0).get_children())
 			GlobalVariables.heroKilled = false
 			GlobalVariables.spawn_hero = false
 			currentheroes +=1

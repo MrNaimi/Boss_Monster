@@ -72,7 +72,7 @@ const DATA ={
 	Forgotten_Library:
 		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card", "forgotten_library.png","","trap"],
 	Succubus : #tehty oikee art
-		["Room", 3, "Succubus", "Monster", "","succubus.png","","undead"],
+		["Room", 3, "Succubus", "Monster", "","succubus.png","","demon"],
 	Vampire : #tehty oikee art
 		["Room", 5, "Vampire", "Monster", "Deals double damage to clerics","vampire.png","","humanoid"],
 	Stinky_Ghoul : #tehty oikee art

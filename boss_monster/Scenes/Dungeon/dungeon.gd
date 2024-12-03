@@ -16,8 +16,6 @@ var is_dragging = false
 @onready var current_phase_text: Label = $CurrentPhaseText
 @onready var info: Label = $card_info/ColorRect/info
 @onready var card_info: Control = $card_info
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(GlobalVariables.rooms)
@@ -27,19 +25,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Z-button"):
 		if GlobalVariables.rooms_placed.size()>0:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:
 				GlobalVariables.heroes_move = true
-				print(GlobalVariables.spawned_heroes)
+				#print(GlobalVariables.spawned_heroes)
 				#for path ins GlobalVariables.spawned_heroes:
 					#if path.is_instance_valid():
 						#path.get_child(0).can_move=true
 			first_time_continue=false
 		else:
-			print("Place a room first")
-		
-	
+			pass
+			#print("Place a room first")
+
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 
@@ -50,7 +47,7 @@ func _on_continue_button_pressed() -> void:
 	if GlobalVariables.trap_placed:
 		if GlobalVariables.currentPhase=="build":
 			GlobalVariables.playshopanim = true
-			
+		GlobalVariables.printDmgBuffs()
 		GlobalVariables.currentPhase="combat"
 		if GlobalVariables.rooms_placed.size()>0:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:
@@ -67,7 +64,7 @@ func _on_continue_button_pressed() -> void:
 							
 			first_time_continue=false
 	else:
-		print("Place a trap first!!!")
+		GlobalVariables.message("Place a trap first!!!")
 
 func _on_reset_button_pressed() -> void:
 	if GlobalVariables.currentPhase=="build":
