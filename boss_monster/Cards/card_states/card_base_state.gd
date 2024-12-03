@@ -32,10 +32,12 @@ func on_gui_input(event: InputEvent) -> void:
 				card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
 				transition_requested.emit(self, CardState.State.CLICKED)
 	if event.is_action_pressed("mmb"):
-		if GlobalVariables.card_info == card_ui.card_info && GlobalVariables.show_card:
+		if GlobalVariables.card_info[0] == card_ui.card_info && GlobalVariables.show_card:
 			GlobalVariables.show_card = false
 		else:
-			GlobalVariables.card_info = card_ui.card_info
+			#GlobalVariables.card_info = card_ui.card_info
+			GlobalVariables.card_info[0] = card_ui.card_info
+			GlobalVariables.card_info[1] = card_ui.tribe
 			GlobalVariables.show_card = true
 			print(card_ui.card_info)
 		

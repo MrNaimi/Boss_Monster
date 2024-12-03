@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 			GlobalVariables.spawned_heroes=[]
 			GlobalVariables.rerollCost=1
 			GlobalVariables.currentPhase = "build"
-			shop_ui.createCards
+			shop_ui.createCards()
 			GlobalVariables.infamy+=1
 			GlobalVariables.actionsLeft = 2
 			currentheroes = 0

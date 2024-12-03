@@ -24,7 +24,7 @@ signal reset_card()
 @onready var trap_enter: AudioStreamPlayer2D = $trap_enter
 @onready var shop_card = false
 @onready var card_info = ""
-@onready var tribe = ""
+@onready var tribe = "peba"
 @onready var selectedRoom = []
 
 # Called when the node enters the scene tree for the first time.
@@ -104,6 +104,7 @@ func initializeCard() -> void:
 		drop_point_detecor.set_collision_mask_value(4, true)
 		drop_point_detecor.set_collision_layer_value(3, false)
 	else:
+		tribe = selectedRoom[7]
 		trap_texture.texture=load(texturepath+selectedRoom[5])
 		card_texture.texture=load(texturepath+selectedRoom[5])
 		card_name.text = selectedRoom[2]

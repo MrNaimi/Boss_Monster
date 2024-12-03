@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 			
 func createCards() -> void:
 	for child in get_child(0).get_children():
+		print("luodaanpas kortteja")
 		if child.is_class("HBoxContainer"):
 			for index in range(shoplimit):
 				if child.get_child_count()<2:

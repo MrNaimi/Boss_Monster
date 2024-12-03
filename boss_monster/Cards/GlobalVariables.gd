@@ -23,6 +23,7 @@ var room_cards_created: Array[Control] = []
 var spawned_heroes: Array[PathFollow2D] = []
 var rooms_placed: Array[Control] = []
 var cardData = []
+var card_info = ["",""]
 
 #Global BOOLEAN checks
 var createCard = false
@@ -53,7 +54,7 @@ var SpikeTrapDmgBuff = 0
 
 @onready var actionsLeft = 2
 @onready var currentPhase: String = "build"  #Phases are town phase "town", combat phase "combat" and build phase "build"
-var card_info = ""
+#var card_info = ""
 var player_gold = 5
 
 func _ready() -> void:
