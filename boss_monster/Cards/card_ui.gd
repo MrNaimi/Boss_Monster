@@ -24,7 +24,7 @@ signal reset_card()
 @onready var trap_enter: AudioStreamPlayer2D = $trap_enter
 @onready var shop_card = false
 @onready var card_info = ""
-@onready var tribe = "peba"
+@onready var tribe = "spell"
 @onready var selectedRoom = []
 
 # Called when the node enters the scene tree for the first time.
