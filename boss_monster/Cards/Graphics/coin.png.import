@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cym2n6u8u1rcw"
-path="res://.godot/imported/Lucky_Fellow.png-a80d9cfb23c023439e3cb30ff18ea673.ctex"
+uid="uid://cnbtafi5vtwgi"
+path="res://.godot/imported/coin.png-e5bb0aebadef60ff05114334d4dbcf6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/Lucky_Fellow.png"
-dest_files=["res://.godot/imported/Lucky_Fellow.png-a80d9cfb23c023439e3cb30ff18ea673.ctex"]
+source_file="res://Cards/Graphics/coin.png"
+dest_files=["res://.godot/imported/coin.png-e5bb0aebadef60ff05114334d4dbcf6c.ctex"]
 
 [params]
 

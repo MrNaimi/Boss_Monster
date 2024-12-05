@@ -52,7 +52,7 @@ const DATA ={
 	Goblin_warrior : #tehty oikee art
 		["Room", 2, "Goblin Warrior", "Monster", "has a 25% chance to get extra +1 gold from killed Heroes", "goblin_warrior.png","goblin_warrior.wav","humanoid"],
 	Gas_Leak : #tehty oikee art
-		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png","","trap"],
+		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes every time a hero exits this trap", "gas_Leak.png","","trap"],
 	Mimic :#tehty oikee art
 		["Room", 3, "Mimic", "Trap", "If you kill a hero in this room, gain +2 gold", "mimic.png","mimic.wav","trap"],
 	The_Vault_Room : #tehty 
@@ -106,7 +106,7 @@ const DATA ={
 	Pack_of_Wolves:
 		["Room", 2, "Pack of Wolves", "Monster", "Must kill a hero within  5 rounds or gets destroyed","pack_of_wolves.png","","beast"],
 	Chihu:
-		["Room", 2, "Chihu", "Monster", "Does 1-6 dmg changing every turn","","","beast"],
+		["Room", 2, "Chihu", "Monster", "Does 1-6 dmg changing every turn","chihu.png","","beast"],
 	Lions_Den:
 		["Room", 2, "Lions Den", "Monster", "Gives your beast rooms +1dmg for each beast in your dungeon","","","beast"],
 	Electric_Anomaly:

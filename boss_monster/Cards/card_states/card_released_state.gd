@@ -35,18 +35,20 @@ func enter() -> void:
 					if is_instance_valid(room):
 						room.spawn_room=false
 				GlobalVariables.spawn_room_set=false
-				var trapName = card_ui.card_name.text
-				
+								
 				#print(GlobalVariables.ConstructDmgBuff)
 				#print(GlobalVariables.BeastDmgBuff)
 				#print(GlobalVariables.HumanoidDmgBuff)
 				#print(GlobalVariables.DemonDmgBuff)
 				#print(GlobalVariables.SpikeTrapDmgBuff)
+				var trapName = card_ui.card_name.text
+
 				match trapName:
 					"Electric Anomaly":
 						GlobalVariables.ConstructDmgBuff+=2
+						GlobalVariables.TrapDmgBuff+=2
 						print(GlobalVariables.ConstructDmgBuff)
-					"Pack Of Wolves":
+					"Lions Den":
 						GlobalVariables.BeastDmgBuff+=2
 						print(GlobalVariables.BeastDmgBuff)
 					"Orc Bodyguard":

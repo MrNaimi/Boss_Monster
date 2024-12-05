@@ -35,6 +35,32 @@ func _on_message_timer_timeout() -> void:
 	message_timer.wait_time=1.5
 
 func _on_destroy_room_pressed() -> void:
+	var trapName = GlobalVariables.room_to_be_destroyed.card_name.text
+	match trapName:
+		"Electric Anomaly":
+			GlobalVariables.ConstructDmgBuff-=2
+			GlobalVariables.TrapDmgBuff+=2
+			print(GlobalVariables.ConstructDmgBuff)
+		"Lions Den":
+			GlobalVariables.BeastDmgBuff-=2
+			print(GlobalVariables.BeastDmgBuff)
+		"Orc Bodyguard":
+			GlobalVariables.HumanoidDmgBuff-=2
+			print(GlobalVariables.HumanoidDmgBuff)
+		"Warlock Summoner":
+			GlobalVariables.DemonDmgBuff-=2
+			print(GlobalVariables.DemonDmgBuff)
+		"Spike Factory":
+			GlobalVariables.SpikeTrapDmgBuff-=2
+			print(GlobalVariables.SpikeTrapDmgBuff)
+
+	print("Construct Damage Buff:", GlobalVariables.ConstructDmgBuff)
+	print("Beast Damage Buff:", GlobalVariables.BeastDmgBuff)
+	print("Humanoid Damage Buff:", GlobalVariables.HumanoidDmgBuff)
+	print("Demon Damage Buff:", GlobalVariables.DemonDmgBuff)
+	print("Spike Trap Damage Buff:", GlobalVariables.SpikeTrapDmgBuff)
+
+	
 	GlobalVariables.room_to_be_destroyed.queue_free()
 	GlobalVariables.show_card = false
 	GlobalVariables.room_to_be_destroyed = null
