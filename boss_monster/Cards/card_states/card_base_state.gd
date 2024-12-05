@@ -36,7 +36,7 @@ func on_gui_input(event: InputEvent) -> void:
 				card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
 				transition_requested.emit(self, CardState.State.CLICKED)
 			elif GlobalVariables.currentPhase=="build" && GlobalVariables.player_gold<=10 && card_ui.shop_card:
-				GlobalVariables.message("You need 10 gold to buy a card")
+				GlobalVariables.message("You need 10 gold to buy a card",false)
 	if event.is_action_pressed("mmb"):
 		if GlobalVariables.card_info[0] == card_ui.card_info && GlobalVariables.show_card:
 			GlobalVariables.show_card = false
@@ -45,6 +45,7 @@ func on_gui_input(event: InputEvent) -> void:
 			GlobalVariables.card_info[0] = card_ui.card_info
 			GlobalVariables.card_info[1] = card_ui.tribe
 			GlobalVariables.show_card = true
+			GlobalVariables.destroy_room = false
 			print(card_ui.card_info)
 		
 			

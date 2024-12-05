@@ -69,7 +69,7 @@ func enter() -> void:
 			card_ui.visible = false
 			GlobalVariables.player_gold-=10
 		else:
-			GlobalVariables.message("Hand is full")
+			GlobalVariables.message("Hand is full",false)
 	else:
 		#Shrink Ray, Mind Control, Healing Potion, Assassination, Bad Directions
 		for target in card_ui.targets:
@@ -89,7 +89,7 @@ func enter() -> void:
 							hero.mindcontrolled = true
 							hero.get_child(0).damage = hero.hp
 						else:
-							GlobalVariables.message("There has to be more than one hero in the dungeon, and it has to be moving")
+							GlobalVariables.message("There has to be more than one hero in the dungeon, and it has to be moving",false)
 							break
 						#hero.hp-=int(card_ui.room_dmg.text)
 					"Assassination":
@@ -125,3 +125,9 @@ func _on_card_ui_reset_card() -> void:
 	#print("doing this in release script")
 	GlobalVariables.card_dragging=false
 	transition_requested.emit(self, CardState.State.BASE)
+
+func on_gui_input(event: InputEvent) -> void:
+	if !card_ui.shop_card or GlobalVariables.currentPhase=="build":
+		if event.is_action_pressed("click"):
+			#GlobalVariables.card_info[1] = card_ui.tribe
+			GlobalVariables.placed_message(card_ui.card_info,card_ui.tribe,true,card_ui)

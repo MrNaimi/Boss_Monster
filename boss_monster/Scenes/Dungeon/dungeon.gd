@@ -64,7 +64,7 @@ func _on_continue_button_pressed() -> void:
 							
 			first_time_continue=false
 	else:
-		GlobalVariables.message("Place a trap first!!!")
+		GlobalVariables.message("Place a trap first!!!",false)
 
 func _on_reset_button_pressed() -> void:
 	if GlobalVariables.currentPhase=="build":

@@ -24,7 +24,7 @@ var spawned_heroes: Array[PathFollow2D] = []
 var rooms_placed: Array[Control] = []
 var cardData = []
 var card_info = ["  ","  "]
-
+var room_to_be_destroyed
 #Global BOOLEAN checks
 var createCard = false
 var cardBought = false
@@ -43,6 +43,7 @@ var spawn_hero = false
 var show_card = false
 var message_sent = false
 var message_data = ""
+var destroy_room = false
 
 #Card damage buffs
 var TrapDmgBuff = 0
@@ -90,10 +91,22 @@ func resetValues(refresh) -> void:
 		created_spells = 0
 		actionsLeft = 2
 
-func message(msg) -> void:
+func message(msg,card_placed) -> void:
 	show_card = true
 	message_sent = true
-	card_info = [msg,""]
+	if card_placed:
+		card_info[0] = msg
+		message_sent = false
+	else:
+		card_info = [msg, ""]
+		message_sent = true
+		destroy_room = false
+
+func placed_message(msg,tribe,card_placed,node) -> void:
+	card_info[1] = tribe
+	message(msg, true)
+	room_to_be_destroyed=node
+	destroy_room = true
 	
 func printDmgBuffs() -> void:
 	print("Damage Buffs:")

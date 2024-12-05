@@ -902,6 +902,21 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_fxdd8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.490196)]
+}
+
 [sub_resource type="Animation" id="Animation_hg1s4"]
 resource_name = "buyanimation"
 length = 2.0
@@ -917,21 +932,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0.490196), Color(0, 0, 0, 0), Color(0, 0, 0, 0.490196)]
-}
-
-[sub_resource type="Animation" id="Animation_fxdd8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.490196)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1850l"]
@@ -1670,6 +1670,24 @@ text = "This is going to be the card info text"
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="destroy_room" type="Button" parent="card_info/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -30.0
+offset_right = 83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("8_l2hdd")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Destroy this room"
+autowrap_mode = 3
+
 [node name="messageTimer" type="Timer" parent="card_info"]
 wait_time = 1.5
 one_shot = true
@@ -1682,4 +1700,5 @@ one_shot = true
 [connection signal="pressed" from="DungeonUI/ShopUI/RefreshButton" to="DungeonUI/ShopUI" method="_on_refresh_button_pressed"]
 [connection signal="timeout" from="DungeonUI/ShopUI/shopcover/Timer" to="DungeonUI/ShopUI" method="_on_timer_timeout"]
 [connection signal="timeout" from="Heroes/Timer" to="Heroes" method="_on_timer_timeout"]
+[connection signal="pressed" from="card_info/ColorRect/destroy_room" to="card_info" method="_on_destroy_room_pressed"]
 [connection signal="timeout" from="card_info/messageTimer" to="card_info" method="_on_message_timer_timeout"]
