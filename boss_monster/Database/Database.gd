@@ -100,15 +100,15 @@ const DATA ={
 	Outlaw:
 		["Room", 2, "Outlaw", "Monster", "takes 2 gold every turn, if at 0 gold, destroy this","outlaw.png","","humanoid"],
 	Orc_Bodyguard:
-		["Room", 2, "Orc Bodyguard", "Monster", "Gives +2dmg to Goblins but takes 1 per turn, if you have 0 gold, destroy this","orc_bodyguard.png","","humanoid"],
+		["Room", 2, "Orc Bodyguard", "Monster", "Gives +2dmg to Humanoids but takes 1 per turn, if you have 0 gold, destroy this","orc_bodyguard.png","","humanoid"],
 	Goblin_Army:
 		["Room", 2, "Goblin Army", "Monster", "has a 50% chance to get extra +1 gold from killed heroes","goblin_army.png","","humanoid"],
 	Pack_of_Wolves:
-		["Room", 2, "Pack of Wolves", "Monster", "Has +2dmg for each wolf pack in your dungeon","pack_of_wolves.png","","beast"],
+		["Room", 2, "Pack of Wolves", "Monster", "Must kill a hero within  5 rounds or gets destroyed","pack_of_wolves.png","","beast"],
 	Chihu:
 		["Room", 2, "Chihu", "Monster", "Does 1-6 dmg changing every turn","","","beast"],
 	Lions_Den:
-		["Room", 2, "Lions Den", "Monster", "Must kill a hero within  5 days or gets destroyed","","","beast"],
+		["Room", 2, "Lions Den", "Monster", "Gives your beast rooms +1dmg for each beast in your dungeon","","","beast"],
 	Electric_Anomaly:
 		["Room", 2, "Electric Anomaly", "Monster", "gives +2 dmg to your “Construct” and “Trap” Rooms","electric_anomaly.png","","construct"],
 } 

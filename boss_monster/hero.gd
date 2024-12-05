@@ -107,6 +107,10 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Monster Lounge room")
 		"The Dragon Lair":
 			room_damage+=GlobalVariables.BeastDmgBuff
+			hp -= room_damage
+			if hp<=0:
+				GlobalVariables.player_gold+=4
+			room_damage = 0
 			print("Handle The Dragon Lair room")
 		"Pit Fall":
 			room_damage+=GlobalVariables.TrapDmgBuff
@@ -125,6 +129,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Vampire room")
 		"Stinky Ghoul":
 			room_damage+=GlobalVariables.UndeadDmgBuff
+			
 			print("Handle Stinky Ghoul room")
 		"Misunderstood Ghost":
 			room_damage+=GlobalVariables.UndeadDmgBuff
