@@ -50,7 +50,7 @@ const DATA ={
 	#Rooms 
 	#RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png, sound, Tribe]
 	Goblin_warrior : #tehty oikee art
-		["Room", 2, "Goblin Warrior", "Monster", "has a 25% chance to get extra +2 gold from killed Heroes", "goblin_warrior.png","goblin_warrior.wav","humanoid"],
+		["Room", 3, "Goblin Warrior", "Monster", "has a 25% chance to get extra +2 gold from killed Heroes", "goblin_warrior.png","goblin_warrior.wav","humanoid"],
 	Gas_Leak : #tehty oikee art
 		["Room", 2, "Gas Leak", "Trap", "Deals 2 damage to all heroes every time a hero exits this trap", "gas_Leak.png","","trap"],
 	Mimic :#tehty oikee art
@@ -62,9 +62,9 @@ const DATA ={
 	Hot_Coals: #tehty oikee art
 		["Room", 3, "Hot Coals","Trap","", "hot_coals.png","","trap"],
 	Monster_Lounge: #tehty
-		["Room", 3, "Skeleton Lounge", "Monster", "Skeletons have to take breaks too", "monster_lounge.png","","undead"],
+		["Room", 3, "Skeleton Lounge", "Monster", "Skeletons have to take breaks too, but they benefit more from Tribe buffs", "monster_lounge.png","","undead"],
 	The_Dragon_Lair: #tehty
-		["Room", 5, "The Dragon Lair", "Monster", "if you kill a hero in this room, get 2 gold", "dragon_lair.png","","beast"],
+		["Room", 5, "Dragon Lair", "Monster", "if you kill a hero in this room, get 2 gold", "dragon_lair.png","","beast"],
 	Pit_Fall: #tehty oikee art
 		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png","hero_death_pit.wav","trap"],
 	Spike_Trap : #tehty oikee art
@@ -78,40 +78,37 @@ const DATA ={
 	Stinky_Ghoul : #tehty oikee art
 		["Room", 8, "Stinky Ghoul", "Monster", "Your non-Undead monster rooms have -2dmg","stinky_ghoul.png","","undead"],
 	Misunderstood_Ghost : #tehty oikee art
-		["Room", 3, "Misunderstood Ghost", "Monster", "Deals double damage to Paladins","misunderstood_ghost.png","","undead"],
+		["Room", 4, "Misunderstood Ghost", "Monster", "Deals double damage to Paladins","misunderstood_ghost.png","","undead"],
 	Zombie_Graveyard : #tehty oikee art
-		["Room", 3, "Zombie Cemetery", "Monster", "Has +1dmg for each destroyed room","zombie_graveyard.png","","undead"],
+		["Room", 2, "Zombie Cemetery", "Monster", "Has +1dmg for each destroyed room","zombie_graveyard.png","","undead"],
 	Rolling_Golem:
-		["Room", 4, "Rolling Golem", "Monster", "It has some rust on it","rolling_golem.png","","construct"],
+		["Room", 4, "Rolling Golem", "Monster", "Benefits more from Tribe buffs, also, It has some rust on it","rolling_golem.png","","construct"],
 	Killer_Robot:
-		["Room", 6, "Killer Robot", "Monster", "Has a 10% chance to self destruct every turn","killer_robot.png","","construct"],
+		["Room", 6, "Killer Robot", "Monster", "Has a 20% chance to self destruct at the end of every turn","killer_robot.png","","construct"],
 	Angry_Slime:
-		["Room", 2, "Angry Slime", "Monster", "hero takes 10% more damage for every room they enter","angry_slime.png","","beast"],
+		["Room", 2, "Angry Slime", "Monster", "hero takes 1 more damage for every room they enter","angry_slime.png","","beast"],
 	Fire_Elemental:
 		["Room", 2, "Fire Elemental", "Monster", "Hero takes 1 damage for every room they entered","fire_elemental.png","","construct"],
 	Imp:
-		["Room", 2, "Demonic Scout", "Monster", "Heroes that pass this room take +1 dmg from “Demon” type Rooms","imp.png","","demon"],
+		["Room", 2, "Demonic Scout", "Monster", "Heroes that pass this room take +2 dmg from “Demon” type Rooms","imp.png","","demon"],
 	Warlock_Summoner:
-		["Room", 2, "Warlock Summoner", "Monster", "Your 'Demon' type rooms deal +2dmg","warlock_summoner.png","","demon"],
+		["Room", 3, "Warlock Summoner", "Monster", "Your 'Demon' type rooms deal +2dmg","warlock_summoner.png","","demon"],
 	Demon_Spawn:
-		["Room", 2, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","demon_spawn.png","","demon"],
+		["Room", 3, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","demon_spawn.png","","demon"],
 	Lesser_Devil:
 		["Room", 4, "Lesser Devil", "Monster", "Gains +1dmg for each “Demon” type room placed","lesser_devil.png","","demon"],
 	Outlaw:
-		["Room", 6, "Outlaw", "Monster", "takes 2 gold every turn, if at 0 gold, destroy this","outlaw.png","","humanoid"],
+		["Room", 7, "Outlaw", "Monster", "takes 2 gold every turn, if you have less than 2 gold, destroy this","outlaw.png","","humanoid"],
 	Orc_Bodyguard:
 		["Room", 4, "Orc Bodyguard", "Monster", "Gives +2dmg to Humanoids but takes 1 per turn, if you have 0 gold, destroy this","orc_bodyguard.png","","humanoid"],
 	Goblin_Army:
-		["Room", 2, "Goblin Army", "Monster", "has a 50% chance to get extra +2 gold from killed heroes","goblin_army.png","","humanoid"],
+		["Room", 4, "Goblin Army", "Monster", "has a 50% chance to get extra +2 gold from killed heroes","goblin_army.png","","humanoid"],
 	Pack_of_Wolves:
-		["Room", 2, "Pack of Wolves", "Monster", "Must kill a hero within  5 rounds or gets destroyed","pack_of_wolves.png","","beast"],
+		["Room", 5, "Pack of Wolves", "Monster", "Must kill a hero within 5 rounds or this gets destroyed","pack_of_wolves.png","","beast"],
 	Chihu:
-		["Room", 2, "Chihu", "Monster", "Does 1-6 dmg changing every turn","chihu.png","","beast"],
+		["Room", 2, "Chihu", "Monster", "Does 1-6 extra dmg","chihu.png","","beast"],
 	Lions_Den:
-		["Room", 2, "Lions Den", "Monster", "Gives your beast rooms +1dmg for each beast in your dungeon","lions_den.png","","beast"],
+		["Room", 3, "Lions Den", "Monster", "Gives your beast rooms +1dmg for each beast in your dungeon","lions_den.png","","beast"],
 	Electric_Anomaly:
-		["Room", 2, "Electric Anomaly", "Monster", "gives +2 dmg to your “Construct” and “Trap” Rooms","electric_anomaly.png","","construct"],
+		["Room", 3, "Electric Anomaly", "Monster", "gives +2 dmg to your “Construct” and “Trap” Rooms","electric_anomaly.png","","construct"],
 } 
-
-#Kortit joille on art tehty:
-#Healing Potion, Gas Leak, Assassination, pit fall
