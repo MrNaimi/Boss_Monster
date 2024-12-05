@@ -13,6 +13,10 @@ var selectedHero = []
 @onready var damageMult
 @onready var killed_by_boss = false
 @onready var card: PackedScene = preload("res://Cards/card_ui.tscn")
+
+var visited_demon_scout = false
+var damageAdd = 0
+var rooms_entered = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalVariables.spawned_heroes.append(get_parent())
@@ -37,6 +41,9 @@ func _process(delta: float) -> void:
 		if GlobalVariables.goblin_warrior_active:
 			if RandomNumberGenerator.new().randi_range(1, 4)==4:
 				GlobalVariables.player_gold+=2
+		if GlobalVariables.goblin_army_active:
+			if RandomNumberGenerator.new().randi_range(1,2)==2:
+				GlobalVariables.player_gold+=2
 		if GlobalVariables.autoplay:
 			GlobalVariables.heroes_move=true
 		GlobalVariables.heroKilled = true
@@ -59,6 +66,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 			
 func _on_hit_box_area_exited(area: Area2D) -> void:
 	var room_name = ""
+	rooms_entered+=1
 	if area.get_parent() is AnimatedSprite2D:
 		room_name = "Hero"
 	elif area.get_parent().name != "Boss":
@@ -73,7 +81,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 	for item in GlobalVariables.spawned_heroes:
 		if is_instance_valid(item):
 			heroes.append(item.get_child(0))
-	
+
 	#damage multiplier = *selectedHero[1]
 	
 	#print("Exited trap damage: ",area.get_parent().damage)
@@ -135,78 +143,90 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 					get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
 			room_damage = 0
 			print("Handle Forgotten Library room")
-		"Succubus": 
+		"Succubus": #TEHTY
+			if visited_demon_scout:
+				room_damage+=2
 			room_damage+=GlobalVariables.DemonDmgBuff
 			if RandomNumberGenerator.new().randi_range(1, 3)==3:
 				room_damage*2
 				print("succubus room delt double damage")
 			print("Handle Succubus room")
-		"Vampire":
+		"Vampire":#TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff
 			if hero_class=="cleric":
 				room_damage*=2
 			print("Handle Vampire room")
-		"Stinky Ghoul":
+		"Stinky Ghoul":#TEHTY
 			room_damage+=GlobalVariables.UndeadDmgBuff
-			
 			print("Handle Stinky Ghoul room")
-		"Misunderstood Ghost":
+		"Misunderstood Ghost":#TEHTY
 			room_damage+=GlobalVariables.UndeadDmgBuff
 			if hero_class=="paladin":
 				room_damage*=2
 			print("Handle Misunderstood Ghost room")
-		"Zombie Graveyard":
+		"Zombie Graveyard": #TEHTY
 			room_damage+=GlobalVariables.UndeadDmgBuff
 			room_damage+=GlobalVariables.rooms_destroyed
 			print("Handle Zombie Graveyard room")
-		"Rolling Golem":
+		"Rolling Golem": #TEHTY
 			room_damage+=(1.5*GlobalVariables.ConstructDmgBuff)
 			print("Handle Rolling Golem room")
-		"Killer Robot":#SKIP
+		"Killer Robot":#TEHTY
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Killer Robot room")
-		"Angry Slime":
+		"Angry Slime":#TEHTY
 			room_damage+=GlobalVariables.BeastDmgBuff
-			selectedHero[1]*=1.1
+			damageAdd +=1
 			print("Handle Angry Slime room")
-		"Fire Elemental":#SKIP
+		"Fire Elemental":#TEHTY
+			room_damage+=rooms_entered
 			room_damage+=GlobalVariables.ConstructDmgBuff
+			
 			print("Handle Fire Elemental room")
-		"Demonic Scout":#SKIP
+		"Demonic Scout":#TEHTY, IMP
+			if visited_demon_scout:
+				room_damage+=2
+			visited_demon_scout = true
 			room_damage+=GlobalVariables.DemonDmgBuff
 			print("Handle Demonic Scout room")
 		"Warlock Summoner":#TEHTY
+			if visited_demon_scout:
+				room_damage+=2
 			room_damage+=GlobalVariables.DemonDmgBuff
 			print("Handle Warlock Summoner room")
 		"Demon Spawn": #TEHTY
+			if visited_demon_scout:
+				room_damage+=2
 			room_damage+=GlobalVariables.DemonDmgBuff
 			if GlobalVariables.lesser_devil_in_dungeon:
 				room_damage+=3
 			print("Handle Demon Spawn room")
 		"Lesser Devil": #TEHTY
+			if visited_demon_scout:
+				room_damage+=2
 			room_damage+=GlobalVariables.DemonDmgBuff
 			room_damage+=GlobalVariables.demon_rooms_placed
 			print("Handle Lesser Devil room")
-			
-		"Outlaw":
-			room_damage+=GlobalVariables.HumanoidDmgBuff
+		"Outlaw": #TEHTY
+			room_damage+=GlobalVariables.HumanoidDmgBuff	
 			print("Handle Outlaw room")
-		"Orc Bodyguard":
+		"Orc Bodyguard": #TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff
 			print("Handle Orc Bodyguard room")
-		"Goblin Army":
+		"Goblin Army": #TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff
 			print("Handle Goblin Army room")
-		"Pack of Wolves":
+		"Pack of Wolves": #SKIP
 			room_damage+=GlobalVariables.BeastDmgBuff
 			print("Handle Pack of Wolves room")
-		"Chihu":
+		"Chihu": #TEHTY
 			room_damage+=GlobalVariables.BeastDmgBuff
+			room_damage+=RandomNumberGenerator.new().randi_range(1, 6)
 			print("Handle Chihu room")
-		"Lions Den":
+		"Lions Den": #TEHTY
 			room_damage+=GlobalVariables.BeastDmgBuff
 			print("Handle Lions Den room")
-		"Electric Anomaly":
+		"Electric Anomaly": #TEHTY
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Electric Anomaly room")
 		"Boss":
@@ -216,7 +236,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			
 	print("Damage dealt by room: ",room_damage)
 	
-	hp -= room_damage *selectedHero[1]
+	hp -= (damageAdd+room_damage)*selectedHero[1]
 
 	if mindcontrolled:
 		hp-=floor(0.5*hp)

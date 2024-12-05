@@ -26,6 +26,7 @@ signal reset_card()
 @onready var card_info = ""
 @onready var tribe = "spell"
 @onready var selectedRoom = []
+@onready var placed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,9 +38,22 @@ func _process(delta: float) -> void:
 		queue_free()
 	else:
 		pass
-	
-	
-	
+	if placed:
+		if card_name.text=="Outlaw" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<2:
+			GlobalVariables.outlaw_in_dungeon = false
+			GlobalVariables.message("Your Outlaw has left the dungeon due to a lack of funds",false)
+			visible = false
+		if card_name.text=="Killer Robot" && GlobalVariables.killer_robot_terminate:
+			GlobalVariables.message("Your killer robot has self destructed",false)
+			visible = false
+		if card_name.text=="Outlaw" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<1:
+			GlobalVariables.outlaw_in_dungeon = false
+			GlobalVariables.message("Your Orc Bodyguard has left the dungeon due to a lack of funds",false)
+			visible = false
+		if card_name.text=="Pack of Wolves" && GlobalVariables.currentPhase=="build" && GlobalVariables.round_counter>=5:
+			GlobalVariables.message("Your Pack of Wolves starved to death",false)
+			visible = false
+		
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 	

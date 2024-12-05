@@ -27,7 +27,7 @@ func enter() -> void:
 				card_ui.card_name.visible = false
 				card_ui.room_type.visible = false
 				card_ui.room_dmg.visible = false
-				
+				card_ui.placed = true
 				played = true
 				print(get_parent())
 				card_ui.reparent(card_ui.targets[0].get_child(0).get_child(0))
@@ -49,10 +49,12 @@ func enter() -> void:
 						GlobalVariables.TrapDmgBuff+=2
 						print(GlobalVariables.ConstructDmgBuff)
 					"Lions Den":
-						GlobalVariables.BeastDmgBuff+=2
+						GlobalVariables.lions_den_active = true
+						GlobalVariables.beast_rooms_in_dungeon+=1
 						print(GlobalVariables.BeastDmgBuff)
 					"Orc Bodyguard":
 						GlobalVariables.HumanoidDmgBuff+=2
+						GlobalVariables.orc_bodyguard_in_dungeon = true
 						print(GlobalVariables.HumanoidDmgBuff)
 					"Warlock Summoner":
 						GlobalVariables.demon_rooms_placed += 1
@@ -79,7 +81,20 @@ func enter() -> void:
 						GlobalVariables.demon_rooms_placed += 1
 					"Succubus":
 						GlobalVariables.demon_rooms_placed += 1
-						
+					"Outlaw":
+						GlobalVariables.outlaw_in_dungeon = true
+					"Goblin Army":
+						GlobalVariables.goblin_army_active = true
+					"Chihu":
+						GlobalVariables.beast_rooms_in_dungeon+=1
+					"Pack of Wolves":
+						GlobalVariables.beast_rooms_in_dungeon+=1
+					"Angry Slime":
+						GlobalVariables.beast_rooms_in_dungeon+=1
+					"Dragon Lair":
+						GlobalVariables.beast_rooms_in_dungeon+=1
+					"Killer Robot":
+						GlobalVariables.killer_robot_placed = true
 	elif card_ui.shop_card:
 		print("hellooo")
 		if not card_ui.targets.is_empty() && card_ui.targets[0].name=="CardBuyArea" && card_ui.targets[0].get_parent().get_child_count()<6 && GlobalVariables.player_gold>=10:

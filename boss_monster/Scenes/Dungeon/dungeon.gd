@@ -51,6 +51,14 @@ func _on_continue_button_pressed() -> void:
 			GlobalVariables.playshopanim = true
 		GlobalVariables.printDmgBuffs()
 		GlobalVariables.currentPhase="combat"
+		if GlobalVariables.pack_of_wolves_placed:
+			GlobalVariables.round_counter += 1
+		if GlobalVariables.lions_den_active:
+			GlobalVariables.BeastDmgBuff+=GlobalVariables.beast_rooms_in_dungeon
+		if GlobalVariables.outlaw_in_dungeon:
+			GlobalVariables.player_gold-=2
+		if GlobalVariables.orc_bodyguard_in_dungeon:
+			GlobalVariables.player_gold-=1
 		if GlobalVariables.rooms_placed.size()>0:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:
 				GlobalVariables.heroes_move = true

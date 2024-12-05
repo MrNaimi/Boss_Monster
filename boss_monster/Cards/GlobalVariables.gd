@@ -16,6 +16,8 @@ var amount_of_heroes_killed = 0
 var rerollCost = 1
 var rooms_destroyed = 0
 var demon_rooms_placed = 0
+var beast_rooms_in_dungeon = 0
+
 #Arrays
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
@@ -46,9 +48,21 @@ var show_card = false
 var message_sent = false
 var message_data = ""
 var destroy_room = false
+
+
 var goblin_warrior_active = false
 var forgotten_library_activated = false
 var lesser_devil_in_dungeon = false
+var outlaw_in_dungeon = false
+var orc_bodyguard_in_dungeon = false
+var goblin_army_active = false
+var lions_den_active = false
+var killer_robot_terminate = false
+var killer_robot_placed = false
+var pack_of_wolves_placed = false
+
+var round_counter = 0
+
 #Card damage buffs
 var TrapDmgBuff = 0
 var UndeadDmgBuff = 0

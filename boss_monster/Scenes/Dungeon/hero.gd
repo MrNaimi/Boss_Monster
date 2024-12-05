@@ -42,6 +42,10 @@ func _process(delta: float) -> void:
 			GlobalVariables.spawned_heroes=[]
 			GlobalVariables.rerollCost=1
 			GlobalVariables.currentPhase = "build"
+			if GlobalVariables.killer_robot_placed && RandomNumberGenerator.new().randi_range(1, 5)==5:
+				GlobalVariables.killer_robot_terminate=true
+			if GlobalVariables.lions_den_active:
+				GlobalVariables.BeastDmgBuff-=GlobalVariables.beast_rooms_in_dungeon
 			GlobalVariables.forgotten_library_activated = false
 			shop_ui.createCards()
 			GlobalVariables.infamy+=1

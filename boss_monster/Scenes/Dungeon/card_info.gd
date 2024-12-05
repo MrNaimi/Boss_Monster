@@ -40,13 +40,14 @@ func _on_destroy_room_pressed() -> void:
 	match trapName:
 		"Electric Anomaly":
 			GlobalVariables.ConstructDmgBuff-=2
-			GlobalVariables.TrapDmgBuff+=2
+			GlobalVariables.TrapDmgBuff-=2
 			print(GlobalVariables.ConstructDmgBuff)
 		"Lions Den":
-			GlobalVariables.BeastDmgBuff-=2
+			GlobalVariables.lions_den_active = false
 			print(GlobalVariables.BeastDmgBuff)
 		"Orc Bodyguard":
 			GlobalVariables.HumanoidDmgBuff-=2
+			GlobalVariables.orc_bodyguard_in_dungeon = false
 			print(GlobalVariables.HumanoidDmgBuff)
 		"Warlock Summoner":
 			GlobalVariables.DemonDmgBuff-=2
@@ -66,6 +67,20 @@ func _on_destroy_room_pressed() -> void:
 			GlobalVariables.SpikeTrapDmgBuff += 2
 		"Lesser Devil":
 			GlobalVariables.lesser_devil_in_dungeon = false
+		"Outlaw":
+			GlobalVariables.outlaw_in_dungeon = false
+		"Goblin Army":
+			GlobalVariables.goblin_army_active = false
+		"Chihu":
+			GlobalVariables.beast_rooms_in_dungeon-=1
+		"Pack of Wolves":
+			GlobalVariables.beast_rooms_in_dungeon-=1
+		"Angry Slime":
+			GlobalVariables.beast_rooms_in_dungeon-=1
+		"Dragon Lair":
+			GlobalVariables.beast_rooms_in_dungeon-=1
+		"Killer Robot":
+			GlobalVariables.killer_robot_placed = false
 
 	print("Construct Damage Buff:", GlobalVariables.ConstructDmgBuff)
 	print("Beast Damage Buff:", GlobalVariables.BeastDmgBuff)
