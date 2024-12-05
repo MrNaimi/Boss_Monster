@@ -26,7 +26,7 @@ func _ready() -> void:
 	#health_bar.max_value = hp
 	var i =  RandomNumberGenerator.new().randi_range(0, heroes.size()-1)
 	selectedHero=heroes[i]
-	hp = selectedHero[3]
+	hp =  RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3])
 	print("Hp before infamy scaling: ",hp," ")
 	hp *= round((0.5+0.25*GlobalVariables.infamy))
 	print("Hp after infamy scaling: ",hp," ")
@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 		GlobalVariables.amount_of_heroes_alive-=1
 		GlobalVariables.amount_of_heroes_killed+=1
 		if !killed_by_boss:
-			GlobalVariables.player_gold+=RandomNumberGenerator.new().randi_range(2, 4)
+			GlobalVariables.player_gold+=RandomNumberGenerator.new().randi_range(1, 4)
 		get_parent().queue_free()
 	if get_parent().progress < 50:
 		path_direction = 1
@@ -78,7 +78,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 	else:
 		room_name = "Boss"
 		
-	var room_damage =  area.get_parent().damage*selectedHero[1] # TÄSSÄ MÄÄRITELLÄÄN HUONEEN DAMAGE
+	var room_damage =  area.get_parent().damage # TÄSSÄ MÄÄRITELLÄÄN HUONEEN DAMAGE
 	
 	#SEURAAVAKSI MÄÄRITELLÄÄN KAIKKI HEROT
 	var heroes = []
@@ -236,8 +236,9 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Unknown room:", room_name)
 			
 	print("Damage dealt by room: ",room_damage)
+	
 	if area.get_parent().name != "Boss" && area.get_parent().get_parent().name != "Hero":
-		area.get_parent().room_dmg_2.text = str(ceil((damageAdd+room_damage)/selectedHero[1]))
+		area.get_parent().room_dmg_2.text = str(damageAdd+room_damage)
 		#area.get_parent().room_dmg_2.visible = true
 		#area.get_parent().perseajastin.start()
 		area.get_parent().paskahuussi.play("damagetext")

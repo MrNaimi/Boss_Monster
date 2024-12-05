@@ -16,11 +16,11 @@ const DATA ={
 	Monk :
 		["Hero", 1,10, 14, "monk", "Healer", ""],
 	Barbarian :
-		["Hero", 2, 30,40, "barbarian", "Healer",""],
+		["Hero", 2, 20,30, "barbarian", "Healer",""],
 	Mage :
-		["Hero", 3,50, 54, "mage", "Damage", ""],
+		["Hero", 4,40, 48, "mage", "Damage", ""],
 	Ranger :
-		["Hero", 2,40, 48, "ranger", "Damage",""],
+		["Hero", 3,30, 40, "ranger", "Damage",""],
 	Lucky_Fellow :
 		["Hero", 1,9, 10, "lucky_fellow", "Damage",""],
 		
@@ -62,7 +62,7 @@ const DATA ={
 	Hot_Coals: #tehty oikee art
 		["Room", 4, "Hot Coals","Trap","The heroes take damage from the coals...\n...because they are hot", "hot_coals.png","","trap"],
 	Monster_Lounge: #tehty
-		["Room", 3, "Skeleton Lounge", "Monster", "Skeletons have to take breaks too, but they benefit more from Tribe buffs", "monster_lounge.png","","undead"],
+		["Room", 3, "Skeleton Lounge", "Monster", "Destroying this room gives +2 undead damage", "monster_lounge.png","","undead"],
 	The_Dragon_Lair: #tehty
 		["Room", 5, "Dragon Lair", "Monster", "if you kill a hero in this room, get 2 gold", "dragon_lair.png","","beast"],
 	Pit_Fall: #tehty oikee art
@@ -96,7 +96,7 @@ const DATA ={
 	Demon_Spawn:
 		["Room", 3, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","demon_spawn.png","","demon"],
 	Lesser_Devil:
-		["Room", 4, "Lesser Devil", "Monster", "Gains +1dmg for each “Demon” type room placed","lesser_devil.png","","demon"],
+		["Room", 4, "Lesser Devil", "Monster", "Gains +0.5 dmg for each “Demon” type room placed","lesser_devil.png","","demon"],
 	Outlaw:
 		["Room", 7, "Outlaw", "Monster", "He takes 2 gold every turn as a wage, if you have less than 2 gold, If you can't afford him, he leaves","outlaw.png","","humanoid"],
 	Orc_Bodyguard:

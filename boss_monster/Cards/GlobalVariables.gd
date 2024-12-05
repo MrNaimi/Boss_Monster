@@ -56,11 +56,11 @@ var values_changed = false
 
 var goblin_warrior_active = false
 var forgotten_library_activated = false
-var lesser_devil_in_dungeon = false
+var lesser_devils_in_dungeon = 0
 var outlaws_in_dungeon = 0
 var orc_bodyguards_in_dungeon = 0
 var goblin_army_active = false
-var lions_den_active = false
+var lions_dens_in_the_dungeon = 0
 var killer_robot_terminate = false
 var killer_robot_placed = false
 var pack_of_wolves_placed = 0

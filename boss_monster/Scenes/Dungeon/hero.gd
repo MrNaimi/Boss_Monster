@@ -47,7 +47,8 @@ func _process(delta: float) -> void:
 			if GlobalVariables.killer_robot_placed && robot_number==5:
 				print("killer robot terminated")
 				GlobalVariables.killer_robot_terminate=true
-			if GlobalVariables.lions_den_active:
+				robot_number = 0
+			if GlobalVariables.lions_dens_in_the_dungeon > 0:
 				GlobalVariables.BeastDmgBuff-=GlobalVariables.beast_rooms_in_dungeon
 			GlobalVariables.forgotten_library_activated = false
 			shop_ui.createCards()

@@ -51,7 +51,7 @@ func enter() -> void:
 						GlobalVariables.TrapDmgBuff+=2
 						print(GlobalVariables.ConstructDmgBuff)
 					"Lions Den":
-						GlobalVariables.lions_den_active = true
+						GlobalVariables.lions_dens_in_the_dungeon += 1
 						GlobalVariables.beast_rooms_in_dungeon+=1
 						print(GlobalVariables.BeastDmgBuff)
 					"Orc Bodyguard":
@@ -61,7 +61,7 @@ func enter() -> void:
 						GlobalVariables.orc_bodyguards.append(self)
 						#print(GlobalVariables.HumanoidDmgBuff)
 					"Warlock Summoner":
-						GlobalVariables.demon_rooms_placed += 1
+						GlobalVariables.demon_rooms_placed += 0.5
 						GlobalVariables.DemonDmgBuff+=2
 						#print(GlobalVariables.DemonDmgBuff)
 					"Spike Factory":
@@ -78,14 +78,14 @@ func enter() -> void:
 						GlobalVariables.ConstructDmgBuff -= 2
 						GlobalVariables.SpikeTrapDmgBuff -= 2
 					"Lesser Devil":
-						GlobalVariables.demon_rooms_placed += 1
-						GlobalVariables.lesser_devil_in_dungeon = true
+						GlobalVariables.demon_rooms_placed += 0.5
+						GlobalVariables.lesser_devils_in_dungeon += 1
 					"Demon Spawn":
-						GlobalVariables.demon_rooms_placed += 1
+						GlobalVariables.demon_rooms_placed += 0.5
 					"Demonic Scout":
-						GlobalVariables.demon_rooms_placed += 1
+						GlobalVariables.demon_rooms_placed += 0.5
 					"Succubus":
-						GlobalVariables.demon_rooms_placed += 1
+						GlobalVariables.demon_rooms_placed += 0.5
 					"Outlaw":
 						GlobalVariables.outlaws_in_dungeon += 1
 						GlobalVariables.outlaws.append(self)
