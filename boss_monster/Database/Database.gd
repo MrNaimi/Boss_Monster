@@ -50,11 +50,11 @@ const DATA ={
 	#Rooms 
 	#RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png, sound, Tribe]
 	Goblin_warrior : #tehty oikee art
-		["Room", 2, "Goblin Warrior", "Monster", "has a 25% chance to get extra +1 gold from killed Heroes", "goblin_warrior.png","goblin_warrior.wav","humanoid"],
+		["Room", 2, "Goblin Warrior", "Monster", "has a 25% chance to get extra +2 gold from killed Heroes", "goblin_warrior.png","goblin_warrior.wav","humanoid"],
 	Gas_Leak : #tehty oikee art
-		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes every time a hero exits this trap", "gas_Leak.png","","trap"],
+		["Room", 2, "Gas Leak", "Trap", "Deals 2 damage to all heroes every time a hero exits this trap", "gas_Leak.png","","trap"],
 	Mimic :#tehty oikee art
-		["Room", 3, "Mimic", "Trap", "If you kill a hero in this room, gain +2 gold", "mimic.png","mimic.wav","trap"],
+		["Room", 3, "Mimic", "Trap", "If you kill a hero in this room, gain +5 gold", "mimic.png","mimic.wav","trap"],
 	The_Vault_Room : #tehty 
 		["Room", 3, "The Vault Room","Trap", "Consume 5 gold to kill a hero in this room", "vault_room.png","vault.wav","trap"],
 	Spike_Factory :#tehty
@@ -64,7 +64,7 @@ const DATA ={
 	Monster_Lounge: #tehty
 		["Room", 3, "Skeleton Lounge", "Monster", "Skeletons have to take breaks too", "monster_lounge.png","","undead"],
 	The_Dragon_Lair: #tehty
-		["Room", 4, "The Dragon Lair", "Monster", "if you kill a hero in this room, get 1 gold", "dragon_lair.png","","beast"],
+		["Room", 5, "The Dragon Lair", "Monster", "if you kill a hero in this room, get 2 gold", "dragon_lair.png","","beast"],
 	Pit_Fall: #tehty oikee art
 		["Room", 1, "Pit Fall", "Trap", "Kill the hero in this room", "pit_fall.png","hero_death_pit.wav","trap"],
 	Spike_Trap : #tehty oikee art
@@ -80,15 +80,15 @@ const DATA ={
 	Misunderstood_Ghost : #tehty oikee art
 		["Room", 3, "Misunderstood Ghost", "Monster", "Deals double damage to Paladins","misunderstood_ghost.png","","undead"],
 	Zombie_Graveyard : #tehty oikee art
-		["Room", 3, "Zombie Cemetery", "Monster", "Gains +1dmg for each destroyed room","zombie_graveyard.png","","undead"],
+		["Room", 3, "Zombie Cemetery", "Monster", "Has +1dmg for each destroyed room","zombie_graveyard.png","","undead"],
 	Rolling_Golem:
 		["Room", 4, "Rolling Golem", "Monster", "It has some rust on it","rolling_golem.png","","construct"],
 	Killer_Robot:
 		["Room", 6, "Killer Robot", "Monster", "Has a 10% chance to self destruct every turn","killer_robot.png","","construct"],
 	Angry_Slime:
-		["Room", 2, "Angry Slime", "Monster", "hero takes 1 damage for every room they enter","angry_slime.png","","beast"],
+		["Room", 2, "Angry Slime", "Monster", "hero takes 10% more damage for every room they enter","angry_slime.png","","beast"],
 	Fire_Elemental:
-		["Room", 2, "Fire Elemental", "Monster", "Hero takes 1 damage for every room they enter","fire_elemental.png","","construct"],
+		["Room", 2, "Fire Elemental", "Monster", "Hero takes 1 damage for every room they entered","fire_elemental.png","","construct"],
 	Imp:
 		["Room", 2, "Demonic Scout", "Monster", "Heroes that pass this room take +1 dmg from “Demon” type Rooms","imp.png","","demon"],
 	Warlock_Summoner:
@@ -96,13 +96,13 @@ const DATA ={
 	Demon_Spawn:
 		["Room", 2, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","demon_spawn.png","","demon"],
 	Lesser_Devil:
-		["Room", 2, "Lesser Devil", "Monster", "Gains +2dmg for each “Demon” type room placed","lesser_devil.png","","demon"],
+		["Room", 4, "Lesser Devil", "Monster", "Gains +1dmg for each “Demon” type room placed","lesser_devil.png","","demon"],
 	Outlaw:
-		["Room", 2, "Outlaw", "Monster", "takes 2 gold every turn, if at 0 gold, destroy this","outlaw.png","","humanoid"],
+		["Room", 6, "Outlaw", "Monster", "takes 2 gold every turn, if at 0 gold, destroy this","outlaw.png","","humanoid"],
 	Orc_Bodyguard:
-		["Room", 2, "Orc Bodyguard", "Monster", "Gives +2dmg to Humanoids but takes 1 per turn, if you have 0 gold, destroy this","orc_bodyguard.png","","humanoid"],
+		["Room", 4, "Orc Bodyguard", "Monster", "Gives +2dmg to Humanoids but takes 1 per turn, if you have 0 gold, destroy this","orc_bodyguard.png","","humanoid"],
 	Goblin_Army:
-		["Room", 2, "Goblin Army", "Monster", "has a 50% chance to get extra +1 gold from killed heroes","goblin_army.png","","humanoid"],
+		["Room", 2, "Goblin Army", "Monster", "has a 50% chance to get extra +2 gold from killed heroes","goblin_army.png","","humanoid"],
 	Pack_of_Wolves:
 		["Room", 2, "Pack of Wolves", "Monster", "Must kill a hero within  5 rounds or gets destroyed","pack_of_wolves.png","","beast"],
 	Chihu:
