@@ -108,7 +108,7 @@ const DATA ={
 	Chihu:
 		["Room", 2, "Chihu", "Monster", "Does 1-6 dmg changing every turn","chihu.png","","beast"],
 	Lions_Den:
-		["Room", 2, "Lions Den", "Monster", "Gives your beast rooms +1dmg for each beast in your dungeon","","","beast"],
+		["Room", 2, "Lions Den", "Monster", "Gives your beast rooms +1dmg for each beast in your dungeon","lions_den.png","","beast"],
 	Electric_Anomaly:
 		["Room", 2, "Electric Anomaly", "Monster", "gives +2 dmg to your “Construct” and “Trap” Rooms","electric_anomaly.png","","construct"],
 } 
