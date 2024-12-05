@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 				timer_started=true
 			info.text = GlobalVariables.card_info[0]
 		else:
-			info.text = GlobalVariables.card_info[0] + "\n" + "Type: " + GlobalVariables.card_info[1][0].to_upper()+GlobalVariables.card_info[1].substr(1,-1)
+			info.text = GlobalVariables.card_info[0] + "\n" + "Type: " + GlobalVariables.card_info[1][0].to_upper()+GlobalVariables.card_info[1].substr(1,-1)+ "\n" + "Base damage: " + str(GlobalVariables.card_info[2])
 		visible = true
 	else:
 		visible = false

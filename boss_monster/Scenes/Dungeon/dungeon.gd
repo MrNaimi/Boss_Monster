@@ -36,7 +36,9 @@ func _process(delta: float) -> void:
 		else:
 			pass
 			#print("Place a room first")
-
+		if hp<=0:
+			queue_free()
+			Transition.change_scene("res://Scenes/Dungeon/game_over.tscn")
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 
@@ -58,8 +60,8 @@ func _on_continue_button_pressed() -> void:
 						path.get_child(0).can_move=true
 					else:
 						length += 1
-				if length == 2 and GlobalVariables.amount_of_heroes_alive == 0:
-					GlobalVariables.spawn_hero=true
+				if length == 2 and GlobalVariables.amount_of_heroes_alive ==0:
+					GlobalVariables.spawn_hero=true 
 					GlobalVariables.heroKilled=true
 							
 			first_time_continue=false
@@ -91,7 +93,11 @@ func _on_autoplay_pressed() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	#print(area.get_parent().get_parent().hp)
+	print("Boss took ",area.get_parent().get_parent().hp," damage")
 	hp -= area.get_parent().get_parent().hp
+	
+	print("JOUUUUUUUUUUUU")
+	
 	area.get_parent().get_parent().hp=0
 	boss_health_bar.value = hp
 	boss_hp.text=str(hp)

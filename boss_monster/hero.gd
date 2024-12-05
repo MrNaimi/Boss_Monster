@@ -19,7 +19,10 @@ func _ready() -> void:
 	#health_bar.max_value = hp
 	var i =  RandomNumberGenerator.new().randi_range(0, heroes.size()-1)
 	selectedHero=heroes[i]
-	hp = round(RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3])*(0.5+0.25*GlobalVariables.infamy))
+	hp = round(RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3]))
+	print("Hp before infamy scaling: ",hp," ")
+	hp *= round((0.5+0.25*GlobalVariables.infamy))
+	print("Hp after infamy scaling: ",hp," ")
 	health_bar.max_value = hp
 	idle_animation.animation = selectedHero[4]
 	hero_class=selectedHero[4]
@@ -57,6 +60,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		room_name = area.get_parent().card_name.text
 	else:
 		room_name = "Boss"
+		
 	var room_damage =  area.get_parent().damage*selectedHero[1] # TÄSSÄ MÄÄRITELLÄÄN HUONEEN DAMAGE
 	
 	#SEURAAVAKSI MÄÄRITELLÄÄN KAIKKI HEROT

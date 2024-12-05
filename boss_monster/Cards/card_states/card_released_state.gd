@@ -127,7 +127,7 @@ func _on_card_ui_reset_card() -> void:
 	transition_requested.emit(self, CardState.State.BASE)
 
 func on_gui_input(event: InputEvent) -> void:
-	if !card_ui.shop_card or GlobalVariables.currentPhase=="build":
-		if event.is_action_pressed("click"):
-			#GlobalVariables.card_info[1] = card_ui.tribe
-			GlobalVariables.placed_message(card_ui.card_info,card_ui.tribe,true,card_ui)
+	if event.is_action_pressed("click") or event.is_action_pressed("mmb"):
+		#GlobalVariables.card_info[1] = card_ui.tribe
+		GlobalVariables.placed_message(card_ui.card_info,card_ui.tribe,true,card_ui,card_ui.damage)
+	

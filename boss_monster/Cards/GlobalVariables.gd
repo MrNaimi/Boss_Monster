@@ -23,7 +23,7 @@ var room_cards_created: Array[Control] = []
 var spawned_heroes: Array[PathFollow2D] = []
 var rooms_placed: Array[Control] = []
 var cardData = []
-var card_info = ["  ","  "]
+var card_info = ["  ","  ", " "]
 var room_to_be_destroyed
 #Global BOOLEAN checks
 var createCard = false
@@ -57,7 +57,7 @@ var SpikeTrapDmgBuff = 0
 @onready var actionsLeft = 5
 @onready var currentPhase: String = "build"  #Phases are town phase "town", combat phase "combat" and build phase "build"
 #var card_info = ""
-var player_gold = 100
+var player_gold = 5
 
 func _ready() -> void:
 	resetValues(false)
@@ -102,12 +102,15 @@ func message(msg,card_placed) -> void:
 		message_sent = true
 		destroy_room = false
 
-func placed_message(msg,tribe,card_placed,node) -> void:
+func placed_message(msg,tribe,card_placed,node,room_dmg) -> void:
 	card_info[1] = tribe
+	card_info[2]=room_dmg
 	message(msg, true)
 	room_to_be_destroyed=node
-	destroy_room = true
-	
+	if currentPhase=="build":
+		destroy_room = true
+	else:
+		destroy_room = false
 func printDmgBuffs() -> void:
 	print("Damage Buffs:")
 	print("Trap Damage: ", TrapDmgBuff)

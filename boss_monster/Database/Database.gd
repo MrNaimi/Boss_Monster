@@ -12,15 +12,15 @@ const DATA ={
 	Cleric :
 		["Hero", 1,7, 9 ,"cleric", "Healer", ""],
 	Paladin :
-		["Hero", 1,14, 17, "paladin", "Damage", ""],
+		["Hero", 1,12, 15, "paladin", "Damage", ""],
 	Monk :
 		["Hero", 1,10, 13, "monk", "Healer", ""],
 	Barbarian :
-		["Hero", 3, 30,39, "barbarian", "Healer",""],
+		["Hero", 2, 30,39, "barbarian", "Healer",""],
 	Mage :
-		["Hero", 5,50, 55, "mage", "Damage", ""],
+		["Hero", 3,50, 55, "mage", "Damage", ""],
 	Ranger :
-		["Hero", 4,40, 48, "ranger", "Damage",""],
+		["Hero", 2,40, 48, "ranger", "Damage",""],
 	Lucky_Fellow :
 		["Hero", 1,9, 10, "lucky_fellow", "Damage",""],
 		

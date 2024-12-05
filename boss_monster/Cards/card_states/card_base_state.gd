@@ -44,6 +44,7 @@ func on_gui_input(event: InputEvent) -> void:
 			#GlobalVariables.card_info = card_ui.card_info
 			GlobalVariables.card_info[0] = card_ui.card_info
 			GlobalVariables.card_info[1] = card_ui.tribe
+			GlobalVariables.card_info[2] = card_ui.damage
 			GlobalVariables.show_card = true
 			GlobalVariables.destroy_room = false
 			print(card_ui.card_info)

@@ -1326,7 +1326,6 @@ text = "Infamy: "
 horizontal_alignment = 2
 
 [node name="gold" type="Label" parent="Control"]
-layout_mode = 0
 offset_left = 21.0
 offset_top = 118.0
 offset_right = 159.0
@@ -1337,7 +1336,6 @@ text = "Gold: "
 horizontal_alignment = 2
 
 [node name="PlayerGold" type="Label" parent="Control"]
-layout_mode = 0
 offset_left = 159.0
 offset_top = 118.0
 offset_right = 248.0
@@ -1449,6 +1447,7 @@ position = Vector2(-432.894, -18.1955)
 position = Vector2(-217.191, -19.0226)
 
 [node name="DungeonUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+follow_viewport_enabled = true
 
 [node name="hand" type="ColorRect" parent="DungeonUI"]
 offset_left = 47.0
@@ -1629,6 +1628,28 @@ libraries = {
 [node name="Timer" type="Timer" parent="DungeonUI/ShopUI/shopcover"]
 one_shot = true
 
+[node name="Label" type="Label" parent="DungeonUI/ShopUI"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 43.0
+offset_right = 1232.0
+offset_bottom = 66.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="DungeonUI/ShopUI"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 503.0
+offset_right = 580.0
+offset_bottom = 526.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Inventory"
+horizontal_alignment = 1
+
 [node name="Heroes" type="Node2D" parent="."]
 script = ExtResource("13_7qnxi")
 speed = 300
@@ -1671,6 +1692,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="destroy_room" type="Button" parent="card_info/ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
