@@ -54,15 +54,15 @@ const DATA ={
 	Gas_Leak : #tehty oikee art
 		["Room", 2, "Gas Leak", "Trap", "Deals 1 damage to all heroes", "gas_Leak.png","","trap"],
 	Mimic :#tehty oikee art
-		["Room", 3, "Mimic", "Trap", "", "mimic.png","mimic.wav","trap"],
+		["Room", 3, "Mimic", "Trap", "If you kill a hero in this room, gain +2 gold", "mimic.png","mimic.wav","trap"],
 	The_Vault_Room : #tehty 
-		["Room", 3, "The Vault Room","Trap", "", "vault_room.png","vault.wav","trap"],
+		["Room", 3, "The Vault Room","Trap", "Consume 5 gold to kill a hero in this room", "vault_room.png","vault.wav","trap"],
 	Spike_Factory :#tehty
 		["Room", 4, "Spike Factory","Monster","Your “Spike Traps” deal +3dmg", "spike_factory.png","", "construct"],
 	Hot_Coals: #tehty oikee art
 		["Room", 3, "Hot Coals","Trap","", "hot_coals.png","","trap"],
 	Monster_Lounge: #tehty
-		["Room", 4, "Skeleton Lounge", "Monster", "", "monster_lounge.png","","undead"],
+		["Room", 3, "Skeleton Lounge", "Monster", "Skeletons have to take breaks too", "monster_lounge.png","","undead"],
 	The_Dragon_Lair: #tehty
 		["Room", 4, "The Dragon Lair", "Monster", "if you kill a hero in this room, get 1 gold", "dragon_lair.png","","beast"],
 	Pit_Fall: #tehty oikee art
@@ -72,17 +72,17 @@ const DATA ={
 	Forgotten_Library:
 		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card", "forgotten_library.png","","trap"],
 	Succubus : #tehty oikee art
-		["Room", 3, "Succubus", "Monster", "","succubus.png","","demon"],
+		["Room", 3, "Succubus", "Monster", "Has 20% chance to deal double damage","succubus.png","","demon"],
 	Vampire : #tehty oikee art
 		["Room", 5, "Vampire", "Monster", "Deals double damage to clerics","vampire.png","","humanoid"],
 	Stinky_Ghoul : #tehty oikee art
-		["Room", 3, "Stinky Ghoul", "Monster", "","stinky_ghoul.png","","undead"],
+		["Room", 8, "Stinky Ghoul", "Monster", "Your non-Undead monster rooms have -2dmg","stinky_ghoul.png","","undead"],
 	Misunderstood_Ghost : #tehty oikee art
-		["Room", 3, "Misunderstood Ghost", "Monster", "","misunderstood_ghost.png","","undead"],
+		["Room", 3, "Misunderstood Ghost", "Monster", "Deals double damage to Paladins","misunderstood_ghost.png","","undead"],
 	Zombie_Graveyard : #tehty oikee art
-		["Room", 3, "Zombie Graveyard", "Monster", "","zombie_graveyard.png","","undead"],
+		["Room", 3, "Zombie Cemetery", "Monster", "Gains +1dmg for each destroyed room","zombie_graveyard.png","","undead"],
 	Rolling_Golem:
-		["Room", 4, "Rolling Golem", "Monster", "","rolling_golem.png","","construct"],
+		["Room", 4, "Rolling Golem", "Monster", "It has some rust on it","rolling_golem.png","","construct"],
 	Killer_Robot:
 		["Room", 6, "Killer Robot", "Monster", "Has a 10% chance to self destruct every turn","killer_robot.png","","construct"],
 	Angry_Slime:
@@ -96,7 +96,7 @@ const DATA ={
 	Demon_Spawn:
 		["Room", 2, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","demon_spawn.png","","demon"],
 	Lesser_Devil:
-		["Room", 2, "Lesser Devil", "Monster", "","lesser_devil.png","","demon"],
+		["Room", 2, "Lesser Devil", "Monster", "Gains +2dmg for each “Demon” type room placed","lesser_devil.png","","demon"],
 	Outlaw:
 		["Room", 2, "Outlaw", "Monster", "takes 2 gold every turn, if at 0 gold, destroy this","outlaw.png","","humanoid"],
 	Orc_Bodyguard:
