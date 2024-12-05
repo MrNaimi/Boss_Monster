@@ -27,6 +27,8 @@ func enter() -> void:
 				card_ui.card_name.visible = false
 				card_ui.room_type.visible = false
 				card_ui.room_dmg.visible = false
+				#card_ui.room_dmg_2.visible = true
+				
 				card_ui.placed = true
 				played = true
 				print(get_parent())
@@ -54,7 +56,7 @@ func enter() -> void:
 						print(GlobalVariables.BeastDmgBuff)
 					"Orc Bodyguard":
 						GlobalVariables.HumanoidDmgBuff+=2
-						GlobalVariables.orc_bodyguard_in_dungeon = true
+						GlobalVariables.orc_bodyguards_in_dungeon += 1
 						print(GlobalVariables.HumanoidDmgBuff)
 					"Warlock Summoner":
 						GlobalVariables.demon_rooms_placed += 1
@@ -82,12 +84,13 @@ func enter() -> void:
 					"Succubus":
 						GlobalVariables.demon_rooms_placed += 1
 					"Outlaw":
-						GlobalVariables.outlaw_in_dungeon = true
+						GlobalVariables.outlaws_in_dungeon += 1
 					"Goblin Army":
 						GlobalVariables.goblin_army_active = true
 					"Chihu":
 						GlobalVariables.beast_rooms_in_dungeon+=1
 					"Pack of Wolves":
+						GlobalVariables.pack_of_wolves_placed += 1
 						GlobalVariables.beast_rooms_in_dungeon+=1
 					"Angry Slime":
 						GlobalVariables.beast_rooms_in_dungeon+=1
@@ -142,7 +145,7 @@ func enter() -> void:
 						print("Bad direction")
 						
 				#GlobalVariables.actionsLeft-=1
-				GlobalVariables.created_spells-=1
+				#GlobalVariables.created_spells-=1
 				card_ui.queue_free()
 			elif target.get_parent().name=="Boss": 
 				print(target.get_parent().get_parent().boss_hp)

@@ -51,14 +51,17 @@ func _on_continue_button_pressed() -> void:
 			GlobalVariables.playshopanim = true
 		GlobalVariables.printDmgBuffs()
 		GlobalVariables.currentPhase="combat"
-		if GlobalVariables.pack_of_wolves_placed:
-			GlobalVariables.round_counter += 1
-		if GlobalVariables.lions_den_active:
-			GlobalVariables.BeastDmgBuff+=GlobalVariables.beast_rooms_in_dungeon
-		if GlobalVariables.outlaw_in_dungeon:
-			GlobalVariables.player_gold-=2
-		if GlobalVariables.orc_bodyguard_in_dungeon:
-			GlobalVariables.player_gold-=1
+		if !GlobalVariables.values_changed:
+			if GlobalVariables.pack_of_wolves_placed>0:
+				print("LISÄTÄÄN ROUND COUNTERIIN YKSI", GlobalVariables.round_counter)
+				GlobalVariables.round_counter += 1
+			if GlobalVariables.lions_den_active:
+				GlobalVariables.BeastDmgBuff+=GlobalVariables.beast_rooms_in_dungeon
+			if GlobalVariables.outlaws_in_dungeon>0:
+				GlobalVariables.player_gold-=2*GlobalVariables.outlaws_in_dungeon
+			if GlobalVariables.orc_bodyguards_in_dungeon>0:
+				GlobalVariables.player_gold-=GlobalVariables.orc_bodyguards_in_dungeon
+			GlobalVariables.values_changed = true
 		if GlobalVariables.rooms_placed.size()>0:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:
 				GlobalVariables.heroes_move = true

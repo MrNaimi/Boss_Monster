@@ -27,6 +27,9 @@ signal reset_card()
 @onready var tribe = "spell"
 @onready var selectedRoom = []
 @onready var placed = false
+@onready var room_dmg_2: Label = $Control/RoomDmg2
+@onready var perseajastin: Timer = $perseajastin
+@onready var paskahuussi: AnimationPlayer = $paskahuussi
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,20 +43,28 @@ func _process(delta: float) -> void:
 		pass
 	if placed:
 		if card_name.text=="Outlaw" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<2:
-			GlobalVariables.outlaw_in_dungeon = false
+			GlobalVariables.outlaws_in_dungeon -= 1
 			GlobalVariables.message("Your Outlaw has left the dungeon due to a lack of funds",false)
 			visible = false
+			GlobalVariables.spawn_room_set = false
 		if card_name.text=="Killer Robot" && GlobalVariables.killer_robot_terminate:
+			GlobalVariables.killer_robot_terminate = false
 			GlobalVariables.message("Your killer robot has self destructed",false)
 			visible = false
-		if card_name.text=="Outlaw" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<1:
-			GlobalVariables.outlaw_in_dungeon = false
+			GlobalVariables.spawn_room_set = false
+		if card_name.text=="Orc Bodyguard" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<1:
+			GlobalVariables.orc_bodyguards_in_dungeon -= 1
 			GlobalVariables.message("Your Orc Bodyguard has left the dungeon due to a lack of funds",false)
 			visible = false
+			GlobalVariables.spawn_room_set = false
 		if card_name.text=="Pack of Wolves" && GlobalVariables.currentPhase=="build" && GlobalVariables.round_counter>=5:
 			GlobalVariables.message("Your Pack of Wolves starved to death",false)
+			GlobalVariables.pack_of_wolves_placed -= 1
+			GlobalVariables.round_counter = 0
 			visible = false
-		
+			GlobalVariables.spawn_room_set = false
+			
+
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 	
@@ -128,10 +139,14 @@ func initializeCard() -> void:
 		card_texture.texture=load(texturepath+selectedRoom[5])
 		card_name.text = selectedRoom[2]
 		room_type.text = selectedRoom[3][0]
-		room_dmg.text = str(selectedRoom[1]*floor(1+0.1*GlobalVariables.infamy))
+		room_dmg.text = str(selectedRoom[1]+floor(0.10*GlobalVariables.infamy))
 		damage = int(room_dmg.text)
 		card_info = (selectedRoom[4])
 		GlobalVariables.rooms_placed.append(self)
 		#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
 	if get_parent().get_parent().get_parent().name == "ShopUI":
 		shop_card=true
+
+
+func _on_perseajastin_timeout() -> void:
+	room_dmg_2.visible=false

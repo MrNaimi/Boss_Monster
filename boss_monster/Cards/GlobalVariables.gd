@@ -48,18 +48,18 @@ var show_card = false
 var message_sent = false
 var message_data = ""
 var destroy_room = false
-
+var values_changed = false
 
 var goblin_warrior_active = false
 var forgotten_library_activated = false
 var lesser_devil_in_dungeon = false
-var outlaw_in_dungeon = false
-var orc_bodyguard_in_dungeon = false
+var outlaws_in_dungeon = 0
+var orc_bodyguards_in_dungeon = 0
 var goblin_army_active = false
 var lions_den_active = false
 var killer_robot_terminate = false
 var killer_robot_placed = false
-var pack_of_wolves_placed = false
+var pack_of_wolves_placed = 0
 
 var round_counter = 0
 

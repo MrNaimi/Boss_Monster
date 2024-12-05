@@ -13,6 +13,7 @@ var selectedHero = []
 @onready var damageMult
 @onready var killed_by_boss = false
 @onready var card: PackedScene = preload("res://Cards/card_ui.tscn")
+@onready var perseajastin: Timer = $perseajastin
 
 var visited_demon_scout = false
 var damageAdd = 0
@@ -47,11 +48,11 @@ func _process(delta: float) -> void:
 		if GlobalVariables.autoplay:
 			GlobalVariables.heroes_move=true
 		GlobalVariables.heroKilled = true
-		get_parent().queue_free()
 		GlobalVariables.amount_of_heroes_alive-=1
 		GlobalVariables.amount_of_heroes_killed+=1
 		if !killed_by_boss:
 			GlobalVariables.player_gold+=RandomNumberGenerator.new().randi_range(2, 4)
+		get_parent().queue_free()
 	if get_parent().progress < 50:
 		path_direction = 1
 		flipped = false
@@ -100,10 +101,8 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Gas Leak room")
 		"Mimic": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
-			hp -= room_damage*selectedHero[1]
-			if hp<=0:
+			if hp<=room_damage*selectedHero[1]:
 				GlobalVariables.player_gold+=5
-			room_damage = 0
 			print("Handle Mimic room")
 		"The Vault Room": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
@@ -120,10 +119,8 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Monster Lounge room")
 		"The Dragon Lair": #TEHTY
 			room_damage+=GlobalVariables.BeastDmgBuff
-			hp -= room_damage*selectedHero[1]
-			if hp<=0:
+			if hp<=room_damage*selectedHero[1]:
 				GlobalVariables.player_gold+=2
-			room_damage = 0
 			print("Handle The Dragon Lair room")
 		"Pit Fall": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
@@ -133,22 +130,21 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Spike Trap room")
 		"Forgotten Library": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
-			hp -= room_damage*selectedHero[1]
-			if hp<=0 && !GlobalVariables.forgotten_library_activated:
+			if hp<room_damage*selectedHero[1] && !GlobalVariables.forgotten_library_activated:
 				GlobalVariables.forgotten_library_activated = true
 				print("lisätään kortti")
 				if get_tree().get_first_node_in_group("hand").get_child_count()<6:
 					GlobalVariables.resetValues(true)
 					GlobalVariables.created_spells-=1
 					get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
-			room_damage = 0
+					get_tree().get_first_node_in_group("hand").startcardmachine()
 			print("Handle Forgotten Library room")
 		"Succubus": #TEHTY
 			if visited_demon_scout:
 				room_damage+=2
 			room_damage+=GlobalVariables.DemonDmgBuff
 			if RandomNumberGenerator.new().randi_range(1, 3)==3:
-				room_damage*2
+				room_damage*2 
 				print("succubus room delt double damage")
 			print("Handle Succubus room")
 		"Vampire":#TEHTY
@@ -235,7 +231,12 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Unknown room:", room_name)
 			
 	print("Damage dealt by room: ",room_damage)
-	
+	if area.get_parent().name != "Boss" && area.get_parent().get_parent().name != "Hero":
+		area.get_parent().room_dmg_2.text = str(room_damage/selectedHero[1])
+		#area.get_parent().room_dmg_2.visible = true
+		#area.get_parent().perseajastin.start()
+		area.get_parent().paskahuussi.play("damagetext")
+		
 	hp -= (damageAdd+room_damage)*selectedHero[1]
 
 	if mindcontrolled:

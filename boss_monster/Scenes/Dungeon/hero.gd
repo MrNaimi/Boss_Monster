@@ -42,7 +42,10 @@ func _process(delta: float) -> void:
 			GlobalVariables.spawned_heroes=[]
 			GlobalVariables.rerollCost=1
 			GlobalVariables.currentPhase = "build"
-			if GlobalVariables.killer_robot_placed && RandomNumberGenerator.new().randi_range(1, 5)==5:
+			var robot_number = RandomNumberGenerator.new().randi_range(1, 5)
+			print("Killer robot number, 5 kills ",robot_number)
+			if GlobalVariables.killer_robot_placed && robot_number==5:
+				print("killer robot terminated")
 				GlobalVariables.killer_robot_terminate=true
 			if GlobalVariables.lions_den_active:
 				GlobalVariables.BeastDmgBuff-=GlobalVariables.beast_rooms_in_dungeon
@@ -54,6 +57,7 @@ func _process(delta: float) -> void:
 			if GlobalVariables.infamy%3==0:
 				herolimit+=1
 			GlobalVariables.amount_of_heroes_killed=0
+			GlobalVariables.values_changed = false
 			GlobalVariables.playshopanim = true
 
 

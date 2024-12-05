@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 			shopanimation.play("shophide")
 			GlobalVariables.playshopanim = false
 			timer.start()
-		if (GlobalVariables.card_dragging or GlobalVariables.spell_dragging):
+		if (GlobalVariables.card_dragging):
 			sell_area.visible=true
 			refresh_button.visible=false
 			sellanimation.play("sellanimation")

@@ -47,7 +47,7 @@ func _on_destroy_room_pressed() -> void:
 			print(GlobalVariables.BeastDmgBuff)
 		"Orc Bodyguard":
 			GlobalVariables.HumanoidDmgBuff-=2
-			GlobalVariables.orc_bodyguard_in_dungeon = false
+			GlobalVariables.orc_bodyguards_in_dungeon -= 1
 			print(GlobalVariables.HumanoidDmgBuff)
 		"Warlock Summoner":
 			GlobalVariables.DemonDmgBuff-=2
@@ -68,12 +68,13 @@ func _on_destroy_room_pressed() -> void:
 		"Lesser Devil":
 			GlobalVariables.lesser_devil_in_dungeon = false
 		"Outlaw":
-			GlobalVariables.outlaw_in_dungeon = false
+			GlobalVariables.outlaws_in_dungeon -= 1
 		"Goblin Army":
 			GlobalVariables.goblin_army_active = false
 		"Chihu":
 			GlobalVariables.beast_rooms_in_dungeon-=1
 		"Pack of Wolves":
+			GlobalVariables.pack_of_wolves_placed -= 1
 			GlobalVariables.beast_rooms_in_dungeon-=1
 		"Angry Slime":
 			GlobalVariables.beast_rooms_in_dungeon-=1
