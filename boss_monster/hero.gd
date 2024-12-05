@@ -11,7 +11,8 @@ var selectedHero = []
 @onready var mindcontrolled = false
 @onready var hero_class: String
 @onready var damageMult
-
+@onready var killed_by_boss = false
+@onready var card: PackedScene = preload("res://Cards/card_ui.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalVariables.spawned_heroes.append(get_parent())
@@ -33,13 +34,17 @@ func _process(delta: float) -> void:
 	#print(hp)
 	
 	if hp <= 0:
+		if GlobalVariables.goblin_warrior_active:
+			if RandomNumberGenerator.new().randi_range(1, 4)==4:
+				GlobalVariables.player_gold+=2
 		if GlobalVariables.autoplay:
 			GlobalVariables.heroes_move=true
 		GlobalVariables.heroKilled = true
 		get_parent().queue_free()
 		GlobalVariables.amount_of_heroes_alive-=1
 		GlobalVariables.amount_of_heroes_killed+=1
-		GlobalVariables.player_gold+=round(RandomNumberGenerator.new().randi_range(2, 4)*(1+0.1*GlobalVariables.infamy))
+		if !killed_by_boss:
+			GlobalVariables.player_gold+=RandomNumberGenerator.new().randi_range(2, 4)
 	if get_parent().progress < 50:
 		path_direction = 1
 		flipped = false
@@ -77,55 +82,69 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 	#RAHA ON GlobalVariables.player_gold
 	#jos kysyttävää koodauksesta soita 044 339 7453
 	match room_name:
-		"Goblin Warrior":
+		"Goblin Warrior": #TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff
 			print("Handle Goblin Warrior room")
-		"Gas Leak":
+		"Gas Leak": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
 			for hero in heroes:
 				hero.hp -= 2*hero.damageMult
 			print("Handle Gas Leak room")
-		"Mimic":
+		"Mimic": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
-			hp -= room_damage
+			hp -= room_damage*selectedHero[1]
 			if hp<=0:
-				GlobalVariables.player_gold+=10
+				GlobalVariables.player_gold+=5
 			room_damage = 0
 			print("Handle Mimic room")
-		"The Vault Room":
+		"The Vault Room": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
 			
 			print("Handle The Vault Room")
-		"Spike Factory":
+		"Spike Factory": #TEHTY
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Spike Factory room")
-		"Hot Coals":
+		"Hot Coals": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
 			print("Handle Hot Coals room")
-		"Monster Lounge":
-			room_damage+=GlobalVariables.UndeadDmgBuff
+		"Monster Lounge": #TEHTY/SKIP
+			room_damage+=round(1.5*GlobalVariables.UndeadDmgBuff)
 			print("Handle Monster Lounge room")
-		"The Dragon Lair":
+		"The Dragon Lair": #TEHTY
 			room_damage+=GlobalVariables.BeastDmgBuff
-			hp -= room_damage
+			hp -= room_damage*selectedHero[1]
 			if hp<=0:
-				GlobalVariables.player_gold+=4
+				GlobalVariables.player_gold+=2
 			room_damage = 0
 			print("Handle The Dragon Lair room")
-		"Pit Fall":
+		"Pit Fall": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
 			print("Handle Pit Fall room")
-		"Spike Trap":
+		"Spike Trap": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
 			print("Handle Spike Trap room")
-		"Forgotten Library":
+		"Forgotten Library": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
+			hp -= room_damage*selectedHero[1]
+			if hp<=0 && !GlobalVariables.forgotten_library_activated:
+				GlobalVariables.forgotten_library_activated = true
+				print("lisätään kortti")
+				if get_tree().get_first_node_in_group("hand").get_child_count()<6:
+					GlobalVariables.resetValues(true)
+					GlobalVariables.created_spells-=1
+					get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
+			room_damage = 0
 			print("Handle Forgotten Library room")
-		"Succubus":
+		"Succubus": 
 			room_damage+=GlobalVariables.DemonDmgBuff
+			if RandomNumberGenerator.new().randi_range(1, 3)==3:
+				room_damage*2
+				print("succubus room delt double damage")
 			print("Handle Succubus room")
 		"Vampire":
 			room_damage+=GlobalVariables.HumanoidDmgBuff
+			if hero_class=="cleric":
+				room_damage*=2
 			print("Handle Vampire room")
 		"Stinky Ghoul":
 			room_damage+=GlobalVariables.UndeadDmgBuff
@@ -133,34 +152,42 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Stinky Ghoul room")
 		"Misunderstood Ghost":
 			room_damage+=GlobalVariables.UndeadDmgBuff
+			if hero_class=="paladin":
+				room_damage*=2
 			print("Handle Misunderstood Ghost room")
 		"Zombie Graveyard":
 			room_damage+=GlobalVariables.UndeadDmgBuff
+			room_damage+=GlobalVariables.rooms_destroyed
 			print("Handle Zombie Graveyard room")
 		"Rolling Golem":
-			room_damage+=GlobalVariables.ConstructDmgBuff
+			room_damage+=(1.5*GlobalVariables.ConstructDmgBuff)
 			print("Handle Rolling Golem room")
-		"Killer Robot":
+		"Killer Robot":#SKIP
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Killer Robot room")
 		"Angry Slime":
 			room_damage+=GlobalVariables.BeastDmgBuff
+			selectedHero[1]*=1.1
 			print("Handle Angry Slime room")
-		"Fire Elemental":
+		"Fire Elemental":#SKIP
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Fire Elemental room")
-		"Demonic Scout":
+		"Demonic Scout":#SKIP
 			room_damage+=GlobalVariables.DemonDmgBuff
 			print("Handle Demonic Scout room")
-		"Warlock Summoner":
+		"Warlock Summoner":#TEHTY
 			room_damage+=GlobalVariables.DemonDmgBuff
 			print("Handle Warlock Summoner room")
-		"Demon Spawn":
+		"Demon Spawn": #TEHTY
 			room_damage+=GlobalVariables.DemonDmgBuff
+			if GlobalVariables.lesser_devil_in_dungeon:
+				room_damage+=3
 			print("Handle Demon Spawn room")
-		"Lesser Devil":
+		"Lesser Devil": #TEHTY
 			room_damage+=GlobalVariables.DemonDmgBuff
+			room_damage+=GlobalVariables.demon_rooms_placed
 			print("Handle Lesser Devil room")
+			
 		"Outlaw":
 			room_damage+=GlobalVariables.HumanoidDmgBuff
 			print("Handle Outlaw room")
@@ -188,7 +215,9 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Unknown room:", room_name)
 			
 	print("Damage dealt by room: ",room_damage)
-	hp -= room_damage*selectedHero[1]
+	
+	hp -= room_damage *selectedHero[1]
+
 	if mindcontrolled:
 		hp-=floor(0.5*hp)
 		mindcontrolled = false

@@ -32,9 +32,11 @@ func on_gui_input(event: InputEvent) -> void:
 			elif GlobalVariables.currentPhase=="build" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text!="S" && !card_ui.shop_card:
 				card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
 				transition_requested.emit(self, CardState.State.CLICKED)
-			elif GlobalVariables.currentPhase=="combat" && GlobalVariables.actionsLeft>0 && card_ui.room_type.text=="S":
+			elif GlobalVariables.currentPhase=="combat" && card_ui.room_type.text=="S":
 				card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
 				transition_requested.emit(self, CardState.State.CLICKED)
+			elif GlobalVariables.currentPhase=="build" && card_ui.room_type.text=="S":
+				GlobalVariables.message("You can only use spells during the combat phase",false)
 			elif GlobalVariables.currentPhase=="build" && GlobalVariables.player_gold<=10 && card_ui.shop_card:
 				GlobalVariables.message("You need 10 gold to buy a card",false)
 	if event.is_action_pressed("mmb"):
@@ -44,7 +46,8 @@ func on_gui_input(event: InputEvent) -> void:
 			#GlobalVariables.card_info = card_ui.card_info
 			GlobalVariables.card_info[0] = card_ui.card_info
 			GlobalVariables.card_info[1] = card_ui.tribe
-			GlobalVariables.card_info[2] = card_ui.damage
+			print(GlobalVariables.card_info[2])
+			GlobalVariables.card_info[2] = card_ui.room_dmg.text
 			GlobalVariables.show_card = true
 			GlobalVariables.destroy_room = false
 			print(card_ui.card_info)

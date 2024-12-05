@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 		pass
 	
 	
+	
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 	

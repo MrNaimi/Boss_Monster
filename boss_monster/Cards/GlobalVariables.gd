@@ -14,6 +14,8 @@ var created_spells = 0
 var infamy = 1
 var amount_of_heroes_killed = 0
 var rerollCost = 1
+var rooms_destroyed = 0
+var demon_rooms_placed = 0
 #Arrays
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
@@ -23,7 +25,7 @@ var room_cards_created: Array[Control] = []
 var spawned_heroes: Array[PathFollow2D] = []
 var rooms_placed: Array[Control] = []
 var cardData = []
-var card_info = ["  ","  ", " "]
+var card_info = ["a","b","c"]
 var room_to_be_destroyed
 #Global BOOLEAN checks
 var createCard = false
@@ -44,7 +46,9 @@ var show_card = false
 var message_sent = false
 var message_data = ""
 var destroy_room = false
-
+var goblin_warrior_active = false
+var forgotten_library_activated = false
+var lesser_devil_in_dungeon = false
 #Card damage buffs
 var TrapDmgBuff = 0
 var UndeadDmgBuff = 0
@@ -98,13 +102,13 @@ func message(msg,card_placed) -> void:
 		card_info[0] = msg
 		message_sent = false
 	else:
-		card_info = [msg, ""]
+		card_info[0] = msg
 		message_sent = true
 		destroy_room = false
 
 func placed_message(msg,tribe,card_placed,node,room_dmg) -> void:
 	card_info[1] = tribe
-	card_info[2]=room_dmg
+	card_info[2]= room_dmg
 	message(msg, true)
 	room_to_be_destroyed=node
 	if currentPhase=="build":
@@ -120,3 +124,62 @@ func printDmgBuffs() -> void:
 	print("Beast Damage: ", BeastDmgBuff)
 	print("Construct Damage: ", ConstructDmgBuff)
 	print("Spike Trap Damage: ", SpikeTrapDmgBuff)
+
+
+func reset_defaults() -> void:
+	# Reset primitive variables
+	hero_progress = 0
+	trap_index = 0
+	amount_of_heroes_alive = 0
+	damageGiven = 0
+	heroHp = 10
+	bossHp = 50
+	hero_limit = 3
+	current_heroes = 0
+	timerAmount = 0.0
+	spell_limit = 1
+	created_spells = 0
+	infamy = 1
+	amount_of_heroes_killed = 0
+	rerollCost = 1
+
+	# Reset arrays
+	rooms = []
+	heroes = []
+	spells = []
+	room_cards_created = []
+	spawned_heroes = []
+	rooms_placed = []
+	cardData = []
+	card_info = ["a", "b", "c"]
+	room_to_be_destroyed = null
+
+	# Reset booleans
+	createCard = false
+	cardBought = false
+	card_dragging = false
+	shop_card_dragging = false
+	spawn_room_set = false
+	timerStart = false
+	heroKilled = false
+	trap_placed = false
+	spell_dragging = false
+	playshopanim = true
+	heroes_move = false
+	combat_phase = false
+	autoplay = false
+	spawn_hero = false
+	show_card = false
+	message_sent = false
+	message_data = ""
+	destroy_room = false
+
+	# Reset card damage buffs
+	TrapDmgBuff = 0
+	UndeadDmgBuff = 0
+	DemonDmgBuff = 0
+	HumanoidDmgBuff = 0
+	BeastDmgBuff = 0
+	ConstructDmgBuff = 0
+	SpikeTrapDmgBuff = 0
+	rooms_destroyed = 0

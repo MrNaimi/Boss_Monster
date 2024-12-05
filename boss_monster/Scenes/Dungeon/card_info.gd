@@ -35,6 +35,7 @@ func _on_message_timer_timeout() -> void:
 	message_timer.wait_time=1.5
 
 func _on_destroy_room_pressed() -> void:
+	GlobalVariables.rooms_destroyed += 1
 	var trapName = GlobalVariables.room_to_be_destroyed.card_name.text
 	match trapName:
 		"Electric Anomaly":
@@ -53,6 +54,18 @@ func _on_destroy_room_pressed() -> void:
 		"Spike Factory":
 			GlobalVariables.SpikeTrapDmgBuff-=2
 			print(GlobalVariables.SpikeTrapDmgBuff)
+		"Goblin Warrior":
+			print("goblin warrior tuhottu")
+			GlobalVariables.goblin_warrior_active = false
+		"Stinky Ghoul":
+			GlobalVariables.TrapDmgBuff += 2
+			GlobalVariables.DemonDmgBuff += 2
+			GlobalVariables.HumanoidDmgBuff += 2
+			GlobalVariables.BeastDmgBuff += 2
+			GlobalVariables.ConstructDmgBuff += 2
+			GlobalVariables.SpikeTrapDmgBuff += 2
+		"Lesser Devil":
+			GlobalVariables.lesser_devil_in_dungeon = false
 
 	print("Construct Damage Buff:", GlobalVariables.ConstructDmgBuff)
 	print("Beast Damage Buff:", GlobalVariables.BeastDmgBuff)

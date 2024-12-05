@@ -55,11 +55,31 @@ func enter() -> void:
 						GlobalVariables.HumanoidDmgBuff+=2
 						print(GlobalVariables.HumanoidDmgBuff)
 					"Warlock Summoner":
+						GlobalVariables.demon_rooms_placed += 1
 						GlobalVariables.DemonDmgBuff+=2
 						print(GlobalVariables.DemonDmgBuff)
 					"Spike Factory":
-						GlobalVariables.SpikeTrapDmgBuff+=2
+						GlobalVariables.SpikeTrapDmgBuff+=3
 						print(GlobalVariables.SpikeTrapDmgBuff)
+					"Goblin Warrior":
+						GlobalVariables.goblin_warrior_active = true
+					"Stinky Ghoul":
+						GlobalVariables.TrapDmgBuff -= 2
+						GlobalVariables.DemonDmgBuff -= 2
+						GlobalVariables.HumanoidDmgBuff -= 2
+						GlobalVariables.BeastDmgBuff -= 2
+						GlobalVariables.ConstructDmgBuff -= 2
+						GlobalVariables.SpikeTrapDmgBuff -= 2
+					"Lesser Devil":
+						GlobalVariables.demon_rooms_placed += 1
+						GlobalVariables.lesser_devil_in_dungeon = true
+					"Demon Spawn":
+						GlobalVariables.demon_rooms_placed += 1
+					"Demonic Scout":
+						GlobalVariables.demon_rooms_placed += 1
+					"Succubus":
+						GlobalVariables.demon_rooms_placed += 1
+						
 	elif card_ui.shop_card:
 		print("hellooo")
 		if not card_ui.targets.is_empty() && card_ui.targets[0].name=="CardBuyArea" && card_ui.targets[0].get_parent().get_child_count()<6 && GlobalVariables.player_gold>=10:
@@ -97,13 +117,16 @@ func enter() -> void:
 					"Assassination":
 						print("assassination")
 						hero.hp-=int(card_ui.room_dmg.text)
+						if GlobalVariables.amount_of_heroes_alive==1:
+							GlobalVariables.spawn_hero=true
+							
 					"Bad Directions":
 						hero.path_direction = -1
 						hero.flipped = true
 						hero.get_child(0).flip_h = not hero.get_child(0).flip_h 
 						print("Bad direction")
 						
-				GlobalVariables.actionsLeft-=1
+				#GlobalVariables.actionsLeft-=1
 				GlobalVariables.created_spells-=1
 				card_ui.queue_free()
 			elif target.get_parent().name=="Boss": 

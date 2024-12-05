@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 			GlobalVariables.spawned_heroes=[]
 			GlobalVariables.rerollCost=1
 			GlobalVariables.currentPhase = "build"
+			GlobalVariables.forgotten_library_activated = false
 			shop_ui.createCards()
 			GlobalVariables.infamy+=1
 			GlobalVariables.actionsLeft = 2
@@ -50,7 +51,7 @@ func _process(delta: float) -> void:
 				herolimit+=1
 			GlobalVariables.amount_of_heroes_killed=0
 			GlobalVariables.playshopanim = true
-		
+
 
 
 func _on_timer_timeout() -> void:

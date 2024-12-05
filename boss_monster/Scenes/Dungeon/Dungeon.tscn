@@ -1470,7 +1470,7 @@ offset_right = 1219.0
 offset_bottom = 483.0
 color = Color(0, 0, 0, 0.490196)
 
-[node name="Hand" type="HBoxContainer" parent="DungeonUI"]
+[node name="Hand" type="HBoxContainer" parent="DungeonUI" groups=["hand"]]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -1665,6 +1665,7 @@ curve = SubResource("Curve2D_6704g")
 one_shot = true
 
 [node name="card_info" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 42.0
@@ -1690,7 +1691,6 @@ offset_bottom = 166.0
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 30
 text = "This is going to be the card info text"
-horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="destroy_room" type="Button" parent="card_info/ColorRect"]
