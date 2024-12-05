@@ -24,7 +24,7 @@ func enter() -> void:
 	
 func on_input(event: InputEvent) -> void:
 	var mouse_motion := event is InputEventMouseMotion
-	var cancel = event.is_action_pressed("rightclick")
+	var cancel = event.is_action_pressed("mmb")
 	var confirm = event.is_action_released("click") or event.is_action_pressed("click")	
 	
 	if mouse_motion:

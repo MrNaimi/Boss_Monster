@@ -45,6 +45,7 @@ func _on_quit_game_pressed() -> void:
 
 func _on_continue_button_pressed() -> void:
 	#print("Continue")
+
 	var length = 0
 	if GlobalVariables.trap_placed:
 		if GlobalVariables.currentPhase=="build":
@@ -59,8 +60,22 @@ func _on_continue_button_pressed() -> void:
 				GlobalVariables.BeastDmgBuff+=GlobalVariables.beast_rooms_in_dungeon
 			if GlobalVariables.outlaws_in_dungeon>0:
 				GlobalVariables.player_gold-=2*GlobalVariables.outlaws_in_dungeon
+				for outlaw in GlobalVariables.outlaws:
+					if is_instance_valid(outlaw):
+						outlaw.card_ui.room_dmg_2.text = "-2"
+						outlaw.card_ui.paskahuussi.play("money_animation")
+					else:
+						GlobalVariables.remove_child(outlaw)
+				#GlobalVariables.outlaw_animation = true
 			if GlobalVariables.orc_bodyguards_in_dungeon>0:
-				GlobalVariables.player_gold-=GlobalVariables.orc_bodyguards_in_dungeon
+				GlobalVariables.player_gold-=3*GlobalVariables.orc_bodyguards_in_dungeon
+				for bodyguard in GlobalVariables.orc_bodyguards:
+					if is_instance_valid(bodyguard):
+						bodyguard.card_ui.room_dmg_2.text = "-3"
+						bodyguard.card_ui.paskahuussi.play("money_animation")
+					else:
+						GlobalVariables.remove_child(bodyguard)
+				#GlobalVariables.orc_bodyguard_animation = true
 			GlobalVariables.values_changed = true
 		if GlobalVariables.rooms_placed.size()>0:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:

@@ -14,6 +14,7 @@ var selectedHero = []
 @onready var killed_by_boss = false
 @onready var card: PackedScene = preload("res://Cards/card_ui.tscn")
 @onready var perseajastin: Timer = $perseajastin
+@onready var animations: AnimationPlayer = $animations
 
 var visited_demon_scout = false
 var damageAdd = 0
@@ -25,7 +26,7 @@ func _ready() -> void:
 	#health_bar.max_value = hp
 	var i =  RandomNumberGenerator.new().randi_range(0, heroes.size()-1)
 	selectedHero=heroes[i]
-	hp = round(RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3]))
+	hp = selectedHero[3]
 	print("Hp before infamy scaling: ",hp," ")
 	hp *= round((0.5+0.25*GlobalVariables.infamy))
 	print("Hp after infamy scaling: ",hp," ")
@@ -39,12 +40,14 @@ func _process(delta: float) -> void:
 	#print(hp)
 	
 	if hp <= 0:
-		if GlobalVariables.goblin_warrior_active:
-			if RandomNumberGenerator.new().randi_range(1, 4)==4:
+		if GlobalVariables.goblin_warriors_in_dungeon >= 1:
+			if RandomNumberGenerator.new().randi_range(1,4)==4:
 				GlobalVariables.player_gold+=2
-		if GlobalVariables.goblin_army_active:
-			if RandomNumberGenerator.new().randi_range(1,2)==2:
+				GlobalVariables.goblin_warrior_animation = true
+		if GlobalVariables.goblin_armies_in_dungeon >= 1:
+			if RandomNumberGenerator.new().randi_range(1,3)==3:
 				GlobalVariables.player_gold+=2
+				GlobalVariables.goblin_army_animation = true
 		if GlobalVariables.autoplay:
 			GlobalVariables.heroes_move=true
 		GlobalVariables.heroKilled = true
@@ -98,11 +101,13 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			room_damage+=GlobalVariables.TrapDmgBuff
 			for hero in heroes:
 				hero.hp -= 2*hero.damageMult
+				hero.animations.play("poison_damage")
 			print("Handle Gas Leak room")
 		"Mimic": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
 			if hp<=room_damage*selectedHero[1]:
-				GlobalVariables.player_gold+=5
+				GlobalVariables.player_gold+=3
+				area.get_parent().paskahuussi.play("money_animation")
 			print("Handle Mimic room")
 		"The Vault Room": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
@@ -232,7 +237,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			
 	print("Damage dealt by room: ",room_damage)
 	if area.get_parent().name != "Boss" && area.get_parent().get_parent().name != "Hero":
-		area.get_parent().room_dmg_2.text = str(room_damage/selectedHero[1])
+		area.get_parent().room_dmg_2.text = str(ceil((damageAdd+room_damage)/selectedHero[1]))
 		#area.get_parent().room_dmg_2.visible = true
 		#area.get_parent().perseajastin.start()
 		area.get_parent().paskahuussi.play("damagetext")

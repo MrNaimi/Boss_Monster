@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 	else:
 		pass
 	if placed:
-		if card_name.text=="Outlaw" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<2:
+		if card_name.text=="Outlaw" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<0:
 			GlobalVariables.outlaws_in_dungeon -= 1
 			GlobalVariables.message("Your Outlaw has left the dungeon due to a lack of funds",false)
 			visible = false
@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 			GlobalVariables.message("Your killer robot has self destructed",false)
 			visible = false
 			GlobalVariables.spawn_room_set = false
-		if card_name.text=="Orc Bodyguard" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<1:
+		if card_name.text=="Orc Bodyguard" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<0:
 			GlobalVariables.orc_bodyguards_in_dungeon -= 1
 			GlobalVariables.message("Your Orc Bodyguard has left the dungeon due to a lack of funds",false)
 			visible = false
@@ -63,7 +63,14 @@ func _process(delta: float) -> void:
 			GlobalVariables.round_counter = 0
 			visible = false
 			GlobalVariables.spawn_room_set = false
-			
+		if GlobalVariables.goblin_army_animation && card_name.text=="Goblin Army":
+			GlobalVariables.goblin_army_animation = false
+			room_dmg_2.text = "+2"
+			paskahuussi.play("money_animation")
+		if GlobalVariables.goblin_warrior_animation && card_name.text=="Goblin Warrior":
+			GlobalVariables.goblin_warrior_animation = false
+			room_dmg_2.text = "+2"
+			paskahuussi.play("money_animation")
 
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)

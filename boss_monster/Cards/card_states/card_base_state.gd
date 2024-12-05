@@ -39,7 +39,7 @@ func on_gui_input(event: InputEvent) -> void:
 				GlobalVariables.message("You can only use spells during the combat phase",false)
 			elif GlobalVariables.currentPhase=="build" && GlobalVariables.player_gold<=10 && card_ui.shop_card:
 				GlobalVariables.message("You need 10 gold to buy a card",false)
-	if event.is_action_pressed("mmb"):
+	if event.is_action_pressed("rightclick") and !GlobalVariables.card_dragging:
 		if GlobalVariables.card_info[0] == card_ui.card_info && GlobalVariables.show_card:
 			GlobalVariables.show_card = false
 		else:

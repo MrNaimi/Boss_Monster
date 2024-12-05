@@ -29,6 +29,10 @@ var rooms_placed: Array[Control] = []
 var cardData = []
 var card_info = ["a","b","c"]
 var room_to_be_destroyed
+
+var outlaws=[]
+var orc_bodyguards=[]
+
 #Global BOOLEAN checks
 var createCard = false
 var cardBought = false
@@ -60,9 +64,13 @@ var lions_den_active = false
 var killer_robot_terminate = false
 var killer_robot_placed = false
 var pack_of_wolves_placed = 0
-
+var goblin_army_animation = false
+var goblin_warrior_animation = false
 var round_counter = 0
-
+var outlaw_animation = false
+var orc_bodyguard_animation = false
+var goblin_warriors_in_dungeon = 0
+var goblin_armies_in_dungeon = 0
 #Card damage buffs
 var TrapDmgBuff = 0
 var UndeadDmgBuff = 0

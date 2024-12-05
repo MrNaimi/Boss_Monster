@@ -57,7 +57,7 @@ func _on_destroy_room_pressed() -> void:
 			print(GlobalVariables.SpikeTrapDmgBuff)
 		"Goblin Warrior":
 			print("goblin warrior tuhottu")
-			GlobalVariables.goblin_warrior_active = false
+			GlobalVariables.goblin_warriors_in_dungeon-=1
 		"Stinky Ghoul":
 			GlobalVariables.TrapDmgBuff += 2
 			GlobalVariables.DemonDmgBuff += 2

@@ -55,18 +55,21 @@ func enter() -> void:
 						GlobalVariables.beast_rooms_in_dungeon+=1
 						print(GlobalVariables.BeastDmgBuff)
 					"Orc Bodyguard":
+						
 						GlobalVariables.HumanoidDmgBuff+=2
 						GlobalVariables.orc_bodyguards_in_dungeon += 1
-						print(GlobalVariables.HumanoidDmgBuff)
+						GlobalVariables.orc_bodyguards.append(self)
+						#print(GlobalVariables.HumanoidDmgBuff)
 					"Warlock Summoner":
 						GlobalVariables.demon_rooms_placed += 1
 						GlobalVariables.DemonDmgBuff+=2
-						print(GlobalVariables.DemonDmgBuff)
+						#print(GlobalVariables.DemonDmgBuff)
 					"Spike Factory":
 						GlobalVariables.SpikeTrapDmgBuff+=3
-						print(GlobalVariables.SpikeTrapDmgBuff)
+						#print(GlobalVariables.SpikeTrapDmgBuff)
 					"Goblin Warrior":
-						GlobalVariables.goblin_warrior_active = true
+						GlobalVariables.goblin_warriors_in_dungeon += 1
+						
 					"Stinky Ghoul":
 						GlobalVariables.TrapDmgBuff -= 2
 						GlobalVariables.DemonDmgBuff -= 2
@@ -85,6 +88,7 @@ func enter() -> void:
 						GlobalVariables.demon_rooms_placed += 1
 					"Outlaw":
 						GlobalVariables.outlaws_in_dungeon += 1
+						GlobalVariables.outlaws.append(self)
 					"Goblin Army":
 						GlobalVariables.goblin_army_active = true
 					"Chihu":
@@ -170,7 +174,7 @@ func _on_card_ui_reset_card() -> void:
 	transition_requested.emit(self, CardState.State.BASE)
 
 func on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("click") or event.is_action_pressed("mmb"):
+	if event.is_action_pressed("click") or event.is_action_pressed("rightclick"):
 		#GlobalVariables.card_info[1] = card_ui.tribe
 		GlobalVariables.placed_message(card_ui.card_info,card_ui.tribe,true,card_ui,card_ui.damage)
 	
