@@ -146,10 +146,12 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Forgotten Library room")
 		"Succubus": #TEHTY
 			if visited_demon_scout:
-				room_damage+=2
+				room_damage+=3
 			room_damage+=GlobalVariables.DemonDmgBuff
-			if RandomNumberGenerator.new().randi_range(1, 3)==3:
-				room_damage*2 
+			if RandomNumberGenerator.new().randi_range(1, 5)==5:
+				path_direction *= -1
+				flipped = true
+				
 				print("succubus room delt double damage")
 			print("Handle Succubus room")
 		"Vampire":#TEHTY
@@ -186,27 +188,28 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Fire Elemental room")
 		"Demonic Scout":#TEHTY, IMP
 			if visited_demon_scout:
-				room_damage+=2
+				room_damage+=3
 			visited_demon_scout = true
 			room_damage+=GlobalVariables.DemonDmgBuff
 			print("Handle Demonic Scout room")
 		"Warlock Summoner":#TEHTY
 			if visited_demon_scout:
-				room_damage+=2
+				room_damage+=3
 			room_damage+=GlobalVariables.DemonDmgBuff
 			print("Handle Warlock Summoner room")
 		"Demon Spawn": #TEHTY
 			if visited_demon_scout:
-				room_damage+=2
-			room_damage+=GlobalVariables.DemonDmgBuff
-			if GlobalVariables.lesser_devil_in_dungeon:
 				room_damage+=3
+			room_damage+=GlobalVariables.DemonDmgBuff
+			if GlobalVariables.lesser_devils_in_dungeon>0:
+				room_damage+=3
+			
 			print("Handle Demon Spawn room")
 		"Lesser Devil": #TEHTY
 			if visited_demon_scout:
-				room_damage+=2
+				room_damage+=3
 			room_damage+=GlobalVariables.DemonDmgBuff
-			room_damage+=GlobalVariables.demon_rooms_placed
+			room_damage+=floor(GlobalVariables.demon_rooms_placed)
 			print("Handle Lesser Devil room")
 		"Outlaw": #TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff	
@@ -244,7 +247,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		area.get_parent().paskahuussi.play("damagetext")
 		
 	hp -= (damageAdd+room_damage)*selectedHero[1]
-
+	
 	if mindcontrolled:
 		hp-=floor(0.5*hp)
 		mindcontrolled = false

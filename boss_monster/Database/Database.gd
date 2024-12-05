@@ -72,7 +72,7 @@ const DATA ={
 	Forgotten_Library:
 		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card", "forgotten_library.png","","trap"],
 	Succubus : #tehty oikee art
-		["Room", 3, "Succubus", "Monster", "Has 1 in 3 chance to deal double damage","succubus.png","","demon"],
+		["Room", 3, "Succubus", "Monster", "Has 1 in 5 chance to charm the hero, sending him back to the start of the dungeon","succubus.png","","demon"],
 	Vampire : #tehty oikee art
 		["Room", 5, "Vampire", "Monster", "Deals double damage to clerics","vampire.png","","humanoid"],
 	Stinky_Ghoul : #tehty oikee art
@@ -90,7 +90,7 @@ const DATA ={
 	Fire_Elemental:
 		["Room", 2, "Fire Elemental", "Monster", "Hero takes 1 damage for every room they entered","fire_elemental.png","","construct"],
 	Imp:
-		["Room", 2, "Demonic Scout", "Monster", "Heroes that pass this room take +2 dmg from “Demon” type Rooms","imp.png","","demon"],
+		["Room", 2, "Demonic Scout", "Monster", "When a hero passes this room they take +2 dmg from “Demon” type Rooms","imp.png","","demon"],
 	Warlock_Summoner:
 		["Room", 3, "Warlock Summoner", "Monster", "Your 'Demon' type rooms deal +2dmg","warlock_summoner.png","","demon"],
 	Demon_Spawn:
