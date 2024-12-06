@@ -44,6 +44,7 @@ func on_gui_input(event: InputEvent) -> void:
 			GlobalVariables.show_card = false
 		else:
 			#GlobalVariables.card_info = card_ui.card_info
+			GlobalVariables.message(card_ui.card_info,false)
 			GlobalVariables.card_info[0] = card_ui.card_info
 			GlobalVariables.card_info[1] = card_ui.tribe
 			print(GlobalVariables.card_info[2])

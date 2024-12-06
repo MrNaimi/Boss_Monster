@@ -56,7 +56,7 @@ func _on_continue_button_pressed() -> void:
 			if GlobalVariables.pack_of_wolves_placed>0:
 				print("LISÄTÄÄN ROUND COUNTERIIN YKSI", GlobalVariables.round_counter)
 				GlobalVariables.round_counter += 1
-			if GlobalVariables.lions_den_active:
+			if GlobalVariables.lions_dens_in_the_dungeon>0:
 				GlobalVariables.BeastDmgBuff+=GlobalVariables.beast_rooms_in_dungeon
 			if GlobalVariables.outlaws_in_dungeon>0:
 				GlobalVariables.player_gold-=2*GlobalVariables.outlaws_in_dungeon

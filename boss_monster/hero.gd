@@ -100,7 +100,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		"Gas Leak": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
 			for hero in heroes:
-				hero.hp -= 2*hero.damageMult
+				hero.hp -= floor(2+GlobalVariables.TrapDmgBuff*0.34)*hero.damageMult
 				hero.animations.play("poison_damage")
 			print("Handle Gas Leak room")
 		"Mimic": #TEHTY
@@ -148,7 +148,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			if visited_demon_scout:
 				room_damage+=3
 			room_damage+=GlobalVariables.DemonDmgBuff
-			if RandomNumberGenerator.new().randi_range(1, 5)==5:
+			if RandomNumberGenerator.new().randi_range(1,5)==5:
 				path_direction *= -1
 				flipped = true
 				
@@ -156,6 +156,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Succubus room")
 		"Vampire":#TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff
+			room_damage+=GlobalVariables.UndeadDmgBuff
 			if hero_class=="cleric":
 				room_damage*=2
 			print("Handle Vampire room")
@@ -196,6 +197,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			if visited_demon_scout:
 				room_damage+=3
 			room_damage+=GlobalVariables.DemonDmgBuff
+			room_damage+=GlobalVariables.UndeadDmgBuff
 			print("Handle Warlock Summoner room")
 		"Demon Spawn": #TEHTY
 			if visited_demon_scout:

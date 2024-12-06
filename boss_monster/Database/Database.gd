@@ -1,5 +1,5 @@
 
-#HeroInfo =[Type, Factor, Hp, , Name, Role, Special Text]
+
 #BossInfo =[Type, Health, Name, Special Text]
 #SpellInfo =[Type, Damage, +Health, Name, Special Text, png]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png, sound, Tribe]
@@ -7,7 +7,7 @@
 enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library, Succubus, Vampire, Misunderstood_Ghost, Zombie_Graveyard, Stinky_Ghoul, Rolling_Golem, Killer_Robot, Angry_Slime, Fire_Elemental, Imp, Warlock_Summoner, Demon_Spawn, Lesser_Devil, Outlaw,Orc_Bodyguard,Goblin_Army, Pack_of_Wolves, Chihu, Lions_Den, Electric_Anomaly}
 
 const DATA ={
-	
+	#HeroInfo =[Type, Factor, Hp lower limit, Hp upper limit , Name, Role, Special Text]
 	#Hero
 	Cleric :
 		["Hero", 1,7, 10 ,"cleric", "Healer", ""],
@@ -74,7 +74,7 @@ const DATA ={
 	Succubus : #tehty oikee art
 		["Room", 3, "Succubus", "Monster", "Has 1 in 5 chance to charm the hero, sending him back to the start of the dungeon","succubus.png","","demon"],
 	Vampire : #tehty oikee art
-		["Room", 5, "Vampire", "Monster", "Deals double damage to clerics","vampire.png","","humanoid"],
+		["Room", 5, "Vampire", "Monster", "Deals double damage to clerics","vampire.png","","humanoid, Undead"],
 	Stinky_Ghoul : #tehty oikee art
 		["Room", 8, "Stinky Ghoul", "Monster", "Your non-Undead monster rooms have -2dmg","stinky_ghoul.png","","undead"],
 	Misunderstood_Ghost : #tehty oikee art
@@ -90,9 +90,9 @@ const DATA ={
 	Fire_Elemental:
 		["Room", 2, "Fire Elemental", "Monster", "Hero takes 1 damage for every room they entered","fire_elemental.png","","construct"],
 	Imp:
-		["Room", 2, "Demonic Scout", "Monster", "When a hero passes this room they take +2 dmg from “Demon” type Rooms","imp.png","","demon"],
+		["Room", 2, "Demonic Scout", "Monster", "When a hero passes this room they take +3 dmg from “Demon” type Rooms","imp.png","","demon"],
 	Warlock_Summoner:
-		["Room", 3, "Warlock Summoner", "Monster", "Your 'Demon' type rooms deal +2dmg","warlock_summoner.png","","demon"],
+		["Room", 3, "Warlock Summoner", "Monster", "Your 'Demon' type rooms deal +2dmg","warlock_summoner.png","","demon, Humanoid"],
 	Demon_Spawn:
 		["Room", 3, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","demon_spawn.png","","demon"],
 	Lesser_Devil:
