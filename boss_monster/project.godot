@@ -33,7 +33,6 @@ droppable=""
 ui_layer=""
 Roomcontainer=""
 card="group that is given to cards, used in checking type of node"
-hand=""
 
 [input]
 
