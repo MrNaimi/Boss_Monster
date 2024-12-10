@@ -35,9 +35,10 @@ func _process(delta: float) -> void:
 		GlobalVariables.amount_of_heroes_alive-=1
 		GlobalVariables.amount_of_heroes_killed+=1
 		GlobalVariables.player_gold+=round(RandomNumberGenerator.new().randi_range(2, 4)*(1+0.1*GlobalVariables.infamy))
-	if get_parent().progress < 50:
-		path_direction = 1
-		flipped = false
+	if get_parent() is PathFollow2D:
+		if get_parent().progress < 50:
+			path_direction = 1
+			flipped = false
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	#GlobalVariables.heroes_move=false
