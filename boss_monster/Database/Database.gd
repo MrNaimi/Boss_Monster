@@ -4,7 +4,7 @@
 #SpellInfo =[Type, Damage, +Health, Name, Special Text, png]
 #RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png, sound, Tribe]
 
-enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library, Succubus, Vampire, Misunderstood_Ghost, Zombie_Graveyard, Stinky_Ghoul, Rolling_Golem, Killer_Robot, Angry_Slime, Fire_Elemental, Imp, Warlock_Summoner, Demon_Spawn, Lesser_Devil, Outlaw,Orc_Bodyguard,Goblin_Army, Pack_of_Wolves, Chihu, Lions_Den, Electric_Anomaly}
+enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Great_Motivation, Good_investment, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library, Succubus, Vampire, Misunderstood_Ghost, Zombie_Graveyard, Stinky_Ghoul, Rolling_Golem, Killer_Robot, Angry_Slime, Fire_Elemental, Imp, Warlock_Summoner, Demon_Spawn, Lesser_Devil, Outlaw,Orc_Bodyguard,Goblin_Army, Pack_of_Wolves, Chihu, Lions_Den, Electric_Anomaly}
 
 const DATA ={
 	#HeroInfo =[Type, Factor, Hp lower limit, Hp upper limit , Name, Role, Special Text]
@@ -37,7 +37,7 @@ const DATA ={
 
 	#Spells
 	Shrink_Ray :
-		["Spell","50%", 0, "Shrink Ray", "Reduce heros maximum HP by 5","shrink_ray.png"],
+		["Spell","50%", 0, "Shrink Ray", "Reduce heros maximum HP by 5 ","shrink_ray.png"],
 	Mind_Control :
 		["Spell",100 , 0, "Mind Control", "Targeted Hero deals damage to an adjacent hero","mind_control.png"],
 	Healing_potion :
@@ -46,7 +46,10 @@ const DATA ={
 		["Spell", 100, 0, "Assassination", "Kill a targeted hero","assassination.png"],
 	Bad_Directions :
 		["Spell", 100, 0, "Bad Directions", "Return a hero back to the start of the dungeon","bad_directions.png"],
-		
+	Good_investment:
+		["Spell",0,0, "Good Investment", "Gain double Gold for the next turn"],
+	Great_Motivation:
+		["Spell",0,0,"Great Motivation", "Your rooms deal +3 damate this round"],
 	#Rooms 
 	#RoomInfo =[Type, Damage, Name, Monster or Trap, Special Text, png, sound, Tribe]
 	Goblin_warrior : #tehty oikee art
@@ -90,7 +93,11 @@ const DATA ={
 	Fire_Elemental:
 		["Room", 2, "Fire Elemental", "Monster", "Hero takes 1 damage for every room they entered","fire_elemental.png","","construct"],
 	Imp:
+<<<<<<< Updated upstream
 		["Room", 2, "Demonic Scout", "Monster", "When a hero passes this room they take +3 dmg from “Demon” type Rooms","imp.png","","demon"],
+=======
+		["Room", 2, "Demonic Scout", "Monster", "Heroes that pass this room take +3 dmg from following “Demon” type Rooms","imp.png","","demon"],
+>>>>>>> Stashed changes
 	Warlock_Summoner:
 		["Room", 3, "Warlock Summoner", "Monster", "Your 'Demon' type rooms deal +2dmg","warlock_summoner.png","","demon, Humanoid"],
 	Demon_Spawn:
@@ -110,5 +117,10 @@ const DATA ={
 	Lions_Den:
 		["Room", 3, "Lions Den", "Monster", "Gives your beast rooms +1dmg for each beast in your dungeon","lions_den.png","","beast"],
 	Electric_Anomaly:
+<<<<<<< Updated upstream
 		["Room", 3, "Electric Anomaly", "Monster", "gives +2 dmg to your “Construct” and “Trap” Rooms","electric_anomaly.png","","construct"],
+=======
+		["Room", 2, "Electric Anomaly", "Monster", "gives +2 dmg to your “Construct” and “Trap” Rooms","electric_anomaly.png","","construct"],
+	
+>>>>>>> Stashed changes
 } 

@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 		queue_free()
 	else:
 		pass
+<<<<<<< Updated upstream
 	if placed:
 		if card_name.text=="Outlaw" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<0:
 			GlobalVariables.outlaws_in_dungeon -= 1
@@ -72,6 +73,9 @@ func _process(delta: float) -> void:
 			room_dmg_2.text = "+2"
 			paskahuussi.play("money_animation")
 
+=======
+	
+>>>>>>> Stashed changes
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 	
@@ -83,7 +87,6 @@ func _on_mouse_entered() -> void:
 	
 func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
-
 
 func _on_drop_point_detecor_area_entered(area: Area2D) -> void:
 	if not targets.has(area):
