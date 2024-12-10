@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7kr6kupyh74"
-path="res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"
+uid="uid://mg1bm27vhbta"
+path="res://.godot/imported/skeleton_ceo.png-5074eb99dd63cfe6adb3eae24c1584e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/Barbarian.png"
-dest_files=["res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/skeleton_ceo.png"
+dest_files=["res://.godot/imported/skeleton_ceo.png-5074eb99dd63cfe6adb3eae24c1584e1.ctex"]
 
 [params]
 

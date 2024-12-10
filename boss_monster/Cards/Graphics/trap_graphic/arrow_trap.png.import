@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7kr6kupyh74"
-path="res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"
+uid="uid://bd2ej3bsh176i"
+path="res://.godot/imported/arrow_trap.png-0304d2fc7120e8089a688e188116320e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/Barbarian.png"
-dest_files=["res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/arrow_trap.png"
+dest_files=["res://.godot/imported/arrow_trap.png-0304d2fc7120e8089a688e188116320e.ctex"]
 
 [params]
 

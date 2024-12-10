@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7kr6kupyh74"
-path="res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"
+uid="uid://chswsi7nfmvva"
+path="res://.godot/imported/greedy_goblin.png-d42c65a8976f6f821a64e1bc47a68a9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/Barbarian.png"
-dest_files=["res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/greedy_goblin.png"
+dest_files=["res://.godot/imported/greedy_goblin.png-d42c65a8976f6f821a64e1bc47a68a9b.ctex"]
 
 [params]
 

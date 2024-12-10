@@ -16,7 +16,7 @@ var is_dragging = false
 @onready var current_phase_text: Label = $CurrentPhaseText
 @onready var info: Label = $card_info/ColorRect/info
 @onready var card_info: Control = $card_info
-
+@onready var trap_sound: AudioStreamPlayer2D = $trap_sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,8 +27,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Z-button"):
-		if GlobalVariables.rooms_placed.size()>0:
+		if GlobalVariables.room_cards_created.size()>0:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:
 				GlobalVariables.heroes_move = true
 				print(GlobalVariables.spawned_heroes)
@@ -37,9 +36,14 @@ func _process(delta: float) -> void:
 						#path.get_child(0).can_move=true
 			first_time_continue=false
 		else:
-			print("Place a room first")
+			pass
+			#print("Place a room first")
+		if hp<=0:
+			queue_free()
+			Transition.change_scene("res://Scenes/Dungeon/game_over.tscn")
 		
-	
+
+		
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 

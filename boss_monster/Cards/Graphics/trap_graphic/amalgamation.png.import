@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7kr6kupyh74"
-path="res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"
+uid="uid://bctoyjus7bqsp"
+path="res://.godot/imported/amalgamation.png-74010e03e786a887df8a9e487a931187.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/Barbarian.png"
-dest_files=["res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/amalgamation.png"
+dest_files=["res://.godot/imported/amalgamation.png-74010e03e786a887df8a9e487a931187.ctex"]
 
 [params]
 

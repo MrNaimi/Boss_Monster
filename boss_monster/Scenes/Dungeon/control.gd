@@ -48,3 +48,15 @@ func createCards() -> void:
 
 func _on_timer_timeout() -> void:
 	shopcover.visible=false
+
+
+func _on_refresh_button_pressed() -> void:
+	if GlobalVariables.rerollCost<=GlobalVariables.player_gold:
+		GlobalVariables.player_gold-=GlobalVariables.rerollCost
+		GlobalVariables.rerollCost+=2
+		refresh_button.text = "Refresh: " + str(GlobalVariables.rerollCost) + " gold"
+		GlobalVariables.resetValues(true)
+		#GlobalVariables.created_spells-=1
+		for shop in get_child(0).get_children():
+			for card in shop.get_children():
+				card.initializeCard()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=76 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ciospukj0mwgc" path="res://Assets/Tiles/tileanimations/torchtransparent.png" id="5_1qfqf"]
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
-[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/poco/Poco.ttf" id="9_xb32f"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="9_xb32f"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/player_gold.gd" id="10_laer6"]
-[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://Fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
+[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/player_infamy.gd" id="11_tcxia"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/current_phase_text.gd" id="12_5b0qg"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://gkiwmcohcjmi" path="res://path_follow_2d.tscn" id="17_l5j6u"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/shophand.gd" id="21_htej2"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/card_info.gd" id="23_i7nix"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/trap_sound.gd" id="25_ts63x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -902,6 +903,47 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_fxdd8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.490196)]
+}
+
+[sub_resource type="Animation" id="Animation_hg1s4"]
+resource_name = "buyanimation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.490196), Color(0, 0, 0, 0), Color(0, 0, 0, 0.490196)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1850l"]
+_data = {
+"RESET": SubResource("Animation_fxdd8"),
+"buyanimation": SubResource("Animation_hg1s4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yansb"]
+size = Vector2(516, 141)
+
 [sub_resource type="Animation" id="Animation_1vnqr"]
 length = 0.001
 tracks/0/type = "value"
@@ -1021,6 +1063,10 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 210, 71, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 72, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 219, 262, 0, 0, 0, 0, 78, 262, 0, 0, 0, 0, 77, 444, 0, 0, 0, 0, 227, 443, 0, 0, 0, 0, 507, 445, 0, 0, 0, 0, 697, 440)
 }
 point_count = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxicu"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_at3vo"]
 
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_7o1lv")
@@ -1456,6 +1502,13 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 
+[node name="CardBuyArea" type="Area2D" parent="DungeonUI/Hand"]
+collision_layer = 2
+
+[node name="cardbuyareashape" type="CollisionShape2D" parent="DungeonUI/Hand/CardBuyArea"]
+position = Vector2(231, 94.5)
+shape = SubResource("RectangleShape2D_yansb")
+
 [node name="ShopUI" type="Control" parent="DungeonUI"]
 layout_mode = 3
 anchors_preset = 0
@@ -1606,6 +1659,46 @@ text = "This is going to be the card info text"
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="destroy_room" type="Button" parent="card_info/ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -30.0
+offset_right = 83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("8_l2hdd")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Destroy this room"
+autowrap_mode = 3
+
+[node name="messageTimer" type="Timer" parent="card_info"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Button" type="Button" parent="card_info"]
+layout_mode = 0
+offset_left = 713.0
+offset_top = 106.0
+offset_right = 740.0
+offset_bottom = 147.0
+theme = ExtResource("8_l2hdd")
+theme_override_colors/font_color = Color(0.4, 0, 0.00666656, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rxicu")
+text = "x"
+flat = true
+
+[node name="trap_sound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamWAV_at3vo")
+script = ExtResource("25_ts63x")
+
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/Reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Buttons/Autoplay" to="." method="_on_autoplay_pressed"]
@@ -1613,3 +1706,6 @@ autowrap_mode = 3
 [connection signal="area_entered" from="Boss/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="DungeonUI/ShopUI/shopcover/Timer" to="DungeonUI/ShopUI" method="_on_timer_timeout"]
 [connection signal="timeout" from="Heroes/Timer" to="Heroes" method="_on_timer_timeout"]
+[connection signal="pressed" from="card_info/ColorRect/destroy_room" to="card_info" method="_on_destroy_room_pressed"]
+[connection signal="timeout" from="card_info/messageTimer" to="card_info" method="_on_message_timer_timeout"]
+[connection signal="pressed" from="card_info/Button" to="card_info" method="_on_button_pressed"]

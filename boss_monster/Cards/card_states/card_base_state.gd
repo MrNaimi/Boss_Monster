@@ -35,8 +35,15 @@ func on_gui_input(event: InputEvent) -> void:
 		if GlobalVariables.card_info == card_ui.card_info && GlobalVariables.show_card:
 			GlobalVariables.show_card = false
 		else:
-			GlobalVariables.card_info = card_ui.card_info
-			GlobalVariables.show_card = true
-			print(card_ui.card_info)
+			#GlobalVariables.card_info = card_ui.card_info
+			#GlobalVariables.message(card_ui.card_info,false)
+			GlobalVariables.placed_message(card_ui.card_info,card_ui.tribe,false,null,card_ui.damage)
+			#GlobalVariables.card_info[0] = card_ui.card_info
+			#GlobalVariables.card_info[1] = card_ui.tribe
+			#print(GlobalVariables.card_info[2])
+			#GlobalVariables.card_info[2] = card_ui.room_dmg.text
+			#GlobalVariables.show_card = true
+			#GlobalVariables.destroy_room = false
+			#print(card_ui.card_info)
 		
 			

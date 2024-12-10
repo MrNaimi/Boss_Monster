@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7kr6kupyh74"
-path="res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"
+uid="uid://2msukisg0tob"
+path="res://.godot/imported/gator.png-07cf25a1c9de946ad59f9b619c8b8aee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/Barbarian.png"
-dest_files=["res://.godot/imported/Barbarian.png-00594abb6c5b03c06d1e1b604111c54c.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/gator.png"
+dest_files=["res://.godot/imported/gator.png-07cf25a1c9de946ad59f9b619c8b8aee.ctex"]
 
 [params]
 
