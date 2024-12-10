@@ -16,7 +16,8 @@ var selectedHero = []
 @onready var perseajastin: Timer = $perseajastin
 @onready var animations: AnimationPlayer = $animations
 
-var visited_demon_scout = false
+
+var visited_demon_scouts = 0
 var damageAdd = 0
 var rooms_entered = 0
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +35,7 @@ func _ready() -> void:
 	idle_animation.animation = selectedHero[4]
 	hero_class=selectedHero[4]
 	damageMult = selectedHero[1]
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:		
 	health_bar.value = hp
@@ -55,10 +57,26 @@ func _process(delta: float) -> void:
 		GlobalVariables.amount_of_heroes_killed+=1
 		if !killed_by_boss:
 			GlobalVariables.player_gold+=RandomNumberGenerator.new().randi_range(1, 4)
+		print(GlobalVariables.rooms_placed)
+		if GlobalVariables.rooms_placed.is_empty():
+			GlobalVariables.spawn_hero= true
+			GlobalVariables.spawn_room_set = true
+				
+		#for room in GlobalVariables.rooms_placed:
+			#print("perseeee")
+			#
+			#if is_instance_valid(room):
+				#break
+			#else:
+				#print("spawn hero")
+				#
+				#
 		get_parent().queue_free()
+		
 	if get_parent().progress < 50:
 		path_direction = 1
 		flipped = false
+
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	#GlobalVariables.heroes_move=false
@@ -135,24 +153,14 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Spike Trap room")
 		"Forgotten Library": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
-			if hp<room_damage*selectedHero[1] && !GlobalVariables.forgotten_library_activated:
-				GlobalVariables.forgotten_library_activated = true
-				print("lisätään kortti")
-				if get_tree().get_first_node_in_group("hand").get_child_count()<6:
-					GlobalVariables.resetValues(true)
-					GlobalVariables.created_spells-=1
-					get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
-					get_tree().get_first_node_in_group("hand").startcardmachine()
 			print("Handle Forgotten Library room")
 		"Succubus": #TEHTY
-			if visited_demon_scout:
-				room_damage+=3
+			if visited_demon_scouts>0:
+				room_damage+=3*visited_demon_scouts
 			room_damage+=GlobalVariables.DemonDmgBuff
 			if RandomNumberGenerator.new().randi_range(1,5)==5:
 				path_direction *= -1
-				flipped = true
-				
-				print("succubus room delt double damage")
+				flipped = not flipped
 			print("Handle Succubus room")
 		"Vampire":#TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff
@@ -185,31 +193,30 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		"Fire Elemental":#TEHTY
 			room_damage+=rooms_entered
 			room_damage+=GlobalVariables.ConstructDmgBuff
-			
 			print("Handle Fire Elemental room")
 		"Demonic Scout":#TEHTY, IMP
-			if visited_demon_scout:
-				room_damage+=3
-			visited_demon_scout = true
+			if visited_demon_scouts>0:
+				room_damage+=3*visited_demon_scouts
+			visited_demon_scouts +=1
 			room_damage+=GlobalVariables.DemonDmgBuff
 			print("Handle Demonic Scout room")
 		"Warlock Summoner":#TEHTY
-			if visited_demon_scout:
-				room_damage+=3
+			if visited_demon_scouts>0:
+				room_damage+=3*visited_demon_scouts
 			room_damage+=GlobalVariables.DemonDmgBuff
 			room_damage+=GlobalVariables.UndeadDmgBuff
 			print("Handle Warlock Summoner room")
 		"Demon Spawn": #TEHTY
-			if visited_demon_scout:
-				room_damage+=3
+			if visited_demon_scouts>0:
+				room_damage+=3*visited_demon_scouts
 			room_damage+=GlobalVariables.DemonDmgBuff
 			if GlobalVariables.lesser_devils_in_dungeon>0:
 				room_damage+=3
 			
 			print("Handle Demon Spawn room")
 		"Lesser Devil": #TEHTY
-			if visited_demon_scout:
-				room_damage+=3
+			if visited_demon_scouts>0:
+				room_damage+=3*visited_demon_scouts
 			room_damage+=GlobalVariables.DemonDmgBuff
 			room_damage+=floor(GlobalVariables.demon_rooms_placed)
 			print("Handle Lesser Devil room")
@@ -256,9 +263,6 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		flipped = false
 	get_child(0).damage = 0
 	#print(hp)
-	
-	
-
 func isEveryoneStopped () -> bool:
 	for path in GlobalVariables.spawned_heroes:
 		if is_instance_valid(path):

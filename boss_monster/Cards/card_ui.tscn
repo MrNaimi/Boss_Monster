@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://o33examlthtq"]
+[gd_scene load_steps=19 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
 [ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://co0imuiaeata1" path="res://Cards/Graphics/card.png" id="10_0dsxu"]
 [ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="12_6h8t8"]
+[ext_resource type="AudioStream" uid="uid://bqeb2qrgnvrqt" path="res://Assets/Sound Effects/hero_death_pit.wav" id="12_ejjis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
 size = Vector2(89, 140)
@@ -233,7 +234,8 @@ theme_override_font_sizes/font_size = 9
 text = "CardName"
 horizontal_alignment = 1
 
-[node name="trap_enter" type="AudioStreamPlayer2D" parent="."]
+[node name="trap_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_ejjis")
 
 [node name="perseajastin" type="Timer" parent="."]
 
@@ -241,6 +243,17 @@ horizontal_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_8huku")
 }
+
+[node name="ActivateButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 87.0
+offset_bottom = 31.0
+theme = ExtResource("1_8rgw7")
+theme_type_variation = &"FlatButton"
+text = "Activate"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
@@ -251,3 +264,4 @@ libraries = {
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]
 [connection signal="timeout" from="perseajastin" to="." method="_on_perseajastin_timeout"]
+[connection signal="pressed" from="ActivateButton" to="." method="_on_activate_button_pressed"]

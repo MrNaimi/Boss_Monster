@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=74 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -941,7 +941,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yansb"]
-size = Vector2(516, 165)
+size = Vector2(516, 141)
 
 [sub_resource type="Animation" id="Animation_1vnqr"]
 length = 0.001
@@ -1065,6 +1065,8 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 86, 70, 0, 0, 0, 0, 210, 71, 0, 0, 0, 0, 232, 70, 0, 0, 0, 0, 496, 72, 0, 0, 0, 0, 856, 71, 0, 0, 0, 0, 855, 167, 0, 0, 0, 0, 855, 266, 0, 0, 0, 0, 509, 263, 0, 0, 0, 0, 219, 262, 0, 0, 0, 0, 78, 262, 0, 0, 0, 0, 77, 444, 0, 0, 0, 0, 227, 443, 0, 0, 0, 0, 507, 445, 0, 0, 0, 0, 697, 440)
 }
 point_count = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxicu"]
 
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_7o1lv")
@@ -1510,7 +1512,7 @@ size_flags_horizontal = 4
 collision_layer = 2
 
 [node name="cardbuyareashape" type="CollisionShape2D" parent="DungeonUI/Hand/CardBuyArea"]
-position = Vector2(231, 82.5)
+position = Vector2(231, 94.5)
 shape = SubResource("RectangleShape2D_yansb")
 
 [node name="ShopUI" type="Control" parent="DungeonUI"]
@@ -1665,7 +1667,6 @@ curve = SubResource("Curve2D_6704g")
 one_shot = true
 
 [node name="card_info" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 42.0
@@ -1713,8 +1714,21 @@ text = "Destroy this room"
 autowrap_mode = 3
 
 [node name="messageTimer" type="Timer" parent="card_info"]
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
+
+[node name="Button" type="Button" parent="card_info"]
+layout_mode = 0
+offset_left = 713.0
+offset_top = 106.0
+offset_right = 740.0
+offset_bottom = 147.0
+theme = ExtResource("8_l2hdd")
+theme_override_colors/font_color = Color(0.4, 0, 0.00666656, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rxicu")
+text = "x"
+flat = true
 
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/Reset_button" to="." method="_on_reset_button_pressed"]
@@ -1726,3 +1740,4 @@ one_shot = true
 [connection signal="timeout" from="Heroes/Timer" to="Heroes" method="_on_timer_timeout"]
 [connection signal="pressed" from="card_info/ColorRect/destroy_room" to="card_info" method="_on_destroy_room_pressed"]
 [connection signal="timeout" from="card_info/messageTimer" to="card_info" method="_on_message_timer_timeout"]
+[connection signal="pressed" from="card_info/Button" to="card_info" method="_on_button_pressed"]

@@ -31,6 +31,7 @@ theme_override_font_sizes/font_size = 150
 text = "GAME OVER"
 
 [node name="RetryButton" type="Button" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

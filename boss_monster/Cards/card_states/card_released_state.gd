@@ -15,6 +15,7 @@ func enter() -> void:
 
 		elif not card_ui.targets.is_empty() && card_ui.targets[0].name != "CardBuyArea":
 			if card_ui.targets[0].get_child(0).get_child(0).get_child_count() == 0:
+				GlobalVariables.rooms_placed.append(card_ui)
 				GlobalVariables.actionsLeft-=1
 				GlobalVariables.trap_placed=true
 				GlobalVariables.card_dragging=false
@@ -37,7 +38,7 @@ func enter() -> void:
 					if is_instance_valid(room):
 						room.spawn_room=false
 				GlobalVariables.spawn_room_set=false
-								
+				
 				#print(GlobalVariables.ConstructDmgBuff)
 				#print(GlobalVariables.BeastDmgBuff)
 				#print(GlobalVariables.HumanoidDmgBuff)

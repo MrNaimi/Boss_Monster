@@ -27,6 +27,7 @@ var room_cards_created: Array[Control] = []
 var spawned_heroes: Array[PathFollow2D] = []
 var rooms_placed: Array[Control] = []
 var cardData = []
+
 var card_info = ["a","b","c"]
 var room_to_be_destroyed
 
@@ -133,19 +134,21 @@ func placed_message(msg,tribe,card_placed,node,room_dmg) -> void:
 	card_info[2]= room_dmg
 	message(msg, true)
 	room_to_be_destroyed=node
-	if currentPhase=="build":
-		destroy_room = true
-	else:
-		destroy_room = false
+	if card_placed && node != null:
+		if currentPhase=="build":
+			destroy_room = true
+		else:
+			destroy_room = false
+			
 func printDmgBuffs() -> void:
 	print("Damage Buffs:")
-	print("Trap Damage: ", TrapDmgBuff)
-	print("Undead Damage: ", UndeadDmgBuff)
-	print("Demon Damage: ", DemonDmgBuff)
-	print("Humanoid Damage: ", HumanoidDmgBuff)
-	print("Beast Damage: ", BeastDmgBuff)
-	print("Construct Damage: ", ConstructDmgBuff)
-	print("Spike Trap Damage: ", SpikeTrapDmgBuff)
+	#print("Trap Damage: ", TrapDmgBuff)
+	#print("Undead Damage: ", UndeadDmgBuff)
+	#print("Demon Damage: ", DemonDmgBuff)
+	#print("Humanoid Damage: ", HumanoidDmgBuff)
+	#print("Beast Damage: ", BeastDmgBuff)
+	#print("Construct Damage: ", ConstructDmgBuff)
+	#print("Spike Trap Damage: ", SpikeTrapDmgBuff)
 
 
 func reset_defaults() -> void:

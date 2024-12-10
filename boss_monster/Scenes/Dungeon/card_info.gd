@@ -15,13 +15,19 @@ func _process(delta: float) -> void:
 				timer_started=true
 			info.text = GlobalVariables.card_info[0]
 		else:
+			if !timer_started:
+				message_timer.wait_time = 10
+				message_timer.start()
+				timer_started = true
+			
 			info.text = GlobalVariables.card_info[0] + "\n" + "Type: " + GlobalVariables.card_info[1][0].to_upper()+GlobalVariables.card_info[1].substr(1,-1)+ "\n" + "Base damage: " + str(GlobalVariables.card_info[2])
 		visible = true
 	else:
 		visible = false
+		
 	if GlobalVariables.destroy_room:
 		destroy_room.visible=true
-		message_timer.wait_time=3.0
+		message_timer.wait_time=10
 		if !timer_started:
 			message_timer.start()
 			timer_started=true
@@ -32,7 +38,7 @@ func _on_message_timer_timeout() -> void:
 	GlobalVariables.show_card = false
 	timer_started=false
 	GlobalVariables.message_sent=false
-	message_timer.wait_time=1.5
+	message_timer.wait_time=10
 
 func _on_destroy_room_pressed() -> void:
 	GlobalVariables.rooms_destroyed += 1
@@ -96,4 +102,9 @@ func _on_destroy_room_pressed() -> void:
 	GlobalVariables.show_card = false
 	GlobalVariables.room_to_be_destroyed = null
 	GlobalVariables.destroy_room=false
-	
+
+		
+
+
+func _on_button_pressed() -> void:
+	GlobalVariables.show_card = false

@@ -25,7 +25,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-		if GlobalVariables.rooms_placed.size()>0:
+		if GlobalVariables.room_cards_created.size()>0:
 			if GlobalVariables.is_everyone_stopped() or first_time_continue:
 				GlobalVariables.heroes_move = true
 				#print(GlobalVariables.spawned_heroes)

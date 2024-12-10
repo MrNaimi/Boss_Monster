@@ -52,7 +52,7 @@ const DATA ={
 	Goblin_warrior : #tehty oikee art
 		["Room", 3, "Goblin Warrior", "Monster", "The Goblin Warrior has a 1 in 4 chance to get extra +2 gold from killed Heroes (does not stack with itself)", "goblin_warrior.png","goblin_warrior.wav","humanoid"],
 	Gas_Leak : #tehty oikee art
-		["Room", 2, "Gas Leak", "Trap", "Deals 2 damage to all heroes every time a hero exits this trap", "gas_leak.png","","trap"],
+		["Room", 2, "Gas Leak", "Trap", "Deals 2 damage to all heroes every time a hero exits this trap", "gas_leak.png","trap_gas_leak.wav","trap"],
 	Mimic :#tehty oikee art
 		["Room", 3, "Mimic", "Trap", "If you kill a hero in this room, gain +3 gold", "mimic.png","mimic.wav","trap"],
 	The_Vault_Room : #tehty 
@@ -60,7 +60,7 @@ const DATA ={
 	Spike_Factory :#tehty
 		["Room", 4, "Spike Factory","Monster","Your “Spike Traps” deal +3dmg (not currently implemented)", "spike_factory.png","", "construct"],
 	Hot_Coals: #tehty oikee art
-		["Room", 4, "Hot Coals","Trap","The heroes take damage from the coals...\n...because they are hot", "hot_coals.png","","trap"],
+		["Room", 4, "Hot Coals","Trap","The heroes take damage from the coals...\n...because they are hot", "hot_coals.png","malfunctioning_sauna.wav","trap"],
 	Monster_Lounge: #tehty
 		["Room", 3, "Skeleton Lounge", "Monster", "Destroying this room gives +2 undead damage", "monster_lounge.png","","undead"],
 	The_Dragon_Lair: #tehty
@@ -70,7 +70,7 @@ const DATA ={
 	Spike_Trap : #tehty oikee art
 		["Room", 3, "Spike Trap", "Trap", "Deal 6 damage to the hero in this room (not currently implemented)","spikes.png","trap_spikes.wav","trap"],
 	Forgotten_Library:
-		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card", "forgotten_library.png","","trap"],
+		["Room",3, "Forgotten Library", "Trap","Once in a turn when a hero dies in this room, get a spell card", "forgotten_library.png","forgotten_library.wav","trap"],
 	Succubus : #tehty oikee art
 		["Room", 3, "Succubus", "Monster", "Has 1 in 5 chance to charm the hero, sending him back to the start of the dungeon","succubus.png","","demon"],
 	Vampire : #tehty oikee art
