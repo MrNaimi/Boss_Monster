@@ -6,6 +6,7 @@ extends Control
 @onready var shopcover: ColorRect = $shopcover
 @onready var shopanimation: AnimationPlayer = $shopcover/shopanimation
 @onready var timer: Timer = $shopcover/Timer
+@onready var shophand: ShopHand = $shophand
 
 
 var shoplimit = 2
@@ -24,10 +25,11 @@ func _process(delta: float) -> void:
 			shopanimation.play("shophide")
 			GlobalVariables.playshopanim = false
 			timer.start()
-		if (GlobalVariables.card_dragging or GlobalVariables.spell_dragging):
+		if (GlobalVariables.card_dragging):
 			sell_area.visible=true
 			refresh_button.visible=false
 			sellanimation.play("sellanimation")
+			
 		else:
 			sell_area.visible=false
 			refresh_button.visible=true
@@ -36,15 +38,30 @@ func _process(delta: float) -> void:
 			shopcover.visible=true
 			shopanimation.play("shopshow")
 			GlobalVariables.playshopanim = false
+	refresh_button.text = "Refresh: " + str(GlobalVariables.rerollCost) + " gold"
 			
 func createCards() -> void:
 	for child in get_child(0).get_children():
-		if child.is_class("HBoxContainer"):
+		print(child.get_child_count())
+		if child.is_class("HBoxContainer") && child.get_child_count()<shoplimit:
+			print("yritetään luoda kortteja kortteja")
 			for index in range(shoplimit):
-				child.add_child(card.instantiate())
-			
-			
+				if child.get_child_count()<2:
+					child.add_child(card.instantiate())
+				
+	shophand.start_state_machine()
 
 
 func _on_timer_timeout() -> void:
 	shopcover.visible=false
+
+
+func _on_refresh_button_pressed() -> void:
+	if GlobalVariables.rerollCost<=GlobalVariables.player_gold:
+		GlobalVariables.player_gold-=GlobalVariables.rerollCost
+		GlobalVariables.rerollCost+=2
+		refresh_button.text = "Refresh: " + str(GlobalVariables.rerollCost) + " gold"
+		GlobalVariables.resetValues(true)
+		for shop in get_child(0).get_children():
+			for card in shop.get_children():
+				card.initializeCard()

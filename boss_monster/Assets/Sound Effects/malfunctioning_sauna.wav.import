@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c3jum3ednty6j"
+path="res://.godot/imported/malfunctioning_sauna.wav-1658eb319776bdb20c83a1812738e747.sample"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/malfunctioning_sauna.wav"
+dest_files=["res://.godot/imported/malfunctioning_sauna.wav-1658eb319776bdb20c83a1812738e747.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

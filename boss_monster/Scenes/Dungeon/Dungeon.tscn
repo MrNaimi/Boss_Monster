@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=73 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -902,6 +902,47 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_fxdd8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.490196)]
+}
+
+[sub_resource type="Animation" id="Animation_hg1s4"]
+resource_name = "buyanimation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.490196), Color(0, 0, 0, 0), Color(0, 0, 0, 0.490196)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1850l"]
+_data = {
+"RESET": SubResource("Animation_fxdd8"),
+"buyanimation": SubResource("Animation_hg1s4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yansb"]
+size = Vector2(516, 165)
+
 [sub_resource type="Animation" id="Animation_1vnqr"]
 length = 0.001
 tracks/0/type = "value"
@@ -963,6 +1004,9 @@ _data = {
 "RESET": SubResource("Animation_1vnqr"),
 "sellanimation": SubResource("Animation_tfvl3")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljcgq"]
+size = Vector2(249.5, 67)
 
 [sub_resource type="Animation" id="Animation_ksl61"]
 length = 0.001
@@ -1405,6 +1449,7 @@ position = Vector2(-432.894, -18.1955)
 position = Vector2(-217.191, -19.0226)
 
 [node name="DungeonUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+follow_viewport_enabled = true
 
 [node name="hand" type="ColorRect" parent="DungeonUI"]
 offset_left = 47.0
@@ -1413,6 +1458,11 @@ offset_right = 565.0
 offset_bottom = 686.0
 color = Color(0, 0, 0, 0.490196)
 
+[node name="buyanimation" type="AnimationPlayer" parent="DungeonUI/hand"]
+libraries = {
+"": SubResource("AnimationLibrary_1850l")
+}
+
 [node name="hand2" type="ColorRect" parent="DungeonUI"]
 offset_left = 957.0
 offset_top = 61.0
@@ -1420,16 +1470,16 @@ offset_right = 1219.0
 offset_bottom = 483.0
 color = Color(0, 0, 0, 0.490196)
 
-[node name="Hand" type="HBoxContainer" parent="DungeonUI"]
+[node name="Hand" type="HBoxContainer" parent="DungeonUI" groups=["hand"]]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -570.0
-offset_top = -191.0
-offset_right = -104.0
-offset_bottom = -51.0
+offset_left = -566.0
+offset_top = -198.0
+offset_right = -100.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 4
@@ -1456,6 +1506,13 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 
+[node name="CardBuyArea" type="Area2D" parent="DungeonUI/Hand"]
+collision_layer = 2
+
+[node name="cardbuyareashape" type="CollisionShape2D" parent="DungeonUI/Hand/CardBuyArea"]
+position = Vector2(231, 82.5)
+shape = SubResource("RectangleShape2D_yansb")
+
 [node name="ShopUI" type="Control" parent="DungeonUI"]
 layout_mode = 3
 anchors_preset = 0
@@ -1476,10 +1533,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 974.0
-offset_top = 70.0
-offset_right = 1221.0
-offset_bottom = 169.0
+offset_left = 973.0
+offset_top = 50.0
+offset_right = 1220.0
+offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1494,9 +1551,9 @@ size_flags_horizontal = 4
 [node name="Shop2" type="HBoxContainer" parent="DungeonUI/ShopUI/shophand"]
 layout_mode = 0
 offset_left = 993.0
-offset_top = 222.0
+offset_top = 239.0
 offset_right = 1240.0
-offset_bottom = 321.0
+offset_bottom = 379.0
 
 [node name="CardUI6" parent="DungeonUI/ShopUI/shophand/Shop2" instance=ExtResource("16_1bnnc")]
 layout_mode = 2
@@ -1516,15 +1573,16 @@ offset_bottom = 473.0
 
 [node name="SellArea" type="ColorRect" parent="DungeonUI/ShopUI/SellArea"]
 layout_mode = 0
-offset_right = 241.0
+offset_top = 31.0
+offset_right = 247.0
 offset_bottom = 95.0
 color = Color(0, 0, 0, 0)
 
 [node name="SellArea" type="Label" parent="DungeonUI/ShopUI/SellArea/SellArea"]
 layout_mode = 0
-offset_top = 3.0
+offset_top = -12.0
 offset_right = 240.0
-offset_bottom = 82.0
+offset_bottom = 67.0
 theme = ExtResource("8_l2hdd")
 theme_override_colors/font_color = Color(1, 1, 1, 0)
 theme_override_font_sizes/font_size = 30
@@ -1537,16 +1595,23 @@ libraries = {
 "": SubResource("AnimationLibrary_rh28a")
 }
 
+[node name="sellAreasize" type="Area2D" parent="DungeonUI/ShopUI/SellArea"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonUI/ShopUI/SellArea/sellAreasize"]
+position = Vector2(123.25, 66.5)
+shape = SubResource("RectangleShape2D_ljcgq")
+
 [node name="RefreshButton" type="Button" parent="DungeonUI/ShopUI"]
 layout_mode = 0
 offset_left = 964.0
-offset_top = 373.0
+offset_top = 407.0
 offset_right = 1214.0
 offset_bottom = 475.0
 theme = ExtResource("8_l2hdd")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
-text = "Refresh Shop"
+text = "Refresh: 1 gold"
 
 [node name="shopcover" type="ColorRect" parent="DungeonUI/ShopUI"]
 visible = false
@@ -1565,6 +1630,28 @@ libraries = {
 [node name="Timer" type="Timer" parent="DungeonUI/ShopUI/shopcover"]
 one_shot = true
 
+[node name="Label" type="Label" parent="DungeonUI/ShopUI"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 43.0
+offset_right = 1232.0
+offset_bottom = 66.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="DungeonUI/ShopUI"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 503.0
+offset_right = 580.0
+offset_bottom = 526.0
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Inventory"
+horizontal_alignment = 1
+
 [node name="Heroes" type="Node2D" parent="."]
 script = ExtResource("13_7qnxi")
 speed = 300
@@ -1578,12 +1665,13 @@ curve = SubResource("Curve2D_6704g")
 one_shot = true
 
 [node name="card_info" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 47.0
-offset_top = -2.0
-offset_right = 87.0
-offset_bottom = 38.0
+offset_left = 42.0
+offset_top = 51.0
+offset_right = 82.0
+offset_bottom = 91.0
 script = ExtResource("23_i7nix")
 
 [node name="ColorRect" type="ColorRect" parent="card_info"]
@@ -1603,13 +1691,38 @@ offset_bottom = 166.0
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 30
 text = "This is going to be the card info text"
-horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="destroy_room" type="Button" parent="card_info/ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -30.0
+offset_right = 83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("8_l2hdd")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Destroy this room"
+autowrap_mode = 3
+
+[node name="messageTimer" type="Timer" parent="card_info"]
+wait_time = 1.5
+one_shot = true
 
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/Reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Buttons/Autoplay" to="." method="_on_autoplay_pressed"]
 [connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
 [connection signal="area_entered" from="Boss/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="pressed" from="DungeonUI/ShopUI/RefreshButton" to="DungeonUI/ShopUI" method="_on_refresh_button_pressed"]
 [connection signal="timeout" from="DungeonUI/ShopUI/shopcover/Timer" to="DungeonUI/ShopUI" method="_on_timer_timeout"]
 [connection signal="timeout" from="Heroes/Timer" to="Heroes" method="_on_timer_timeout"]
+[connection signal="pressed" from="card_info/ColorRect/destroy_room" to="card_info" method="_on_destroy_room_pressed"]
+[connection signal="timeout" from="card_info/messageTimer" to="card_info" method="_on_message_timer_timeout"]
