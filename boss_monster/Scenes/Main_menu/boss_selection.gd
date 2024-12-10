@@ -12,4 +12,10 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	$Demon.visibility_layer = 0
+	$Button.visibility_layer = 0
+	$Lore.visibility_layer = 1
+	$Timer.start(2)
+
+func _on_timer_timeout():
 	Transition.change_scene("res://Scenes/Dungeon/Dungeon.tscn")
