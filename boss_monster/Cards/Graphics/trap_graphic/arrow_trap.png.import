@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl77t51d27xoj"
-path="res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"
+uid="uid://d15ivadawyf7l"
+path="res://.godot/imported/arrow_trap.png-0304d2fc7120e8089a688e188116320e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/mage.png"
-dest_files=["res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/arrow_trap.png"
+dest_files=["res://.godot/imported/arrow_trap.png-0304d2fc7120e8089a688e188116320e.ctex"]
 
 [params]
 
