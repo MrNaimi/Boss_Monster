@@ -101,14 +101,89 @@ func initializeCard() -> void:
 		drop_point_detecor.set_collision_mask_value(4, true)
 		drop_point_detecor.set_collision_layer_value(3, false)
 	else:
-		trap_texture.texture=load(texturepath+selectedRoom[5])
-		card_texture.texture=load(texturepath+selectedRoom[5])
-		card_name.text = selectedRoom[2]
-		room_type.text = selectedRoom[3][0]
-		room_dmg.text = str(selectedRoom[1]*floor(1+0.1*GlobalVariables.infamy))
-		damage = int(room_dmg.text)
-		card_info = (selectedRoom[4])
-		GlobalVariables.rooms_placed.append(self)
-		#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
-	if get_parent().get_parent().get_parent().name == "ShopUI":
-		shop_card=true
+		if selectedRoom != null:
+			trap_texture.texture=load(texturepath+selectedRoom[5])
+			card_texture.texture=load(texturepath+selectedRoom[5])
+			card_name.text = selectedRoom[2]
+			room_type.text = selectedRoom[3][0]
+			room_dmg.text = str(selectedRoom[1]+floor(0.10*GlobalVariables.infamy))
+			damage = int(room_dmg.text)
+			card_info = (selectedRoom[4])
+			tribe = selectedRoom[7]
+			GlobalVariables.room_cards_created.append(self)
+			sound = selectedRoom[6]
+			#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
+
+
+
+func _on_perseajastin_timeout() -> void:
+	room_dmg_2.visible=false
+	
+	
+
+func _on_activate_button_pressed() -> void:
+	
+	var heroes = []
+	for item in GlobalVariables.spawned_heroes:
+		if is_instance_valid(item):
+			heroes.append(item.get_child(0))
+			
+	#tässä määritetään damagea varten tarvittavat arvot.
+	var hero = entered_hero.get_parent().get_parent()
+	var hp = hero.hp
+	var selectedHero = hero.selectedHero
+	var dmg = damage
+	GlobalVariables.soundpath = sound
+	GlobalVariables.play_trap_sound=true
+	if !trap_activated:
+		match card_name.text:
+			"Gas Leak":
+				for person in heroes:
+					person.hp-=5
+					person.poison_damage.text = "-5"
+					person.animations.play("poison_damage")
+			"Mimic":
+				hero.hp-=GlobalVariables.player_gold
+				room_dmg_2.text = GlobalVariables.player_gold
+				paskahuussi.play("damagetext")
+			"The Vault Room":
+				if GlobalVariables.player_gold>=15:
+					hero.hp=0
+					GlobalVariables.player_gold-=15
+					room_dmg_2.text = str(9999)
+					paskahuussi.play("damagetext")
+			"Hot Coals":
+				print("Hot Coals: The heroes take damage from the coals... because they are hot.")
+				hero.damageAdd += 3
+			"Pit Fall":
+				room_dmg_2.text = str(9999)
+				hero.hp = 0
+				visible = false
+				paskahuussi.play("damagetext")
+			"Spike Trap":
+				# Add specific game logic here
+				dmg = 10 + GlobalVariables.TrapDmgBuff
+				
+				paskahuussi.play("damagetext")
+			"Forgotten Library":
+				damage = 5 + GlobalVariables.TrapDmgBuff
+				if hp<=damage*selectedHero[1]:
+					print("lisätään kortti")
+					if get_tree().get_first_node_in_group("hand").get_child_count()<6:
+						GlobalVariables.resetValues(true)
+						GlobalVariables.created_spells-=1
+						get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
+						get_tree().get_first_node_in_group("hand").startcardmachine()
+					#print("Forgotten Library: Once in a turn when a hero dies in this room, get a spell card.")
+				# Add specific game logic here
+			_:
+				print("Unknown trap room:", card_name)
+					
+		hero.hp-=dmg*selectedHero[1]
+		activate_button.visible = false
+		trap_activated = true
+		
+		#if GlobalVariables.is_everyone_stopped():
+			#GlobalVariables.heroes_move=true
+
+			
