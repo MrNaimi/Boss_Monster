@@ -1,10 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3nxpkvi80uua"]
+[gd_scene load_steps=4 format=3 uid="uid://b3nxpkvi80uua"]
 
 [ext_resource type="Texture2D" uid="uid://cw7mihwj87uyp" path="res://Scenes/Town/townScene.png" id="1_ndlgx"]
+[ext_resource type="Script" path="res://Scenes/Town/town.gd" id="1_s10b2"]
+[ext_resource type="PackedScene" uid="uid://dhnpite2foeeu" path="res://hero.tscn" id="3_ptg7o"]
 
 [node name="town" type="Node2D"]
+script = ExtResource("1_s10b2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1283.0
+offset_bottom = 721.0
+color = Color(0, 0, 0, 1)
 
 [node name="kyla" type="Sprite2D" parent="."]
 position = Vector2(640, 352)
 scale = Vector2(6.4, 7.41667)
 texture = ExtResource("1_ndlgx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hero1" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
+position = Vector2(276, 452)
+scale = Vector2(4, 4)
+
+[node name="Hero2" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
+position = Vector2(414, 452)
+scale = Vector2(4, 4)
+
+[node name="Hero3" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
+position = Vector2(560, 451)
+scale = Vector2(4, 4)
+
+[node name="Hero4" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
+position = Vector2(698, 452)
+scale = Vector2(4, 4)
+
+[node name="Hero5" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
+position = Vector2(836, 452)
+scale = Vector2(4, 4)
+
+[node name="Hero6" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
+position = Vector2(964, 452)
+scale = Vector2(4, 4)
+
+[node name="Hero7" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
+position = Vector2(1093, 452)
+scale = Vector2(4, 4)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+offset_left = 1058.0
+offset_top = 557.0
+offset_right = 1277.0
+offset_bottom = 625.0

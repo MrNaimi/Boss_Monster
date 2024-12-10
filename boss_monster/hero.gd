@@ -72,10 +72,10 @@ func _process(delta: float) -> void:
 				#
 				#
 		get_parent().queue_free()
-		
-	if get_parent().progress < 50:
-		path_direction = 1
-		flipped = false
+	if get_parent() is PathFollow2D:
+		if get_parent().progress < 50:
+			path_direction = 1
+			flipped = false
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
