@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0wwo6jfs4mhg"]
 
 [ext_resource type="Script" path="res://Scenes/Main_menu/main_menu.gd" id="1_dfxk5"]
-[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/poco/Poco.ttf" id="2_3dran"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="2_3dran"]
 [ext_resource type="Texture2D" uid="uid://byio4qa7trwyr" path="res://mainmenu.png" id="2_hs86e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ff875"]
