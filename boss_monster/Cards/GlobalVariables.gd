@@ -54,6 +54,8 @@ var message_sent = false
 var message_data = ""
 var destroy_room = false
 var values_changed = false
+var play_trap_sound = false
+var soundpath = ""
 
 var goblin_warrior_active = false
 var forgotten_library_activated = false
@@ -70,6 +72,7 @@ var goblin_warrior_animation = false
 var round_counter = 0
 var outlaw_animation = false
 var orc_bodyguard_animation = false
+
 var goblin_warriors_in_dungeon = 0
 var goblin_armies_in_dungeon = 0
 #Card damage buffs

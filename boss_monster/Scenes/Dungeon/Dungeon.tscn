@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=76 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ciospukj0mwgc" path="res://Assets/Tiles/tileanimations/torchtransparent.png" id="5_1qfqf"]
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
-[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/poco/Poco.ttf" id="9_xb32f"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="9_xb32f"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/player_gold.gd" id="10_laer6"]
-[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://Fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
+[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/player_infamy.gd" id="11_tcxia"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/current_phase_text.gd" id="12_5b0qg"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://gkiwmcohcjmi" path="res://path_follow_2d.tscn" id="17_l5j6u"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/shophand.gd" id="21_htej2"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/card_info.gd" id="23_i7nix"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/trap_sound.gd" id="25_ts63x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -1068,6 +1069,8 @@ point_count = 14
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxicu"]
 
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_at3vo"]
+
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_7o1lv")
 
@@ -1729,6 +1732,10 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rxicu")
 text = "x"
 flat = true
+
+[node name="trap_sound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamWAV_at3vo")
+script = ExtResource("25_ts63x")
 
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/Reset_button" to="." method="_on_reset_button_pressed"]

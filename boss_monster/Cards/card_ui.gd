@@ -34,8 +34,7 @@ signal reset_card()
 @onready var activate_button: Button = $ActivateButton
 @onready var trap_activated = false
 @onready var entered_hero = null
-@onready var trap_sound: AudioStreamPlayer2D = $trap_sound
-
+var sound = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -165,8 +164,8 @@ func initializeCard() -> void:
 			damage = int(room_dmg.text)
 			card_info = (selectedRoom[4])
 			tribe = selectedRoom[7]
-			trap_sound.stream = load("res://Assets/Sound Effects/"+selectedRoom[6])
 			GlobalVariables.room_cards_created.append(self)
+			sound = selectedRoom[6]
 			#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
 
 
@@ -181,7 +180,8 @@ func _on_activate_button_pressed() -> void:
 	var hero = entered_hero.get_parent().get_parent()
 	var hp = hero.hp
 	var selectedHero = hero.selectedHero
-	trap_sound.play()
+	GlobalVariables.soundpath = sound
+	GlobalVariables.play_trap_sound=true
 	if !trap_activated:
 		match card_name.text:
 			"Gas Leak":

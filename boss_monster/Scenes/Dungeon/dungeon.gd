@@ -16,6 +16,8 @@ var is_dragging = false
 @onready var current_phase_text: Label = $CurrentPhaseText
 @onready var info: Label = $card_info/ColorRect/info
 @onready var card_info: Control = $card_info
+@onready var trap_sound: AudioStreamPlayer2D = $trap_sound
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(GlobalVariables.rooms)
@@ -39,6 +41,9 @@ func _process(delta: float) -> void:
 		if hp<=0:
 			queue_free()
 			Transition.change_scene("res://Scenes/Dungeon/game_over.tscn")
+		
+
+		
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 
