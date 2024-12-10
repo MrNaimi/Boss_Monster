@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl77t51d27xoj"
-path="res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"
+uid="uid://deieexjo7k2e1"
+path="res://.godot/imported/repair_bot.png-fd32d275c3e2e3d2114199e199809b38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/mage.png"
-dest_files=["res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/repair_bot.png"
+dest_files=["res://.godot/imported/repair_bot.png-fd32d275c3e2e3d2114199e199809b38.ctex"]
 
 [params]
 

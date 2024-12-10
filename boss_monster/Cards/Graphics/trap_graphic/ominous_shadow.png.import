@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl77t51d27xoj"
-path="res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"
+uid="uid://d4l2jm54x1wuo"
+path="res://.godot/imported/ominous_shadow.png-090c21b4598119b91968b4887b590550.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/mage.png"
-dest_files=["res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/ominous_shadow.png"
+dest_files=["res://.godot/imported/ominous_shadow.png-090c21b4598119b91968b4887b590550.ctex"]
 
 [params]
 

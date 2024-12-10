@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl77t51d27xoj"
-path="res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"
+uid="uid://n06yonopls6s"
+path="res://.godot/imported/gator.png-07cf25a1c9de946ad59f9b619c8b8aee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Heroes/mage.png"
-dest_files=["res://.godot/imported/mage.png-c327111b516df08761e810fbee617ddb.ctex"]
+source_file="res://Cards/Graphics/trap_graphic/gator.png"
+dest_files=["res://.godot/imported/gator.png-07cf25a1c9de946ad59f9b619c8b8aee.ctex"]
 
 [params]
 
