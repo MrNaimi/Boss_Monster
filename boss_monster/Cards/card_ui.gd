@@ -167,7 +167,8 @@ func initializeCard() -> void:
 			GlobalVariables.room_cards_created.append(self)
 			sound = selectedRoom[6]
 			#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
-
+		if get_parent().get_parent().get_parent().name == "ShopUI":
+			shop_card=true
 
 
 func _on_perseajastin_timeout() -> void:
@@ -176,35 +177,49 @@ func _on_perseajastin_timeout() -> void:
 	
 
 func _on_activate_button_pressed() -> void:
+	
+	var heroes = []
+	for item in GlobalVariables.spawned_heroes:
+		if is_instance_valid(item):
+			heroes.append(item.get_child(0))
+			
 	#tässä määritetään damagea varten tarvittavat arvot.
 	var hero = entered_hero.get_parent().get_parent()
 	var hp = hero.hp
 	var selectedHero = hero.selectedHero
+	var dmg = damage
 	GlobalVariables.soundpath = sound
 	GlobalVariables.play_trap_sound=true
 	if !trap_activated:
 		match card_name.text:
 			"Gas Leak":
-				print("Gas Leak: Deals 2 damage to all heroes every time a hero exits this trap.")
-				# Add specific game logic here
+				for person in heroes:
+					person.hp-=5
+					person.poison_damage.text = "-5"
+					person.animations.play("poison_damage")
 			"Mimic":
-				print("Mimic: If you kill a hero in this room, gain +3 gold.")
-				# Add specific game logic here
+				hero.hp-=GlobalVariables.player_gold
+				room_dmg_2.text = str(GlobalVariables.player_gold)
+				paskahuussi.play("damagetext")
 			"The Vault Room":
-				print("The Vault Room: Consume 5 gold to kill a hero in this room (not currently implemented).")
-				# Add specific game logic here
+				if GlobalVariables.player_gold>=15:
+					hero.hp=0
+					GlobalVariables.player_gold-=15
+					room_dmg_2.text = str(9999)
+					paskahuussi.play("damagetext")
 			"Hot Coals":
 				print("Hot Coals: The heroes take damage from the coals... because they are hot.")
-				# Add specific game logic here
+				hero.damageAdd += 3
 			"Pit Fall":
-				print("Pit Fall: Kill the hero in this room (not currently implemented).")
+				room_dmg_2.text = str(9999)
 				hero.hp = 0
-				
 				visible = false
+				paskahuussi.play("damagetext")
 			"Spike Trap":
-				print("Spike Trap: Deal 6 damage to the hero in this room (not currently implemented).")
 				# Add specific game logic here
-				damage = 10 + GlobalVariables.TrapDmgBuff
+				dmg = 10 + GlobalVariables.TrapDmgBuff
+				
+				paskahuussi.play("damagetext")
 			"Forgotten Library":
 				damage = 5 + GlobalVariables.TrapDmgBuff
 				if hp<=damage*selectedHero[1]:
@@ -219,11 +234,9 @@ func _on_activate_button_pressed() -> void:
 			_:
 				print("Unknown trap room:", card_name)
 					
-		hero.hp-=damage*selectedHero[1]
+		hero.hp-=dmg*selectedHero[1]
 		activate_button.visible = false
 		trap_activated = true
 		
 		#if GlobalVariables.is_everyone_stopped():
 			#GlobalVariables.heroes_move=true
-
-			

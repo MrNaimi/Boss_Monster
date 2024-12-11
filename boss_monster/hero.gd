@@ -15,7 +15,7 @@ var selectedHero = []
 @onready var card: PackedScene = preload("res://Cards/card_ui.tscn")
 @onready var perseajastin: Timer = $perseajastin
 @onready var animations: AnimationPlayer = $animations
-
+@onready var poison_damage: Label = $PoisonDamage
 
 var visited_demon_scouts = 0
 var damageAdd = 0
@@ -119,6 +119,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			room_damage+=GlobalVariables.TrapDmgBuff
 			for hero in heroes:
 				hero.hp -= floor(2+GlobalVariables.TrapDmgBuff*0.34)*hero.damageMult
+				hero.poison_damage.text = "-2"
 				hero.animations.play("poison_damage")
 			print("Handle Gas Leak room")
 		"Mimic": #TEHTY
