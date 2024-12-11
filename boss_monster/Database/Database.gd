@@ -58,7 +58,7 @@ const DATA ={
 	The_Vault_Room : #tehty 
 		["Room", 3, "The Vault Room","Trap", "Activate this trap to consume 5 gold and kill a hero in this room (not currently implemented)", "vault_room.png","vault.wav","trap"],
 	Spike_Factory :#tehty
-		["Room", 4, "Spike Factory","Monster","Your “Spike Traps” deal +3dmg (not currently implemented)", "spike_factory.png","", "construct"],
+		["Room", 4, "Spike Factory","Monster","Your “Spike Traps” deal +3dmg", "spike_factory.png","", "construct"],
 	Hot_Coals: #tehty oikee art
 		["Room", 4, "Hot Coals","Trap","Activate this trap to burn the hero, dealing 3 damage for every room they enter", "hot_coals.png","","trap"],
 	Monster_Lounge: #tehty

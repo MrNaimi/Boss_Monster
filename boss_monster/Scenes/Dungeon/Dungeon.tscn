@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=77 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://Scenes/Dungeon/shophand.gd" id="21_htej2"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/card_info.gd" id="23_i7nix"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/trap_sound.gd" id="25_ts63x"]
+[ext_resource type="Script" path="res://Scenes/Dungeon/stat_window.gd" id="26_5uaum"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -1736,6 +1737,218 @@ flat = true
 [node name="trap_sound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamWAV_at3vo")
 script = ExtResource("25_ts63x")
+
+[node name="Stat window" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1047.0
+offset_top = 539.0
+offset_right = 1047.0
+offset_bottom = 539.0
+script = ExtResource("26_5uaum")
+
+[node name="ColorRect" type="ColorRect" parent="Stat window"]
+layout_mode = 0
+offset_right = 225.0
+offset_bottom = 176.0
+color = Color(0, 0, 0, 0.494118)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Stat window"]
+offset_right = 224.0
+offset_bottom = 174.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Stat window/ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stat window/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Damage buffs" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Damage buffs:"
+
+[node name="Label2" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Trap:"
+
+[node name="Label3" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Undead:"
+
+[node name="Label4" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Demon:"
+
+[node name="Label5" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Construct:"
+
+[node name="Label6" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Humanoid:"
+
+[node name="Label7" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Spike:"
+
+[node name="Label8" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Other stats:"
+
+[node name="Label12" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Rooms placed:"
+
+[node name="Label9" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Rooms destroyed:"
+
+[node name="Label10" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Heroes killed:"
+
+[node name="Label11" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Damage done:"
+
+[node name="Label13" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Trap activations:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Stat window/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="emptyLabel" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+
+[node name="TrapDmgBuff" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+
+[node name="UndeadDmgBuff" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+
+[node name="DemonDmgBuff" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+
+[node name="ConstructDmgBuff" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+
+[node name="HumanoidDmgBuff" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+
+[node name="SpikeDmgBuff" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+
+[node name="emptyLabel2" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+
+[node name="RoomsPlaced" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="RoomsDestroyed" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="HeroesKilled" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="DamageDone" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="TrapActivations" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Label" type="Label" parent="Stat window"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 96.0
+offset_bottom = -3.0
+theme = ExtResource("8_l2hdd")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Stat window"
 
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/Reset_button" to="." method="_on_reset_button_pressed"]

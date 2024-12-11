@@ -34,6 +34,7 @@ func enter() -> void:
 				played = true
 				print(get_parent())
 				card_ui.reparent(card_ui.targets[0].get_child(0).get_child(0))
+				GlobalVariables.rooms_placed_num+=1
 				for room in GlobalVariables.rooms_placed:
 					if is_instance_valid(room):
 						room.spawn_room=false
@@ -123,7 +124,9 @@ func enter() -> void:
 				match card_ui.card_name.text:
 					"Shrink Ray":
 						print("Shrink Ray")
+						GlobalVariables.damage_done+=floor(hero.hp/2)
 						hero.hp= floor(hero.hp/2)
+						
 						target.get_parent().scale.x=1
 						target.get_parent().scale.y=1
 					"Mind Control":
@@ -139,6 +142,7 @@ func enter() -> void:
 						#hero.hp-=int(card_ui.room_dmg.text)
 					"Assassination":
 						print("assassination")
+						GlobalVariables.damage_done+=int(card_ui.room_dmg.text)
 						hero.hp-=int(card_ui.room_dmg.text)
 						if GlobalVariables.amount_of_heroes_alive==1:
 							GlobalVariables.spawn_hero=true

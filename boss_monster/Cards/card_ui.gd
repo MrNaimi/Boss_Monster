@@ -217,7 +217,7 @@ func _on_activate_button_pressed() -> void:
 				paskahuussi.play("damagetext")
 			"Spike Trap":
 				# Add specific game logic here
-				dmg = 10 + GlobalVariables.TrapDmgBuff
+				dmg = 10 + GlobalVariables.TrapDmgBuff + GlobalVariables.SpikeTrapDmgBuff
 				
 				paskahuussi.play("damagetext")
 			"Forgotten Library":
@@ -234,6 +234,7 @@ func _on_activate_button_pressed() -> void:
 			_:
 				print("Unknown trap room:", card_name)
 					
+		GlobalVariables.TrapActivations += 1
 		hero.hp-=dmg*selectedHero[1]
 		activate_button.visible = false
 		trap_activated = true

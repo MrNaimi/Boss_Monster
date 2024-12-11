@@ -1,5 +1,6 @@
 extends Node
 
+var damage_done = 0
 var hero_progress = 0
 var trap_index=0
 var amount_of_heroes_alive = 0
@@ -17,7 +18,8 @@ var rerollCost = 1
 var rooms_destroyed = 0
 var demon_rooms_placed = 0
 var beast_rooms_in_dungeon = 0
-
+var rooms_placed_num = 0
+var heroes_killed = 0
 #Arrays
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
@@ -84,6 +86,7 @@ var BeastDmgBuff = 0
 var ConstructDmgBuff = 0
 var SpikeTrapDmgBuff = 0
 
+var TrapActivations = 0
 @onready var actionsLeft = 5
 @onready var currentPhase: String = "build"  #Phases are town phase "town", combat phase "combat" and build phase "build"
 #var card_info = ""

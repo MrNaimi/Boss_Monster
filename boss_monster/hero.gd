@@ -29,7 +29,7 @@ func _ready() -> void:
 	selectedHero=heroes[i]
 	hp =  RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3])
 	print("Hp before infamy scaling: ",hp," ")
-	hp *= round((0.5+0.25*GlobalVariables.infamy))
+	hp = round(hp*(0.5+0.25*GlobalVariables.infamy))
 	print("Hp after infamy scaling: ",hp," ")
 	health_bar.max_value = hp
 	idle_animation.animation = selectedHero[4]
@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 	#print(hp)
 	
 	if hp <= 0:
+		
 		if GlobalVariables.goblin_warriors_in_dungeon >= 1:
 			if RandomNumberGenerator.new().randi_range(1,4)==4:
 				GlobalVariables.player_gold+=2
@@ -53,6 +54,7 @@ func _process(delta: float) -> void:
 		if GlobalVariables.autoplay:
 			GlobalVariables.heroes_move=true
 		GlobalVariables.heroKilled = true
+		GlobalVariables.heroes_killed += 1
 		GlobalVariables.amount_of_heroes_alive-=1
 		GlobalVariables.amount_of_heroes_killed+=1
 		if !killed_by_boss:
@@ -151,6 +153,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Pit Fall room")
 		"Spike Trap": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
+			room_damage+=GlobalVariables.SpikeTrapDmgBuff
 			print("Handle Spike Trap room")
 		"Forgotten Library": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
@@ -255,7 +258,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		#area.get_parent().room_dmg_2.visible = true
 		#area.get_parent().perseajastin.start()
 		area.get_parent().paskahuussi.play("damagetext")
-		
+	GlobalVariables.damage_done += (damageAdd+room_damage)
 	hp -= (damageAdd+room_damage)*selectedHero[1]
 	
 	if mindcontrolled:
