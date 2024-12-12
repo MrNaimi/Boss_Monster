@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bppkmanivyjni"]
+[gd_scene load_steps=6 format=3 uid="uid://bppkmanivyjni"]
 
 [ext_resource type="Script" path="res://Scenes/Main_menu/boss_selection.gd" id="1_cctkr"]
 [ext_resource type="Texture2D" uid="uid://ko6ejdc2jks" path="res://Assets/Bosses/Demon/Demon_single.png" id="2_405rm"]
+[ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="2_hsajo"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="3_httui"]
 
 [sub_resource type="Theme" id="Theme_qgv3w"]
@@ -28,6 +29,8 @@ offset_left = 69.0
 offset_top = 461.0
 offset_right = 477.0
 offset_bottom = 674.0
+theme = ExtResource("2_hsajo")
+theme_override_font_sizes/font_size = 50
 text = "Select"
 
 [node name="Demon" type="Sprite2D" parent="."]

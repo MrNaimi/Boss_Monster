@@ -47,6 +47,7 @@ func refreshStats() -> void:
 func _on_hide_stat_window_pressed() -> void:
 	scroll_container.visible = not scroll_container.visible
 	color_rect.visible = not color_rect.visible
+	
 	if hide_stat_window.text == "Show stat window":
 		hide_stat_window.text = "Hide stat window"
 	else:

@@ -1,7 +1,17 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bpwbbp7mxm4n0"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bpwbbp7mxm4n0"]
 
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="1_7axf5"]
+[ext_resource type="Texture2D" uid="uid://iakb66gnfmuj" path="res://Cards/Graphics/button_planks.png" id="1_hqjg0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6bgfr"]
+texture = ExtResource("1_hqjg0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycqrl"]
+texture = ExtResource("1_hqjg0")
 
 [resource]
 default_font = ExtResource("1_7axf5")
 default_font_size = 12
+Button/styles/disabled = SubResource("StyleBoxTexture_6bgfr")
+Button/styles/normal = SubResource("StyleBoxTexture_ycqrl")
+Button/styles/pressed = null
