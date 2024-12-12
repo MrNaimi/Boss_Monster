@@ -1,5 +1,6 @@
 extends Node
 
+var repair_bots = 0
 var damage_done = 0
 var hero_progress = 0
 var trap_index=0
@@ -90,7 +91,7 @@ var TrapActivations = 0
 @onready var actionsLeft = 5
 @onready var currentPhase: String = "build"  #Phases are town phase "town", combat phase "combat" and build phase "build"
 #var card_info = ""
-var player_gold = 5
+var player_gold = 100
 
 func _ready() -> void:
 	resetValues(false)
@@ -214,3 +215,15 @@ func reset_defaults() -> void:
 	ConstructDmgBuff = 0
 	SpikeTrapDmgBuff = 0
 	rooms_destroyed = 0
+
+
+func giveCard(cardName) -> void:
+	
+	rooms = []
+	
+	for i in range(Database.DATA.size()):
+		if Database.DATA.get(i)[0]=="Room":
+			if Database.DATA.get(i)[2]==cardName:
+				rooms.append(Database.DATA.get(i))
+			i+=1
+	

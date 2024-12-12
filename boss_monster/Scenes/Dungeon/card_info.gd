@@ -90,7 +90,8 @@ func _on_destroy_room_pressed() -> void:
 			GlobalVariables.killer_robot_placed = false
 		"Skeleton Lounge":
 			GlobalVariables.UndeadDmgBuff+=2
-
+		"Repair Bot":
+			GlobalVariables.repair_bots-=1
 	print("Construct Damage Buff:", GlobalVariables.ConstructDmgBuff)
 	print("Beast Damage Buff:", GlobalVariables.BeastDmgBuff)
 	print("Humanoid Damage Buff:", GlobalVariables.HumanoidDmgBuff)

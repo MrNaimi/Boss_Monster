@@ -43,6 +43,10 @@ func _process(delta: float) -> void:
 			GlobalVariables.rerollCost=1
 			GlobalVariables.currentPhase = "build"
 			var robot_number = RandomNumberGenerator.new().randi_range(1, 5)
+			if GlobalVariables.repair_bots == 1:
+				robot_number = RandomNumberGenerator.new().randi_range(1, 10)
+			elif  GlobalVariables.repair_bots >= 2:
+				robot_number=0
 			print("Killer robot number, 5 kills ",robot_number)
 			if GlobalVariables.killer_robot_placed && robot_number==5:
 				print("killer robot terminated")

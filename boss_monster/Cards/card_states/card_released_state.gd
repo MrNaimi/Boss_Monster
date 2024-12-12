@@ -104,6 +104,8 @@ func enter() -> void:
 						GlobalVariables.beast_rooms_in_dungeon+=1
 					"Killer Robot":
 						GlobalVariables.killer_robot_placed = true
+					"Repair Bot":
+						GlobalVariables.repair_bots+=1
 	elif card_ui.shop_card:
 		print("hellooo")
 		if not card_ui.targets.is_empty() && card_ui.targets[0].name=="CardBuyArea" && card_ui.targets[0].get_parent().get_child_count()<6 && GlobalVariables.player_gold>=10:

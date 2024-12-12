@@ -247,6 +247,34 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		"Electric Anomaly": #TEHTY
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Electric Anomaly room")
+		"Gator":#skip
+			pass
+		"Last Mammoth":#skip
+			pass
+		"Repair Bot":#tehty
+			room_damage+=GlobalVariables.ConstructDmgBuff
+			print("Handle repair bot")
+		"Amalgamation":#tehty
+			room_damage+=GlobalVariables.ConstructDmgBuff
+			room_damage+=GlobalVariables.BeastDmgBuff
+			room_damage+=GlobalVariables.HumanoidDmgBuff
+			room_damage+=GlobalVariables.DemonDmgBuff
+			room_damage+=GlobalVariables.UndeadDmgBuff
+		"Skeleton CEO":
+			room_damage+=GlobalVariables.UndeadDmgBuff+100
+			if hp<=room_damage*selectedHero[1]:
+				if get_tree().get_first_node_in_group("hand").get_child_count()<6:
+						GlobalVariables.giveCard("Skeleton Lounge")
+						get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
+						get_tree().get_first_node_in_group("hand").startcardmachine()
+				GlobalVariables.resetValues(true)
+			pass
+		"Ominous Shadow":
+			pass
+		"Summoning Circle":
+			pass
+		"Fallen Angel":
+			pass
 		"Boss":
 			print("boss boss bossss")
 			hp = 0

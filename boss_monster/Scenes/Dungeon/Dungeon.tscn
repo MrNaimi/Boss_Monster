@@ -1743,12 +1743,14 @@ offset_bottom = 539.0
 script = ExtResource("26_5uaum")
 
 [node name="ColorRect" type="ColorRect" parent="Stat window"]
+visible = false
 layout_mode = 0
 offset_right = 225.0
 offset_bottom = 176.0
 color = Color(0, 0, 0, 0.494118)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Stat window"]
+visible = false
 layout_mode = 0
 offset_right = 224.0
 offset_bottom = 174.0
