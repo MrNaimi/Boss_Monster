@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7oco54uor5qn"
+path="res://.godot/imported/Running Fast.mp3-2966d08500429e358d76b87a7e7c43de.mp3str"
+
+[deps]
+
+source_file="res://Music/Running Fast.mp3"
+dest_files=["res://.godot/imported/Running Fast.mp3-2966d08500429e358d76b87a7e7c43de.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

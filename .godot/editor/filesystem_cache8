@@ -1,0 +1,247 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1734007197
+card_drop_area.tscn::PackedScene::4816578315706582271::1734006148::0::1::::<><>::res://Scenes/Dungeon/drop_zone.gd
+hero.gdshader::Shader::-1::1734006148::0::1::::<><>::
+idle_animation.gd::GDScript::-1::1734006148::0::1::::<>AnimatedSprite2D<>::
+mainmenu.png::CompressedTexture2D::4088370620813949649::1734006148::1734006254::1::::<><>::
+mainmenutoka.png::CompressedTexture2D::4328590157801209329::1734006148::1734006254::1::::<><>::
+path_follow_2d.tscn::PackedScene::442302496792181764::1734006148::0::1::::<><>::uid://dhnpite2foeeu::::res://hero.tscn
+siha gaming blue.png::CompressedTexture2D::9183294615634974567::1734006148::1734006254::1::::<><>::
+::res://Assets/::1734006147
+::res://Assets/Bosses/::1734006147
+::res://Assets/Bosses/Corrupted_Mage/::1734006254
+Corrupted_Mage.png::CompressedTexture2D::6374817782837054426::1734006147::1734006254::1::::<><>::
+::res://Assets/Bosses/Demon/::1734006254
+boss_demon.png::CompressedTexture2D::778359143138018197::1734006147::1734006254::1::::<><>::
+Demon_single.png::CompressedTexture2D::21549399187071266::1734006147::1734006254::1::::<><>::
+::res://Assets/Bosses/Skeleton boss/::1734006254
+skeleton_arm_oikea.png::CompressedTexture2D::1382958554781939604::1734006147::1734006254::1::::<><>::
+skeleton_arm_vasen.png::CompressedTexture2D::2113194095895538755::1734006147::1734006254::1::::<><>::
+::res://Assets/Heroes/::1734007132
+Barbarian.png::CompressedTexture2D::348452393431182716::1734006147::1734007132::1::::<><>::
+Cleric.png::CompressedTexture2D::6284040671391285744::1734006147::1734006529::1::::<><>::
+Lucky_Fellow.png::CompressedTexture2D::6483810382520234958::1734006147::1734006529::1::::<><>::
+Mage.png::CompressedTexture2D::7999377909119383377::1734006147::1734006529::1::::<><>::
+Monk.png::CompressedTexture2D::5048394507847771328::1734006147::1734006529::1::::<><>::
+Paladin.png::CompressedTexture2D::143716224234752302::1734006147::1734006529::1::::<><>::
+Ranger.png::CompressedTexture2D::3194470923337452922::1734006147::1734006529::1::::<><>::
+::res://Assets/Sound Effects/::1734006529
+button_click.wav::AudioStreamWAV::201433583927414703::1734006147::1734006254::1::::<><>::
+goblin_warrior.wav::AudioStreamWAV::2822473594390038032::1734006147::1734006254::1::::<><>::
+hero_death_generic.wav::AudioStreamWAV::594057551948957546::1734006147::1734006254::1::::<><>::
+hero_death_pit.wav::AudioStreamWAV::3517809493272164847::1734006147::1734006254::1::::<><>::
+hero_enter.wav::AudioStreamWAV::1279005237872638420::1734006147::1734006254::1::::<><>::
+hero_footsteps.wav::AudioStreamWAV::8040456248027409608::1734006147::1734006254::1::::<><>::
+mimic.wav::AudioStreamWAV::1102938906082023488::1734006147::1734006254::1::::<><>::
+room_placement.wav::AudioStreamWAV::4676774386784519942::1734006147::1734006254::1::::<><>::
+trap_gas_leak.wav::AudioStreamWAV::2742366102138607077::1734006147::1734006254::1::::<><>::
+trap_spikes.wav::AudioStreamWAV::2668465539404731225::1734006485::1734006529::1::::<><>::
+vault.wav::AudioStreamWAV::4666661473025995841::1734006147::1734006254::1::::<><>::
+::res://Assets/Tiles/::1734006254
+3x3 dungeontiles.png::CompressedTexture2D::6449797830137348105::1734006147::1734006254::1::::<><>::
+chests.png::CompressedTexture2D::2961445170989655068::1734006147::1734006254::1::::<><>::
+Dungeon tileset.png::CompressedTexture2D::3191558712352561966::1734006147::1734006254::1::::<><>::
+dungeonwall3.png::CompressedTexture2D::7744538064850219759::1734006147::1734006254::1::::<><>::
+dungeonwall.png::CompressedTexture2D::5603710915011588345::1734006147::1734006254::1::::<><>::
+Dungeon_Tileset.png::CompressedTexture2D::4658430887374555604::1734006147::1734006254::1::::<><>::
+duungeonwall2.png::CompressedTexture2D::3373361852132856791::1734006147::1734006254::1::::<><>::
+inventory_corner.png::CompressedTexture2D::6230338296901501021::1734006147::1734006254::1::::<><>::
+inventory_middle.png::CompressedTexture2D::1527742266545179948::1734006147::1734006254::1::::<><>::
+RoguelikeDungeonTileset.png::CompressedTexture2D::8990857298403109420::1734006147::1734006254::1::::<><>::
+Tileset_Ground.png::CompressedTexture2D::1615998036174809879::1734006147::1734006254::1::::<><>::
+Tileset_Road.png::CompressedTexture2D::6172696144953072975::1734006147::1734006254::1::::<><>::
+walls.png::CompressedTexture2D::523436871970175708::1734006147::1734006254::1::::<><>::
+::res://Assets/Tiles/tileanimations/::1734006254
+torchtransparent.png::CompressedTexture2D::5364374164183539382::1734006147::1734006254::1::::<><>::
+walltorch.png::CompressedTexture2D::1001304286665882053::1734006147::1734006254::1::::<><>::
+::res://Cards/::1734007101
+card_state.gd::GDScript::-1::1734006147::0::1::::CardState<>Node<>::
+card_state_machine.gd::GDScript::-1::1734006147::0::1::::CardStateMachine<>Node<>::
+hit_box.gd::GDScript::-1::1734006147::0::1::::<>RefCounted<>::
+::res://Cards/card_states/::1734007101
+card_clicked_state.gd::GDScript::-1::1734006485::0::1::::<>CardState<>::
+card_dragging_state.gd::GDScript::-1::1734006485::0::1::::<>CardState<>::
+::res://Cards/Graphics/::1734006590
+armor.png::CompressedTexture2D::2035429926391151646::1734006147::1734006254::1::::<><>::
+card empty.png::CompressedTexture2D::1663900435470513951::1734006147::1734006254::1::::<><>::
+card.png::CompressedTexture2D::5807602850469945894::1734006147::1734006254::1::::<><>::
+card_blank.png::CompressedTexture2D::7464165607568726859::1734006147::1734006253::1::::<><>::
+card_blank_big.png::CompressedTexture2D::833351554429950544::1734006147::1734006254::1::::<><>::
+dungeon card.png::CompressedTexture2D::7778962039605286713::1734006147::1734006254::1::::<><>::
+greencard.png::CompressedTexture2D::8930949721195020798::1734006147::1734006254::1::::<><>::
+lich.png::CompressedTexture2D::2038176410145622293::1734006147::1734006253::1::::<><>::
+main_theme.tres::Theme::3484732989500033175::1734006485::0::1::::<><>::uid://dd8wbmemi58e8::::res://fonts/poco/Poco.ttf
+Portal.png::CompressedTexture2D::7204635408120968157::1734006147::1734006254::1::::<><>::
+spellcard.png::CompressedTexture2D::5904853516741531507::1734006147::1734006254::1::::<><>::
+sydan.png::CompressedTexture2D::4748686329226830586::1734006147::1734006254::1::::<><>::
+::res://Cards/Graphics/trap_graphic/::1734006590
+angry_slime.png::CompressedTexture2D::970391134436278466::1734006147::1734006254::1::::<><>::
+assassination.png::CompressedTexture2D::3141451641541655191::1734006147::1734006254::1::::<><>::
+bad_directions.png::CompressedTexture2D::5219709411227964096::1734006147::1734006254::1::::<><>::
+demon_spawn.png::CompressedTexture2D::4023572083349162504::1734006147::1734006254::1::::<><>::
+dragon_lair.png::CompressedTexture2D::1302628837135637047::1734006147::1734006254::1::::<><>::
+fire_elemental.png::CompressedTexture2D::1059088004624624150::1734006147::1734006254::1::::<><>::
+forgotten_library.png::CompressedTexture2D::6929958941837411289::1734006147::1734006254::1::::<><>::
+gas_leak.png::CompressedTexture2D::7638111183307777084::1734006147::1734006254::1::::<><>::
+goblin_warrior.png::CompressedTexture2D::4801503505974423292::1734006147::1734006254::1::::<><>::
+healing_potion.png::CompressedTexture2D::3753235083859848234::1734006147::1734006254::1::::<><>::
+hot_coals.png::CompressedTexture2D::4653019644278678869::1734006147::1734006254::1::::<><>::
+imp.png::CompressedTexture2D::4702034916088115028::1734006147::1734006254::1::::<><>::
+killer_robot.png::CompressedTexture2D::1270830982702920590::1734006147::1734006254::1::::<><>::
+mimic.png::CompressedTexture2D::7505023726668062666::1734006147::1734006254::1::::<><>::
+mind_control.png::CompressedTexture2D::7748550256820598982::1734006147::1734006254::1::::<><>::
+misunderstood_ghost.png::CompressedTexture2D::7107560280219208934::1734006147::1734006254::1::::<><>::
+monster_lounge.png::CompressedTexture2D::3116833967926678611::1734006147::1734006254::1::::<><>::
+pit_fall.png::CompressedTexture2D::5844344673119019424::1734006147::1734006254::1::::<><>::
+rolling_golem.png::CompressedTexture2D::6101613462388826263::1734006147::1734006254::1::::<><>::
+sauna.png::CompressedTexture2D::2599665956740043438::1734006147::1734006254::1::::<><>::
+shrink_ray.png::CompressedTexture2D::4426782532927349129::1734006147::1734006254::1::::<><>::
+spikes.png::CompressedTexture2D::7617813930732846302::1734006147::1734006254::1::::<><>::
+spike_factory.png::CompressedTexture2D::3091461612463792615::1734006147::1734006254::1::::<><>::
+std.png::CompressedTexture2D::6656040109988074939::1734006147::1734006254::1::::<><>::
+stinky_ghoul.png::CompressedTexture2D::6973508815295494936::1734006147::1734006254::1::::<><>::
+succubus.png::CompressedTexture2D::4949735213673365636::1734006147::1734006254::1::::<><>::
+undead_mage.png::CompressedTexture2D::4056091799081822184::1734006147::1734006254::1::::<><>::
+vampire.png::CompressedTexture2D::5899218096684333796::1734006147::1734006254::1::::<><>::
+vault_room.png::CompressedTexture2D::2766644721861876416::1734006147::1734006254::1::::<><>::
+zombie_graveyard.png::CompressedTexture2D::521800916788688460::1734006147::1734006254::1::::<><>::
+::res://fonts/::1734006254
+overview.PNG::CompressedTexture2D::1948684356417058934::1734006148::1734006254::1::::<><>::
+::res://fonts/architect-s-daughter/::1734006253
+Architects Daughter SIL OFL Font License.txt::TextFile::-1::1734006148::0::1::::<><>::
+ArchitectsDaughter32.tres::FontFile::-1::1734006148::0::1::::<><>::res://fonts/architect-s-daughter/ArchitectsDaughter.ttf
+ArchitectsDaughter.ttf::FontFile::5834529794026359188::1734006148::1734006253::1::::<><>::
+::res://fonts/cmu-typewriter/::1734006148
+Typewriter.tres::FontFile::-1::1734006148::0::1::::<><>::res://fonts/cmu-typewriter/Typewriter/cmuntt.ttf
+::res://fonts/cmu-typewriter/Typewriter/::1734006253
+cmunit.ttf::FontFile::6306216401316439175::1734006148::1734006253::1::::<><>::
+cmuntb.ttf::FontFile::2361922468662288525::1734006148::1734006253::1::::<><>::
+cmuntt.ttf::FontFile::4575616510031044018::1734006148::1734006253::1::::<><>::
+cmuntx.ttf::FontFile::1268889721212342125::1734006148::1734006253::1::::<><>::
+OFL-FAQ.txt::TextFile::-1::1734006148::0::1::::<><>::
+OFL.txt::TextFile::-1::1734006148::0::1::::<><>::
+README.txt::TextFile::-1::1734006148::0::1::::<><>::
+::res://fonts/connection/::1734006253
+Connection.otf::FontFile::79920893310387642::1734006148::1734006253::1::::<><>::
+ConnectionBold.otf::FontFile::3561832921351223665::1734006148::1734006253::1::::<><>::
+SIL Open Font License.txt::TextFile::-1::1734006148::0::1::::<><>::
+::res://fonts/connection_ii/::1734006253
+ConnectionII.otf::FontFile::913020873196963194::1734006148::1734006253::1::::<><>::
+ConnectionII.tres::FontFile::-1::1734006148::0::1::::<><>::res://fonts/connection_ii/ConnectionII.otf
+SIL Open Font License.txt::TextFile::-1::1734006148::0::1::::<><>::
+::res://fonts/droid-sans/::1734006253
+Apache License.txt::TextFile::-1::1734006148::0::1::::<><>::
+DroidSans-Bold.ttf::FontFile::381840818591707059::1734006148::1734006253::1::::<><>::
+DroidSans.tres::FontFile::-1::1734006148::0::1::::<><>::res://fonts/droid-sans/DroidSans.ttf
+DroidSans.ttf::FontFile::6922853957046959289::1734006148::1734006253::1::::<><>::
+::res://fonts/kirifont/::1734006253
+KiriFont.otf::FontFile::76031004260392093::1734006148::1734006253::1::::<><>::
+Kirifont.tres::FontFile::7496664770048756428::1734006148::0::1::::<><>::
+KiriFont.ttf::FontFile::3752622321681205566::1734006148::1734006253::1::::<><>::
+OFL.txt::TextFile::-1::1734006148::0::1::::<><>::
+::res://fonts/linux-libertine/::1734006148
+LinuxLibertine.tres::FontFile::-1::1734006148::0::1::::<><>::
+::res://fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/::1734006148
+::res://fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/::1734006253
+Bugs.txt::TextFile::-1::1734006148::0::1::::<><>::
+ChangeLog.txt::TextFile::-1::1734006148::0::1::::<><>::
+GPL.txt::TextFile::-1::1734006148::0::1::::<><>::
+INSTALL.txt::TextFile::-1::1734006148::0::1::::<><>::
+LICENCE.txt::TextFile::-1::1734006148::0::1::::<><>::
+LinLibertine_DR.otf::FontFile::9086090944333404345::1734006148::1734006253::1::::<><>::
+LinLibertine_I.otf::FontFile::9202476130979736795::1734006148::1734006253::1::::<><>::
+LinLibertine_M.otf::FontFile::9063988197666996875::1734006148::1734006253::1::::<><>::
+LinLibertine_R.otf::FontFile::2865781981482579688::1734006148::1734006253::1::::<><>::
+LinLibertine_RB.otf::FontFile::3230779155429966801::1734006148::1734006253::1::::<><>::
+LinLibertine_RBI.otf::FontFile::7641959341672227222::1734006148::1734006253::1::::<><>::
+LinLibertine_RI.otf::FontFile::9056041693157008746::1734006148::1734006253::1::::<><>::
+LinLibertine_RZ.otf::FontFile::6944485729732769310::1734006148::1734006253::1::::<><>::
+LinLibertine_RZI.otf::FontFile::3050855934880824508::1734006148::1734006253::1::::<><>::
+OFL-1.1.txt::TextFile::-1::1734006148::0::1::::<><>::
+Readme-TEX.txt::TextFile::-1::1734006148::0::1::::<><>::
+ToDo.txt::TextFile::-1::1734006148::0::1::::<><>::
+::res://fonts/montreal/::1734006253
+Montreal-Bold.ttf::FontFile::3661637072744639487::1734006148::1734006253::1::::<><>::
+Montreal-Regular.ttf::FontFile::4817844024469972700::1734006148::1734006253::1::::<><>::
+Montreal.tres::FontFile::-1::1734006148::0::1::::<><>::res://fonts/montreal/Montreal-Regular.ttf
+OFL.txt::TextFile::-1::1734006148::0::1::::<><>::
+::res://fonts/poco/::1734006253
+CC BY 4.0.txt::TextFile::-1::1734006148::0::1::::<><>::
+Poco.tres::FontFile::-1::1734006148::0::1::::<><>::res://fonts/poco/Poco.ttf
+Poco.ttf::FontFile::7439291244528692637::1734006148::1734006253::1::::<><>::
+::res://fonts/source-code-pro/::1734006148
+SourceCodePro.tres::FontFile::-1::1734006148::0::1::::<><>::res://fonts/source-code-pro/source-code-pro-2.010R-ro-1.030R-it/TTF/SourceCodePro-Regular.ttf
+::res://fonts/source-code-pro/source-code-pro-2.010R-ro-1.030R-it/::1734006148
+LICENSE.txt::TextFile::-1::1734006148::0::1::::<><>::
+::res://fonts/source-code-pro/source-code-pro-2.010R-ro-1.030R-it/TTF/::1734006253
+SourceCodePro-Black.ttf::FontFile::3156344995282754703::1734006148::1734006253::1::::<><>::
+SourceCodePro-BlackIt.ttf::FontFile::5327583315052968328::1734006148::1734006253::1::::<><>::
+SourceCodePro-Bold.ttf::FontFile::7312716554372152162::1734006148::1734006253::1::::<><>::
+SourceCodePro-BoldIt.ttf::FontFile::8011683000140109481::1734006148::1734006253::1::::<><>::
+SourceCodePro-ExtraLight.ttf::FontFile::5877359142784362131::1734006148::1734006253::1::::<><>::
+SourceCodePro-ExtraLightIt.ttf::FontFile::8781163533154711822::1734006148::1734006253::1::::<><>::
+SourceCodePro-It.ttf::FontFile::7695683699880422332::1734006148::1734006253::1::::<><>::
+SourceCodePro-Light.ttf::FontFile::5590857511807609640::1734006148::1734006253::1::::<><>::
+SourceCodePro-LightIt.ttf::FontFile::4295875984704974397::1734006148::1734006253::1::::<><>::
+SourceCodePro-Medium.ttf::FontFile::1930209453723586191::1734006148::1734006253::1::::<><>::
+SourceCodePro-MediumIt.ttf::FontFile::1516836251136048679::1734006148::1734006253::1::::<><>::
+SourceCodePro-Regular.ttf::FontFile::7294836607912686058::1734006148::1734006253::1::::<><>::
+SourceCodePro-Semibold.ttf::FontFile::657821578806804196::1734006148::1734006253::1::::<><>::
+SourceCodePro-SemiboldIt.ttf::FontFile::9115554563195352887::1734006148::1734006253::1::::<><>::
+::res://fonts/xolonium/::1734006148
+Xolonium.tres::FontFile::-1::1734006148::0::1::::<><>::res://fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf
+::res://fonts/xolonium/xolonium-fonts-4.1/::1734006148
+FONTLOG.txt::TextFile::-1::1734006148::0::1::::<><>::
+LICENSE.txt::TextFile::-1::1734006148::0::1::::<><>::
+::res://fonts/xolonium/xolonium-fonts-4.1/ttf/::1734006253
+Xolonium-Bold.ttf::FontFile::7871864255825978080::1734006148::1734006253::1::::<><>::
+Xolonium-Regular.ttf::FontFile::7728114011273304654::1734006148::1734006253::1::::<><>::
+::res://Music/::1734006253
+Dungeon Maze.mp3::AudioStreamMP3::6016493433218062647::1734006147::1734006253::1::::<><>::
+Dungeon Through Shadows.mp3::AudioStreamMP3::3866575330631596949::1734006147::1734006253::1::::<><>::
+Journey Through Pixel Depths.mp3::AudioStreamMP3::2101006637707579245::1734006147::1734006253::1::::<><>::
+Lost in the Labyrinth.mp3::AudioStreamMP3::641047294611479758::1734006147::1734006253::1::::<><>::
+Mysterious Dungeon.mp3::AudioStreamMP3::9186322573605443286::1734006147::1734006253::1::::<><>::
+Running Fast.mp3::AudioStreamMP3::7047933708888229709::1734006147::1734006253::1::::<><>::
+Shmooving in the Dungeon.mp3::AudioStreamMP3::1384457016570762111::1734006148::1734006253::1::::<><>::
+Through the Shadowed Depths.mp3::AudioStreamMP3::6188401601920076754::1734006148::1734006253::1::::<><>::
+Town Folk.mp3::AudioStreamMP3::1507173401234355208::1734006148::1734006253::1::::<><>::
+::res://Scenes/::1733837870
+::res://Scenes/Dungeon/::1734007101
+actions_left.gd::GDScript::-1::1734006148::0::1::::<>Label<>::
+boss.gd::GDScript::-1::1734006485::0::1::::<>Node2D<>::
+current_phase_text.gd::GDScript::-1::1734006148::0::1::::<>Label<>::
+draggable_object.gd::GDScript::-1::1734006148::0::1::::<>StaticBody2D<>::
+Draggable_object.tscn::PackedScene::743335144051686819::1734006148::0::1::::<><>::res://Scenes/Dungeon/draggable_object.gd
+drop_zone.gd::GDScript::-1::1734006148::0::1::::<>ColorRect<>::
+dungeon_ui.gd::GDScript::-1::1734006148::0::1::::<>RefCounted<>::
+hand.gd::GDScript::-1::1734006485::0::1::::Hand<>HBoxContainer<>::
+hero.gd::GDScript::-1::1734006485::0::1::::<>Node2D<>::
+hero_movement.gd::GDScript::-1::1734006485::0::1::::<>Node2D<>::
+hero_spawn_line.gd::GDScript::-1::1734006148::0::1::::<>Area2D<>::
+hit_box.gd::GDScript::-1::1734006148::0::1::::<>RefCounted<>::
+h_box_container.gd::GDScript::-1::1734006148::0::1::::<>RefCounted<>::
+h_slider.gd::GDScript::-1::1734006148::0::1::::<>HSlider<>::
+player_gold.gd::GDScript::-1::1734006148::0::1::::<>Label<>::
+player_infamy.gd::GDScript::-1::1734006148::0::1::::<>Label<>::
+quit_button.gd::GDScript::-1::1734006148::0::1::::<>Button<>::
+sell_area.gd::GDScript::-1::1734006148::0::1::::<>RefCounted<>::
+shop.gd::GDScript::-1::1734006148::0::1::::<>RefCounted<>::
+shophand.gd::GDScript::-1::1734006485::0::1::::ShopHand<>Control<>::
+static_body_2d.gd::GDScript::-1::1734006148::0::1::::<>StaticBody2D<>::
+::res://Scenes/Main_menu/::1734007101
+boss_selection.gd::GDScript::-1::1734006148::0::1::::<>Control<>::
+boss_selection.tscn::PackedScene::3470847624503964854::1734006148::0::1::::<><>::res://Scenes/Main_menu/boss_selection.gd<>uid://ko6ejdc2jks::::res://Assets/Bosses/Demon/Demon_single.png<>uid://dd8wbmemi58e8::::res://Fonts/poco/Poco.ttf
+collections.gd::GDScript::-1::1734006148::0::1::::<>Control<>::
+collections.tscn::PackedScene::2687511062940176935::1734006485::0::1::::<><>::res://Scenes/Main_menu/collections.gd<>uid://dd8wbmemi58e8::::res://fonts/poco/Poco.ttf<>uid://cbu8q56sd2x3::::res://Assets/Heroes/Paladin.png<>uid://bb7kr6kupyh74::::res://Assets/Heroes/Barbarian.png<>uid://bpwbbp7mxm4n0::::res://Cards/Graphics/main_theme.tres<>uid://cvsbh45vf3mhc::::res://Assets/Heroes/Cleric.png<>uid://cym2n6u8u1rcw::::res://Assets/Heroes/Lucky_Fellow.png<>uid://dl77t51d27xoj::::res://Assets/Heroes/Mage.png<>uid://cd6qk445gs6ka::::res://Assets/Heroes/Monk.png<>uid://blrop7u44ablq::::res://Assets/Heroes/Ranger.png
+main_menu.gd::GDScript::-1::1734006148::0::1::::<>Control<>::
+transition.gd::GDScript::-1::1734006148::0::1::::<>CanvasLayer<>::
+Transition.tscn::PackedScene::6007756910736507146::1734006148::0::1::::<><>::res://Scenes/Main_menu/transition.gd
+::res://Scenes/Town/::1734007101
+chain.png::CompressedTexture2D::9125596157769623793::1734006148::1734006254::1::::<><>::
+lock.png::CompressedTexture2D::5028320046015882709::1734006148::1734006254::1::::<><>::
+lockshop.png::CompressedTexture2D::5143505243337822016::1734006148::1734006254::1::::<><>::
+questmark.png::CompressedTexture2D::922308694147139694::1734006148::1734006254::1::::<><>::
+Slates - palettes.png::CompressedTexture2D::9165106624939864135::1734006148::1734006254::1::::<><>::
+Slates v.2 [32x32px orthogonal tileset by Ivan Voirol].png::CompressedTexture2D::7786083361602960420::1734006148::1734006254::1::::<><>::
+townScene.png::CompressedTexture2D::6383799307920711871::1734006148::1734006254::1::::<><>::

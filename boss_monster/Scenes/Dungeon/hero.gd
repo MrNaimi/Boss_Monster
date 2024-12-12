@@ -53,6 +53,8 @@ func _process(delta: float) -> void:
 			GlobalVariables.forgotten_library_activated = false
 			shop_ui.createCards()
 			GlobalVariables.infamy+=1
+			if GlobalVariables.infamy % 10 == 0:
+				Transition.change_scene("res://Scenes/Town/Town.tscn")
 			GlobalVariables.actionsLeft = 2
 			currentheroes = 0
 			if GlobalVariables.infamy%3==0:

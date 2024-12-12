@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Main_menu/boss_selection.gd" id="1_cctkr"]
 [ext_resource type="Texture2D" uid="uid://ko6ejdc2jks" path="res://Assets/Bosses/Demon/Demon_single.png" id="2_405rm"]
-[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://Fonts/poco/Poco.ttf" id="3_httui"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="3_httui"]
 
 [sub_resource type="Theme" id="Theme_qgv3w"]
 default_font = ExtResource("3_httui")

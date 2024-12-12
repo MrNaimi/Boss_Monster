@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cryo1dutnvg7h"
+path="res://.godot/imported/Dungeon Maze.mp3-9b8387969b5fe9d15db58468b2854194.mp3str"
+
+[deps]
+
+source_file="res://Music/Dungeon Maze.mp3"
+dest_files=["res://.godot/imported/Dungeon Maze.mp3-9b8387969b5fe9d15db58468b2854194.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,587 @@
+[gd_scene load_steps=49 format=3 uid="uid://bej36dhytjri2"]
+
+[ext_resource type="Script" path="res://Scenes/Main_menu/collections.gd" id="1_3jgs6"]
+[ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="2_vi5uy"]
+[ext_resource type="Texture2D" uid="uid://cbu8q56sd2x3" path="res://Assets/Heroes/Paladin.png" id="3_01x62"]
+[ext_resource type="Texture2D" uid="uid://bb7kr6kupyh74" path="res://Assets/Heroes/Barbarian.png" id="3_ipov8"]
+[ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="4_chamg"]
+[ext_resource type="Texture2D" uid="uid://cvsbh45vf3mhc" path="res://Assets/Heroes/Cleric.png" id="4_reup1"]
+[ext_resource type="Texture2D" uid="uid://cym2n6u8u1rcw" path="res://Assets/Heroes/Lucky_Fellow.png" id="5_fprnb"]
+[ext_resource type="Texture2D" uid="uid://dl77t51d27xoj" path="res://Assets/Heroes/Mage.png" id="6_hhro4"]
+[ext_resource type="Texture2D" uid="uid://cd6qk445gs6ka" path="res://Assets/Heroes/Monk.png" id="7_04v53"]
+[ext_resource type="Texture2D" uid="uid://blrop7u44ablq" path="res://Assets/Heroes/Ranger.png" id="9_fvq2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3ff3"]
+atlas = ExtResource("3_ipov8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng8fo"]
+atlas = ExtResource("3_ipov8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y2f3"]
+atlas = ExtResource("3_ipov8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykbfe"]
+atlas = ExtResource("3_ipov8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vp7l5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3ff3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng8fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y2f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykbfe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhnle"]
+atlas = ExtResource("4_reup1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seliv"]
+atlas = ExtResource("4_reup1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jimsh"]
+atlas = ExtResource("4_reup1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff1ir"]
+atlas = ExtResource("4_reup1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ek7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhnle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seliv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jimsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff1ir")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdxb2"]
+atlas = ExtResource("5_fprnb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85h81"]
+atlas = ExtResource("5_fprnb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pbcr"]
+atlas = ExtResource("5_fprnb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqx6j"]
+atlas = ExtResource("5_fprnb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0j88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdxb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85h81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pbcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqx6j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owlwj"]
+atlas = ExtResource("6_hhro4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8433"]
+atlas = ExtResource("6_hhro4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba2a7"]
+atlas = ExtResource("6_hhro4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l5nb"]
+atlas = ExtResource("6_hhro4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6idk0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owlwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8433")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba2a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l5nb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0jrg"]
+atlas = ExtResource("7_04v53")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwe3d"]
+atlas = ExtResource("7_04v53")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3sdv"]
+atlas = ExtResource("7_04v53")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5mma"]
+atlas = ExtResource("7_04v53")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22xos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0jrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwe3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3sdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5mma")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdiha"]
+atlas = ExtResource("3_01x62")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oldk"]
+atlas = ExtResource("3_01x62")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr4vq"]
+atlas = ExtResource("3_01x62")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bak5l"]
+atlas = ExtResource("3_01x62")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ikf8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdiha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oldk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr4vq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bak5l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ahjs"]
+atlas = ExtResource("9_fvq2a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rwms"]
+atlas = ExtResource("9_fvq2a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7jgx"]
+atlas = ExtResource("9_fvq2a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rtun"]
+atlas = ExtResource("9_fvq2a")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swex5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ahjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rwms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7jgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rtun")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfqxo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjixc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6inc"]
+
+[node name="Collections" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3jgs6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -4.0
+offset_right = 1282.0
+offset_bottom = 719.0
+color = Color(0.244149, 0.0313405, 0.0223585, 1)
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 581.0
+offset_right = 527.0
+offset_bottom = 672.0
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Back
+"
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -156.0
+offset_right = 527.0
+offset_bottom = 156.0
+grow_vertical = 2
+
+[node name="Heroes" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Heroes"
+
+[node name="Bosses" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Bosses"
+
+[node name="Traps" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Rooms"
+
+[node name="Spells" type="Button" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vi5uy")
+theme_override_font_sizes/font_size = 55
+text = "Spells"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Hero" type="Sprite2D" parent="Node2D"]
+visibility_layer = 0
+position = Vector2(2, -81)
+
+[node name="barbarian" type="AnimatedSprite2D" parent="Node2D/Hero"]
+position = Vector2(600, 230)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_vp7l5")
+frame_progress = 0.223029
+
+[node name="barbarian" type="TextureButton" parent="Node2D/Hero/barbarian"]
+anchors_preset = -1
+anchor_left = -0.03125
+anchor_top = -0.015625
+anchor_right = 0.03125
+anchor_bottom = -0.015625
+offset_left = -4.5
+offset_top = -7.75
+offset_right = 6.5
+offset_bottom = 8.25
+metadata/_edit_use_anchors_ = true
+
+[node name="barbarian text" type="Label" parent="Node2D/Hero/barbarian"]
+visibility_layer = 0
+offset_left = -6.0
+offset_top = 30.0
+offset_right = 84.0
+offset_bottom = 70.0
+theme = ExtResource("4_chamg")
+text = "sslhbvdlkvjbxdkfjbdölbnväpsknvmpsovnkmclf-kncl-bkgl-nljn"
+metadata/_edit_use_anchors_ = true
+
+[node name="cleric" type="AnimatedSprite2D" parent="Node2D/Hero"]
+position = Vector2(750, 230)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_4ek7k")
+frame_progress = 0.0594828
+
+[node name="cleric" type="TextureButton" parent="Node2D/Hero/cleric"]
+anchors_preset = -1
+anchor_left = -0.03125
+anchor_top = -0.078125
+anchor_right = -0.03125
+anchor_bottom = -0.078125
+offset_left = -13.0
+offset_top = -15.5
+offset_right = 13.0
+offset_bottom = 18.5
+metadata/_edit_use_anchors_ = true
+
+[node name="cleric text" type="Label" parent="Node2D/Hero/cleric"]
+visibility_layer = 0
+offset_left = -50.0
+offset_top = 60.0
+offset_right = 130.0
+offset_bottom = 140.0
+theme = ExtResource("4_chamg")
+text = "\"Guided by faith and armed with 
+divine power, they shield the innocent 
+and banish the dark, a bridge between 
+realms.\""
+metadata/_edit_use_anchors_ = true
+
+[node name="luckyfellow" type="AnimatedSprite2D" parent="Node2D/Hero"]
+position = Vector2(900, 230)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_w0j88")
+frame_progress = 0.699512
+
+[node name="luckyfellow" type="TextureButton" parent="Node2D/Hero/luckyfellow"]
+anchors_preset = -1
+anchor_left = -0.03125
+anchor_top = -0.03125
+anchor_right = -0.03125
+anchor_bottom = -0.03125
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 7.0
+offset_bottom = 17.0
+metadata/_edit_use_anchors_ = true
+
+[node name="luckyfellow text" type="Label" parent="Node2D/Hero/luckyfellow"]
+visibility_layer = 0
+offset_left = -87.0
+offset_top = 60.0
+offset_right = 93.0
+offset_bottom = 140.0
+theme = ExtResource("4_chamg")
+text = "\"Neither fate nor fortune can escape 
+them; their uncanny luck is a gift as 
+powerful as any spell or blade.\""
+metadata/_edit_use_anchors_ = true
+
+[node name="mage" type="AnimatedSprite2D" parent="Node2D/Hero"]
+position = Vector2(1050, 230)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_6idk0")
+frame_progress = 0.805072
+
+[node name="mage" type="TextureButton" parent="Node2D/Hero/mage"]
+anchors_preset = -1
+anchor_left = -0.03125
+anchor_top = -0.03125
+anchor_right = -0.03125
+anchor_bottom = -0.03125
+offset_left = -11.0
+offset_top = -16.0
+offset_right = 17.0
+offset_bottom = 17.0
+metadata/_edit_use_anchors_ = true
+
+[node name="mage text" type="Label" parent="Node2D/Hero/mage"]
+visibility_layer = 0
+offset_left = -125.0
+offset_top = 60.0
+offset_right = 55.0
+offset_bottom = 140.0
+theme = ExtResource("4_chamg")
+text = "\"With arcane knowledge and an iron 
+focus, they wield forces beyond the 
+ordinary, conjuring magic to bend reality 
+to their will.\""
+metadata/_edit_use_anchors_ = true
+
+[node name="monk" type="AnimatedSprite2D" parent="Node2D/Hero"]
+position = Vector2(675, 400)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_22xos")
+frame_progress = 0.506089
+
+[node name="monk" type="TextureButton" parent="Node2D/Hero/monk"]
+anchors_preset = -1
+anchor_left = -0.03125
+anchor_top = -0.03125
+anchor_right = -0.03125
+anchor_bottom = -0.03125
+offset_left = -9.0
+offset_top = -13.0
+offset_right = 11.0
+offset_bottom = 17.0
+metadata/_edit_use_anchors_ = true
+
+[node name="monk text" type="Label" parent="Node2D/Hero/monk"]
+visibility_layer = 0
+offset_left = -31.0
+offset_top = 18.0
+offset_right = 149.0
+offset_bottom = 98.0
+theme = ExtResource("4_chamg")
+text = "\"Disciplined and resilient, they are 
+masters of body and mind, striking with 
+the precision of a calm breeze before 
+a storm.\""
+metadata/_edit_use_anchors_ = true
+
+[node name="paladin" type="AnimatedSprite2D" parent="Node2D/Hero"]
+position = Vector2(825, 400)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_5ikf8")
+frame_progress = 0.778052
+
+[node name="paladin" type="TextureButton" parent="Node2D/Hero/paladin"]
+anchors_preset = -1
+anchor_left = -0.0625
+anchor_top = -0.03125
+anchor_right = -0.0625
+anchor_bottom = -0.03125
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 14.0
+offset_bottom = 17.0
+metadata/_edit_use_anchors_ = true
+
+[node name="paladin text" type="Label" parent="Node2D/Hero/paladin"]
+visibility_layer = 0
+offset_left = -68.0
+offset_top = 18.0
+offset_right = 112.0
+offset_bottom = 98.0
+theme = ExtResource("4_chamg")
+text = "\"A guardian of justice, they stand as 
+beacons of hope, their blade shining 
+with the purity of their 
+unbreakable vow.\" TTTT"
+metadata/_edit_use_anchors_ = true
+
+[node name="ranger" type="AnimatedSprite2D" parent="Node2D/Hero"]
+position = Vector2(975, 400)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_swex5")
+frame_progress = 0.650118
+
+[node name="ranger" type="TextureButton" parent="Node2D/Hero/ranger"]
+anchors_preset = -1
+anchor_left = -0.03125
+anchor_top = -0.0625
+anchor_right = 0.03125
+anchor_bottom = -0.0625
+offset_left = -9.0
+offset_top = -15.0
+offset_right = 12.0
+offset_bottom = 18.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ranger text" type="Label" parent="Node2D/Hero/ranger"]
+visibility_layer = 0
+offset_left = -105.0
+offset_top = 18.0
+offset_right = 75.0
+offset_bottom = 98.0
+theme = ExtResource("4_chamg")
+text = "\"With eyes sharp as a hawk’s and 
+steps silent as shadows, they’re 
+the watchers of the wilderness, 
+striking with unerring aim.\""
+metadata/_edit_use_anchors_ = true
+
+[node name="Boss" type="Sprite2D" parent="Node2D"]
+
+[node name="Snake" type="AnimatedSprite2D" parent="Node2D/Boss"]
+sprite_frames = SubResource("SpriteFrames_vfqxo")
+
+[node name="CorruptedMage" type="AnimatedSprite2D" parent="Node2D/Boss"]
+sprite_frames = SubResource("SpriteFrames_bjixc")
+
+[node name="SkeletonKing" type="AnimatedSprite2D" parent="Node2D/Boss"]
+sprite_frames = SubResource("SpriteFrames_g6inc")
+
+[node name="Spell" type="Sprite2D" parent="Node2D"]
+
+[node name="Room" type="Sprite2D" parent="Node2D"]
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Menu/Heroes" to="." method="_on_heroes_pressed"]
+[connection signal="pressed" from="Menu/Bosses" to="." method="_on_bosses_pressed"]
+[connection signal="pressed" from="Menu/Traps" to="." method="_on_traps_pressed"]
+[connection signal="pressed" from="Menu/Spells" to="." method="_on_spells_pressed"]
+[connection signal="mouse_entered" from="Node2D/Hero/barbarian/barbarian" to="." method="_on_barbarian_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Hero/barbarian/barbarian" to="." method="_on_barbarian_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Hero/cleric/cleric" to="." method="_on_cleric_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Hero/cleric/cleric" to="." method="_on_cleric_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Hero/luckyfellow/luckyfellow" to="." method="_on_luckyfellow_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Hero/luckyfellow/luckyfellow" to="." method="_on_luckyfellow_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Hero/mage/mage" to="." method="_on_mage_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Hero/mage/mage" to="." method="_on_mage_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Hero/monk/monk" to="." method="_on_monk_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Hero/monk/monk" to="." method="_on_monk_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Hero/paladin/paladin" to="." method="_on_paladin_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Hero/paladin/paladin" to="." method="_on_paladin_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Hero/ranger/ranger" to="." method="_on_ranger_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Hero/ranger/ranger" to="." method="_on_ranger_mouse_exited"]

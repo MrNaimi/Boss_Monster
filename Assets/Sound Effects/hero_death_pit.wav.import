@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bqeb2qrgnvrqt"
+path="res://.godot/imported/hero_death_pit.wav-d144126839880983a837b79cca50256a.sample"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/hero_death_pit.wav"
+dest_files=["res://.godot/imported/hero_death_pit.wav-d144126839880983a837b79cca50256a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

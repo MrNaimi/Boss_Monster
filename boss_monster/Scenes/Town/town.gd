@@ -1,4 +1,5 @@
 extends Node2D
+var Dungeon_Scene = preload("res://Scenes/Dungeon/Dungeon.tscn")
 @onready var h_box_container: HBoxContainer = $HBoxContainer
 @onready var hero_2: Node2D = $HBoxContainer/Hero2
 @onready var hero_3: Node2D = $HBoxContainer/Hero3
@@ -7,6 +8,8 @@ extends Node2D
 @onready var hero_5: Node2D = $HBoxContainer/Hero5
 @onready var hero_6: Node2D = $HBoxContainer/Hero6
 @onready var hero_7: Node2D = $HBoxContainer/Hero7
+@onready var label: Label = $Label
+@onready var timer: Timer = $Timer
 
 var i = 0
   
@@ -22,7 +25,6 @@ func _ready():
 		hero_6.idle_animation.animation = "ranger"
 		hero_7.idle_animation.animation = "mage"
 		
-		hero.position.x += -150
 		if hero.idle_animation.animation == "barbarian":
 			hero.position.y += 50
 		if hero.idle_animation.animation == "monk":
@@ -39,3 +41,42 @@ func _process(delta):
 		if i >= 1:
 			hero.idle_animation.flip_h = not hero.idle_animation.flip_h
 		i = 0
+		
+	if GlobalVariables.infamy == 10:
+		label.text = "The town is threatened by ur dungeon and has issued a quest to destroy you"
+	elif GlobalVariables.infamy == 20:
+		label.text = "Local mayor has realized that they need help in exterminating you and has sought help from a nearby city"
+	elif GlobalVariables.infamy == 20:
+		label.text = "The ruler of the kingdom has issued a quest to destroy u "
+	elif GlobalVariables.infamy == 20:
+		label.text = "The king has sought help from nearby kingdoms"
+	elif GlobalVariables.infamy == 20:
+		label.text = "Emperor of the realm gathering an army to vanquish you"
+
+func _on_button_pressed() -> void:
+	Transition.change_scene("res://Scenes/Dungeon/Dungeon.tscn")
+
+
+func _on_timer_timeout() -> void:
+	label.text = "These heroes will be attacking your dungeon. Click them for more information!"
+
+func _on_barbarian_pressed() -> void:
+	label.text = "barbarian"
+
+func _on_monk_pressed() -> void:
+	label.text = "monk"
+	
+func _on_cleric_pressed() -> void:
+	label.text = "cleric"
+
+func _on_lucky_fellow_pressed() -> void:
+	label.text = "lucky fellow"
+	
+func _on_paladin_pressed() -> void:
+	label.text = "paladin"
+
+func _on_ranger_pressed() -> void:
+	label.text = "ranger"
+
+func _on_mage_pressed() -> void:
+	label.text = "mage"
