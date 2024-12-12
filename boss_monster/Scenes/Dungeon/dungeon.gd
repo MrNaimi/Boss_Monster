@@ -65,6 +65,9 @@ func _on_continue_button_pressed() -> void:
 		GlobalVariables.printDmgBuffs()
 		GlobalVariables.currentPhase="combat"
 		if !GlobalVariables.values_changed:
+			if GlobalVariables.stinky_ghouls>0 && GlobalVariables.misunderstood_ghosts>0 && GlobalVariables.shadows > 0 && !GlobalVariables.shadow_buff_given:
+				GlobalVariables.UndeadDmgBuff+=5
+				GlobalVariables.shadow_buff_given = true
 			GlobalVariables.gatorDmgBuff-=1
 			GlobalVariables.skeleton_ceo_activated = false
 			for room in GlobalVariables.rooms_placed:
@@ -88,6 +91,7 @@ func _on_continue_button_pressed() -> void:
 				GlobalVariables.player_gold-=3*GlobalVariables.orc_bodyguards_in_dungeon
 				for bodyguard in GlobalVariables.orc_bodyguards:
 					if is_instance_valid(bodyguard):
+						print(bodyguard.name)
 						bodyguard.card_ui.room_dmg_2.text = "-3"
 						bodyguard.card_ui.paskahuussi.play("money_animation")
 					else:
@@ -171,3 +175,7 @@ func pauseMenu() -> void:
 
 func _on_resume_pressed() -> void:
 	pauseMenu()
+
+
+func _on_button_pressed() -> void:
+	GlobalVariables.actionsLeft+=1

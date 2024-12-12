@@ -57,7 +57,6 @@ func enter() -> void:
 						GlobalVariables.beast_rooms_in_dungeon+=1
 						print(GlobalVariables.BeastDmgBuff)
 					"Orc Bodyguard":
-						
 						GlobalVariables.HumanoidDmgBuff+=2
 						GlobalVariables.orc_bodyguards_in_dungeon += 1
 						GlobalVariables.orc_bodyguards.append(self)
@@ -112,6 +111,8 @@ func enter() -> void:
 						GlobalVariables.misunderstood_ghosts+=1
 					"Summoning Circle":
 						GlobalVariables.summoning_circles+=1
+					"Skeleton Lounge":
+						GlobalVariables.skeleton_lounges.append(self)
 	elif card_ui.shop_card:
 		print("hellooo")
 		if not card_ui.targets.is_empty() && card_ui.targets[0].name=="CardBuyArea" && card_ui.targets[0].get_parent().get_child_count()<6 && GlobalVariables.player_gold>=10:

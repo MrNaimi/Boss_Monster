@@ -106,12 +106,23 @@ func reset() -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	#if !trap_enter.is_playing():
 		#trap_enter.play()
-	print(get_parent().get_parent().get_parent().name.substr(12,-1))
-	print(get_parent().get_parent().get_parent().get_parent().get_children())
-	
+	#print(get_parent().get_parent().get_parent().name.substr(12,-1))
+	#print(get_parent().get_parent().get_parent().get_parent().get_children())
+
 	var index=int(get_parent().get_parent().get_parent().name.substr(12,-1))-1
-	var prevousindex = index-1
-	if prevousindex == 0: prevousindex = 1
+	var previousindex = index-1
+	#print(get_parent().get_parent().get_parent().get_parent().get_children()[previousindex].get_child_count())
+	if previousindex < 0: previousindex = 0
+	if card_name.text == "The Last Mammoth":
+		if get_parent().get_parent().get_parent().get_parent().get_children()[previousindex].get_child(0).get_child(0).get_child_count()==0:
+			damage = 20
+		else:
+			damage = 10
+		
+			
+		
+	#print(get_parent().get_parent().get_parent().get_parent().get_children()[previousindex])
+	print()
 	for card_area in get_parent().get_parent().get_parent().get_parent().get_children():
 		if card_area.name == get_parent().get_parent().get_parent().name:
 			print("hei")

@@ -25,7 +25,10 @@ var rooms_placed_num = 0
 var heroes_killed = 0
 var stinky_ghouls = 0
 var misunderstood_ghosts = 0
+var undead_rooms_destroyed = 0
+var skeleton_lounges = []
 #Arrays
+
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
 @onready var heroes: Array[Array] = []
@@ -34,6 +37,7 @@ var room_cards_created: Array[Control] = []
 var spawned_heroes: Array[PathFollow2D] = []
 var rooms_placed: Array[Control] = []
 var cardData = []
+
 
 var card_info = ["a","b","c"]
 var room_to_be_destroyed
@@ -79,7 +83,8 @@ var goblin_warrior_animation = false
 var round_counter = 0
 var outlaw_animation = false
 var orc_bodyguard_animation = false
-var skeleton_ceo_activated = false
+var shadows = 0
+var shadow_buff_given = false
 var goblin_warriors_in_dungeon = 0
 var goblin_armies_in_dungeon = 0
 #Card damage buffs
@@ -97,7 +102,7 @@ var TrapActivations = 0
 @onready var actionsLeft = 5
 @onready var currentPhase: String = "build"  #Phases are town phase "town", combat phase "combat" and build phase "build"
 #var card_info = ""
-var player_gold = 100
+var player_gold = 10000
 
 func _ready() -> void:
 	resetValues(false)

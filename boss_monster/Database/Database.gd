@@ -65,7 +65,7 @@ enum {
 	Skeleton_Ceo,
 	Ominous_Shadow,
 	Summoning_Circle,
-	Fallen_Angle
+	Fallen_Angel
 }
 #enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library, Succubus, Vampire, Misunderstood_Ghost, Zombie_Graveyard, Stinky_Ghoul, Rolling_Golem, Killer_Robot, Angry_Slime, Fire_Elemental, Imp, Warlock_Summoner, Demon_Spawn, Lesser_Devil, Outlaw,Orc_Bodyguard,Goblin_Army, Pack_of_Wolves, Chihu, Lions_Den, Electric_Anomaly,Gator,Last_Mammoth, Repair_Bot, Amalgamation, Ominous_Shadow, Summoning_Circle, Fallen_Angle, Greedy_Goblin,Goblin_General,Skeleton_Ceo}
 
@@ -188,7 +188,7 @@ const DATA ={
 		["Room", 5, "Ominous Shadow", "Monster", "if you control a stinky ghoul and misunderstood ghost, give +3 to your undead rooms", "ominous_shadow.png", "", "undead"],
 	Summoning_Circle:
 		["Room", 3, "Summoning Circle", "Monster", "has +2 for each Succubus you control and gives +2dmg to each of your Demonic Scouts", "pentagram.png", "", "demon"],
-	Fallen_Angle:
-		["Room", 5, "Fallen Angle", "Monster", "Gains 3 dmg for each successful succubus charm","fallen_angel.png", "", "demon"]
+	Fallen_Angel:
+		["Room", 5, "Fallen Angel", "Monster", "Gains 3 dmg for each successful succubus charm","fallen_angel.png", "", "demon"]
 	
 } 

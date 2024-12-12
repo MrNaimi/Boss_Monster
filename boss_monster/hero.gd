@@ -133,7 +133,6 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Mimic room")
 		"The Vault Room": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
-			
 			print("Handle The Vault Room")
 		"Spike Factory": #TEHTY
 			room_damage+=GlobalVariables.ConstructDmgBuff
@@ -141,9 +140,9 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		"Hot Coals": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
 			print("Handle Hot Coals room")
-		"Monster Lounge": #TEHTY/SKIP
+		"Skeleton Lounge": #TEHTY/SKIP
 			room_damage+=round(1.5*GlobalVariables.UndeadDmgBuff)
-			print("Handle Monster Lounge room")
+			print("Handle Skeleton Lounge room")
 		"The Dragon Lair": #TEHTY
 			room_damage+=GlobalVariables.BeastDmgBuff
 			if hp<=room_damage*selectedHero[1]:
@@ -184,7 +183,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Misunderstood Ghost room")
 		"Zombie Graveyard": #TEHTY
 			room_damage+=GlobalVariables.UndeadDmgBuff
-			room_damage+=GlobalVariables.rooms_destroyed
+			room_damage+=GlobalVariables.undead_rooms_destroyed
 			print("Handle Zombie Graveyard room")
 		"Rolling Golem": #TEHTY
 			room_damage+=(1.5*GlobalVariables.ConstructDmgBuff)
@@ -247,11 +246,10 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		"Electric Anomaly": #TEHTY
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Electric Anomaly room")
-		"Gator":#skip
+		"Gator":
 			if hp<=room_damage*selectedHero[1]:
 				GlobalVariables.gatorDmgBuff=3
-			
-		"Last Mammoth":#skip
+		"The Last Mammoth":
 			room_damage+=GlobalVariables.BeastDmgBuff
 		"Repair Bot":#tehty
 			room_damage+=GlobalVariables.ConstructDmgBuff
@@ -274,8 +272,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 					GlobalVariables.skeleton_ceo_activated = true
 		"Ominous Shadow":
 			room_damage+=GlobalVariables.UndeadDmgBuff
-			if GlobalVariables.stinky_ghouls>0 && GlobalVariables.misunderstood_ghosts>0:
-				GlobalVariables.UndeadDmgBuff+=5
+
 		"Summoning Circle":
 			room_damage+=GlobalVariables.DemonDmgBuff
 			room_damage+=GlobalVariables.succubi_placed*2

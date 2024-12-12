@@ -5,7 +5,7 @@ extends Control
 var timer_started = false
 @onready var destroy_room: Button = $ColorRect/destroy_room
 @onready var color_rect: ColorRect = $ColorRect
-
+var undead_rooms_destroyed = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if GlobalVariables.show_card:
@@ -65,6 +65,7 @@ func _on_destroy_room_pressed() -> void:
 			print("goblin warrior tuhottu")
 			GlobalVariables.goblin_warriors_in_dungeon-=1
 		"Stinky Ghoul":
+			undead_rooms_destroyed+=1
 			GlobalVariables.TrapDmgBuff += 2
 			GlobalVariables.DemonDmgBuff += 2
 			GlobalVariables.HumanoidDmgBuff += 2
@@ -89,17 +90,33 @@ func _on_destroy_room_pressed() -> void:
 		"Killer Robot":
 			GlobalVariables.killer_robot_placed = false
 		"Skeleton Lounge":
-			GlobalVariables.UndeadDmgBuff+=2
+			undead_rooms_destroyed+=1
+			GlobalVariables.UndeadDmgBuff+=1
 		"Repair Bot":
 			GlobalVariables.repair_bots-=1
 		"Misunderstood Ghost":
+			undead_rooms_destroyed+=1
 			GlobalVariables.misunderstood_ghosts-=1
 		"Stinky Ghoul":
+			undead_rooms_destroyed+=1
 			GlobalVariables.stinky_ghouls-=1
 		"Succubus":
 			GlobalVariables.succubi_placed-=1
 		"Summoning Circle":
 			GlobalVariables.summoning_circles-=1
+		"Skeleton CEO":
+			undead_rooms_destroyed+=1
+		"Ominous Shadow":
+			if GlobalVariables.stinky_ghouls>0 && GlobalVariables.misunderstood_ghosts>0 && GlobalVariables.shadows == 0:
+				GlobalVariables.UndeadDmgBuff-=5
+				GlobalVariables.shadow_buff_given = false
+			GlobalVariables.shadows -= 1
+			
+	if undead_rooms_destroyed>=1:
+		for lounge in GlobalVariables.skeleton_lounges:
+			lounge.card_ui.damage+=1
+		undead_rooms_destroyed-=1
+		
 	print("Construct Damage Buff:", GlobalVariables.ConstructDmgBuff)
 	print("Beast Damage Buff:", GlobalVariables.BeastDmgBuff)
 	print("Humanoid Damage Buff:", GlobalVariables.HumanoidDmgBuff)
