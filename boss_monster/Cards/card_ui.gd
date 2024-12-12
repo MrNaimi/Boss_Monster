@@ -4,7 +4,6 @@ extends Control
 signal reparent_requested(which_card_ui: CardUI)
 signal reset_card()
 
-@onready var card: PackedScene = preload("res://Cards/card_ui.tscn")
 @onready var color: ColorRect = $ColorRect
 @onready var state: Label = $State
 @onready var card_state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
@@ -25,58 +24,14 @@ signal reset_card()
 @onready var trap_enter: AudioStreamPlayer2D = $trap_enter
 @onready var shop_card = false
 @onready var card_info = ""
-@onready var tribe = "spell"
-@onready var selectedRoom = []
-@onready var placed = false
-@onready var room_dmg_2: Label = $Control/RoomDmg2
-@onready var perseajastin: Timer = $perseajastin
-@onready var paskahuussi: AnimationPlayer = $paskahuussi
-@onready var activate_button: Button = $ActivateButton
-@onready var trap_activated = false
-@onready var entered_hero = null
-var sound = ""
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	initializeCard()
 	GlobalVariables.room_cards_created.append(self)
 	
-func _process(delta: float) -> void:
-	if !visible:
-		queue_free()
-	else:
-		pass
-	if placed:
-		if card_name.text=="Outlaw" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<0:
-			GlobalVariables.outlaws_in_dungeon -= 1
-			GlobalVariables.message("Your Outlaw has left the dungeon due to a lack of funds",false)
-			visible = false
-			GlobalVariables.spawn_room_set = false
-		if card_name.text=="Killer Robot" && GlobalVariables.killer_robot_terminate:
-			GlobalVariables.killer_robot_terminate = false
-			GlobalVariables.message("Your killer robot has self destructed",false)
-			visible = false
-			GlobalVariables.spawn_room_set = false
-		if card_name.text=="Orc Bodyguard" && GlobalVariables.currentPhase=="combat" && GlobalVariables.player_gold<0:
-			GlobalVariables.orc_bodyguards_in_dungeon -= 1
-			GlobalVariables.message("Your Orc Bodyguard has left the dungeon due to a lack of funds",false)
-			visible = false
-			GlobalVariables.spawn_room_set = false
-		if card_name.text=="Pack of Wolves" && GlobalVariables.currentPhase=="build" && GlobalVariables.round_counter>=5:
-			GlobalVariables.message("Your Pack of Wolves starved to death",false)
-			GlobalVariables.pack_of_wolves_placed -= 1
-			GlobalVariables.round_counter = 0
-			visible = false
-			GlobalVariables.spawn_room_set = false
-		if GlobalVariables.goblin_army_animation && card_name.text=="Goblin Army":
-			GlobalVariables.goblin_army_animation = false
-			room_dmg_2.text = "+2"
-			paskahuussi.play("money_animation")
-		if GlobalVariables.goblin_warrior_animation && card_name.text=="Goblin Warrior":
-			GlobalVariables.goblin_warrior_animation = false
-			room_dmg_2.text = "+2"
-			paskahuussi.play("money_animation")
-
+	
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
 	
@@ -106,49 +61,31 @@ func reset() -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	#if !trap_enter.is_playing():
 		#trap_enter.play()
-	print(get_parent().get_parent().get_parent().name.substr(12,-1))
-	print(get_parent().get_parent().get_parent().get_parent().get_children())
-	
-	var index=int(get_parent().get_parent().get_parent().name.substr(12,-1))-1
-	var prevousindex = index-1
-	if prevousindex == 0: prevousindex = 1
-	for card_area in get_parent().get_parent().get_parent().get_parent().get_children():
-		if card_area.name == get_parent().get_parent().get_parent().name:
-			print("hei")
 	if !GlobalVariables.spawn_room_set:
 		print("Current room set as the spawn room")
 		spawn_room=true
 		GlobalVariables.spawn_room_set = true
-	if tribe == "trap" && !trap_activated:
-		if !(card_name.text == "The Vault Room" && GlobalVariables.player_gold<15):
-			activate_button.visible = true
-			entered_hero=area
 
 func _on_hit_box_area_exited(area: Area2D) -> void:
 	#if self in GlobalVariables.spawn_room:
 	if spawn_room:
 		GlobalVariables.spawn_hero=true
-	activate_button.visible = false
 	pass
 	
 func initializeCard() -> void:
-	if get_parent().get_parent().get_parent().name == "ShopUI":
-		shop_card=true
 	rooms = GlobalVariables.rooms
 	spells = GlobalVariables.spells
+	print("pylly")
 		#if GlobalVariables.spawn_room.size()==0:
 	#	GlobalVariables.spawn_room.append(self) 
+	#print(rooms)
 	var i =  RandomNumberGenerator.new().randi_range(0, rooms.size()-1)
-	if !GlobalVariables.cardBought:
-		selectedRoom=rooms.pop_at(i)
-	else: 
-		selectedRoom = GlobalVariables.cardData
-		GlobalVariables.cardBought = false
+	var selectedRoom=rooms.pop_at(i)
+	
 	i =  RandomNumberGenerator.new().randi_range(0, spells.size()-1)
 	var selectedSpell=spells.pop_at(i)
 	card_state_machine.init(self)
 	if GlobalVariables.created_spells < GlobalVariables.spell_limit:
-		GlobalVariables.created_spells+=1
 		print("Yritetään luoda spelliä")
 		trap_texture.texture=load(texturepath+selectedSpell[5])
 		card_texture.texture=load(texturepath+selectedSpell[5])
@@ -157,13 +94,12 @@ func initializeCard() -> void:
 		room_dmg.text = str(selectedSpell[1])
 		card_info = (selectedSpell[4])
 		damage = int(room_dmg.text)
+		
+		GlobalVariables.created_spells+=1
 		card_border.texture=load("res://Cards/Graphics/spellcard.png")
 		drop_point_detecor.set_collision_mask_value(3, false)
 		drop_point_detecor.set_collision_mask_value(4, true)
 		drop_point_detecor.set_collision_layer_value(3, false)
-		
-		pass
-		
 	else:
 		if selectedRoom != null:
 			trap_texture.texture=load(texturepath+selectedRoom[5])
@@ -177,8 +113,7 @@ func initializeCard() -> void:
 			GlobalVariables.room_cards_created.append(self)
 			sound = selectedRoom[6]
 			#trap_enter.stream=load("res://Assets/Sound Effects/trap_gas_leak.wav")
-		if get_parent().get_parent().get_parent().name == "ShopUI":
-			shop_card=true
+
 
 
 func _on_perseajastin_timeout() -> void:
@@ -197,46 +132,42 @@ func _on_activate_button_pressed() -> void:
 	var hero = entered_hero.get_parent().get_parent()
 	var hp = hero.hp
 	var selectedHero = hero.selectedHero
-	var trap_activation_damage = damage
+	var dmg = damage
 	GlobalVariables.soundpath = sound
 	GlobalVariables.play_trap_sound=true
 	if !trap_activated:
 		match card_name.text:
 			"Gas Leak":
 				for person in heroes:
-					person.hp-=6
-					GlobalVariables.damage_done+=6
-					person.poison_damage.text = "-6"
+					person.hp-=5
+					person.poison_damage.text = "-5"
 					person.animations.play("poison_damage")
 			"Mimic":
-				trap_activation_damage=GlobalVariables.player_gold
-				room_dmg_2.text = str(GlobalVariables.player_gold)
-				
+				hero.hp-=GlobalVariables.player_gold
+				room_dmg_2.text = GlobalVariables.player_gold
 				paskahuussi.play("damagetext")
 			"The Vault Room":
 				if GlobalVariables.player_gold>=15:
+					hero.hp=0
 					GlobalVariables.player_gold-=15
-					GlobalVariables.damage_done+=hero.hp
-					hero.hp = 0
 					room_dmg_2.text = str(9999)
 					paskahuussi.play("damagetext")
-					
 			"Hot Coals":
 				print("Hot Coals: The heroes take damage from the coals... because they are hot.")
 				hero.damageAdd += 3
 			"Pit Fall":
 				room_dmg_2.text = str(9999)
-				GlobalVariables.damage_done += hero.hp
 				hero.hp = 0
 				visible = false
 				paskahuussi.play("damagetext")
 			"Spike Trap":
 				# Add specific game logic here
-				trap_activation_damage = 10 + GlobalVariables.TrapDmgBuff + GlobalVariables.SpikeTrapDmgBuff
+				dmg = 10 + GlobalVariables.TrapDmgBuff
+				
 				paskahuussi.play("damagetext")
 			"Forgotten Library":
-				trap_activation_damage = 5 + GlobalVariables.TrapDmgBuff
-				if hp<=trap_activation_damage*selectedHero[1]:
+				damage = 5 + GlobalVariables.TrapDmgBuff
+				if hp<=damage*selectedHero[1]:
 					print("lisätään kortti")
 					if get_tree().get_first_node_in_group("hand").get_child_count()<6:
 						GlobalVariables.resetValues(true)
@@ -248,11 +179,11 @@ func _on_activate_button_pressed() -> void:
 			_:
 				print("Unknown trap room:", card_name)
 					
-		GlobalVariables.TrapActivations += 1
-		GlobalVariables.damage_done+=trap_activation_damage
-		hero.hp-=trap_activation_damage*selectedHero[1]
+		hero.hp-=dmg*selectedHero[1]
 		activate_button.visible = false
 		trap_activated = true
 		
 		#if GlobalVariables.is_everyone_stopped():
 			#GlobalVariables.heroes_move=true
+
+			

@@ -18,4 +18,4 @@ func _on_button_pressed():
 	$Timer.start(2)
 
 func _on_timer_timeout():
-	Transition.change_scene("res://Scenes/Town/Town.tscn")
+	Transition.change_scene("res://Scenes/Dungeon/Dungeon.tscn")

@@ -6,8 +6,6 @@ extends Node2D
 @onready var herolimit = 3
 @onready var currentheroes = 1
 @onready var timer: Timer = $Timer
-@onready var refresh_button: Button = $"../DungeonUI/ShopUI/RefreshButton"
-@onready var shop_ui: Control = $"../DungeonUI/ShopUI"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,38 +33,21 @@ func _process(delta: float) -> void:
 		if currentheroes < herolimit:
 			var new_hero = heroandpath.instantiate()
 			get_child(0).add_child(new_hero)
+			#print(get_child(0).get_children())
 			GlobalVariables.heroKilled = false
 			GlobalVariables.spawn_hero = false
 			currentheroes +=1
 		if GlobalVariables.amount_of_heroes_killed == herolimit:
 			GlobalVariables.spawned_heroes=[]
-			GlobalVariables.rerollCost=1
 			GlobalVariables.currentPhase = "build"
-			var robot_number = RandomNumberGenerator.new().randi_range(1, 5)
-			if GlobalVariables.repair_bots == 1:
-				robot_number = RandomNumberGenerator.new().randi_range(1, 10)
-			elif  GlobalVariables.repair_bots >= 2:
-				robot_number=0
-			print("Killer robot number, 5 kills ",robot_number)
-			if GlobalVariables.killer_robot_placed && robot_number==5:
-				print("killer robot terminated")
-				GlobalVariables.killer_robot_terminate=true
-				robot_number = 0
-			if GlobalVariables.lions_dens_in_the_dungeon > 0:
-				GlobalVariables.BeastDmgBuff-=GlobalVariables.beast_rooms_in_dungeon
-			GlobalVariables.forgotten_library_activated = false
-			shop_ui.createCards()
 			GlobalVariables.infamy+=1
-			if GlobalVariables.infamy % 10 == 0:
-				Transition.change_scene("res://Scenes/Town/Town.tscn")
 			GlobalVariables.actionsLeft = 2
 			currentheroes = 0
 			if GlobalVariables.infamy%3==0:
 				herolimit+=1
 			GlobalVariables.amount_of_heroes_killed=0
-			GlobalVariables.values_changed = false
 			GlobalVariables.playshopanim = true
-			
+		
 
 
 func _on_timer_timeout() -> void:

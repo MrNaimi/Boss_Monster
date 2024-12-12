@@ -17,6 +17,7 @@ var selectedHero = []
 @onready var animations: AnimationPlayer = $animations
 @onready var poison_damage: Label = $PoisonDamage
 
+
 var visited_demon_scouts = 0
 var damageAdd = 0
 var rooms_entered = 0
@@ -27,10 +28,7 @@ func _ready() -> void:
 	#health_bar.max_value = hp
 	var i =  RandomNumberGenerator.new().randi_range(0, heroes.size()-1)
 	selectedHero=heroes[i]
-	hp =  RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3])
-	print("Hp before infamy scaling: ",hp," ")
-	hp = round(hp*(0.5+0.25*GlobalVariables.infamy))
-	print("Hp after infamy scaling: ",hp," ")
+	hp = round(RandomNumberGenerator.new().randi_range(selectedHero[2],selectedHero[3])*(0.5+0.25*GlobalVariables.infamy))
 	health_bar.max_value = hp
 	idle_animation.animation = selectedHero[4]
 	hero_class=selectedHero[4]
@@ -42,19 +40,10 @@ func _process(delta: float) -> void:
 	#print(hp)
 	
 	if hp <= 0:
-		
-		if GlobalVariables.goblin_warriors_in_dungeon >= 1:
-			if RandomNumberGenerator.new().randi_range(1,4)==4:
-				GlobalVariables.player_gold+=2
-				GlobalVariables.goblin_warrior_animation = true
-		if GlobalVariables.goblin_armies_in_dungeon >= 1:
-			if RandomNumberGenerator.new().randi_range(1,3)==3:
-				GlobalVariables.player_gold+=2
-				GlobalVariables.goblin_army_animation = true
 		if GlobalVariables.autoplay:
 			GlobalVariables.heroes_move=true
 		GlobalVariables.heroKilled = true
-		GlobalVariables.heroes_killed += 1
+		get_parent().queue_free()
 		GlobalVariables.amount_of_heroes_alive-=1
 		GlobalVariables.amount_of_heroes_killed+=1
 		if !killed_by_boss:
@@ -89,25 +78,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 			
 			
 func _on_hit_box_area_exited(area: Area2D) -> void:
-	var room_name = ""
-	rooms_entered+=1
-	if area.get_parent() is AnimatedSprite2D:
-		room_name = "Hero"
-	elif area.get_parent().name != "Boss":
-		room_name = area.get_parent().card_name.text
-	else:
-		room_name = "Boss"
-		
-	var room_damage =  area.get_parent().damage # TÄSSÄ MÄÄRITELLÄÄN HUONEEN DAMAGE
-	
-	#SEURAAVAKSI MÄÄRITELLÄÄN KAIKKI HEROT
-	var heroes = []
-	for item in GlobalVariables.spawned_heroes:
-		if is_instance_valid(item):
-			heroes.append(item.get_child(0))
-
-	#damage multiplier = *selectedHero[1]
-	
+	var damageTaken = area.get_parent().damage*selectedHero[1]
 	#print("Exited trap damage: ",area.get_parent().damage)
 	#trapissa olevan heron hp = hp
 	#KAIKKI HEROT ON "heroes"
@@ -119,12 +90,11 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Goblin Warrior room")
 		"Gas Leak": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
-			#for hero in heroes:
-				#hero.hp -= floor(2+GlobalVariables.TrapDmgBuff*0.34)*hero.damageMult
-				#hero.poison_damage.text = "-2"
-				#GlobalVariables.damage_done+=2
-				#hero.animations.play("poison_damage")
-			#print("Handle Gas Leak room")
+			for hero in heroes:
+				hero.hp -= floor(2+GlobalVariables.TrapDmgBuff*0.34)*hero.damageMult
+				hero.poison_damage.text = "-2"
+				hero.animations.play("poison_damage")
+			print("Handle Gas Leak room")
 		"Mimic": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
 			if hp<=room_damage*selectedHero[1]:
@@ -154,7 +124,6 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Pit Fall room")
 		"Spike Trap": #SKIP
 			room_damage+=GlobalVariables.TrapDmgBuff
-			room_damage+=GlobalVariables.SpikeTrapDmgBuff
 			print("Handle Spike Trap room")
 		"Forgotten Library": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
@@ -166,7 +135,6 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			if RandomNumberGenerator.new().randi_range(1,5)==5:
 				path_direction *= -1
 				flipped = not flipped
-				GlobalVariables.succubus_charms+=1
 			print("Handle Succubus room")
 		"Vampire":#TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff
@@ -201,13 +169,14 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Fire Elemental room")
 		"Demonic Scout":#TEHTY, IMP
-			room_damage+=3*visited_demon_scouts
+			if visited_demon_scouts>0:
+				room_damage+=3*visited_demon_scouts
 			visited_demon_scouts +=1
-			room_damage+=GlobalVariables.summoning_circles*2
 			room_damage+=GlobalVariables.DemonDmgBuff
 			print("Handle Demonic Scout room")
 		"Warlock Summoner":#TEHTY
-			room_damage+=3*visited_demon_scouts
+			if visited_demon_scouts>0:
+				room_damage+=3*visited_demon_scouts
 			room_damage+=GlobalVariables.DemonDmgBuff
 			room_damage+=GlobalVariables.UndeadDmgBuff
 			print("Handle Warlock Summoner room")
@@ -247,65 +216,26 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 		"Electric Anomaly": #TEHTY
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Electric Anomaly room")
-		"Gator":#skip
-			if hp<=room_damage*selectedHero[1]:
-				GlobalVariables.gatorDmgBuff=3
-			
-		"Last Mammoth":#skip
-			room_damage+=GlobalVariables.BeastDmgBuff
-		"Repair Bot":#tehty
-			room_damage+=GlobalVariables.ConstructDmgBuff
-			print("Handle repair bot")
-		"Amalgamation":#tehty
-			room_damage+=GlobalVariables.ConstructDmgBuff
-			room_damage+=GlobalVariables.BeastDmgBuff
-			room_damage+=GlobalVariables.HumanoidDmgBuff
-			room_damage+=GlobalVariables.DemonDmgBuff
-			room_damage+=GlobalVariables.UndeadDmgBuff
-		"Skeleton CEO": #tehty
-			room_damage+=GlobalVariables.UndeadDmgBuff
-			if !GlobalVariables.skeleton_ceo_activated:
-				if hp<=room_damage*selectedHero[1]:
-					if get_tree().get_first_node_in_group("hand").get_child_count()<6:
-							GlobalVariables.giveCard("Skeleton Lounge")
-							get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
-							get_tree().get_first_node_in_group("hand").startcardmachine()
-					GlobalVariables.resetValues(true)
-					GlobalVariables.skeleton_ceo_activated = true
-		"Ominous Shadow":
-			room_damage+=GlobalVariables.UndeadDmgBuff
-			if GlobalVariables.stinky_ghouls>0 && GlobalVariables.misunderstood_ghosts>0:
-				GlobalVariables.UndeadDmgBuff+=5
-		"Summoning Circle":
-			room_damage+=GlobalVariables.DemonDmgBuff
-			room_damage+=GlobalVariables.succubi_placed*2
-		"Fallen Angel":
-			room_damage+=GlobalVariables.DemonDmgBuff
-			room_damage+=GlobalVariables.succubus_charms*3
 		"Boss":
 			print("boss boss bossss")
-			hp = 0
 		_:
 			print("Unknown room:", room_name)
 			
 	print("Damage dealt by room: ",room_damage)
 	
-	if GlobalVariables.gatorDmgBuff>0:
-		room_damage+=4
 	if area.get_parent().name != "Boss" && area.get_parent().get_parent().name != "Hero":
 		area.get_parent().room_dmg_2.text = str(damageAdd+room_damage)
 		#area.get_parent().room_dmg_2.visible = true
 		#area.get_parent().perseajastin.start()
 		area.get_parent().paskahuussi.play("damagetext")
-	GlobalVariables.damage_done += (damageAdd+room_damage)
+		
 	hp -= (damageAdd+room_damage)*selectedHero[1]
 	
 	if mindcontrolled:
-		GlobalVariables.damage_done+=floor(0.5*hp)
-		hp-=floor(0.5*hp)
+		hp-=area.get_parent().get_parent().hp
 		mindcontrolled = false
 		flipped = false
-		get_child(0).damage = 0
+	get_child(0).damage = 0
 	#print(hp)
 func isEveryoneStopped () -> bool:
 	for path in GlobalVariables.spawned_heroes:

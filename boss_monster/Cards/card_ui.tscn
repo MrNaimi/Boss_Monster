@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://o33examlthtq"]
+[gd_scene load_steps=14 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
 [ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
 [ext_resource type="Texture2D" uid="uid://bdbkea8gshl6m" path="res://Cards/Graphics/trap_graphic/sauna.png" id="9_v7el0"]
 [ext_resource type="Texture2D" uid="uid://co0imuiaeata1" path="res://Cards/Graphics/card.png" id="10_0dsxu"]
-[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
+[ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://Fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
 [ext_resource type="FontFile" path="res://fonts/montreal/Montreal.tres" id="12_6h8t8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vnx"]
@@ -18,96 +18,7 @@ size = Vector2(89, 140)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng550"]
 size = Vector2(45, 39)
 
-[sub_resource type="Animation" id="Animation_fxkpw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/RoomDmg2:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.74902, 0.0235294, 0.0235294, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/RoomDmg2:theme_override_colors/font_shadow_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_so0ye"]
-resource_name = "damagetext"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/RoomDmg2:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.74902, 0.0235294, 0.0235294, 0), Color(0.74902, 0.0235294, 0.0235294, 1), Color(0.74902, 0.0235294, 0.0235294, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/RoomDmg2:theme_override_colors/font_shadow_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.266667, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_76s6p"]
-resource_name = "money_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/RoomDmg2:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.74902, 0.0235294, 0.0235294, 0), Color(1, 0.95, 0, 1), Color(1, 0.95, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/RoomDmg2:theme_override_colors/font_shadow_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8huku"]
-_data = {
-"RESET": SubResource("Animation_fxkpw"),
-"damagetext": SubResource("Animation_so0ye"),
-"money_animation": SubResource("Animation_76s6p")
-}
-
 [node name="CardUI" type="Control" groups=["card"]]
-z_as_relative = false
 custom_minimum_size = Vector2(90, 140)
 layout_mode = 3
 anchors_preset = 0
@@ -197,18 +108,6 @@ theme_override_font_sizes/font_size = 11
 text = "T"
 horizontal_alignment = 1
 
-[node name="RoomDmg2" type="Label" parent="Control"]
-layout_mode = 0
-offset_top = 13.0
-offset_right = 90.0
-offset_bottom = 39.0
-theme_override_colors/font_color = Color(0.74902, 0.0235294, 0.0235294, 0)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_fonts/font = ExtResource("12_6h8t8")
-theme_override_font_sizes/font_size = 19
-text = "1"
-horizontal_alignment = 1
-
 [node name="RoomDmg" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 29.0
@@ -234,23 +133,7 @@ theme_override_font_sizes/font_size = 9
 text = "CardName"
 horizontal_alignment = 1
 
-[node name="perseajastin" type="Timer" parent="."]
-
-[node name="paskahuussi" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_8huku")
-}
-
-[node name="ActivateButton" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 4.0
-offset_top = 9.0
-offset_right = 87.0
-offset_bottom = 31.0
-theme = ExtResource("1_8rgw7")
-theme_type_variation = &"FlatButton"
-text = "Activate"
+[node name="trap_enter" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
@@ -260,5 +143,3 @@ text = "Activate"
 [connection signal="area_exited" from="DropPointDetecor" to="." method="_on_drop_point_detecor_area_exited"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]
-[connection signal="timeout" from="perseajastin" to="." method="_on_perseajastin_timeout"]
-[connection signal="pressed" from="ActivateButton" to="." method="_on_activate_button_pressed"]

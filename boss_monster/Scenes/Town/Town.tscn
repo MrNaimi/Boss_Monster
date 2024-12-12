@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3nxpkvi80uua"]
+[gd_scene load_steps=4 format=3 uid="uid://b3nxpkvi80uua"]
 
 [ext_resource type="Texture2D" uid="uid://cw7mihwj87uyp" path="res://Scenes/Town/townScene.png" id="1_ndlgx"]
 [ext_resource type="Script" path="res://Scenes/Town/town.gd" id="1_s10b2"]
 [ext_resource type="PackedScene" uid="uid://dhnpite2foeeu" path="res://hero.tscn" id="3_ptg7o"]
-
-[sub_resource type="Theme" id="Theme_5wo6u"]
 
 [node name="town" type="Node2D"]
 script = ExtResource("1_s10b2")
@@ -15,16 +13,13 @@ offset_bottom = 721.0
 color = Color(0, 0, 0, 1)
 
 [node name="kyla" type="Sprite2D" parent="."]
-modulate = Color(1, 0.84, 0.84, 1)
 position = Vector2(640, 352)
 scale = Vector2(6.4, 7.41667)
 texture = ExtResource("1_ndlgx")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = -138.0
-offset_top = -12.0
-offset_right = 32.0
-offset_bottom = 26.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Hero1" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
 position = Vector2(276, 452)
@@ -39,7 +34,7 @@ position = Vector2(560, 451)
 scale = Vector2(4, 4)
 
 [node name="Hero4" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
-position = Vector2(692, 451)
+position = Vector2(698, 452)
 scale = Vector2(4, 4)
 
 [node name="Hero5" parent="HBoxContainer" instance=ExtResource("3_ptg7o")]
@@ -62,100 +57,7 @@ offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 431.0
-offset_top = 542.0
-offset_right = 765.0
-offset_bottom = 613.0
-theme_override_font_sizes/font_size = 45
-text = "Continue"
-
-[node name="Label" type="Label" parent="."]
-offset_left = 183.0
-offset_top = 85.0
-offset_right = 1202.0
-offset_bottom = 296.0
-theme = SubResource("Theme_5wo6u")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 45
-text = "You have settled near a town, and the locals have been rattled. Be prepared to defend yourself!"
-autowrap_mode = 3
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-autostart = true
-
-[node name="Control2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -2.0
-offset_top = 12.0
-offset_right = 38.0
-offset_bottom = 52.0
-
-[node name="barbarian" type="Button" parent="Control2"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 99.0
-offset_top = 387.0
-offset_right = 180.0
-offset_bottom = 521.0
-
-[node name="monk" type="Button" parent="Control2"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 238.0
-offset_top = 355.0
-offset_right = 333.0
-offset_bottom = 514.0
-
-[node name="cleric" type="Button" parent="Control2"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 383.0
-offset_top = 348.0
-offset_right = 476.0
-offset_bottom = 516.0
-
-[node name="lucky fellow" type="Button" parent="Control2"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 518.0
-offset_top = 351.0
-offset_right = 611.0
-offset_bottom = 515.0
-
-[node name="paladin" type="Button" parent="Control2"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 660.0
-offset_top = 345.0
-offset_right = 754.0
-offset_bottom = 516.0
-
-[node name="ranger" type="Button" parent="Control2"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 789.0
-offset_top = 356.0
-offset_right = 878.0
-offset_bottom = 515.0
-
-[node name="mage" type="Button" parent="Control2"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 917.0
-offset_top = 352.0
-offset_right = 1017.0
-offset_bottom = 519.0
-
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Control2/barbarian" to="." method="_on_barbarian_pressed"]
-[connection signal="pressed" from="Control2/monk" to="." method="_on_monk_pressed"]
-[connection signal="pressed" from="Control2/cleric" to="." method="_on_cleric_pressed"]
-[connection signal="pressed" from="Control2/lucky fellow" to="." method="_on_lucky_fellow_pressed"]
-[connection signal="pressed" from="Control2/paladin" to="." method="_on_paladin_pressed"]
-[connection signal="pressed" from="Control2/ranger" to="." method="_on_ranger_pressed"]
-[connection signal="pressed" from="Control2/mage" to="." method="_on_mage_pressed"]
+offset_left = 1058.0
+offset_top = 557.0
+offset_right = 1277.0
+offset_bottom = 625.0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bppkmanivyjni"]
+[gd_scene load_steps=6 format=3 uid="uid://bppkmanivyjni"]
 
 [ext_resource type="Script" path="res://Scenes/Main_menu/boss_selection.gd" id="1_cctkr"]
 [ext_resource type="Texture2D" uid="uid://ko6ejdc2jks" path="res://Assets/Bosses/Demon/Demon_single.png" id="2_405rm"]
+[ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="2_djiyj"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="3_httui"]
 
 [sub_resource type="Theme" id="Theme_qgv3w"]
@@ -18,8 +19,10 @@ script = ExtResource("1_cctkr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1291.0
-offset_bottom = 733.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 1292.0
+offset_bottom = 729.0
 color = Color(0, 0, 0, 1)
 
 [node name="Button" type="Button" parent="."]
@@ -27,7 +30,10 @@ layout_mode = 0
 offset_left = 69.0
 offset_top = 461.0
 offset_right = 477.0
-offset_bottom = 674.0
+offset_bottom = 546.0
+theme = ExtResource("2_djiyj")
+theme_override_fonts/font = ExtResource("3_httui")
+theme_override_font_sizes/font_size = 38
 text = "Select"
 
 [node name="Demon" type="Sprite2D" parent="."]
