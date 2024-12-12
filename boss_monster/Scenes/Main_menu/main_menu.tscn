@@ -54,6 +54,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ff875")
 text = "Play "
 
 [node name="Collections" type="Button" parent="Menu"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_3dran")
 theme_override_font_sizes/font_size = 60
