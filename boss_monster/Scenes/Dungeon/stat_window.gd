@@ -15,6 +15,7 @@ extends Control
 @onready var i = 0
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 @onready var color_rect: ColorRect = $ColorRect
+@onready var color_rect_2: ColorRect = $ColorRect2
 
 
 
@@ -47,6 +48,7 @@ func refreshStats() -> void:
 func _on_hide_stat_window_pressed() -> void:
 	scroll_container.visible = not scroll_container.visible
 	color_rect.visible = not color_rect.visible
+	color_rect_2.visible = not color_rect_2.visible
 	
 	if hide_stat_window.text == "Show stat window":
 		hide_stat_window.text = "Hide stat window"

@@ -27,6 +27,7 @@ var stinky_ghouls = 0
 var misunderstood_ghosts = 0
 var undead_rooms_destroyed = 0
 var skeleton_lounges = []
+var skeleton_ceo_activated = false
 #Arrays
 
 @onready var Database = preload("res://Database/Database.gd")
@@ -102,7 +103,7 @@ var TrapActivations = 0
 @onready var actionsLeft = 5
 @onready var currentPhase: String = "build"  #Phases are town phase "town", combat phase "combat" and build phase "build"
 #var card_info = ""
-var player_gold = 10000
+var player_gold = 5
 
 func _ready() -> void:
 	resetValues(false)
@@ -154,7 +155,8 @@ func placed_message(msg,tribe,card_placed,node,room_dmg) -> void:
 	room_to_be_destroyed=node
 	if card_placed && node != null:
 		if currentPhase=="build":
-			destroy_room = true
+			if node!=null:
+				destroy_room = true
 		else:
 			destroy_room = false
 			

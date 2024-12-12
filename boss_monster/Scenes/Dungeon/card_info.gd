@@ -8,6 +8,8 @@ var timer_started = false
 var undead_rooms_destroyed = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
+		
 	if GlobalVariables.show_card:
 		if GlobalVariables.message_sent:
 			if !timer_started:
@@ -25,7 +27,7 @@ func _process(delta: float) -> void:
 	else:
 		visible = false
 		
-	if GlobalVariables.destroy_room:
+	if GlobalVariables.destroy_room && GlobalVariables.room_to_be_destroyed != null:
 		destroy_room.visible=true
 		message_timer.wait_time=10
 		if !timer_started:
