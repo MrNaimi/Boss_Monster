@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=82 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -26,6 +26,9 @@
 [ext_resource type="Script" path="res://Scenes/Dungeon/card_info.gd" id="23_i7nix"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/trap_sound.gd" id="25_ts63x"]
 [ext_resource type="Script" path="res://Scenes/Dungeon/stat_window.gd" id="26_5uaum"]
+[ext_resource type="Texture2D" uid="uid://cnbtafi5vtwgi" path="res://Cards/Graphics/coin.png" id="27_ptste"]
+[ext_resource type="Texture2D" uid="uid://ccmc68033lxny" path="res://Cards/Graphics/infamy_1.png" id="28_qporu"]
+[ext_resource type="PackedScene" uid="uid://b5xgerqnr4hwn" path="res://pause_menu.tscn" id="29_qtiwf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -1072,6 +1075,10 @@ point_count = 14
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_at3vo"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fups2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bissj"]
+
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_7o1lv")
 
@@ -1321,6 +1328,7 @@ text = "Actions left: "
 horizontal_alignment = 2
 
 [node name="infamy" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 21.0
 offset_top = 96.0
@@ -1332,36 +1340,42 @@ text = "Infamy: "
 horizontal_alignment = 2
 
 [node name="gold" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 21.0
 offset_top = 118.0
 offset_right = 159.0
 offset_bottom = 142.0
 theme = ExtResource("8_l2hdd")
+theme_override_colors/font_color = Color(0.964706, 0.968627, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Gold: "
 horizontal_alignment = 2
 
 [node name="PlayerGold" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 159.0
-offset_top = 118.0
-offset_right = 248.0
-offset_bottom = 142.0
+offset_left = 128.0
+offset_top = 88.0
+offset_right = 188.0
+offset_bottom = 132.0
 theme = ExtResource("8_l2hdd")
-theme_override_font_sizes/font_size = 20
-text = "0
-"
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "1"
+autowrap_mode = 3
 script = ExtResource("10_laer6")
 
 [node name="PlayerInfamy" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 159.0
-offset_top = 96.0
-offset_right = 248.0
-offset_bottom = 120.0
+offset_left = 51.0
+offset_top = 88.0
+offset_right = 91.0
+offset_bottom = 132.0
 theme = ExtResource("8_l2hdd")
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.808137, 3.27289e-06, 7.70092e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
 text = "0
 "
 script = ExtResource("11_tcxia")
@@ -1748,12 +1762,15 @@ offset_bottom = 539.0
 script = ExtResource("26_5uaum")
 
 [node name="ColorRect" type="ColorRect" parent="Stat window"]
+visible = false
 layout_mode = 0
 offset_right = 225.0
 offset_bottom = 176.0
 color = Color(0, 0, 0, 0.494118)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Stat window"]
+visible = false
+layout_mode = 0
 offset_right = 224.0
 offset_bottom = 174.0
 
@@ -1766,8 +1783,10 @@ layout_mode = 2
 [node name="Damage buffs" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "Damage buffs:"
+text = "Damage buffs"
 
 [node name="Label2" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -1808,6 +1827,7 @@ text = "Spike:"
 [node name="Label8" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Other stats:"
 
@@ -1940,6 +1960,7 @@ theme_override_font_sizes/font_size = 20
 text = "0"
 
 [node name="Label" type="Label" parent="Stat window"]
+visible = false
 layout_mode = 0
 offset_top = -26.0
 offset_right = 96.0
@@ -1949,6 +1970,56 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Stat window"
+
+[node name="HideStatWindow" type="Button" parent="Stat window"]
+layout_mode = 0
+offset_left = -384.0
+offset_top = 142.0
+offset_right = -220.0
+offset_bottom = 178.0
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("9_xb32f")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fups2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bissj")
+text = "Show stat window"
+
+[node name="StatIcons" type="Node2D" parent="."]
+position = Vector2(750, 663)
+scale = Vector2(0.3125, 0.3125)
+
+[node name="Coin" type="Sprite2D" parent="StatIcons"]
+position = Vector2(-115.2, -60.8001)
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("27_ptste")
+
+[node name="Infamy" type="Sprite2D" parent="StatIcons"]
+position = Vector2(-352, -57.5999)
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("28_qporu")
+
+[node name="Pausemenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_right = 1277.0
+offset_bottom = 724.0
+grow_horizontal = 2
+
+[node name="PauseMenu" parent="Pausemenu" instance=ExtResource("29_qtiwf")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.577
+anchor_bottom = 0.612
+offset_left = -136.0
+offset_top = -203.0
+offset_right = -236.408
+offset_bottom = -284.088
 
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/Reset_button" to="." method="_on_reset_button_pressed"]
@@ -1961,3 +2032,4 @@ text = "Stat window"
 [connection signal="pressed" from="card_info/ColorRect/destroy_room" to="card_info" method="_on_destroy_room_pressed"]
 [connection signal="timeout" from="card_info/messageTimer" to="card_info" method="_on_message_timer_timeout"]
 [connection signal="pressed" from="card_info/Button" to="card_info" method="_on_button_pressed"]
+[connection signal="pressed" from="Stat window/HideStatWindow" to="Stat window" method="_on_hide_stat_window_pressed"]

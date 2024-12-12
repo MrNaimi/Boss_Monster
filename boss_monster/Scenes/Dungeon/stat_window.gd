@@ -10,8 +10,12 @@ extends Control
 @onready var heroes_killed: Label = $ScrollContainer/HBoxContainer/VBoxContainer2/HeroesKilled
 @onready var damage_done: Label = $ScrollContainer/HBoxContainer/VBoxContainer2/DamageDone
 @onready var trap_activations: Label = $ScrollContainer/HBoxContainer/VBoxContainer2/TrapActivations
+@onready var hide_stat_window: Button = $HideStatWindow
+@onready var i = 0
+@onready var scroll_container: ScrollContainer = $ScrollContainer
+@onready var color_rect: ColorRect = $ColorRect
 
-@onready var i = 0 
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,3 +41,12 @@ func refreshStats() -> void:
 	heroes_killed.text = str(GlobalVariables.heroes_killed)
 	damage_done.text = str(GlobalVariables.damage_done)
 	trap_activations.text = str(GlobalVariables.TrapActivations)
+
+
+func _on_hide_stat_window_pressed() -> void:
+	scroll_container.visible = not scroll_container.visible
+	color_rect.visible = not color_rect.visible
+	if hide_stat_window.text == "Show stat window":
+		hide_stat_window.text = "Hide stat window"
+	else:
+		hide_stat_window.text = "Show stat window"

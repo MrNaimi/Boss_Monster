@@ -17,7 +17,8 @@ var is_dragging = false
 @onready var info: Label = $card_info/ColorRect/info
 @onready var card_info: Control = $card_info
 @onready var trap_sound: AudioStreamPlayer2D = $trap_sound
-
+@onready var pausemenu: Control = $Pausemenu
+var paused
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(GlobalVariables.rooms)
@@ -27,21 +28,25 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-		if GlobalVariables.room_cards_created.size()>0:
-			if GlobalVariables.is_everyone_stopped() or first_time_continue:
-				GlobalVariables.heroes_move = true
-				#print(GlobalVariables.spawned_heroes)
-				#for path ins GlobalVariables.spawned_heroes:
-					#if path.is_instance_valid():
-						#path.get_child(0).can_move=true
-			first_time_continue=false
-		else:
-			pass
-			#print("Place a room first")
-		if hp<=0:
-			queue_free()
-			Transition.change_scene("res://Scenes/Dungeon/game_over.tscn")
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
 		
+	
+	if GlobalVariables.room_cards_created.size()>0:
+		if GlobalVariables.is_everyone_stopped() or first_time_continue:
+			GlobalVariables.heroes_move = true
+			#print(GlobalVariables.spawned_heroes)
+			#for path ins GlobalVariables.spawned_heroes:
+				#if path.is_instance_valid():
+					#path.get_child(0).can_move=true
+		first_time_continue=false
+	else:
+		pass
+		#print("Place a room first")
+	if hp<=0:
+		queue_free()
+		Transition.change_scene("res://Scenes/Dungeon/game_over.tscn")
+
 
 		
 func _on_quit_game_pressed() -> void:
@@ -58,6 +63,8 @@ func _on_continue_button_pressed() -> void:
 		GlobalVariables.printDmgBuffs()
 		GlobalVariables.currentPhase="combat"
 		if !GlobalVariables.values_changed:
+			for room in GlobalVariables.rooms_placed:
+				room.trap_activated = false
 			if GlobalVariables.pack_of_wolves_placed>0:
 				print("LISÄTÄÄN ROUND COUNTERIIN YKSI", GlobalVariables.round_counter)
 				GlobalVariables.round_counter += 1
@@ -109,7 +116,7 @@ func _on_reset_button_pressed() -> void:
 	
 func _on_autoplay_pressed() -> void:
 	if GlobalVariables.trap_placed:
-		GlobalVariables.currentPhase="combat"
+		#GlobalVariables.currentPhase="combat"
 		GlobalVariables.autoplay = !GlobalVariables.autoplay
 		if GlobalVariables.autoplay:
 			autoplay.text="Autoplay On"
@@ -139,3 +146,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func refreshHP() -> void:
 	boss_hp.text = str(hp)
 	boss_health_bar.value = hp
+
+func pauseMenu() -> void:
+	print("peba")

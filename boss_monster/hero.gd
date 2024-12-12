@@ -119,11 +119,12 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Goblin Warrior room")
 		"Gas Leak": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
-			for hero in heroes:
-				hero.hp -= floor(2+GlobalVariables.TrapDmgBuff*0.34)*hero.damageMult
-				hero.poison_damage.text = "-2"
-				hero.animations.play("poison_damage")
-			print("Handle Gas Leak room")
+			#for hero in heroes:
+				#hero.hp -= floor(2+GlobalVariables.TrapDmgBuff*0.34)*hero.damageMult
+				#hero.poison_damage.text = "-2"
+				#GlobalVariables.damage_done+=2
+				#hero.animations.play("poison_damage")
+			#print("Handle Gas Leak room")
 		"Mimic": #TEHTY
 			room_damage+=GlobalVariables.TrapDmgBuff
 			if hp<=room_damage*selectedHero[1]:
@@ -248,6 +249,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Electric Anomaly room")
 		"Boss":
 			print("boss boss bossss")
+			hp = 0
 		_:
 			print("Unknown room:", room_name)
 			
@@ -262,10 +264,11 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 	hp -= (damageAdd+room_damage)*selectedHero[1]
 	
 	if mindcontrolled:
+		GlobalVariables.damage_done+=floor(0.5*hp)
 		hp-=floor(0.5*hp)
 		mindcontrolled = false
 		flipped = false
-	get_child(0).damage = 0
+		get_child(0).damage = 0
 	#print(hp)
 func isEveryoneStopped () -> bool:
 	for path in GlobalVariables.spawned_heroes:

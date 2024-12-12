@@ -111,8 +111,9 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		spawn_room=true
 		GlobalVariables.spawn_room_set = true
 	if tribe == "trap" && !trap_activated:
-		activate_button.visible = true
-		entered_hero=area
+		if !(card_name.text == "The Vault Room" && GlobalVariables.player_gold<15):
+			activate_button.visible = true
+			entered_hero=area
 
 func _on_hit_box_area_exited(area: Area2D) -> void:
 	#if self in GlobalVariables.spawn_room:
@@ -187,42 +188,46 @@ func _on_activate_button_pressed() -> void:
 	var hero = entered_hero.get_parent().get_parent()
 	var hp = hero.hp
 	var selectedHero = hero.selectedHero
-	var dmg = damage
+	var trap_activation_damage = damage
 	GlobalVariables.soundpath = sound
 	GlobalVariables.play_trap_sound=true
 	if !trap_activated:
 		match card_name.text:
 			"Gas Leak":
 				for person in heroes:
-					person.hp-=5
-					person.poison_damage.text = "-5"
+					person.hp-=6
+					GlobalVariables.damage_done+=6
+					person.poison_damage.text = "-6"
 					person.animations.play("poison_damage")
 			"Mimic":
-				hero.hp-=GlobalVariables.player_gold
+				trap_activation_damage=GlobalVariables.player_gold
 				room_dmg_2.text = str(GlobalVariables.player_gold)
+				
 				paskahuussi.play("damagetext")
 			"The Vault Room":
 				if GlobalVariables.player_gold>=15:
-					hero.hp=0
 					GlobalVariables.player_gold-=15
+					GlobalVariables.damage_done+=hero.hp
+					hero.hp = 0
 					room_dmg_2.text = str(9999)
 					paskahuussi.play("damagetext")
+					
 			"Hot Coals":
 				print("Hot Coals: The heroes take damage from the coals... because they are hot.")
 				hero.damageAdd += 3
 			"Pit Fall":
 				room_dmg_2.text = str(9999)
+				GlobalVariables.damage_done += hero.hp
 				hero.hp = 0
 				visible = false
 				paskahuussi.play("damagetext")
 			"Spike Trap":
 				# Add specific game logic here
-				dmg = 10 + GlobalVariables.TrapDmgBuff + GlobalVariables.SpikeTrapDmgBuff
-				
+				trap_activation_damage = 10 + GlobalVariables.TrapDmgBuff + GlobalVariables.SpikeTrapDmgBuff
 				paskahuussi.play("damagetext")
 			"Forgotten Library":
-				damage = 5 + GlobalVariables.TrapDmgBuff
-				if hp<=damage*selectedHero[1]:
+				trap_activation_damage = 5 + GlobalVariables.TrapDmgBuff
+				if hp<=trap_activation_damage*selectedHero[1]:
 					print("lisätään kortti")
 					if get_tree().get_first_node_in_group("hand").get_child_count()<6:
 						GlobalVariables.resetValues(true)
@@ -235,7 +240,8 @@ func _on_activate_button_pressed() -> void:
 				print("Unknown trap room:", card_name)
 					
 		GlobalVariables.TrapActivations += 1
-		hero.hp-=dmg*selectedHero[1]
+		GlobalVariables.damage_done+=trap_activation_damage
+		hero.hp-=trap_activation_damage*selectedHero[1]
 		activate_button.visible = false
 		trap_activated = true
 		
