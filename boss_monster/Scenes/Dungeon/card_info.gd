@@ -92,6 +92,14 @@ func _on_destroy_room_pressed() -> void:
 			GlobalVariables.UndeadDmgBuff+=2
 		"Repair Bot":
 			GlobalVariables.repair_bots-=1
+		"Misunderstood Ghost":
+			GlobalVariables.misunderstood_ghosts-=1
+		"Stinky Ghoul":
+			GlobalVariables.stinky_ghouls-=1
+		"Succubus":
+			GlobalVariables.succubi_placed-=1
+		"Summoning Circle":
+			GlobalVariables.summoning_circles-=1
 	print("Construct Damage Buff:", GlobalVariables.ConstructDmgBuff)
 	print("Beast Damage Buff:", GlobalVariables.BeastDmgBuff)
 	print("Humanoid Damage Buff:", GlobalVariables.HumanoidDmgBuff)

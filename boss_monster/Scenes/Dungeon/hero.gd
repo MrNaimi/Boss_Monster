@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 			GlobalVariables.amount_of_heroes_killed=0
 			GlobalVariables.values_changed = false
 			GlobalVariables.playshopanim = true
-
+			
 
 
 func _on_timer_timeout() -> void:

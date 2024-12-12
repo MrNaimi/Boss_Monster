@@ -1,5 +1,7 @@
 extends Node
 
+var gatorDmgBuff = 0
+var succubus_charms = 0
 var repair_bots = 0
 var damage_done = 0
 var hero_progress = 0
@@ -21,6 +23,8 @@ var demon_rooms_placed = 0
 var beast_rooms_in_dungeon = 0
 var rooms_placed_num = 0
 var heroes_killed = 0
+var stinky_ghouls = 0
+var misunderstood_ghosts = 0
 #Arrays
 @onready var Database = preload("res://Database/Database.gd")
 @onready var rooms: Array[Array] = []
@@ -75,7 +79,7 @@ var goblin_warrior_animation = false
 var round_counter = 0
 var outlaw_animation = false
 var orc_bodyguard_animation = false
-
+var skeleton_ceo_activated = false
 var goblin_warriors_in_dungeon = 0
 var goblin_armies_in_dungeon = 0
 #Card damage buffs
@@ -87,6 +91,8 @@ var BeastDmgBuff = 0
 var ConstructDmgBuff = 0
 var SpikeTrapDmgBuff = 0
 
+var succubi_placed = 0
+var summoning_circles = 0
 var TrapActivations = 0
 @onready var actionsLeft = 5
 @onready var currentPhase: String = "build"  #Phases are town phase "town", combat phase "combat" and build phase "build"

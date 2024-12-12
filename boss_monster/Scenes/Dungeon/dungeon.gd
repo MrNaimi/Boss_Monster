@@ -65,6 +65,8 @@ func _on_continue_button_pressed() -> void:
 		GlobalVariables.printDmgBuffs()
 		GlobalVariables.currentPhase="combat"
 		if !GlobalVariables.values_changed:
+			GlobalVariables.gatorDmgBuff-=1
+			GlobalVariables.skeleton_ceo_activated = false
 			for room in GlobalVariables.rooms_placed:
 				if is_instance_valid(room):
 					room.trap_activated = false

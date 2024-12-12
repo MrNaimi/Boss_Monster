@@ -73,6 +73,7 @@ func enter() -> void:
 						GlobalVariables.goblin_warriors_in_dungeon += 1
 						
 					"Stinky Ghoul":
+						GlobalVariables.stinky_ghouls+=1
 						GlobalVariables.TrapDmgBuff -= 2
 						GlobalVariables.DemonDmgBuff -= 2
 						GlobalVariables.HumanoidDmgBuff -= 2
@@ -88,6 +89,7 @@ func enter() -> void:
 						GlobalVariables.demon_rooms_placed += 0.5
 					"Succubus":
 						GlobalVariables.demon_rooms_placed += 0.5
+						GlobalVariables.succubi_placed += 1
 					"Outlaw":
 						GlobalVariables.outlaws_in_dungeon += 1
 						GlobalVariables.outlaws.append(self)
@@ -106,6 +108,10 @@ func enter() -> void:
 						GlobalVariables.killer_robot_placed = true
 					"Repair Bot":
 						GlobalVariables.repair_bots+=1
+					"Misunderstood Ghost":
+						GlobalVariables.misunderstood_ghosts+=1
+					"Summoning Circle":
+						GlobalVariables.summoning_circles+=1
 	elif card_ui.shop_card:
 		print("hellooo")
 		if not card_ui.targets.is_empty() && card_ui.targets[0].name=="CardBuyArea" && card_ui.targets[0].get_parent().get_child_count()<6 && GlobalVariables.player_gold>=10:

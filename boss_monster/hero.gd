@@ -166,6 +166,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			if RandomNumberGenerator.new().randi_range(1,5)==5:
 				path_direction *= -1
 				flipped = not flipped
+				GlobalVariables.succubus_charms+=1
 			print("Handle Succubus room")
 		"Vampire":#TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff
@@ -200,14 +201,13 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Fire Elemental room")
 		"Demonic Scout":#TEHTY, IMP
-			if visited_demon_scouts>0:
-				room_damage+=3*visited_demon_scouts
+			room_damage+=3*visited_demon_scouts
 			visited_demon_scouts +=1
+			room_damage+=GlobalVariables.summoning_circles*2
 			room_damage+=GlobalVariables.DemonDmgBuff
 			print("Handle Demonic Scout room")
 		"Warlock Summoner":#TEHTY
-			if visited_demon_scouts>0:
-				room_damage+=3*visited_demon_scouts
+			room_damage+=3*visited_demon_scouts
 			room_damage+=GlobalVariables.DemonDmgBuff
 			room_damage+=GlobalVariables.UndeadDmgBuff
 			print("Handle Warlock Summoner room")
@@ -248,9 +248,11 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle Electric Anomaly room")
 		"Gator":#skip
-			pass
+			if hp<=room_damage*selectedHero[1]:
+				GlobalVariables.gatorDmgBuff=3
+			
 		"Last Mammoth":#skip
-			pass
+			room_damage+=GlobalVariables.BeastDmgBuff
 		"Repair Bot":#tehty
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle repair bot")
@@ -260,21 +262,26 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			room_damage+=GlobalVariables.HumanoidDmgBuff
 			room_damage+=GlobalVariables.DemonDmgBuff
 			room_damage+=GlobalVariables.UndeadDmgBuff
-		"Skeleton CEO":
-			room_damage+=GlobalVariables.UndeadDmgBuff+100
-			if hp<=room_damage*selectedHero[1]:
-				if get_tree().get_first_node_in_group("hand").get_child_count()<6:
-						GlobalVariables.giveCard("Skeleton Lounge")
-						get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
-						get_tree().get_first_node_in_group("hand").startcardmachine()
-				GlobalVariables.resetValues(true)
-			pass
+		"Skeleton CEO": #tehty
+			room_damage+=GlobalVariables.UndeadDmgBuff
+			if !GlobalVariables.skeleton_ceo_activated:
+				if hp<=room_damage*selectedHero[1]:
+					if get_tree().get_first_node_in_group("hand").get_child_count()<6:
+							GlobalVariables.giveCard("Skeleton Lounge")
+							get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
+							get_tree().get_first_node_in_group("hand").startcardmachine()
+					GlobalVariables.resetValues(true)
+					GlobalVariables.skeleton_ceo_activated = true
 		"Ominous Shadow":
-			pass
+			room_damage+=GlobalVariables.UndeadDmgBuff
+			if GlobalVariables.stinky_ghouls>0 && GlobalVariables.misunderstood_ghosts>0:
+				GlobalVariables.UndeadDmgBuff+=5
 		"Summoning Circle":
-			pass
+			room_damage+=GlobalVariables.DemonDmgBuff
+			room_damage+=GlobalVariables.succubi_placed*2
 		"Fallen Angel":
-			pass
+			room_damage+=GlobalVariables.DemonDmgBuff
+			room_damage+=GlobalVariables.succubus_charms*3
 		"Boss":
 			print("boss boss bossss")
 			hp = 0
@@ -283,6 +290,8 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			
 	print("Damage dealt by room: ",room_damage)
 	
+	if GlobalVariables.gatorDmgBuff>0:
+		room_damage+=4
 	if area.get_parent().name != "Boss" && area.get_parent().get_parent().name != "Hero":
 		area.get_parent().room_dmg_2.text = str(damageAdd+room_damage)
 		#area.get_parent().room_dmg_2.visible = true

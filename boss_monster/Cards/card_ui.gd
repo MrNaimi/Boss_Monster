@@ -106,6 +106,15 @@ func reset() -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	#if !trap_enter.is_playing():
 		#trap_enter.play()
+	print(get_parent().get_parent().get_parent().name.substr(12,-1))
+	print(get_parent().get_parent().get_parent().get_parent().get_children())
+	
+	var index=int(get_parent().get_parent().get_parent().name.substr(12,-1))-1
+	var prevousindex = index-1
+	if prevousindex == 0: prevousindex = 1
+	for card_area in get_parent().get_parent().get_parent().get_parent().get_children():
+		if card_area.name == get_parent().get_parent().get_parent().name:
+			print("hei")
 	if !GlobalVariables.spawn_room_set:
 		print("Current room set as the spawn room")
 		spawn_room=true

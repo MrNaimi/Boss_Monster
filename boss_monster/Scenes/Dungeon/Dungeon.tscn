@@ -1429,7 +1429,7 @@ frame_progress = 0.896882
 position = Vector2(753, 425)
 scale = Vector2(1.34444, 1.20909)
 
-[node name="CardDropArea" parent="CardDropAreas" instance=ExtResource("16_a7p6m")]
+[node name="CardDropArea1" parent="CardDropAreas" instance=ExtResource("16_a7p6m")]
 
 [node name="CardDropArea2" parent="CardDropAreas" instance=ExtResource("16_a7p6m")]
 position = Vector2(-217.935, -323.384)
