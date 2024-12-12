@@ -5,7 +5,7 @@ var is_dragging = false
 @onready var hand: Hand = $DungeonUI/Hand
 @onready var card_drop_areas: Node2D = $CardDropAreas
 @onready var path_follow_2d: PathFollow2D = $Heroes/Path2D/PathFollow2D
-@onready var autoplay: Button = $Buttons/Autoplay
+@onready var autoplay: Button = $PauseMenu/MarginContainer/VBoxContainer/Autoplay
 @onready var heroes: Node2D = $Heroes
 @onready var hero: PackedScene = preload("res://hero.tscn")
 @onready var boss_health_bar: ProgressBar = $Control/bossHealthBar
@@ -17,8 +17,10 @@ var is_dragging = false
 @onready var info: Label = $card_info/ColorRect/info
 @onready var card_info: Control = $card_info
 @onready var trap_sound: AudioStreamPlayer2D = $trap_sound
-@onready var pausemenu: Control = $Pausemenu
-var paused
+@onready var pause_menu: Control = $PauseMenu
+
+
+var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(GlobalVariables.rooms)
@@ -64,7 +66,8 @@ func _on_continue_button_pressed() -> void:
 		GlobalVariables.currentPhase="combat"
 		if !GlobalVariables.values_changed:
 			for room in GlobalVariables.rooms_placed:
-				room.trap_activated = false
+				if is_instance_valid(room):
+					room.trap_activated = false
 			if GlobalVariables.pack_of_wolves_placed>0:
 				print("LISÄTÄÄN ROUND COUNTERIIN YKSI", GlobalVariables.round_counter)
 				GlobalVariables.round_counter += 1
@@ -115,19 +118,16 @@ func _on_reset_button_pressed() -> void:
 
 	
 func _on_autoplay_pressed() -> void:
-	if GlobalVariables.trap_placed:
-		#GlobalVariables.currentPhase="combat"
-		GlobalVariables.autoplay = !GlobalVariables.autoplay
-		if GlobalVariables.autoplay:
-			autoplay.text="Autoplay On"
-			if GlobalVariables.is_everyone_stopped():
-				for path in GlobalVariables.spawned_heroes:
-					if is_instance_valid(path):
-						path.get_child(0).can_move=true
-		else:
-			autoplay.text="Autoplay Off"
+	GlobalVariables.autoplay = !GlobalVariables.autoplay
+	if GlobalVariables.autoplay:
+		autoplay.text="Autoplay On"
+		if GlobalVariables.is_everyone_stopped():
+			for path in GlobalVariables.spawned_heroes:
+				if is_instance_valid(path):
+					path.get_child(0).can_move=true
 	else:
-		print("Place a trap first!!!")
+		autoplay.text="Autoplay Off"
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	#print(area.get_parent().get_parent().hp)
@@ -148,4 +148,24 @@ func refreshHP() -> void:
 	boss_health_bar.value = hp
 
 func pauseMenu() -> void:
-	print("peba")
+	if paused:
+		for button in get_tree().get_nodes_in_group("button"):
+			button.disabled = false
+		pause_menu.hide()
+		#get_tree().paused = false
+		Engine.time_scale = 1
+		print("peba")
+	else:
+		for button in get_tree().get_nodes_in_group("button"):
+			button.disabled = true
+		print("paba")
+		pause_menu.show()
+		#get_tree().paused = true
+		Engine.time_scale = 0
+	
+	GlobalVariables.paused = not GlobalVariables.paused
+	paused = not paused
+
+
+func _on_resume_pressed() -> void:
+	pauseMenu()

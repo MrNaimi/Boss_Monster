@@ -49,7 +49,7 @@ var spell_dragging=false
 var playshopanim = true
 var heroes_move = false
 var combat_phase = false
-var autoplay = false
+var autoplay = true
 var spawn_hero = false
 var show_card = false
 var message_sent = false
@@ -58,7 +58,7 @@ var destroy_room = false
 var values_changed = false
 var play_trap_sound = false
 var soundpath = ""
-
+var paused = false
 var goblin_warrior_active = false
 var forgotten_library_activated = false
 var lesser_devils_in_dungeon = 0

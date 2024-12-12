@@ -10,7 +10,8 @@ extends Control
 @onready var heroes_killed: Label = $ScrollContainer/HBoxContainer/VBoxContainer2/HeroesKilled
 @onready var damage_done: Label = $ScrollContainer/HBoxContainer/VBoxContainer2/DamageDone
 @onready var trap_activations: Label = $ScrollContainer/HBoxContainer/VBoxContainer2/TrapActivations
-@onready var hide_stat_window: Button = $HideStatWindow
+@onready var hide_stat_window: Button = $"../PauseMenu/MarginContainer/VBoxContainer/HideStatWindow"
+
 @onready var i = 0
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 @onready var color_rect: ColorRect = $ColorRect

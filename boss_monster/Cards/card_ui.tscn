@@ -107,6 +107,7 @@ _data = {
 }
 
 [node name="CardUI" type="Control" groups=["card"]]
+z_as_relative = false
 custom_minimum_size = Vector2(90, 140)
 layout_mode = 3
 anchors_preset = 0

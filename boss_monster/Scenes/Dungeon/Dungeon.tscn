@@ -28,7 +28,6 @@
 [ext_resource type="Script" path="res://Scenes/Dungeon/stat_window.gd" id="26_5uaum"]
 [ext_resource type="Texture2D" uid="uid://cnbtafi5vtwgi" path="res://Cards/Graphics/coin.png" id="27_ptste"]
 [ext_resource type="Texture2D" uid="uid://ccmc68033lxny" path="res://Cards/Graphics/infamy_1.png" id="28_qporu"]
-[ext_resource type="PackedScene" uid="uid://b5xgerqnr4hwn" path="res://pause_menu.tscn" id="29_qtiwf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -1075,6 +1074,8 @@ point_count = 14
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_at3vo"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m70j1"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fups2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bissj"]
@@ -1239,7 +1240,7 @@ offset_top = 538.0
 offset_right = 1035.0
 offset_bottom = 662.0
 
-[node name="Continue_button" type="Button" parent="Buttons"]
+[node name="Continue_button" type="Button" parent="Buttons" groups=["button"]]
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("8_l2hdd")
@@ -1249,7 +1250,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
 text = "Continue"
 
-[node name="Reset_button" type="Button" parent="Buttons"]
+[node name="Reset_button" type="Button" parent="Buttons" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_constants/outline_size = -1
@@ -1258,36 +1259,14 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
 text = "Reset cards"
 
-[node name="Autoplay" type="Button" parent="Buttons"]
-layout_mode = 2
-theme = ExtResource("8_l2hdd")
-theme_override_constants/outline_size = -1
-theme_override_fonts/font = ExtResource("9_xb32f")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
-text = "Autoplay Off
-"
-
 [node name="HSlider" type="HSlider" parent="Buttons"]
+visible = false
 layout_mode = 2
 min_value = 0.1
 max_value = 0.999
 step = 0.001
-value = 0.55
+value = 0.1
 script = ExtResource("8_xunt5")
-
-[node name="Quit_game" type="Button" parent="."]
-offset_left = 1038.0
-offset_top = 8.0
-offset_right = 1130.0
-offset_bottom = 39.0
-theme = ExtResource("8_l2hdd")
-theme_override_constants/outline_size = -1
-theme_override_fonts/font = ExtResource("9_xb32f")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
-text = "Quit Game"
-metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -1298,7 +1277,9 @@ offset_right = 648.0
 offset_bottom = 574.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = -0.35
 offset_left = 16.0
 offset_right = 284.0
 offset_bottom = 146.0
@@ -1354,9 +1335,9 @@ horizontal_alignment = 2
 
 [node name="PlayerGold" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 128.0
+offset_left = 142.75
 offset_top = 88.0
-offset_right = 188.0
+offset_right = 202.75
 offset_bottom = 132.0
 theme = ExtResource("8_l2hdd")
 theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
@@ -1368,16 +1349,15 @@ script = ExtResource("10_laer6")
 
 [node name="PlayerInfamy" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 51.0
+offset_left = 70.0
 offset_top = 88.0
-offset_right = 91.0
+offset_right = 110.0
 offset_bottom = 132.0
 theme = ExtResource("8_l2hdd")
 theme_override_colors/font_color = Color(0.808137, 3.27289e-06, 7.70092e-07, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "0
-"
+text = "5"
 script = ExtResource("11_tcxia")
 
 [node name="CurrentPhaseText" type="Label" parent="Control"]
@@ -1469,7 +1449,7 @@ position = Vector2(-432.894, -18.1955)
 position = Vector2(-217.191, -19.0226)
 
 [node name="DungeonUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
-follow_viewport_enabled = true
+layer = 0
 
 [node name="hand" type="ColorRect" parent="DungeonUI"]
 offset_left = 47.0
@@ -1622,7 +1602,7 @@ collision_layer = 2
 position = Vector2(123.25, 66.5)
 shape = SubResource("RectangleShape2D_ljcgq")
 
-[node name="RefreshButton" type="Button" parent="DungeonUI/ShopUI"]
+[node name="RefreshButton" type="Button" parent="DungeonUI/ShopUI" groups=["button"]]
 layout_mode = 0
 offset_left = 964.0
 offset_top = 407.0
@@ -1762,14 +1742,12 @@ offset_bottom = 539.0
 script = ExtResource("26_5uaum")
 
 [node name="ColorRect" type="ColorRect" parent="Stat window"]
-visible = false
 layout_mode = 0
 offset_right = 225.0
 offset_bottom = 176.0
 color = Color(0, 0, 0, 0.494118)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Stat window"]
-visible = false
 layout_mode = 0
 offset_right = 224.0
 offset_bottom = 174.0
@@ -1783,83 +1761,97 @@ layout_mode = 2
 [node name="Damage buffs" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.51, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Damage buffs"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Trap:"
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Undead:"
+horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Demon:"
+horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Construct:"
+horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Humanoid:"
+horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Spike:"
+horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
+theme_override_colors/font_color = Color(0.509804, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "Other stats:"
+text = "Other stats"
+horizontal_alignment = 1
 
 [node name="Label12" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Rooms placed:"
+horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Rooms destroyed:"
+horizontal_alignment = 1
 
 [node name="Label10" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Heroes killed:"
+horizontal_alignment = 1
 
 [node name="Label11" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Damage done:"
+horizontal_alignment = 1
 
 [node name="Label13" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 20
 text = "Trap activations:"
+horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Stat window/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -1971,60 +1963,100 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Stat window"
 
-[node name="HideStatWindow" type="Button" parent="Stat window"]
-layout_mode = 0
-offset_left = -384.0
-offset_top = 142.0
-offset_right = -220.0
-offset_bottom = 178.0
-theme_type_variation = &"FlatButton"
-theme_override_fonts/font = ExtResource("9_xb32f")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fups2")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_bissj")
-text = "Show stat window"
-
 [node name="StatIcons" type="Node2D" parent="."]
 position = Vector2(750, 663)
 scale = Vector2(0.3125, 0.3125)
 
 [node name="Coin" type="Sprite2D" parent="StatIcons"]
-position = Vector2(-115.2, -60.8001)
+position = Vector2(-67.9999, -60.8001)
 scale = Vector2(2.75, 2.75)
 texture = ExtResource("27_ptste")
 
 [node name="Infamy" type="Sprite2D" parent="StatIcons"]
-position = Vector2(-352, -57.5999)
+position = Vector2(-291.2, -57.5999)
 scale = Vector2(3.2, 3.2)
 texture = ExtResource("28_qporu")
 
-[node name="Pausemenu" type="Control" parent="."]
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
 visible = false
+light_mask = 524288
+visibility_layer = 524288
+z_index = 20
+z_as_relative = false
 layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -27.0
-offset_right = 1277.0
-offset_bottom = 724.0
-grow_horizontal = 2
+anchors_preset = 0
+offset_left = 663.0
+offset_right = 842.0
+offset_bottom = 136.0
 
-[node name="PauseMenu" parent="Pausemenu" instance=ExtResource("29_qtiwf")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.577
-anchor_bottom = 0.612
-offset_left = -136.0
-offset_top = -203.0
-offset_right = -236.408
-offset_bottom = -284.088
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+visible = false
+layout_mode = 0
+offset_left = -662.0
+offset_right = 615.0
+offset_bottom = 719.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -123.0
+offset_top = 291.0
+offset_right = 133.0
+offset_bottom = 477.0
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu/MarginContainer"]
+layout_mode = 2
+color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m70j1")
+text = "Resume
+"
+
+[node name="Autoplay" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_constants/outline_size = -1
+theme_override_fonts/font = ExtResource("9_xb32f")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
+text = "Autoplay On
+"
+
+[node name="Options" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m70j1")
+text = "Options"
+
+[node name="HideStatWindow" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_xb32f")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fups2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bissj")
+text = "Show stat window"
+
+[node name="Quit_game" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_constants/outline_size = -1
+theme_override_fonts/font = ExtResource("9_xb32f")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
+text = "Quit Game"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/Reset_button" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="Buttons/Autoplay" to="." method="_on_autoplay_pressed"]
-[connection signal="pressed" from="Quit_game" to="." method="_on_quit_game_pressed"]
 [connection signal="area_entered" from="Boss/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="pressed" from="DungeonUI/ShopUI/RefreshButton" to="DungeonUI/ShopUI" method="_on_refresh_button_pressed"]
 [connection signal="timeout" from="DungeonUI/ShopUI/shopcover/Timer" to="DungeonUI/ShopUI" method="_on_timer_timeout"]
@@ -2032,4 +2064,7 @@ offset_bottom = -284.088
 [connection signal="pressed" from="card_info/ColorRect/destroy_room" to="card_info" method="_on_destroy_room_pressed"]
 [connection signal="timeout" from="card_info/messageTimer" to="card_info" method="_on_message_timer_timeout"]
 [connection signal="pressed" from="card_info/Button" to="card_info" method="_on_button_pressed"]
-[connection signal="pressed" from="Stat window/HideStatWindow" to="Stat window" method="_on_hide_stat_window_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Autoplay" to="." method="_on_autoplay_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HideStatWindow" to="Stat window" method="_on_hide_stat_window_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Quit_game" to="." method="_on_quit_game_pressed"]
