@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0wwo6jfs4mhg"]
+[gd_scene load_steps=7 format=3 uid="uid://b0wwo6jfs4mhg"]
 
 [ext_resource type="Script" path="res://Scenes/Main_menu/main_menu.gd" id="1_dfxk5"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="2_3dran"]
 [ext_resource type="Texture2D" uid="uid://byio4qa7trwyr" path="res://mainmenu.png" id="2_hs86e"]
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="4_sjrov"]
+[ext_resource type="AudioStream" uid="uid://d346njub85tsg" path="res://Music/Mysterious Dungeon.mp3" id="5_bpc2g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ff875"]
 
@@ -75,6 +76,10 @@ theme_override_fonts/font = ExtResource("2_3dran")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ff875")
 text = "Quit Game"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bpc2g")
+volume_db = -30.0
 
 [connection signal="pressed" from="Menu/Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Menu/Collections" to="." method="_on_collections_pressed"]

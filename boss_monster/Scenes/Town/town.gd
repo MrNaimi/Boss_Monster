@@ -15,6 +15,7 @@ var i = 0
   
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer2D.play(0)
 	for hero in h_box_container.get_children():
 		hero.idle_animation.visible = true
 		hero_1.idle_animation.animation = "barbarian"
@@ -58,7 +59,7 @@ func _on_button_pressed() -> void:
 
 
 func _on_timer_timeout() -> void:
-	label.text = "These heroes will be attacking your dungeon. Click them for more information!"
+	label.text = "Some of these heroes will be attacking your dungeon. Click them for more information!"
 
 func _on_barbarian_pressed() -> void:
 	label.text = "Fueled by primal fury, they are unstoppable forces of nature, cleaving through enemies with raw strength and unyielding resolve."
