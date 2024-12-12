@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba7ohk8k66w4j"
-path="res://.godot/imported/spellcard.png-fa29531389d31e02346179e637829ca7.ctex"
+uid="uid://r84cbhv5jpcv"
+path="res://.godot/imported/boss screen.png-1ec7113bc5ea1c3839c864e616bcdf93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Graphics/spellcard.png"
-dest_files=["res://.godot/imported/spellcard.png-fa29531389d31e02346179e637829ca7.ctex"]
+source_file="res://Cards/Graphics/boss screen.png"
+dest_files=["res://.godot/imported/boss screen.png-1ec7113bc5ea1c3839c864e616bcdf93.ctex"]
 
 [params]
 

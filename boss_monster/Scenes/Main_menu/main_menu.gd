@@ -4,6 +4,7 @@ var boss_selection = preload("res://Scenes/Main_menu/boss_selection.tscn")
 var Dungeon_Scene = preload("res://Scenes/Dungeon/Dungeon.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AudioStreamPlayer2D.play(0)
 	$Menu/Play_Button.grab_focus()
 	pass # Replace with function body.
 

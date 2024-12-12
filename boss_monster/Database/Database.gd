@@ -65,7 +65,8 @@ enum {
 	Skeleton_Ceo,
 	Ominous_Shadow,
 	Summoning_Circle,
-	Fallen_Angel
+	Fallen_Angel,
+	Undead_Mage
 }
 #enum {Cleric,Paladin, Monk, Barbarian, Mage, Ranger, Lucky_Fellow, Skeleton_King, Lich, Big_Snake, Shrink_Ray, Corrupted_Mage, Mind_Control, Healing_potion, Assassination, Bad_Directions, Goblin_warrior, Gas_Leak, Mimic, The_Vault_Room, Spike_Factory, Hot_Coals, Monster_Lounge,The_Dragon_Lair, Pit_Fall, Spike_Trap, Forgotten_Library, Succubus, Vampire, Misunderstood_Ghost, Zombie_Graveyard, Stinky_Ghoul, Rolling_Golem, Killer_Robot, Angry_Slime, Fire_Elemental, Imp, Warlock_Summoner, Demon_Spawn, Lesser_Devil, Outlaw,Orc_Bodyguard,Goblin_Army, Pack_of_Wolves, Chihu, Lions_Den, Electric_Anomaly,Gator,Last_Mammoth, Repair_Bot, Amalgamation, Ominous_Shadow, Summoning_Circle, Fallen_Angle, Greedy_Goblin,Goblin_General,Skeleton_Ceo}
 
@@ -125,7 +126,7 @@ const DATA ={
 	Hot_Coals: #tehty oikee art
 		["Room", 4, "Hot Coals","Trap","Activate this trap to burn the hero, dealing 3 damage for every room they enter", "hot_coals.png","","trap"],
 	Monster_Lounge: #tehty
-		["Room", 3, "Skeleton Lounge", "Monster", "Destroying this room gives +2 dmg to your undead rooms", "monster_lounge.png","","undead"],
+		["Room", 3, "Skeleton Lounge", "Monster", "Destroying this room gives +1 dmg to your undead rooms", "monster_lounge.png","","undead"],
 	The_Dragon_Lair: #tehty
 		["Room", 5, "Dragon Lair", "Monster", "if you kill a hero in this room, get 2 gold", "dragon_lair.png","","beast"],
 	Pit_Fall: #tehty oikee art
@@ -189,6 +190,8 @@ const DATA ={
 	Summoning_Circle:
 		["Room", 3, "Summoning Circle", "Monster", "has +2 for each Succubus you control and gives +2dmg to each of your Demonic Scouts", "pentagram.png", "", "demon"],
 	Fallen_Angel:
-		["Room", 5, "Fallen Angel", "Monster", "Gains 3 dmg for each successful succubus charm","fallen_angel.png", "", "demon"]
+		["Room", 5, "Fallen Angel", "Monster", "Gains 3 dmg for each successful succubus charm","fallen_angel.png", "", "demon"],
+	Undead_Mage:
+		["Room", 3, "Undead Mage", "Monster", "Gain +1dmg for each casted spell","Undead_mage.png", "", "undead"]
 	
 } 

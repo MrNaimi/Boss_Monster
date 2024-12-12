@@ -15,6 +15,7 @@ var i = 0
   
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer2D.play(0)
 	for hero in h_box_container.get_children():
 		hero.idle_animation.visible = true
 		hero_1.idle_animation.animation = "barbarian"
@@ -43,11 +44,11 @@ func _process(delta):
 		i = 0
 		
 	if GlobalVariables.infamy == 10:
-		label.text = "The town is threatened by ur dungeon and has issued a quest to destroy you"
+		label.text = "The town is threatened by your dungeon and has issued a quest to destroy you"
 	elif GlobalVariables.infamy == 20:
 		label.text = "Local mayor has realized that they need help in exterminating you and has sought help from a nearby city"
 	elif GlobalVariables.infamy == 20:
-		label.text = "The ruler of the kingdom has issued a quest to destroy u "
+		label.text = "The ruler of the kingdom has issued a quest to destroy you "
 	elif GlobalVariables.infamy == 20:
 		label.text = "The king has sought help from nearby kingdoms"
 	elif GlobalVariables.infamy == 20:
@@ -58,25 +59,25 @@ func _on_button_pressed() -> void:
 
 
 func _on_timer_timeout() -> void:
-	label.text = "These heroes will be attacking your dungeon. Click them for more information!"
+	label.text = "Some of these heroes will be attacking your dungeon. Click them for more information!"
 
 func _on_barbarian_pressed() -> void:
-	label.text = "barbarian"
+	label.text = "Fueled by primal fury, they are unstoppable forces of nature, cleaving through enemies with raw strength and unyielding resolve."
 
 func _on_monk_pressed() -> void:
-	label.text = "monk"
+	label.text = "Disciplined and resilient, they are masters of body and mind, striking with the precision of a calm breeze before a storm."
 	
 func _on_cleric_pressed() -> void:
-	label.text = "cleric"
+	label.text = "Guided by faith and armed with divine power, they shield the innocent and banish the dark, a bridge between realms."
 
 func _on_lucky_fellow_pressed() -> void:
-	label.text = "lucky fellow"
+	label.text = "Neither fate nor fortune can escape them; their uncanny luck is a gift as powerful as any spell or blade."
 	
 func _on_paladin_pressed() -> void:
-	label.text = "paladin"
+	label.text = "A guardian of justice, they stand as beacons of hope, their blade shining with the purity of their unbreakable vow."
 
 func _on_ranger_pressed() -> void:
-	label.text = "ranger"
+	label.text = "With eyes sharp as a hawk’s and steps silent as shadows, they’re the watchers of the wilderness, striking with unerring aim."
 
 func _on_mage_pressed() -> void:
-	label.text = "mage"
+	label.text = "With arcane knowledge and an iron focus, they wield forces beyond the ordinary, conjuring magic to bend reality to their will."
