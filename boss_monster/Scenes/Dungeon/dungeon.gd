@@ -39,6 +39,8 @@ func _process(delta: float) -> void:
 	
 	if GlobalVariables.infamy % 10 == 0 and visibility_changeable:
 		default_camera.set_enabled(false)
+		print("town scene pitäis olla")
+		town_camera.set_enabled(true)
 		town_camera.make_current()
 		dungeon_ui.hide()
 		visibility_changeable = false
@@ -206,3 +208,15 @@ func _on_resume_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	GlobalVariables.actionsLeft+=1
+
+
+func _on_cheat_1_pressed() -> void:
+	GlobalVariables.infamy = 10
+
+
+func _on_cheat_pressed() -> void:
+	GlobalVariables.infamy = 20
+
+
+func _on_infamy_11_pressed() -> void:
+	GlobalVariables.infamy = 11
