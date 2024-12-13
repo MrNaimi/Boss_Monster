@@ -1,5 +1,6 @@
 extends Control
 
+@onready var card: PackedScene = preload("res://Cards/card_ui.tscn")
 @onready var info: Label = $ColorRect/info
 @onready var message_timer: Timer = $messageTimer
 var timer_started = false
@@ -99,6 +100,11 @@ func _on_destroy_room_pressed() -> void:
 		"Misunderstood Ghost":
 			undead_rooms_destroyed+=1
 			GlobalVariables.misunderstood_ghosts-=1
+			if get_tree().get_first_node_in_group("hand").get_child_count()<6:
+						GlobalVariables.resetValues(true)
+						GlobalVariables.created_spells-=1
+						get_tree().get_first_node_in_group("hand").add_child(card.instantiate())
+						get_tree().get_first_node_in_group("hand").startcardmachine()
 		"Stinky Ghoul":
 			undead_rooms_destroyed+=1
 			GlobalVariables.stinky_ghouls-=1

@@ -10,7 +10,7 @@ var is_dragging = false
 @onready var hero: PackedScene = preload("res://hero.tscn")
 @onready var boss_health_bar: ProgressBar = $Control/bossHealthBar
 @onready var damage = 999
-@onready var hp = 50
+@onready var hp = 555
 @onready var boss_hp: Label = $Control/BossHp
 @onready var first_time_continue = true
 @onready var current_phase_text: Label = $CurrentPhaseText
@@ -18,6 +18,9 @@ var is_dragging = false
 @onready var card_info: Control = $card_info
 @onready var trap_sound: AudioStreamPlayer2D = $trap_sound
 @onready var pause_menu: Control = $PauseMenu
+@onready var town_camera: Camera2D = $TownCamera
+@onready var default_camera: Camera2D = $DefaultCamera
+@onready var dungeon_ui: CanvasLayer = $DungeonUI
 
 
 var paused = false
@@ -25,12 +28,17 @@ var paused = false
 func _ready() -> void:
 	$AudioStreamPlayer2D.play(0)
 	print(GlobalVariables.rooms)
+	default_camera.make_current()
 	pass
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if GlobalVariables.infamy == 2:
+		default_camera.set_enabled(false)
+		town_camera.make_current()
+		dungeon_ui.hide()
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	

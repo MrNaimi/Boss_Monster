@@ -55,7 +55,12 @@ func _process(delta):
 		label.text = "Emperor of the realm gathering an army to vanquish you"
 
 func _on_button_pressed() -> void:
-	Transition.change_scene("res://Scenes/Dungeon/Dungeon.tscn")
+	if GlobalVariables.infamy==50:
+		Transition.change_scene("res://Scenes/Dungeon/Dungeon.tscn")
+	else:
+		#tämä pitää tehdä get_tree().get_first_node_in_group("dungeon") tms ja siitä asettaa kamera tai
+		#sit jollain globalvariablejuustolla
+		print("joui")
 
 
 func _on_timer_timeout() -> void:

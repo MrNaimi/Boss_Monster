@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=88 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cnbtafi5vtwgi" path="res://Cards/Graphics/coin.png" id="27_ptste"]
 [ext_resource type="Texture2D" uid="uid://ccmc68033lxny" path="res://Cards/Graphics/infamy_1.png" id="28_qporu"]
 [ext_resource type="AudioStream" uid="uid://bvc86v8pgw8gv" path="res://Music/Dungeon Through Shadows.mp3" id="29_u0hhi"]
+[ext_resource type="PackedScene" uid="uid://b3nxpkvi80uua" path="res://Scenes/Town/Town.tscn" id="30_vyj3o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcwh"]
 texture = ExtResource("3_fe1ow")
@@ -959,7 +960,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yansb"]
-size = Vector2(516, 141)
+size = Vector2(516, 157)
 
 [sub_resource type="Animation" id="Animation_1vnqr"]
 length = 0.001
@@ -1100,7 +1101,7 @@ point_count = 14
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vg36"]
 
-[node name="Dungeon" type="Node2D"]
+[node name="Dungeon" type="Node2D" groups=["dungeon"]]
 script = ExtResource("1_7o1lv")
 
 [node name="Map" type="Node2D" parent="."]
@@ -1533,7 +1534,7 @@ size_flags_horizontal = 4
 collision_layer = 2
 
 [node name="cardbuyareashape" type="CollisionShape2D" parent="DungeonUI/Hand/CardBuyArea"]
-position = Vector2(231, 94.5)
+position = Vector2(231, 86.5)
 shape = SubResource("RectangleShape2D_yansb")
 
 [node name="ShopUI" type="Control" parent="DungeonUI"]
@@ -2113,6 +2114,15 @@ text = "+action"
 stream = ExtResource("29_u0hhi")
 volume_db = -30.0
 parameters/looping = true
+
+[node name="TownCamera" type="Camera2D" parent="."]
+position = Vector2(1974, 1353)
+
+[node name="town" parent="TownCamera" instance=ExtResource("30_vyj3o")]
+position = Vector2(-641, -347)
+
+[node name="DefaultCamera" type="Camera2D" parent="."]
+position = Vector2(638, 360)
 
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="area_entered" from="Boss/Area2D" to="." method="_on_area_2d_area_entered"]

@@ -144,7 +144,7 @@ const DATA ={
 	Stinky_Ghoul : #tehty oikee art
 		["Room", 8, "Stinky Ghoul", "Monster", "Your non-Undead monster rooms have -2dmg","stinky_ghoul.png","","undead"],
 	Misunderstood_Ghost : #tehty oikee art
-		["Room", 4, "Misunderstood Ghost", "Monster", "Deals double damage to Paladins","misunderstood_ghost.png","","undead"],
+		["Room", 4, "Misunderstood Ghost", "Monster", "Deals double damage to Paladins. Destroying this card gives you a spell card (if you have room)","misunderstood_ghost.png","","undead"],
 	Zombie_Graveyard : #tehty oikee art
 		["Room", 2, "Zombie Graveyard", "Monster", "Has +1dmg for each destroyed room","zombie_graveyard.png","","undead"],
 	Rolling_Golem:
@@ -158,7 +158,7 @@ const DATA ={
 	Imp:
 		["Room", 2, "Demonic Scout", "Monster", "The hero takes +3dmg from following demon rooms","imp.png","","demon"],
 	Warlock_Summoner:
-		["Room", 3, "Warlock Summoner", "Monster", "For each unique demon you control, gain +4dmg","warlock_summoner.png","","demon, Humanoid"],
+		["Room", 3, "Warlock Summoner", "Monster", "Your demon rooms deal +2 dmg","warlock_summoner.png","","demon, Humanoid"],
 	Demon_Spawn:
 		["Room", 3, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","demon_spawn.png","","demon"],
 	Lesser_Devil:
