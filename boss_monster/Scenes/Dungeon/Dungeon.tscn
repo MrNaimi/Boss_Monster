@@ -2124,24 +2124,6 @@ position = Vector2(-641, -347)
 [node name="DefaultCamera" type="Camera2D" parent="."]
 position = Vector2(638, 360)
 
-[node name="cheat1" type="Button" parent="."]
-offset_left = 35.0
-offset_top = 116.0
-offset_right = 68.0
-offset_bottom = 178.0
-text = "10"
-
-[node name="cheat" type="Button" parent="."]
-offset_left = 2.0
-offset_top = 115.0
-offset_right = 30.0
-offset_bottom = 178.0
-text = "20"
-
-[node name="Infamy11" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-
 [connection signal="pressed" from="Buttons/Continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="area_entered" from="Boss/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="pressed" from="DungeonUI/ShopUI/RefreshButton" to="DungeonUI/ShopUI" method="_on_refresh_button_pressed"]
@@ -2155,6 +2137,3 @@ offset_bottom = 8.0
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HideStatWindow" to="Stat window" method="_on_hide_stat_window_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Quit_game" to="." method="_on_quit_game_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="cheat1" to="." method="_on_cheat_1_pressed"]
-[connection signal="pressed" from="cheat" to="." method="_on_cheat_pressed"]
-[connection signal="pressed" from="Infamy11" to="." method="_on_infamy_11_pressed"]
