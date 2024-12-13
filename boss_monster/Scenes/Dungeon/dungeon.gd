@@ -10,7 +10,7 @@ var is_dragging = false
 @onready var hero: PackedScene = preload("res://hero.tscn")
 @onready var boss_health_bar: ProgressBar = $Control/bossHealthBar
 @onready var damage = 999
-@onready var hp = 555
+@onready var hp = 50
 @onready var boss_hp: Label = $Control/BossHp
 @onready var first_time_continue = true
 @onready var current_phase_text: Label = $CurrentPhaseText
@@ -21,6 +21,7 @@ var is_dragging = false
 @onready var town_camera: Camera2D = $TownCamera
 @onready var default_camera: Camera2D = $DefaultCamera
 @onready var dungeon_ui: CanvasLayer = $DungeonUI
+var visibility_changeable = true
 
 
 var paused = false
@@ -35,10 +36,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if GlobalVariables.infamy == 2:
+	
+	if GlobalVariables.infamy % 10 == 0 and visibility_changeable:
 		default_camera.set_enabled(false)
 		town_camera.make_current()
 		dungeon_ui.hide()
+		visibility_changeable = false
+		GlobalVariables.show = false
+		GlobalVariables.town_music = true
+	
+		
+	if GlobalVariables.infamy % 10 == 1:
+		visibility_changeable = true
+		pass
+	
+	if GlobalVariables.show:
+		dungeon_ui.show()
+		
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	

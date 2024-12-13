@@ -29,8 +29,10 @@ var undead_rooms_destroyed = 0
 var skeleton_lounges = []
 var goblin_generals_in_dung = 0
 var skeleton_ceo_activated = false
-
+var show = true
 var unique_demon_rooms = []
+var town_music = true
+
 #Arrays
 
 @onready var Database = preload("res://Database/Database.gd")
