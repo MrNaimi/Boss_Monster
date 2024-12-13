@@ -16,6 +16,7 @@ var selectedHero = []
 @onready var perseajastin: Timer = $perseajastin
 @onready var animations: AnimationPlayer = $animations
 @onready var poison_damage: Label = $PoisonDamage
+@onready var moveTimer: Timer = $moveTimer
 
 var visited_demon_scouts = 0
 var damageAdd = 0
@@ -39,17 +40,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:		
 	health_bar.value = hp
+	var goldAdd = 2
 	#print(hp)
 	
 	if hp <= 0:
-		
+		if GlobalVariables.goblin_generals_in_dung>=1:
+			goldAdd = 3
 		if GlobalVariables.goblin_warriors_in_dungeon >= 1:
 			if RandomNumberGenerator.new().randi_range(1,4)==4:
-				GlobalVariables.player_gold+=2
+				GlobalVariables.player_gold+=goldAdd
 				GlobalVariables.goblin_warrior_animation = true
 		if GlobalVariables.goblin_armies_in_dungeon >= 1:
 			if RandomNumberGenerator.new().randi_range(1,3)==3:
-				GlobalVariables.player_gold+=2
+				GlobalVariables.player_gold+=goldAdd
 				GlobalVariables.goblin_army_animation = true
 		if GlobalVariables.autoplay:
 			GlobalVariables.heroes_move=true
@@ -219,10 +222,9 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			
 			print("Handle Demon Spawn room")
 		"Lesser Devil": #TEHTY
-			if visited_demon_scouts>0:
-				room_damage+=3*visited_demon_scouts
+			room_damage+=3*visited_demon_scouts
 			room_damage+=GlobalVariables.DemonDmgBuff
-			room_damage+=floor(GlobalVariables.demon_rooms_placed)
+			room_damage+=floor(0.5*GlobalVariables.demon_rooms_placed)
 			print("Handle Lesser Devil room")
 		"Outlaw": #TEHTY
 			room_damage+=GlobalVariables.HumanoidDmgBuff	
@@ -235,7 +237,8 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			print("Handle Goblin Army room")
 		"Pack of Wolves": #SKIP
 			room_damage+=GlobalVariables.BeastDmgBuff
-			print("Handle Pack of Wolves room")
+			if hp<=room_damage*selectedHero[1]:
+				area.get_parent().wolf_counter = 0
 		"Chihu": #TEHTY
 			room_damage+=GlobalVariables.BeastDmgBuff
 			room_damage+=RandomNumberGenerator.new().randi_range(1, 6)
@@ -255,6 +258,7 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			print("Handle repair bot")
 		"Amalgamation":#tehty
+			room_damage+=3*visited_demon_scouts
 			room_damage+=GlobalVariables.ConstructDmgBuff
 			room_damage+=GlobalVariables.BeastDmgBuff
 			room_damage+=GlobalVariables.HumanoidDmgBuff
@@ -278,10 +282,17 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 			room_damage+=GlobalVariables.succubi_placed*2
 		"Fallen Angel":
 			room_damage+=GlobalVariables.DemonDmgBuff
+			room_damage+=3*visited_demon_scouts
 			room_damage+=GlobalVariables.succubus_charms*3
 		"Boss":
 			print("boss boss bossss")
 			hp = 0
+		"Greedy Goblin":
+			room_damage+=GlobalVariables.HumanoidDmgBuff
+			room_damage+=floor(GlobalVariables.player_gold/10)
+		"Undead Mage":
+			room_damage+=GlobalVariables.UndeadDmgBuff
+			room_damage+=GlobalVariables.spell_cards_used
 		_:
 			print("Unknown room:", room_name)
 			
@@ -298,11 +309,11 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 	hp -= (damageAdd+room_damage)*selectedHero[1]
 	
 	if mindcontrolled:
+		get_child(0).damage = hp
 		GlobalVariables.damage_done+=floor(0.5*hp)
 		hp-=floor(0.5*hp)
 		mindcontrolled = false
 		flipped = false
-		get_child(0).damage = 0
 	#print(hp)
 func isEveryoneStopped () -> bool:
 	for path in GlobalVariables.spawned_heroes:
@@ -310,3 +321,9 @@ func isEveryoneStopped () -> bool:
 			if path.get_child(0).can_move:
 				return false
 	return true
+
+
+func _on_move_timer_timeout() -> void:
+	mindcontrolled = false
+	
+	can_move = true

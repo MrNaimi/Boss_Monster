@@ -33,7 +33,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
-		
+	
+	#if Input.is_action_just_pressed("spacebar"):
+		#continueButton()
+		#
 	
 	if GlobalVariables.room_cards_created.size()>0:
 		if GlobalVariables.is_everyone_stopped() or first_time_continue:
@@ -57,8 +60,9 @@ func _on_quit_game_pressed() -> void:
 
 
 func _on_continue_button_pressed() -> void:
-	#print("Continue")
-
+	continueButton()
+	
+func continueButton() -> void:
 	var length = 0
 	if GlobalVariables.trap_placed:
 		if GlobalVariables.currentPhase=="build":
@@ -74,8 +78,8 @@ func _on_continue_button_pressed() -> void:
 			for room in GlobalVariables.rooms_placed:
 				if is_instance_valid(room):
 					room.trap_activated = false
-			if GlobalVariables.pack_of_wolves_placed>0:
-				print("LISÄTÄÄN ROUND COUNTERIIN YKSI", GlobalVariables.round_counter)
+			for wolf in GlobalVariables.wolves_placed:
+				wolf.card_ui.wolf_counter+=1
 				GlobalVariables.round_counter += 1
 			if GlobalVariables.lions_dens_in_the_dungeon>0:
 				GlobalVariables.BeastDmgBuff+=GlobalVariables.beast_rooms_in_dungeon

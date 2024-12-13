@@ -34,6 +34,7 @@ signal reset_card()
 @onready var activate_button: Button = $ActivateButton
 @onready var trap_activated = false
 @onready var entered_hero = null
+var wolf_counter = 0
 var sound = ""
 
 # Called when the node enters the scene tree for the first time.
@@ -62,19 +63,24 @@ func _process(delta: float) -> void:
 			GlobalVariables.message("Your Orc Bodyguard has left the dungeon due to a lack of funds",false)
 			visible = false
 			GlobalVariables.spawn_room_set = false
-		if card_name.text=="Pack of Wolves" && GlobalVariables.currentPhase=="build" && GlobalVariables.round_counter>=5:
+		if card_name.text=="Pack of Wolves" && GlobalVariables.currentPhase=="build" && wolf_counter>=5:
 			GlobalVariables.message("Your Pack of Wolves starved to death",false)
 			GlobalVariables.pack_of_wolves_placed -= 1
-			GlobalVariables.round_counter = 0
 			visible = false
 			GlobalVariables.spawn_room_set = false
 		if GlobalVariables.goblin_army_animation && card_name.text=="Goblin Army":
 			GlobalVariables.goblin_army_animation = false
-			room_dmg_2.text = "+2"
+			if GlobalVariables.goblin_generals_in_dung>=1:
+				room_dmg_2.text = "+3"
+			else:	
+				room_dmg_2.text = "+2"
 			paskahuussi.play("money_animation")
 		if GlobalVariables.goblin_warrior_animation && card_name.text=="Goblin Warrior":
 			GlobalVariables.goblin_warrior_animation = false
-			room_dmg_2.text = "+2"
+			if GlobalVariables.goblin_generals_in_dung>=1:
+				room_dmg_2.text = "+3"
+			else:	
+				room_dmg_2.text = "+2"
 			paskahuussi.play("money_animation")
 
 func _input(event: InputEvent) -> void:
@@ -115,9 +121,9 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	if previousindex < 0: previousindex = 0
 	if card_name.text == "The Last Mammoth":
 		if get_parent().get_parent().get_parent().get_parent().get_children()[previousindex].get_child(0).get_child(0).get_child_count()==0:
-			damage = 20
+			damage = int(room_dmg.text)*2
 		else:
-			damage = 10
+			damage = int(room_dmg.text)
 		
 			
 		

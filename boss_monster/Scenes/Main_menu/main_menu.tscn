@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0wwo6jfs4mhg"]
+[gd_scene load_steps=11 format=3 uid="uid://b0wwo6jfs4mhg"]
 
 [ext_resource type="Script" path="res://Scenes/Main_menu/main_menu.gd" id="1_dfxk5"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="2_3dran"]
@@ -7,6 +7,21 @@
 [ext_resource type="AudioStream" uid="uid://d346njub85tsg" path="res://Music/Mysterious Dungeon.mp3" id="5_bpc2g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ff875"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_x44lu"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_4pjys"]
+events = [SubResource("InputEventKey_x44lu")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_mxt1s"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_8ykt6"]
+events = [SubResource("InputEventKey_mxt1s")]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -58,6 +73,7 @@ theme = ExtResource("4_sjrov")
 theme_override_fonts/font = ExtResource("2_3dran")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ff875")
+shortcut = SubResource("Shortcut_4pjys")
 text = "Play "
 
 [node name="Collections" type="Button" parent="Menu"]
@@ -75,6 +91,7 @@ theme = ExtResource("4_sjrov")
 theme_override_fonts/font = ExtResource("2_3dran")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ff875")
+shortcut = SubResource("Shortcut_8ykt6")
 text = "Quit Game"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

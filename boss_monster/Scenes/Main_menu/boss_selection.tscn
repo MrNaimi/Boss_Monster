@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bppkmanivyjni"]
+[gd_scene load_steps=10 format=3 uid="uid://bppkmanivyjni"]
 
 [ext_resource type="Script" path="res://Scenes/Main_menu/boss_selection.gd" id="1_cctkr"]
 [ext_resource type="Texture2D" uid="uid://ko6ejdc2jks" path="res://Assets/Bosses/Demon/Demon_single.png" id="2_405rm"]
@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://r84cbhv5jpcv" path="res://Cards/Graphics/boss screen.png" id="2_nhxu7"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="3_httui"]
 [ext_resource type="AudioStream" uid="uid://460ji36k77k0" path="res://Music/Journey Through Pixel Depths.mp3" id="5_ir5i0"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_3y3h5"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_c4o8m"]
+events = [SubResource("InputEventKey_3y3h5")]
 
 [sub_resource type="Theme" id="Theme_qgv3w"]
 default_font = ExtResource("3_httui")
@@ -38,6 +46,7 @@ offset_right = 477.0
 offset_bottom = 674.0
 theme = ExtResource("2_hsajo")
 theme_override_font_sizes/font_size = 50
+shortcut = SubResource("Shortcut_c4o8m")
 text = "Select"
 
 [node name="Demon" type="Sprite2D" parent="."]

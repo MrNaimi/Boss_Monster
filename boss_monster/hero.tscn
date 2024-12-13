@@ -372,5 +372,10 @@ libraries = {
 "": SubResource("AnimationLibrary_ih5ps")
 }
 
+[node name="moveTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="area_entered" from="Idle_animation/HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_exited" from="Idle_animation/HitBox" to="." method="_on_hit_box_area_exited"]
+[connection signal="timeout" from="moveTimer" to="." method="_on_move_timer_timeout"]

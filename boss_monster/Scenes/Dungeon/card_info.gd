@@ -108,12 +108,19 @@ func _on_destroy_room_pressed() -> void:
 			GlobalVariables.summoning_circles-=1
 		"Skeleton CEO":
 			undead_rooms_destroyed+=1
+		"The Last Mammoth":
+			GlobalVariables.beast_rooms_in_dungeon-=1
 		"Ominous Shadow":
+			GlobalVariables.shadows -= 1
 			if GlobalVariables.stinky_ghouls>0 && GlobalVariables.misunderstood_ghosts>0 && GlobalVariables.shadows == 0:
 				GlobalVariables.UndeadDmgBuff-=5
 				GlobalVariables.shadow_buff_given = false
-			GlobalVariables.shadows -= 1
-			
+		"Gator":
+			GlobalVariables.beast_rooms_in_dungeon-=1
+		"Summoning Circle":
+			GlobalVariables.demon_rooms_placed-=1
+		"Goblin General":
+			GlobalVariables.goblin_generals_in_dung -= 1
 	if undead_rooms_destroyed>=1:
 		for lounge in GlobalVariables.skeleton_lounges:
 			lounge.card_ui.damage+=1

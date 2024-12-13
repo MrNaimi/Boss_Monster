@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://bmgb3om6wecao"]
+[gd_scene load_steps=87 format=4 uid="uid://bmgb3om6wecao"]
 
 [ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
@@ -840,6 +840,19 @@ bg_color = Color(1, 0, 0.0166664, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_maccd"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_fwhpk"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_vkj36"]
+device = -1
+keycode = 90
+unicode = 122
+
+[sub_resource type="Shortcut" id="Shortcut_khlmc"]
+events = [SubResource("InputEventKey_fwhpk"), SubResource("InputEventKey_vkj36")]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8r57"]
 size = Vector2(121, 98)
 
@@ -1012,6 +1025,14 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljcgq"]
 size = Vector2(249.5, 67)
+
+[sub_resource type="InputEventKey" id="InputEventKey_rc1hs"]
+device = -1
+keycode = 82
+unicode = 114
+
+[sub_resource type="Shortcut" id="Shortcut_o855i"]
+events = [SubResource("InputEventKey_rc1hs")]
 
 [sub_resource type="Animation" id="Animation_ksl61"]
 length = 0.001
@@ -1253,7 +1274,7 @@ color = Color(0.320979, 0.259566, 0.0808484, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.075
-anchor_top = 0.1
+anchor_top = -0.3
 anchor_right = -0.075
 anchor_bottom = -0.3
 offset_left = 16.0
@@ -1395,6 +1416,7 @@ theme_override_constants/outline_size = -1
 theme_override_fonts/font = ExtResource("9_xb32f")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
+shortcut = SubResource("Shortcut_khlmc")
 text = "Continue"
 
 [node name="HSlider" type="HSlider" parent="Buttons"]
@@ -1612,6 +1634,7 @@ offset_bottom = 475.0
 theme = ExtResource("8_l2hdd")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_maccd")
+shortcut = SubResource("Shortcut_o855i")
 text = "Refresh: 1 gold"
 
 [node name="shopcover" type="ColorRect" parent="DungeonUI/ShopUI"]
@@ -1743,7 +1766,6 @@ offset_bottom = 521.0
 script = ExtResource("26_5uaum")
 
 [node name="ColorRect2" type="ColorRect" parent="Stat window"]
-visible = false
 layout_mode = 0
 offset_left = -4.0
 offset_top = -3.0
@@ -1752,17 +1774,15 @@ offset_bottom = 181.0
 color = Color(0.320979, 0.259566, 0.0808484, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Stat window"]
-visible = false
 layout_mode = 0
 offset_right = 225.0
 offset_bottom = 176.0
 color = Color(0.45098, 0.368627, 0.129412, 1)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Stat window"]
-visible = false
 layout_mode = 0
 offset_right = 224.0
-offset_bottom = 174.0
+offset_bottom = 172.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Stat window/ScrollContainer"]
 layout_mode = 2
@@ -1872,6 +1892,13 @@ theme_override_font_sizes/font_size = 20
 text = "Trap activations:"
 horizontal_alignment = 1
 
+[node name="Label15" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "Spells used:"
+horizontal_alignment = 1
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="Stat window/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 
@@ -1972,6 +1999,13 @@ theme_override_font_sizes/font_size = 20
 text = "0"
 
 [node name="TrapActivations" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("8_l2hdd")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="SpellsUsed" type="Label" parent="Stat window/ScrollContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("8_l2hdd")

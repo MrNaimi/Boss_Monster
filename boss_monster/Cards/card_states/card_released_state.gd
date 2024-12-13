@@ -1,6 +1,7 @@
 extends CardState
 
 var played: bool
+var unique = false
 
 func enter() -> void:
 	
@@ -46,7 +47,7 @@ func enter() -> void:
 				#print(GlobalVariables.DemonDmgBuff)
 				#print(GlobalVariables.SpikeTrapDmgBuff)
 				var trapName = card_ui.card_name.text
-
+				
 				match trapName:
 					"Electric Anomaly":
 						GlobalVariables.ConstructDmgBuff+=2
@@ -62,7 +63,8 @@ func enter() -> void:
 						GlobalVariables.orc_bodyguards.append(self)
 						#print(GlobalVariables.HumanoidDmgBuff)
 					"Warlock Summoner":
-						GlobalVariables.demon_rooms_placed += 0.5
+						devil_array(self, trapName)
+						GlobalVariables.demon_rooms_placed += 1
 						GlobalVariables.DemonDmgBuff+=2
 						#print(GlobalVariables.DemonDmgBuff)
 					"Spike Factory":
@@ -80,19 +82,24 @@ func enter() -> void:
 						GlobalVariables.ConstructDmgBuff -= 2
 						GlobalVariables.SpikeTrapDmgBuff -= 2
 					"Lesser Devil":
-						GlobalVariables.demon_rooms_placed += 0.5
+						devil_array(self, trapName)
+						GlobalVariables.demon_rooms_placed += 1
 						GlobalVariables.lesser_devils_in_dungeon += 1
 					"Demon Spawn":
-						GlobalVariables.demon_rooms_placed += 0.5
+						devil_array(self, trapName)
+						GlobalVariables.demon_rooms_placed += 1
 					"Demonic Scout":
-						GlobalVariables.demon_rooms_placed += 0.5
+						devil_array(self, trapName)
+						GlobalVariables.demon_rooms_placed += 1
 					"Succubus":
-						GlobalVariables.demon_rooms_placed += 0.5
+						devil_array(self, trapName)
+						GlobalVariables.demon_rooms_placed += 1
 						GlobalVariables.succubi_placed += 1
 					"Outlaw":
 						GlobalVariables.outlaws_in_dungeon += 1
 						GlobalVariables.outlaws.append(self)
 					"Goblin Army":
+						GlobalVariables.goblin_armies_in_dungeon+=1
 						GlobalVariables.goblin_army_active = true
 					"Chihu":
 						GlobalVariables.beast_rooms_in_dungeon+=1
@@ -102,6 +109,8 @@ func enter() -> void:
 					"Angry Slime":
 						GlobalVariables.beast_rooms_in_dungeon+=1
 					"Dragon Lair":
+						GlobalVariables.beast_rooms_in_dungeon+=1
+					"The Last Mammoth":
 						GlobalVariables.beast_rooms_in_dungeon+=1
 					"Killer Robot":
 						GlobalVariables.killer_robot_placed = true
@@ -113,6 +122,19 @@ func enter() -> void:
 						GlobalVariables.summoning_circles+=1
 					"Skeleton Lounge":
 						GlobalVariables.skeleton_lounges.append(self)
+					"Gator":
+						GlobalVariables.beast_rooms_in_dungeon+=1
+					"Amalgamation":
+						devil_array(self, trapName)
+						GlobalVariables.beast_rooms_in_dungeon+=1
+						GlobalVariables.demon_rooms_placed+=1
+					"Summoning Circle":
+						devil_array(self, trapName)
+						GlobalVariables.demon_rooms_placed+=1
+					"Goblin General":
+						GlobalVariables.goblin_generals_in_dung += 1
+				print(GlobalVariables.unique_demon_rooms.size())
+					
 	elif card_ui.shop_card:
 		print("hellooo")
 		if not card_ui.targets.is_empty() && card_ui.targets[0].name=="CardBuyArea" && card_ui.targets[0].get_parent().get_child_count()<6 && GlobalVariables.player_gold>=10:
@@ -139,12 +161,13 @@ func enter() -> void:
 						target.get_parent().scale.x=1
 						target.get_parent().scale.y=1
 					"Mind Control":
-						if hero.can_move && GlobalVariables.amount_of_heroes_alive>1:
+						if hero.can_move && GlobalVariables.amount_of_heroes_alive>0:
 							print("mind control")
 							hero.can_move = false
 							hero.flipped = true
 							hero.mindcontrolled = true
 							hero.get_child(0).damage = hero.hp
+							hero.moveTimer.start()
 						else:
 							GlobalVariables.message("There has to be more than one hero in the dungeon, and it has to be moving",false)
 							break
@@ -164,6 +187,7 @@ func enter() -> void:
 						
 				#GlobalVariables.actionsLeft-=1
 				#GlobalVariables.created_spells-=1
+				GlobalVariables.spell_cards_used+=1
 				card_ui.queue_free()
 			elif target.get_parent().name=="Boss": 
 				print(target.get_parent().get_parent().boss_hp)
@@ -173,6 +197,7 @@ func enter() -> void:
 				else:
 					target.get_parent().get_parent().hp=50
 				target.get_parent().get_parent().refreshHP()
+				GlobalVariables.spell_cards_used+=1
 				card_ui.queue_free()
 			#GlobalVariables.created_spells-=1
 			
@@ -192,3 +217,19 @@ func on_gui_input(event: InputEvent) -> void:
 		#GlobalVariables.card_info[1] = card_ui.tribe
 		GlobalVariables.placed_message(card_ui.card_info,card_ui.tribe,true,card_ui,card_ui.damage)
 	
+func devil_array(node, trapName):
+	
+	print(trapName)
+	GlobalVariables.demon_rooms.append(node.card_ui.card_name.text)
+	
+	print(GlobalVariables.unique_demon_rooms.has(trapName))  
+	if !GlobalVariables.demon_rooms.has(trapName):
+		print("unique demon room added")
+		GlobalVariables.unique_demon_rooms.append(trapName)
+		
+	for item in GlobalVariables.demon_rooms:
+		if is_instance_valid(item):
+			print("Demon rooms: ",item.card_ui.card_name.text)
+	
+	print("All demon rooms: ", GlobalVariables.demon_rooms)
+	print("Unique demon rooms: ", GlobalVariables.unique_demon_rooms)

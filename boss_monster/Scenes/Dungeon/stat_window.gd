@@ -12,6 +12,7 @@ extends Control
 @onready var trap_activations: Label = $ScrollContainer/HBoxContainer/VBoxContainer2/TrapActivations
 @onready var hide_stat_window: Button = $"../PauseMenu/MarginContainer/VBoxContainer/HideStatWindow"
 @onready var beast_dmg_buff: Label = $ScrollContainer/HBoxContainer/VBoxContainer2/BeastDmgBuff
+@onready var spells_used: Label = $ScrollContainer/HBoxContainer/VBoxContainer2/SpellsUsed
 
 @onready var i = 0
 @onready var scroll_container: ScrollContainer = $ScrollContainer
@@ -39,13 +40,16 @@ func refreshStats() -> void:
 	construct_dmg_buff.text = str(GlobalVariables.ConstructDmgBuff)
 	humanoid_dmg_buff.text = str(GlobalVariables.HumanoidDmgBuff)
 	spike_dmg_buff.text = str(GlobalVariables.SpikeTrapDmgBuff)
-	beast_dmg_buff.text = str(GlobalVariables.BeastDmgBuff)
+	if GlobalVariables.gatorDmgBuff > 0:
+		beast_dmg_buff.text = str(GlobalVariables.BeastDmgBuff+4)
+	else:
+		beast_dmg_buff.text = str(GlobalVariables.BeastDmgBuff)
 	rooms_placed.text = str(GlobalVariables.rooms_placed_num)
 	rooms_destroyed.text = str(GlobalVariables.rooms_destroyed)
 	heroes_killed.text = str(GlobalVariables.heroes_killed)
 	damage_done.text = str(GlobalVariables.damage_done)
 	trap_activations.text = str(GlobalVariables.TrapActivations)
-	
+	spells_used.text = str(GlobalVariables.spell_cards_used)
 
 func _on_hide_stat_window_pressed() -> void:
 	scroll_container.visible = not scroll_container.visible

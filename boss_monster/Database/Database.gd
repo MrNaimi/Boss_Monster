@@ -156,7 +156,7 @@ const DATA ={
 	Fire_Elemental:
 		["Room", 2, "Fire Elemental", "Monster", "Hero takes 1 damage for every room they entered","fire_elemental.png","","construct"],
 	Imp:
-		["Room", 2, "Demonic Scout", "Monster", "When a hero passes this room give your demon rooms +1dmg","imp.png","","demon"],
+		["Room", 2, "Demonic Scout", "Monster", "The hero takes +3dmg from following demon rooms","imp.png","","demon"],
 	Warlock_Summoner:
 		["Room", 3, "Warlock Summoner", "Monster", "For each unique demon you control, gain +4dmg","warlock_summoner.png","","demon, Humanoid"],
 	Demon_Spawn:
@@ -178,9 +178,9 @@ const DATA ={
 	Electric_Anomaly:
 		["Room", 3, "Electric Anomaly", "Monster", "gives +2 dmg to your “Construct” and “Trap” Rooms","electric_anomaly.png","","construct"],
 	Gator:
-		["Room",6, "Gator","Monster","If this kills a hero, enrage your other beasts for 3 rounds","Gator.png","","beast"],
+		["Room",6, "Gator","Monster","If this kills a hero, enrage your other beasts for 3 rounds making them deal +4 dmg","Gator.png","","beast"],
 	Last_Mammoth:
-		["Room", 10, "The Last Mammoth", "Monster", "Deals double damage if there is no room before it","last_mammoth.png", "", "beast"],
+		["Room", 6, "The Last Mammoth", "Monster", "Has double base damage if there is no room before it","last_mammoth.png", "", "beast"],
 	Repair_Bot:
 		["Room", 2, "Repair Bot", "Monster", "Reduces the chance of self destruction by 10%", "repair_bot.png", "", "construct"],
 	Amalgamation:
@@ -194,10 +194,9 @@ const DATA ={
 	Fallen_Angel:
 		["Room", 5, "Fallen Angel", "Monster", "Gains 3 dmg for each successful succubus charm","fallen_angel.png", "", "demon"],
 	Undead_Mage:
-		["Room", 3, "Undead Mage", "Monster", "Gain +1dmg for each casted spell","Undead_mage.png", "", "undead"]
+		["Room", 3, "Undead Mage", "Monster", "Gain +2dmg for each casted spell","Undead_mage.png", "", "undead"],
 	Goblin_General:
-		["Room", 4, "Goblin General", "Monster", "Your other Goblins have +2 dmg for each different goblin, And this Gains +2 for each","goblin_general.png", "", "humanoid"],
+		["Room", 4, "Goblin General", "Monster", "Your Goblin Warrior and Goblin Army troops generate one more gold","goblin_general.png", "", "humanoid"],
 	Greedy_Goblin:
 		["Room", 2, "Greedy Goblin", "Monster", "Gain +1dmg for each 10 gold you have","greedy_goblin.png", "", "humanoid"]
-		[]
 } 

@@ -1,5 +1,5 @@
 extends Node
-
+var demon_rooms = []
 var gatorDmgBuff = 0
 var succubus_charms = 0
 var repair_bots = 0
@@ -27,7 +27,10 @@ var stinky_ghouls = 0
 var misunderstood_ghosts = 0
 var undead_rooms_destroyed = 0
 var skeleton_lounges = []
+var goblin_generals_in_dung = 0
 var skeleton_ceo_activated = false
+
+var unique_demon_rooms = []
 #Arrays
 
 @onready var Database = preload("res://Database/Database.gd")
@@ -39,10 +42,11 @@ var spawned_heroes: Array[PathFollow2D] = []
 var rooms_placed: Array[Control] = []
 var cardData = []
 
-
+var spell_cards_used = 0
 var card_info = ["a","b","c"]
 var room_to_be_destroyed
 
+var wolves_placed = []
 var outlaws=[]
 var orc_bodyguards=[]
 
@@ -170,64 +174,64 @@ func printDmgBuffs() -> void:
 	#print("Construct Damage: ", ConstructDmgBuff)
 	#print("Spike Trap Damage: ", SpikeTrapDmgBuff)
 
-
-func reset_defaults() -> void:
-	# Reset primitive variables
-	hero_progress = 0
-	trap_index = 0
-	amount_of_heroes_alive = 0
-	damageGiven = 0
-	heroHp = 10
-	bossHp = 50
-	hero_limit = 3
-	current_heroes = 0
-	timerAmount = 0.0
-	spell_limit = 1
-	created_spells = 0
-	infamy = 1
-	amount_of_heroes_killed = 0
-	rerollCost = 1
-
-	# Reset arrays
-	rooms = []
-	heroes = []
-	spells = []
-	room_cards_created = []
-	spawned_heroes = []
-	rooms_placed = []
-	cardData = []
-	card_info = ["a", "b", "c"]
-	room_to_be_destroyed = null
-
-	# Reset booleans
-	createCard = false
-	cardBought = false
-	card_dragging = false
-	shop_card_dragging = false
-	spawn_room_set = false
-	timerStart = false
-	heroKilled = false
-	trap_placed = false
-	spell_dragging = false
-	playshopanim = true
-	heroes_move = false
-	combat_phase = false
-	autoplay = false
-	spawn_hero = false
-	show_card = false
-	message_sent = false
-	message_data = ""
-	destroy_room = false
-
-	# Reset card damage buffs
-	TrapDmgBuff = 0
-	UndeadDmgBuff = 0
-	DemonDmgBuff = 0
-	HumanoidDmgBuff = 0
-	BeastDmgBuff = 0
-	ConstructDmgBuff = 0
-	SpikeTrapDmgBuff = 0
-	rooms_destroyed = 0
+#
+#func reset_defaults() -> void:
+	## Reset primitive variables
+	#hero_progress = 0
+	#trap_index = 0
+	#amount_of_heroes_alive = 0
+	#damageGiven = 0
+	#heroHp = 10
+	#bossHp = 50
+	#hero_limit = 3
+	#current_heroes = 0
+	#timerAmount = 0.0
+	#spell_limit = 1
+	#created_spells = 0
+	#infamy = 1
+	#amount_of_heroes_killed = 0
+	#rerollCost = 1
+#
+	## Reset arrays
+	#rooms = []
+	#heroes = []
+	#spells = []
+	#room_cards_created = []
+	#spawned_heroes = []
+	#rooms_placed = []
+	#cardData = []
+	#card_info = ["a", "b", "c"]
+	#room_to_be_destroyed = null
+#
+	## Reset booleans
+	#createCard = false
+	#cardBought = false
+	#card_dragging = false
+	#shop_card_dragging = false
+	#spawn_room_set = false
+	#timerStart = false
+	#heroKilled = false
+	#trap_placed = false
+	#spell_dragging = false
+	#playshopanim = true
+	#heroes_move = false
+	#combat_phase = false
+	#autoplay = false
+	#spawn_hero = false
+	#show_card = false
+	#message_sent = false
+	#message_data = ""
+	#destroy_room = false
+#
+	## Reset card damage buffs
+	#TrapDmgBuff = 0
+	#UndeadDmgBuff = 0
+	#DemonDmgBuff = 0
+	#HumanoidDmgBuff = 0
+	#BeastDmgBuff = 0
+	#ConstructDmgBuff = 0
+	#SpikeTrapDmgBuff = 0
+	#rooms_destroyed = 0
 
 
 func giveCard(cardName) -> void:
