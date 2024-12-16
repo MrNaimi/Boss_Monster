@@ -127,6 +127,7 @@ func _on_destroy_room_pressed() -> void:
 			GlobalVariables.demon_rooms_placed-=1
 		"Goblin General":
 			GlobalVariables.goblin_generals_in_dung -= 1
+			
 	if undead_rooms_destroyed>=1:
 		for lounge in GlobalVariables.skeleton_lounges:
 			lounge.card_ui.damage+=1
