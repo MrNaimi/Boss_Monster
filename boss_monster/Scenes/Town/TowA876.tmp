@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://b3nxpkvi80uua"]
 
 [ext_resource type="Texture2D" uid="uid://cw7mihwj87uyp" path="res://Scenes/Town/townScene.png" id="1_ndlgx"]
-[ext_resource type="Script" uid="uid://ddmmqhuq6avy3" path="res://Scenes/Town/town.gd" id="1_s10b2"]
+[ext_resource type="Script" path="res://Scenes/Town/town.gd" id="1_s10b2"]
 [ext_resource type="PackedScene" uid="uid://dhnpite2foeeu" path="res://hero.tscn" id="3_ptg7o"]
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="4_ogl6n"]
 [ext_resource type="AudioStream" uid="uid://vqc6qenw6553" path="res://Music/Town Folk.mp3" id="5_slw34"]

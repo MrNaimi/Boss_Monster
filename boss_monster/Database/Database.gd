@@ -122,9 +122,9 @@ const DATA ={
 	Mimic :#tehty oikee art
 		["Room", 3, "Mimic", "Trap", "Activate this trap to deal damage to a hero equal to your gold", "mimic.png","mimic.wav","trap"],
 	The_Vault_Room : #tehty 
-		["Room", 3, "The Vault Room","Trap", "Activate this trap to consume 5 gold and kill a hero in this room.", "vault_room.png","vault.wav","trap"],
+		["Room", 3, "The Vault Room","Trap", "Activate this trap to consume 15 gold and kill a hero in this room.", "vault_room.png","vault.wav","trap"],
 	Spike_Factory :#tehty
-		["Room", 4, "Spike Factory","Monster","Your “Spike Traps” deal +3dmg", "spike_factory.png","", "construct"],
+		["Room", 4, "Spike Factory","Monster","Your “Spike Traps” deal +3dmg", "spike_factory.png","", "construc q	t"],
 	Hot_Coals: #tehty oikee art
 		["Room", 4, "Hot Coals","Trap","Activate this trap to burn the hero, dealing 3 damage for every room they enter", "hot_coals.png","","trap"],
 	Monster_Lounge: #tehty
@@ -158,7 +158,7 @@ const DATA ={
 	Imp:
 		["Room", 2, "Demonic Scout", "Monster", "The hero takes +3dmg from following demon rooms","imp.png","","demon"],
 	Warlock_Summoner:
-		["Room", 3, "Warlock Summoner", "Monster", "Your demon rooms deal +2 dmg","warlock_summoner.png","","demon, Humanoid"],
+		["Room", 3, "Warlock Summoner", "Monster", "Your demon rooms deal +2 damage","warlock_summoner.png","","demon, Humanoid"],
 	Demon_Spawn:
 		["Room", 3, "Demon Spawn", "Monster", "has +3dmg if you have a “Lesser devil” in your dungeon","demon_spawn.png","","demon"],
 	Lesser_Devil:
@@ -174,7 +174,7 @@ const DATA ={
 	Chihu:
 		["Room", 2, "Chihu", "Monster", "Pablo the Chihuahua does 1 to 6 extra dmg","chihu.png","","beast"],
 	Lions_Den:
-		["Room", 3, "Lions Den", "Monster", "Gives your beast rooms +1dmg for each beast in your dungeon","lions_den.png","","beast"],
+		["Room", 3, "Lions Den", "Monster", "Gives your beast rooms +1dmg for each beast in your dungeon (does not stack)","lions_den.png","","beast"],
 	Electric_Anomaly:
 		["Room", 3, "Electric Anomaly", "Monster", "gives +2 dmg to your “Construct” and “Trap” Rooms","electric_anomaly.png","","construct"],
 	Gator:

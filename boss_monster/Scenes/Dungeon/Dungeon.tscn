@@ -1266,17 +1266,17 @@ offset_bottom = 574.0
 [node name="ColorRect4" type="ColorRect" parent="Control"]
 layout_mode = 2
 offset_left = 11.0
-offset_top = 13.0
-offset_right = 285.0
+offset_top = -4.0
+offset_right = 284.0
 offset_bottom = 169.0
 color = Color(0.320979, 0.259566, 0.0808484, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.075
-anchor_top = -0.3
-anchor_right = -0.075
+anchor_left = 0.05
+anchor_top = -0.025
+anchor_right = -0.1
 anchor_bottom = -0.3
 offset_left = 16.0
 offset_right = 284.0
@@ -1333,9 +1333,9 @@ horizontal_alignment = 2
 
 [node name="PlayerGold" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 142.75
+offset_left = 198.75
 offset_top = 94.0
-offset_right = 202.75
+offset_right = 258.75
 offset_bottom = 138.0
 theme = ExtResource("8_l2hdd")
 theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
@@ -1347,9 +1347,9 @@ script = ExtResource("10_laer6")
 
 [node name="PlayerInfamy" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 70.0
+offset_left = 105.0
 offset_top = 94.0
-offset_right = 110.0
+offset_right = 145.0
 offset_bottom = 138.0
 theme = ExtResource("8_l2hdd")
 theme_override_colors/font_color = Color(0.808137, 3.27289e-06, 7.70092e-07, 1)
@@ -2030,12 +2030,12 @@ position = Vector2(750, 663)
 scale = Vector2(0.3125, 0.3125)
 
 [node name="Coin" type="Sprite2D" parent="StatIcons"]
-position = Vector2(-67.9999, -41.6001)
+position = Vector2(111.2, -41.6001)
 scale = Vector2(2.75, 2.75)
 texture = ExtResource("27_ptste")
 
 [node name="Infamy" type="Sprite2D" parent="StatIcons"]
-position = Vector2(-291.2, -38.3999)
+position = Vector2(-179.2, -38.3999)
 scale = Vector2(3.2, 3.2)
 texture = ExtResource("28_qporu")
 

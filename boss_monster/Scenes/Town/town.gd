@@ -10,12 +10,15 @@ var Dungeon_Scene = preload("res://Scenes/Dungeon/Dungeon.tscn")
 @onready var hero_7: Node2D = $HBoxContainer/Hero7
 @onready var label: Label = $Label
 @onready var timer: Timer = $Timer
-
+@onready var town_camera: Camera2D = $"../../TownCamera"
+@onready var default_camera: Camera2D = $"../../DefaultCamera"
+@onready var dungeon_ui: CanvasLayer = $"../../DungeonUI"
+@onready var town_music: AudioStreamPlayer2D = $"town music"
+var music_changeable = true
 var i = 0
   
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AudioStreamPlayer2D.play(0)
 	for hero in h_box_container.get_children():
 		hero.idle_animation.visible = true
 		hero_1.idle_animation.animation = "barbarian"
@@ -38,6 +41,11 @@ func _ready():
 func _process(delta):
 	i += delta
 	
+	if GlobalVariables.town_music and music_changeable:
+		print("hei")
+		town_music.play(0)
+		music_changeable = false
+		
 	for hero in h_box_container.get_children():
 		if i >= 1:
 			hero.idle_animation.flip_h = not hero.idle_animation.flip_h
@@ -47,19 +55,25 @@ func _process(delta):
 		label.text = "The town is threatened by your dungeon and has issued a quest to destroy you"
 	elif GlobalVariables.infamy == 20:
 		label.text = "Local mayor has realized that they need help in exterminating you and has sought help from a nearby city"
-	elif GlobalVariables.infamy == 20:
+	elif GlobalVariables.infamy == 30:
 		label.text = "The ruler of the kingdom has issued a quest to destroy you "
-	elif GlobalVariables.infamy == 20:
+	elif GlobalVariables.infamy == 40:
 		label.text = "The king has sought help from nearby kingdoms"
-	elif GlobalVariables.infamy == 20:
+	elif GlobalVariables.infamy == 50:
 		label.text = "Emperor of the realm gathering an army to vanquish you"
 
 func _on_button_pressed() -> void:
-	if GlobalVariables.infamy==50:
+	town_music.stop()
+	if GlobalVariables.infamy==1:
 		Transition.change_scene("res://Scenes/Dungeon/Dungeon.tscn")
+		GlobalVariables.town_music = false
 	else:
-		#tämä pitää tehdä get_tree().get_first_node_in_group("dungeon") tms ja siitä asettaa kamera tai
-		#sit jollain globalvariablejuustolla
+		GlobalVariables.town_music = false
+		music_changeable = true
+		GlobalVariables.show = true
+		town_camera.set_enabled(false)
+		default_camera.set_enabled(true)
+		get_tree().get_first_node_in_group("dungeon").default_camera.make_current()
 		print("joui")
 
 
