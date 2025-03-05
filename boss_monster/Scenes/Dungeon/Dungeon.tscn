@@ -1,31 +1,31 @@
 [gd_scene load_steps=88 format=4 uid="uid://bmgb3om6wecao"]
 
-[ext_resource type="Script" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
+[ext_resource type="Script" uid="uid://dck8tphyg2vvw" path="res://Scenes/Dungeon/dungeon.gd" id="1_7o1lv"]
 [ext_resource type="Texture2D" uid="uid://cu1a05jpmeff6" path="res://Assets/Tiles/inventory_corner.png" id="2_ugt3x"]
 [ext_resource type="Texture2D" uid="uid://bigstmdruffuy" path="res://Assets/Tiles/chests.png" id="3_6qapv"]
 [ext_resource type="Texture2D" uid="uid://blqargua7uxm1" path="res://Assets/Tiles/Dungeon tileset.png" id="3_fe1ow"]
 [ext_resource type="Texture2D" uid="uid://ojblnu8qt3tx" path="res://Assets/Tiles/tileanimations/walltorch.png" id="4_0q570"]
 [ext_resource type="Texture2D" uid="uid://ciospukj0mwgc" path="res://Assets/Tiles/tileanimations/torchtransparent.png" id="5_1qfqf"]
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="8_l2hdd"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
+[ext_resource type="Script" uid="uid://mj1uryruav02" path="res://Scenes/Dungeon/h_slider.gd" id="8_xunt5"]
 [ext_resource type="FontFile" uid="uid://dd8wbmemi58e8" path="res://fonts/poco/Poco.ttf" id="9_xb32f"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/player_gold.gd" id="10_laer6"]
+[ext_resource type="Script" uid="uid://cthdmjjbtcmcp" path="res://Scenes/Dungeon/player_gold.gd" id="10_laer6"]
 [ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_28vcp"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/player_infamy.gd" id="11_tcxia"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/current_phase_text.gd" id="12_5b0qg"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/actions_left.gd" id="13_jv5qn"]
+[ext_resource type="Script" uid="uid://dtpt38oxg54m5" path="res://Scenes/Dungeon/boss.gd" id="11_rc6gd"]
+[ext_resource type="Script" uid="uid://bqqh2yg4vg7d6" path="res://Scenes/Dungeon/player_infamy.gd" id="11_tcxia"]
+[ext_resource type="Script" uid="uid://dtug2v2x538yn" path="res://Scenes/Dungeon/current_phase_text.gd" id="12_5b0qg"]
+[ext_resource type="Script" uid="uid://bloladrsxpqm1" path="res://Scenes/Dungeon/hero.gd" id="13_7qnxi"]
+[ext_resource type="Script" uid="uid://chwyt167ihv8y" path="res://Scenes/Dungeon/actions_left.gd" id="13_jv5qn"]
 [ext_resource type="Texture2D" uid="uid://ldbpxlunecob" path="res://Assets/Bosses/Demon/boss_demon.png" id="14_2cneq"]
 [ext_resource type="PackedScene" uid="uid://o33examlthtq" path="res://Cards/card_ui.tscn" id="16_1bnnc"]
 [ext_resource type="PackedScene" uid="uid://cavglumrn4bxv" path="res://card_drop_area.tscn" id="16_a7p6m"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/control.gd" id="16_lio2u"]
+[ext_resource type="Script" uid="uid://bh1qcuq16bu8m" path="res://Scenes/Dungeon/hand.gd" id="16_cucfv"]
+[ext_resource type="Script" uid="uid://cu3pnpgbyk7fr" path="res://Scenes/Dungeon/control.gd" id="16_lio2u"]
 [ext_resource type="PackedScene" uid="uid://gkiwmcohcjmi" path="res://path_follow_2d.tscn" id="17_l5j6u"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/shophand.gd" id="21_htej2"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/card_info.gd" id="23_i7nix"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/trap_sound.gd" id="25_ts63x"]
-[ext_resource type="Script" path="res://Scenes/Dungeon/stat_window.gd" id="26_5uaum"]
+[ext_resource type="Script" uid="uid://da7vrxhonunxq" path="res://Scenes/Dungeon/shophand.gd" id="21_htej2"]
+[ext_resource type="Script" uid="uid://c6fg4gx2eel4b" path="res://Scenes/Dungeon/card_info.gd" id="23_i7nix"]
+[ext_resource type="Script" uid="uid://b4a6tma6v0a0r" path="res://Scenes/Dungeon/trap_sound.gd" id="25_ts63x"]
+[ext_resource type="Script" uid="uid://c5gwkk1yspagl" path="res://Scenes/Dungeon/stat_window.gd" id="26_5uaum"]
 [ext_resource type="Texture2D" uid="uid://cnbtafi5vtwgi" path="res://Cards/Graphics/coin.png" id="27_ptste"]
 [ext_resource type="Texture2D" uid="uid://ccmc68033lxny" path="res://Cards/Graphics/infamy_1.png" id="28_qporu"]
 [ext_resource type="AudioStream" uid="uid://bvc86v8pgw8gv" path="res://Music/Dungeon Through Shadows.mp3" id="29_u0hhi"]
@@ -955,8 +955,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1850l"]
 _data = {
-"RESET": SubResource("Animation_fxdd8"),
-"buyanimation": SubResource("Animation_hg1s4")
+&"RESET": SubResource("Animation_fxdd8"),
+&"buyanimation": SubResource("Animation_hg1s4")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yansb"]
@@ -1020,8 +1020,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rh28a"]
 _data = {
-"RESET": SubResource("Animation_1vnqr"),
-"sellanimation": SubResource("Animation_tfvl3")
+&"RESET": SubResource("Animation_1vnqr"),
+&"sellanimation": SubResource("Animation_tfvl3")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljcgq"]
@@ -1082,9 +1082,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f54fp"]
 _data = {
-"RESET": SubResource("Animation_ksl61"),
-"shophide": SubResource("Animation_3163m"),
-"shopshow": SubResource("Animation_ea8tj")
+&"RESET": SubResource("Animation_ksl61"),
+&"shophide": SubResource("Animation_3163m"),
+&"shopshow": SubResource("Animation_ea8tj")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_6704g"]
@@ -1484,7 +1484,7 @@ color = Color(0, 0, 0, 0.490196)
 
 [node name="buyanimation" type="AnimationPlayer" parent="DungeonUI/hand"]
 libraries = {
-"": SubResource("AnimationLibrary_1850l")
+&"": SubResource("AnimationLibrary_1850l")
 }
 
 [node name="hand2" type="ColorRect" parent="DungeonUI"]
@@ -1616,7 +1616,7 @@ vertical_alignment = 1
 
 [node name="sellanimation" type="AnimationPlayer" parent="DungeonUI/ShopUI/SellArea"]
 libraries = {
-"": SubResource("AnimationLibrary_rh28a")
+&"": SubResource("AnimationLibrary_rh28a")
 }
 
 [node name="sellAreasize" type="Area2D" parent="DungeonUI/ShopUI/SellArea"]
@@ -1649,7 +1649,7 @@ color = Color(0, 0, 0, 0.494118)
 
 [node name="shopanimation" type="AnimationPlayer" parent="DungeonUI/ShopUI/shopcover"]
 libraries = {
-"": SubResource("AnimationLibrary_f54fp")
+&"": SubResource("AnimationLibrary_f54fp")
 }
 
 [node name="Timer" type="Timer" parent="DungeonUI/ShopUI/shopcover"]

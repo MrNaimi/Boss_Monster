@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://kucveeor5r6b"]
 
-[ext_resource type="Script" path="res://Scenes/Dungeon/draggable_object.gd" id="1_2c8mw"]
+[ext_resource type="Script" uid="uid://djt6s4hjm40wy" path="res://Scenes/Dungeon/draggable_object.gd" id="1_2c8mw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87uu5"]
 size = Vector2(72, 67)

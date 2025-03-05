@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://crug44vsfd4qo"]
 
-[ext_resource type="Script" path="res://Scenes/Main_menu/transition.gd" id="1_klvmi"]
+[ext_resource type="Script" uid="uid://begsmmeuaymua" path="res://Scenes/Main_menu/transition.gd" id="1_klvmi"]
 
 [sub_resource type="Animation" id="Animation_spvux"]
 resource_name = "DISSOLVE"
@@ -38,8 +38,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3b4nx"]
 _data = {
-"DISSOLVE": SubResource("Animation_spvux"),
-"RESET": SubResource("Animation_q7p1r")
+&"DISSOLVE": SubResource("Animation_spvux"),
+&"RESET": SubResource("Animation_q7p1r")
 }
 
 [node name="Transition" type="CanvasLayer"]

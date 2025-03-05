@@ -21,8 +21,7 @@ func enter() -> void:
 	GlobalVariables.show_card = false
 	GlobalVariables.shop_card_dragging = false
 	
-	 
-		
+	
 func on_gui_input(event: InputEvent) -> void:
 	if !GlobalVariables.paused:
 		if !card_ui.shop_card or GlobalVariables.currentPhase=="build":

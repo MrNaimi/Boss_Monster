@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7njgpdcuxitd"
+path="res://.godot/imported/pieru.ogg-d8fc5ffe7b5e1e5da540b8b498a73ce4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/pieru.ogg"
+dest_files=["res://.godot/imported/pieru.ogg-d8fc5ffe7b5e1e5da540b8b498a73ce4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

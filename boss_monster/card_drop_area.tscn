@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cavglumrn4bxv"]
 
-[ext_resource type="Script" path="res://Scenes/Dungeon/drop_zone.gd" id="1_wow1r"]
+[ext_resource type="Script" uid="uid://5xk1ciragpma" path="res://Scenes/Dungeon/drop_zone.gd" id="1_wow1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avw15"]
 size = Vector2(104.5, 55.5)
@@ -38,8 +38,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_af30u"]
 _data = {
-"RESET": SubResource("Animation_m3r08"),
-"hover": SubResource("Animation_cadmk")
+&"RESET": SubResource("Animation_m3r08"),
+&"hover": SubResource("Animation_cadmk")
 }
 
 [node name="CardDropArea" type="Area2D"]
@@ -76,5 +76,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape2D"]
 libraries = {
-"": SubResource("AnimationLibrary_af30u")
+&"": SubResource("AnimationLibrary_af30u")
 }

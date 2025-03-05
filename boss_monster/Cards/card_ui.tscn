@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://o33examlthtq"]
 
 [ext_resource type="Theme" uid="uid://bpwbbp7mxm4n0" path="res://Cards/Graphics/main_theme.tres" id="1_8rgw7"]
-[ext_resource type="Script" path="res://Cards/card_ui.gd" id="2_t2x5w"]
-[ext_resource type="Script" path="res://Cards/card_state_machine.gd" id="3_qfbgr"]
-[ext_resource type="Script" path="res://Cards/card_states/card_base_state.gd" id="4_vua80"]
-[ext_resource type="Script" path="res://Cards/card_states/card_clicked_state.gd" id="5_k83ju"]
-[ext_resource type="Script" path="res://Cards/card_states/card_dragging_state.gd" id="6_104fu"]
-[ext_resource type="Script" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
+[ext_resource type="Script" uid="uid://bshypivrxar86" path="res://Cards/card_ui.gd" id="2_t2x5w"]
+[ext_resource type="Script" uid="uid://e1ara1brcxu5" path="res://Cards/card_state_machine.gd" id="3_qfbgr"]
+[ext_resource type="Script" uid="uid://c60px522lat7v" path="res://Cards/card_states/card_base_state.gd" id="4_vua80"]
+[ext_resource type="Script" uid="uid://bhr37eeb216hw" path="res://Cards/card_states/card_clicked_state.gd" id="5_k83ju"]
+[ext_resource type="Script" uid="uid://n5dpmgkdmt7f" path="res://Cards/card_states/card_dragging_state.gd" id="6_104fu"]
+[ext_resource type="Script" uid="uid://b5wudfk2ikhh8" path="res://Cards/card_states/card_released_state.gd" id="7_p8mpf"]
 [ext_resource type="Texture2D" uid="uid://bdbkea8gshl6m" path="res://Cards/Graphics/trap_graphic/sauna.png" id="9_v7el0"]
 [ext_resource type="Texture2D" uid="uid://co0imuiaeata1" path="res://Cards/Graphics/card.png" id="10_0dsxu"]
 [ext_resource type="FontFile" uid="uid://cav2gmng8075i" path="res://fonts/montreal/Montreal-Regular.ttf" id="11_a640w"]
@@ -101,9 +101,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8huku"]
 _data = {
-"RESET": SubResource("Animation_fxkpw"),
-"damagetext": SubResource("Animation_so0ye"),
-"money_animation": SubResource("Animation_76s6p")
+&"RESET": SubResource("Animation_fxkpw"),
+&"damagetext": SubResource("Animation_so0ye"),
+&"money_animation": SubResource("Animation_76s6p")
 }
 
 [node name="CardUI" type="Control" groups=["card"]]
@@ -238,7 +238,7 @@ horizontal_alignment = 1
 
 [node name="paskahuussi" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8huku")
+&"": SubResource("AnimationLibrary_8huku")
 }
 
 [node name="ActivateButton" type="Button" parent="."]
